@@ -116,12 +116,13 @@ struct SMALL_RECT
   right : LibC::Int16
   bottom : LibC::Int16
 end
+type Rabbita9260ad21cb5 = LibC::Char | CHAR
 struct KEY_EVENT_RECORD
   bKeyDown : BOOL
   wRepeatCount : LibC::UInt16
   wVirtualKeyCode : LibC::UInt16
   wVirtualScanCode : LibC::UInt16
-  uChar : UChar_e__Union
+  uChar : Rabbita9260ad21cb5
   dwControlKeyState : LibC::UInt32
 end
 struct MOUSE_EVENT_RECORD
@@ -139,12 +140,14 @@ end
 struct FOCUS_EVENT_RECORD
   bSetFocus : BOOL
 end
+type Pig8bd9e4c51a47 = KEY_EVENT_RECORD | MOUSE_EVENT_RECORD | WINDOW_BUFFER_SIZE_RECORD | MENU_EVENT_RECORD | FOCUS_EVENT_RECORD
 struct INPUT_RECORD
   eventType : LibC::UInt16
-  event : Event_e__Union
+  event : Pig8bd9e4c51a47
 end
+type Otherae9f395154bf = LibC::Char | CHAR
 struct CHAR_INFO
-  char : Char_e__Union
+  char : Otherae9f395154bf
   attributes : LibC::UInt16
 end
 struct CONSOLE_FONT_INFO
@@ -207,14 +210,8 @@ fun getConsoleOutputCP() : LibC::UInt32
 fun getConsoleMode(hConsoleHandle : HANDLE, lpMode : CONSOLE_MODE*) : BOOL
 fun setConsoleMode(hConsoleHandle : HANDLE, dwMode : CONSOLE_MODE) : BOOL
 fun getNumberOfConsoleInputEvents(hConsoleInput : HANDLE, lpNumberOfEvents : LibC::UInt32*) : BOOL
-fun readConsoleInputA(hConsoleInput : HANDLE, lpBuffer : , nLength : LibC::UInt32, lpNumberOfEventsRead : LibC::UInt32*) : BOOL
-fun readConsoleInputW(hConsoleInput : HANDLE, lpBuffer : , nLength : LibC::UInt32, lpNumberOfEventsRead : LibC::UInt32*) : BOOL
-fun peekConsoleInputA(hConsoleInput : HANDLE, lpBuffer : , nLength : LibC::UInt32, lpNumberOfEventsRead : LibC::UInt32*) : BOOL
-fun peekConsoleInputW(hConsoleInput : HANDLE, lpBuffer : , nLength : LibC::UInt32, lpNumberOfEventsRead : LibC::UInt32*) : BOOL
 fun readConsoleA(hConsoleInput : HANDLE, lpBuffer : LibC::Void*, nNumberOfCharsToRead : LibC::UInt32, lpNumberOfCharsRead : LibC::UInt32*, pInputControl : CONSOLE_READCONSOLE_CONTROL*) : BOOL
 fun readConsoleW(hConsoleInput : HANDLE, lpBuffer : LibC::Void*, nNumberOfCharsToRead : LibC::UInt32, lpNumberOfCharsRead : LibC::UInt32*, pInputControl : CONSOLE_READCONSOLE_CONTROL*) : BOOL
-fun writeConsoleA(hConsoleOutput : HANDLE, lpBuffer : , nNumberOfCharsToWrite : LibC::UInt32, lpNumberOfCharsWritten : LibC::UInt32*, lpReserved : LibC::Void*) : BOOL
-fun writeConsoleW(hConsoleOutput : HANDLE, lpBuffer : , nNumberOfCharsToWrite : LibC::UInt32, lpNumberOfCharsWritten : LibC::UInt32*, lpReserved : LibC::Void*) : BOOL
 fun setConsoleCtrlHandler(handlerRoutine : PHANDLER_ROUTINE, add : BOOL) : BOOL
 fun createPseudoConsole(size : COORD, hInput : HANDLE, hOutput : HANDLE, dwFlags : LibC::UInt32, phPC : HPCON*) : HRESULT
 fun resizePseudoConsole(hPC : HPCON, size : COORD) : HRESULT
@@ -238,24 +235,12 @@ fun setConsoleCursorPosition(hConsoleOutput : HANDLE, dwCursorPosition : COORD) 
 fun getLargestConsoleWindowSize(hConsoleOutput : HANDLE) : COORD
 fun setConsoleTextAttribute(hConsoleOutput : HANDLE, wAttributes : LibC::UInt16) : BOOL
 fun setConsoleWindowInfo(hConsoleOutput : HANDLE, bAbsolute : BOOL, lpConsoleWindow : SMALL_RECT*) : BOOL
-fun writeConsoleOutputCharacterA(hConsoleOutput : HANDLE, lpCharacter : , nLength : LibC::UInt32, dwWriteCoord : COORD, lpNumberOfCharsWritten : LibC::UInt32*) : BOOL
-fun writeConsoleOutputCharacterW(hConsoleOutput : HANDLE, lpCharacter : , nLength : LibC::UInt32, dwWriteCoord : COORD, lpNumberOfCharsWritten : LibC::UInt32*) : BOOL
-fun writeConsoleOutputAttribute(hConsoleOutput : HANDLE, lpAttribute : , nLength : LibC::UInt32, dwWriteCoord : COORD, lpNumberOfAttrsWritten : LibC::UInt32*) : BOOL
-fun readConsoleOutputCharacterA(hConsoleOutput : HANDLE, lpCharacter : , nLength : LibC::UInt32, dwReadCoord : COORD, lpNumberOfCharsRead : LibC::UInt32*) : BOOL
-fun readConsoleOutputCharacterW(hConsoleOutput : HANDLE, lpCharacter : , nLength : LibC::UInt32, dwReadCoord : COORD, lpNumberOfCharsRead : LibC::UInt32*) : BOOL
-fun readConsoleOutputAttribute(hConsoleOutput : HANDLE, lpAttribute : , nLength : LibC::UInt32, dwReadCoord : COORD, lpNumberOfAttrsRead : LibC::UInt32*) : BOOL
-fun writeConsoleInputA(hConsoleInput : HANDLE, lpBuffer : , nLength : LibC::UInt32, lpNumberOfEventsWritten : LibC::UInt32*) : BOOL
-fun writeConsoleInputW(hConsoleInput : HANDLE, lpBuffer : , nLength : LibC::UInt32, lpNumberOfEventsWritten : LibC::UInt32*) : BOOL
 fun scrollConsoleScreenBufferA(hConsoleOutput : HANDLE, lpScrollRectangle : SMALL_RECT*, lpClipRectangle : SMALL_RECT*, dwDestinationOrigin : COORD, lpFill : CHAR_INFO*) : BOOL
 fun scrollConsoleScreenBufferW(hConsoleOutput : HANDLE, lpScrollRectangle : SMALL_RECT*, lpClipRectangle : SMALL_RECT*, dwDestinationOrigin : COORD, lpFill : CHAR_INFO*) : BOOL
 fun writeConsoleOutputA(hConsoleOutput : HANDLE, lpBuffer : CHAR_INFO*, dwBufferSize : COORD, dwBufferCoord : COORD, lpWriteRegion : SMALL_RECT*) : BOOL
 fun writeConsoleOutputW(hConsoleOutput : HANDLE, lpBuffer : CHAR_INFO*, dwBufferSize : COORD, dwBufferCoord : COORD, lpWriteRegion : SMALL_RECT*) : BOOL
 fun readConsoleOutputA(hConsoleOutput : HANDLE, lpBuffer : CHAR_INFO*, dwBufferSize : COORD, dwBufferCoord : COORD, lpReadRegion : SMALL_RECT*) : BOOL
 fun readConsoleOutputW(hConsoleOutput : HANDLE, lpBuffer : CHAR_INFO*, dwBufferSize : COORD, dwBufferCoord : COORD, lpReadRegion : SMALL_RECT*) : BOOL
-fun getConsoleTitleA(lpConsoleTitle : , nSize : LibC::UInt32) : LibC::UInt32
-fun getConsoleTitleW(lpConsoleTitle : , nSize : LibC::UInt32) : LibC::UInt32
-fun getConsoleOriginalTitleA(lpConsoleTitle : , nSize : LibC::UInt32) : LibC::UInt32
-fun getConsoleOriginalTitleW(lpConsoleTitle : , nSize : LibC::UInt32) : LibC::UInt32
 fun setConsoleTitleA(lpConsoleTitle : PSTR) : BOOL
 fun setConsoleTitleW(lpConsoleTitle : PWSTR) : BOOL
 fun getNumberOfConsoleMouseButtons(lpNumberOfMouseButtons : LibC::UInt32*) : BOOL
@@ -271,16 +256,10 @@ fun setConsoleDisplayMode(hConsoleOutput : HANDLE, dwFlags : LibC::UInt32, lpNew
 fun getConsoleWindow() : HWND
 fun addConsoleAliasA(source : PSTR, target : PSTR, exeName : PSTR) : BOOL
 fun addConsoleAliasW(source : PWSTR, target : PWSTR, exeName : PWSTR) : BOOL
-fun getConsoleAliasA(source : PSTR, targetBuffer : , targetBufferLength : LibC::UInt32, exeName : PSTR) : LibC::UInt32
-fun getConsoleAliasW(source : PWSTR, targetBuffer : , targetBufferLength : LibC::UInt32, exeName : PWSTR) : LibC::UInt32
 fun getConsoleAliasesLengthA(exeName : PSTR) : LibC::UInt32
 fun getConsoleAliasesLengthW(exeName : PWSTR) : LibC::UInt32
 fun getConsoleAliasExesLengthA() : LibC::UInt32
 fun getConsoleAliasExesLengthW() : LibC::UInt32
-fun getConsoleAliasesA(aliasBuffer : , aliasBufferLength : LibC::UInt32, exeName : PSTR) : LibC::UInt32
-fun getConsoleAliasesW(aliasBuffer : , aliasBufferLength : LibC::UInt32, exeName : PWSTR) : LibC::UInt32
-fun getConsoleAliasExesA(exeNameBuffer : , exeNameBufferLength : LibC::UInt32) : LibC::UInt32
-fun getConsoleAliasExesW(exeNameBuffer : , exeNameBufferLength : LibC::UInt32) : LibC::UInt32
 fun expungeConsoleCommandHistoryA(exeName : PSTR) : LibC::Void
 fun expungeConsoleCommandHistoryW(exeName : PWSTR) : LibC::Void
 fun setConsoleNumberOfCommandsA(number : LibC::UInt32, exeName : PSTR) : BOOL
@@ -289,7 +268,6 @@ fun getConsoleCommandHistoryLengthA(exeName : PSTR) : LibC::UInt32
 fun getConsoleCommandHistoryLengthW(exeName : PWSTR) : LibC::UInt32
 fun getConsoleCommandHistoryA(commands : PSTR, commandBufferLength : LibC::UInt32, exeName : PSTR) : LibC::UInt32
 fun getConsoleCommandHistoryW(commands : PWSTR, commandBufferLength : LibC::UInt32, exeName : PWSTR) : LibC::UInt32
-fun getConsoleProcessList(lpdwProcessList : , dwProcessCount : LibC::UInt32) : LibC::UInt32
 fun getStdHandle(nStdHandle : STD_HANDLE) : HANDLE
 fun setStdHandle(nStdHandle : STD_HANDLE, hHandle : HANDLE) : BOOL
 fun setStdHandleEx(nStdHandle : STD_HANDLE, hHandle : HANDLE, phPrevValue : HANDLE*) : BOOL

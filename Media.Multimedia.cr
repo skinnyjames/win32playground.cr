@@ -5860,14 +5860,10 @@ alias VFWWDMExtensionProc = (LibC::Void*, LPFNSVADDPROPSHEETPAGE, LPARAM -> LibC
 alias LPFNEXTDEVIO = (LPARAM, LibC::UInt32, LibC::UInt32, LibC::Void*, LibC::UInt32, LibC::Void*, LibC::UInt32, LibC::UInt32*, OVERLAPPED* -> BOOL)
 fun mciSendCommandA(mciId : LibC::UInt32, uMsg : LibC::UInt32, dwParam1 : LibC::UIint*, dwParam2 : LibC::UIint*) : LibC::UInt32
 fun mciSendCommandW(mciId : LibC::UInt32, uMsg : LibC::UInt32, dwParam1 : LibC::UIint*, dwParam2 : LibC::UIint*) : LibC::UInt32
-fun mciSendStringA(lpstrCommand : PSTR, lpstrReturnString : , uReturnLength : LibC::UInt32, hwndCallback : HWND) : LibC::UInt32
-fun mciSendStringW(lpstrCommand : PWSTR, lpstrReturnString : , uReturnLength : LibC::UInt32, hwndCallback : HWND) : LibC::UInt32
 fun mciGetDeviceIDA(pszDevice : PSTR) : LibC::UInt32
 fun mciGetDeviceIDW(pszDevice : PWSTR) : LibC::UInt32
 fun mciGetDeviceIDFromElementIDA(dwElementID : LibC::UInt32, lpstrType : PSTR) : LibC::UInt32
 fun mciGetDeviceIDFromElementIDW(dwElementID : LibC::UInt32, lpstrType : PWSTR) : LibC::UInt32
-fun mciGetErrorStringA(mcierr : LibC::UInt32, pszText : , cchText : LibC::UInt32) : BOOL
-fun mciGetErrorStringW(mcierr : LibC::UInt32, pszText : , cchText : LibC::UInt32) : BOOL
 fun mciSetYieldProc(mciId : LibC::UInt32, fpYieldProc : YIELDPROC, dwYieldData : LibC::UInt32) : BOOL
 fun mciGetCreatorTask(mciId : LibC::UInt32) : HTASK
 fun mciGetYieldProc(mciId : LibC::UInt32, pdwYieldData : LibC::UInt32*) : YIELDPROC
@@ -5890,8 +5886,6 @@ fun mmioStringToFOURCCA(sz : PSTR, uFlags : LibC::UInt32) : LibC::UInt32
 fun mmioStringToFOURCCW(sz : PWSTR, uFlags : LibC::UInt32) : LibC::UInt32
 fun mmioInstallIOProcA(fccIOProc : LibC::UInt32, pIOProc : LPMMIOPROC, dwFlags : LibC::UInt32) : LPMMIOPROC
 fun mmioInstallIOProcW(fccIOProc : LibC::UInt32, pIOProc : LPMMIOPROC, dwFlags : LibC::UInt32) : LPMMIOPROC
-fun mmioOpenA(pszFileName : , pmmioinfo : MMIOINFO*, fdwOpen : LibC::UInt32) : HMMIO
-fun mmioOpenW(pszFileName : , pmmioinfo : MMIOINFO*, fdwOpen : LibC::UInt32) : HMMIO
 fun mmioRenameA(pszFileName : PSTR, pszNewFileName : PSTR, pmmioinfo : MMIOINFO*, fdwRename : LibC::UInt32) : LibC::UInt32
 fun mmioRenameW(pszFileName : PWSTR, pszNewFileName : PWSTR, pmmioinfo : MMIOINFO*, fdwRename : LibC::UInt32) : LibC::UInt32
 fun mmioClose(hmmio : HMMIO, fuClose : LibC::UInt32) : LibC::UInt32
@@ -5900,7 +5894,6 @@ fun mmioWrite(hmmio : HMMIO, pch : PSTR, cch : LibC::Int32) : LibC::Int32
 fun mmioSeek(hmmio : HMMIO, lOffset : LibC::Int32, iOrigin : LibC::Int32) : LibC::Int32
 fun mmioGetInfo(hmmio : HMMIO, pmmioinfo : MMIOINFO*, fuInfo : LibC::UInt32) : LibC::UInt32
 fun mmioSetInfo(hmmio : HMMIO, pmmioinfo : MMIOINFO*, fuInfo : LibC::UInt32) : LibC::UInt32
-fun mmioSetBuffer(hmmio : HMMIO, pchBuffer : , cchBuffer : LibC::Int32, fuBuffer : LibC::UInt32) : LibC::UInt32
 fun mmioFlush(hmmio : HMMIO, fuFlush : LibC::UInt32) : LibC::UInt32
 fun mmioAdvance(hmmio : HMMIO, pmmioinfo : MMIOINFO*, fuAdvance : LibC::UInt32) : LibC::UInt32
 fun mmioSendMessage(hmmio : HMMIO, uMsg : LibC::UInt32, lParam1 : LPARAM, lParam2 : LPARAM) : LRESULT
@@ -5943,7 +5936,6 @@ fun drawDibClose(hdd : LibC::Int*) : BOOL
 fun drawDibGetBuffer(hdd : LibC::Int*, lpbi : BITMAPINFOHEADER*, dwSize : LibC::UInt32, dwFlags : LibC::UInt32) : LibC::Void*
 fun drawDibGetPalette(hdd : LibC::Int*) : HPALETTE
 fun drawDibSetPalette(hdd : LibC::Int*, hpal : HPALETTE) : BOOL
-fun drawDibChangePalette(hdd : LibC::Int*, iStart : LibC::Int32, iLen : LibC::Int32, lppe : ) : BOOL
 fun drawDibRealize(hdd : LibC::Int*, hdc : HDC, fBackground : BOOL) : LibC::UInt32
 fun drawDibStart(hdd : LibC::Int*, rate : LibC::UInt32) : BOOL
 fun drawDibStop(hdd : LibC::Int*) : BOOL
@@ -5991,14 +5983,7 @@ fun aVIStreamOpenFromFileW(ppavi : IAVIStream*, szFile : PWSTR, fccType : LibC::
 fun aVIStreamCreate(ppavi : IAVIStream*, lParam1 : LibC::Int32, lParam2 : LibC::Int32, pclsidHandler : LibC::Guid*) : HRESULT
 fun aVIMakeCompressedStream(ppsCompressed : IAVIStream*, ppsSource : IAVIStream, lpOptions : AVICOMPRESSOPTIONS*, pclsidHandler : LibC::Guid*) : HRESULT
 fun aVISaveA(szFile : PSTR, pclsidHandler : LibC::Guid*, lpfnCallback : AVISAVECALLBACK, nStreams : LibC::Int32, pfile : IAVIStream, lpOptions : AVICOMPRESSOPTIONS*) : HRESULT
-fun aVISaveVA(szFile : PSTR, pclsidHandler : LibC::Guid*, lpfnCallback : AVISAVECALLBACK, nStreams : LibC::Int32, ppavi : , plpOptions : ) : HRESULT
 fun aVISaveW(szFile : PWSTR, pclsidHandler : LibC::Guid*, lpfnCallback : AVISAVECALLBACK, nStreams : LibC::Int32, pfile : IAVIStream, lpOptions : AVICOMPRESSOPTIONS*) : HRESULT
-fun aVISaveVW(szFile : PWSTR, pclsidHandler : LibC::Guid*, lpfnCallback : AVISAVECALLBACK, nStreams : LibC::Int32, ppavi : , plpOptions : ) : HRESULT
-fun aVISaveOptions(hwnd : HWND, uiFlags : LibC::UInt32, nStreams : LibC::Int32, ppavi : , plpOptions : ) : LibC::Int*
-fun aVISaveOptionsFree(nStreams : LibC::Int32, plpOptions : ) : HRESULT
-fun aVIBuildFilterW(lpszFilter : , cbFilter : LibC::Int32, fSaving : BOOL) : HRESULT
-fun aVIBuildFilterA(lpszFilter : , cbFilter : LibC::Int32, fSaving : BOOL) : HRESULT
-fun aVIMakeFileFromStreams(ppfile : IAVIFile*, nStreams : LibC::Int32, papStreams : ) : HRESULT
 fun aVIMakeStreamFromClipboard(cfFormat : LibC::UInt32, hGlobal : HANDLE, ppstream : IAVIStream*) : HRESULT
 fun aVIPutFileOnClipboard(pf : IAVIFile) : HRESULT
 fun aVIGetFromClipboard(lppf : IAVIFile*) : HRESULT
@@ -6016,9 +6001,7 @@ fun mCIWndCreateA(hwndParent : HWND, hInstance : HINSTANCE, dwStyle : LibC::UInt
 fun mCIWndCreateW(hwndParent : HWND, hInstance : HINSTANCE, dwStyle : LibC::UInt32, szFile : PWSTR) : HWND
 fun mCIWndRegisterClass() : BOOL
 fun capCreateCaptureWindowA(lpszWindowName : PSTR, dwStyle : LibC::UInt32, x : LibC::Int32, y : LibC::Int32, nWidth : LibC::Int32, nHeight : LibC::Int32, hwndParent : HWND, nID : LibC::Int32) : HWND
-fun capGetDriverDescriptionA(wDriverIndex : LibC::UInt32, lpszName : , cbName : LibC::Int32, lpszVer : , cbVer : LibC::Int32) : BOOL
 fun capCreateCaptureWindowW(lpszWindowName : PWSTR, dwStyle : LibC::UInt32, x : LibC::Int32, y : LibC::Int32, nWidth : LibC::Int32, nHeight : LibC::Int32, hwndParent : HWND, nID : LibC::Int32) : HWND
-fun capGetDriverDescriptionW(wDriverIndex : LibC::UInt32, lpszName : , cbName : LibC::Int32, lpszVer : , cbVer : LibC::Int32) : BOOL
 fun getOpenFileNamePreviewA(lpofn : OPENFILENAMEA*) : BOOL
 fun getSaveFileNamePreviewA(lpofn : OPENFILENAMEA*) : BOOL
 fun getOpenFileNamePreviewW(lpofn : OPENFILENAMEW*) : BOOL

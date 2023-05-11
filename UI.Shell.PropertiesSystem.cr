@@ -497,16 +497,11 @@ struct PROPPRG
 end
 fun propVariantToWinRTPropertyValue(propvar : PROPVARIANT*, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 fun winRTPropertyValueToPropVariant(punkPropertyValue : IUnknown, ppropvar : PROPVARIANT*) : HRESULT
-fun pSFormatForDisplay(propkey : PROPERTYKEY*, propvar : PROPVARIANT*, pdfFlags : PROPDESC_FORMAT_FLAGS, pwszText : , cchText : LibC::UInt32) : HRESULT
 fun pSFormatForDisplayAlloc(key : PROPERTYKEY*, propvar : PROPVARIANT*, pdff : PROPDESC_FORMAT_FLAGS, ppszDisplay : PWSTR*) : HRESULT
 fun pSFormatPropertyValue(pps : IPropertyStore, ppd : IPropertyDescription, pdff : PROPDESC_FORMAT_FLAGS, ppszDisplay : PWSTR*) : HRESULT
 fun pSGetImageReferenceForValue(propkey : PROPERTYKEY*, propvar : PROPVARIANT*, ppszImageRes : PWSTR*) : HRESULT
-fun pSStringFromPropertyKey(pkey : PROPERTYKEY*, psz : , cch : LibC::UInt32) : HRESULT
 fun pSPropertyKeyFromString(pszString : PWSTR, pkey : PROPERTYKEY*) : HRESULT
 fun pSCreateMemoryPropertyStore(riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
-fun pSCreateDelayedMultiplexPropertyStore(flags : GETPROPERTYSTOREFLAGS, pdpsf : IDelayedPropertyStoreFactory, rgStoreIds : , cStores : LibC::UInt32, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
-fun pSCreateMultiplexPropertyStore(prgpunkStores : , cStores : LibC::UInt32, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
-fun pSCreatePropertyChangeArray(rgpropkey : , rgflags : , rgpropvar : , cChanges : LibC::UInt32, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 fun pSCreateSimplePropertyChange(flags : PKA_FLAGS, key : PROPERTYKEY*, propvar : PROPVARIANT*, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 fun pSGetPropertyDescription(propkey : PROPERTYKEY*, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 fun pSGetPropertyDescriptionByName(pszCanonicalName : PWSTR, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
@@ -530,7 +525,6 @@ fun pSGetPropertySystem(riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 fun pSGetPropertyFromPropertyStorage(psps : SERIALIZEDPROPSTORAGE*, cb : LibC::UInt32, rpkey : PROPERTYKEY*, ppropvar : PROPVARIANT*) : HRESULT
 fun pSGetNamedPropertyFromPropertyStorage(psps : SERIALIZEDPROPSTORAGE*, cb : LibC::UInt32, pszName : PWSTR, ppropvar : PROPVARIANT*) : HRESULT
 fun pSPropertyBag_ReadType(propBag : IPropertyBag, propName : PWSTR, var : VARIANT*, type : LibC::UInt16) : HRESULT
-fun pSPropertyBag_ReadStr(propBag : IPropertyBag, propName : PWSTR, value : , characterCount : LibC::Int32) : HRESULT
 fun pSPropertyBag_ReadStrAlloc(propBag : IPropertyBag, propName : PWSTR, value : PWSTR*) : HRESULT
 fun pSPropertyBag_ReadBSTR(propBag : IPropertyBag, propName : PWSTR, value : BSTR*) : HRESULT
 fun pSPropertyBag_WriteStr(propBag : IPropertyBag, propName : PWSTR, value : PWSTR) : HRESULT
@@ -570,16 +564,6 @@ fun initPropVariantFromFileTime(pftIn : FILETIME*, ppropvar : PROPVARIANT*) : HR
 fun initPropVariantFromPropVariantVectorElem(propvarIn : PROPVARIANT*, iElem : LibC::UInt32, ppropvar : PROPVARIANT*) : HRESULT
 fun initPropVariantVectorFromPropVariant(propvarSingle : PROPVARIANT*, ppropvarVector : PROPVARIANT*) : HRESULT
 fun initPropVariantFromStrRet(pstrret : STRRET*, pidl : ITEMIDLIST*, ppropvar : PROPVARIANT*) : HRESULT
-fun initPropVariantFromBooleanVector(prgf : , cElems : LibC::UInt32, ppropvar : PROPVARIANT*) : HRESULT
-fun initPropVariantFromInt16Vector(prgn : , cElems : LibC::UInt32, ppropvar : PROPVARIANT*) : HRESULT
-fun initPropVariantFromUInt16Vector(prgn : , cElems : LibC::UInt32, ppropvar : PROPVARIANT*) : HRESULT
-fun initPropVariantFromInt32Vector(prgn : , cElems : LibC::UInt32, ppropvar : PROPVARIANT*) : HRESULT
-fun initPropVariantFromUInt32Vector(prgn : , cElems : LibC::UInt32, ppropvar : PROPVARIANT*) : HRESULT
-fun initPropVariantFromInt64Vector(prgn : , cElems : LibC::UInt32, ppropvar : PROPVARIANT*) : HRESULT
-fun initPropVariantFromUInt64Vector(prgn : , cElems : LibC::UInt32, ppropvar : PROPVARIANT*) : HRESULT
-fun initPropVariantFromDoubleVector(prgn : , cElems : LibC::UInt32, ppropvar : PROPVARIANT*) : HRESULT
-fun initPropVariantFromFileTimeVector(prgft : , cElems : LibC::UInt32, ppropvar : PROPVARIANT*) : HRESULT
-fun initPropVariantFromStringVector(prgsz : , cElems : LibC::UInt32, ppropvar : PROPVARIANT*) : HRESULT
 fun initPropVariantFromStringAsVector(psz : PWSTR, ppropvar : PROPVARIANT*) : HRESULT
 fun propVariantToBooleanWithDefault(propvarIn : PROPVARIANT*, fDefault : BOOL) : BOOL
 fun propVariantToInt16WithDefault(propvarIn : PROPVARIANT*, iDefault : LibC::Int16) : LibC::Int16
@@ -599,23 +583,12 @@ fun propVariantToInt64(propvarIn : PROPVARIANT*, pllRet : LibC::Int64*) : HRESUL
 fun propVariantToUInt64(propvarIn : PROPVARIANT*, pullRet : LibC::UInt64*) : HRESULT
 fun propVariantToDouble(propvarIn : PROPVARIANT*, pdblRet : LibC::Double*) : HRESULT
 fun propVariantToBuffer(propvar : PROPVARIANT*, pv : LibC::Void*, cb : LibC::UInt32) : HRESULT
-fun propVariantToString(propvar : PROPVARIANT*, psz : , cch : LibC::UInt32) : HRESULT
 fun propVariantToGUID(propvar : PROPVARIANT*, pguid : LibC::Guid*) : HRESULT
 fun propVariantToStringAlloc(propvar : PROPVARIANT*, ppszOut : PWSTR*) : HRESULT
 fun propVariantToBSTR(propvar : PROPVARIANT*, pbstrOut : BSTR*) : HRESULT
 fun propVariantToStrRet(propvar : PROPVARIANT*, pstrret : STRRET*) : HRESULT
 fun propVariantToFileTime(propvar : PROPVARIANT*, pstfOut : PSTIME_FLAGS, pftOut : FILETIME*) : HRESULT
 fun propVariantGetElementCount(propvar : PROPVARIANT*) : LibC::UInt32
-fun propVariantToBooleanVector(propvar : PROPVARIANT*, prgf : , crgf : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun propVariantToInt16Vector(propvar : PROPVARIANT*, prgn : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun propVariantToUInt16Vector(propvar : PROPVARIANT*, prgn : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun propVariantToInt32Vector(propvar : PROPVARIANT*, prgn : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun propVariantToUInt32Vector(propvar : PROPVARIANT*, prgn : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun propVariantToInt64Vector(propvar : PROPVARIANT*, prgn : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun propVariantToUInt64Vector(propvar : PROPVARIANT*, prgn : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun propVariantToDoubleVector(propvar : PROPVARIANT*, prgn : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun propVariantToFileTimeVector(propvar : PROPVARIANT*, prgft : , crgft : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun propVariantToStringVector(propvar : PROPVARIANT*, prgsz : , crgsz : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
 fun propVariantToBooleanVectorAlloc(propvar : PROPVARIANT*, pprgf : BOOL**, pcElem : LibC::UInt32*) : HRESULT
 fun propVariantToInt16VectorAlloc(propvar : PROPVARIANT*, pprgn : LibC::Int16**, pcElem : LibC::UInt32*) : HRESULT
 fun propVariantToUInt16VectorAlloc(propvar : PROPVARIANT*, pprgn : LibC::UInt16**, pcElem : LibC::UInt32*) : HRESULT
@@ -636,7 +609,6 @@ fun propVariantGetUInt64Elem(propvar : PROPVARIANT*, iElem : LibC::UInt32, pnVal
 fun propVariantGetDoubleElem(propvar : PROPVARIANT*, iElem : LibC::UInt32, pnVal : LibC::Double*) : HRESULT
 fun propVariantGetFileTimeElem(propvar : PROPVARIANT*, iElem : LibC::UInt32, pftVal : FILETIME*) : HRESULT
 fun propVariantGetStringElem(propvar : PROPVARIANT*, iElem : LibC::UInt32, ppszVal : PWSTR*) : HRESULT
-fun clearPropVariantArray(rgPropVar : , cVars : LibC::UInt32) : LibC::Void
 fun propVariantCompareEx(propvar1 : PROPVARIANT*, propvar2 : PROPVARIANT*, unit : PROPVAR_COMPARE_UNIT, flags : PROPVAR_COMPARE_FLAGS) : LibC::Int32
 fun propVariantChangeType(ppropvarDest : PROPVARIANT*, propvarSrc : PROPVARIANT*, flags : PROPVAR_CHANGE_FLAGS, vt : LibC::UInt16) : HRESULT
 fun propVariantToVariant(pPropVar : PROPVARIANT*, pVar : VARIANT*) : HRESULT
@@ -645,18 +617,8 @@ fun initVariantFromResource(hinst : HINSTANCE, id : LibC::UInt32, pvar : VARIANT
 fun initVariantFromBuffer(pv : LibC::Void*, cb : LibC::UInt32, pvar : VARIANT*) : HRESULT
 fun initVariantFromGUIDAsString(guid : LibC::Guid*, pvar : VARIANT*) : HRESULT
 fun initVariantFromFileTime(pft : FILETIME*, pvar : VARIANT*) : HRESULT
-fun initVariantFromFileTimeArray(prgft : , cElems : LibC::UInt32, pvar : VARIANT*) : HRESULT
 fun initVariantFromStrRet(pstrret : STRRET*, pidl : ITEMIDLIST*, pvar : VARIANT*) : HRESULT
 fun initVariantFromVariantArrayElem(varIn : VARIANT*, iElem : LibC::UInt32, pvar : VARIANT*) : HRESULT
-fun initVariantFromBooleanArray(prgf : , cElems : LibC::UInt32, pvar : VARIANT*) : HRESULT
-fun initVariantFromInt16Array(prgn : , cElems : LibC::UInt32, pvar : VARIANT*) : HRESULT
-fun initVariantFromUInt16Array(prgn : , cElems : LibC::UInt32, pvar : VARIANT*) : HRESULT
-fun initVariantFromInt32Array(prgn : , cElems : LibC::UInt32, pvar : VARIANT*) : HRESULT
-fun initVariantFromUInt32Array(prgn : , cElems : LibC::UInt32, pvar : VARIANT*) : HRESULT
-fun initVariantFromInt64Array(prgn : , cElems : LibC::UInt32, pvar : VARIANT*) : HRESULT
-fun initVariantFromUInt64Array(prgn : , cElems : LibC::UInt32, pvar : VARIANT*) : HRESULT
-fun initVariantFromDoubleArray(prgn : , cElems : LibC::UInt32, pvar : VARIANT*) : HRESULT
-fun initVariantFromStringArray(prgsz : , cElems : LibC::UInt32, pvar : VARIANT*) : HRESULT
 fun variantToBooleanWithDefault(varIn : VARIANT*, fDefault : BOOL) : BOOL
 fun variantToInt16WithDefault(varIn : VARIANT*, iDefault : LibC::Int16) : LibC::Int16
 fun variantToUInt16WithDefault(varIn : VARIANT*, uiDefault : LibC::UInt16) : LibC::UInt16
@@ -676,21 +638,11 @@ fun variantToUInt64(varIn : VARIANT*, pullRet : LibC::UInt64*) : HRESULT
 fun variantToDouble(varIn : VARIANT*, pdblRet : LibC::Double*) : HRESULT
 fun variantToBuffer(varIn : VARIANT*, pv : LibC::Void*, cb : LibC::UInt32) : HRESULT
 fun variantToGUID(varIn : VARIANT*, pguid : LibC::Guid*) : HRESULT
-fun variantToString(varIn : VARIANT*, pszBuf : , cchBuf : LibC::UInt32) : HRESULT
 fun variantToStringAlloc(varIn : VARIANT*, ppszBuf : PWSTR*) : HRESULT
 fun variantToDosDateTime(varIn : VARIANT*, pwDate : LibC::UInt16*, pwTime : LibC::UInt16*) : HRESULT
 fun variantToStrRet(varIn : VARIANT*, pstrret : STRRET*) : HRESULT
 fun variantToFileTime(varIn : VARIANT*, stfOut : PSTIME_FLAGS, pftOut : FILETIME*) : HRESULT
 fun variantGetElementCount(varIn : VARIANT*) : LibC::UInt32
-fun variantToBooleanArray(var : VARIANT*, prgf : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun variantToInt16Array(var : VARIANT*, prgn : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun variantToUInt16Array(var : VARIANT*, prgn : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun variantToInt32Array(var : VARIANT*, prgn : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun variantToUInt32Array(var : VARIANT*, prgn : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun variantToInt64Array(var : VARIANT*, prgn : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun variantToUInt64Array(var : VARIANT*, prgn : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun variantToDoubleArray(var : VARIANT*, prgn : , crgn : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
-fun variantToStringArray(var : VARIANT*, prgsz : , crgsz : LibC::UInt32, pcElem : LibC::UInt32*) : HRESULT
 fun variantToBooleanArrayAlloc(var : VARIANT*, pprgf : BOOL**, pcElem : LibC::UInt32*) : HRESULT
 fun variantToInt16ArrayAlloc(var : VARIANT*, pprgn : LibC::Int16**, pcElem : LibC::UInt32*) : HRESULT
 fun variantToUInt16ArrayAlloc(var : VARIANT*, pprgn : LibC::UInt16**, pcElem : LibC::UInt32*) : HRESULT
@@ -709,7 +661,6 @@ fun variantGetInt64Elem(var : VARIANT*, iElem : LibC::UInt32, pnVal : LibC::Int6
 fun variantGetUInt64Elem(var : VARIANT*, iElem : LibC::UInt32, pnVal : LibC::UInt64*) : HRESULT
 fun variantGetDoubleElem(var : VARIANT*, iElem : LibC::UInt32, pnVal : LibC::Double*) : HRESULT
 fun variantGetStringElem(var : VARIANT*, iElem : LibC::UInt32, ppszVal : PWSTR*) : HRESULT
-fun clearVariantArray(pvars : , cvars : LibC::UInt32) : LibC::Void
 fun variantCompare(var1 : VARIANT*, var2 : VARIANT*) : LibC::Int32
 fun sHGetPropertyStoreFromIDList(pidl : ITEMIDLIST*, flags : GETPROPERTYSTOREFLAGS, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 fun sHGetPropertyStoreFromParsingName(pszPath : PWSTR, pbc : IBindCtx, flags : GETPROPERTYSTOREFLAGS, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
@@ -719,8 +670,6 @@ fun pifMgr_GetProperties(hProps : HANDLE, pszGroup : PSTR, lpProps : LibC::Void*
 fun pifMgr_SetProperties(hProps : HANDLE, pszGroup : PSTR, lpProps : LibC::Void*, cbProps : LibC::Int32, flOpt : LibC::UInt32) : LibC::Int32
 fun pifMgr_CloseProperties(hProps : HANDLE, flOpt : LibC::UInt32) : HANDLE
 fun sHPropStgCreate(psstg : IPropertySetStorage, fmtid : LibC::Guid*, pclsid : LibC::Guid*, grfFlags : LibC::UInt32, grfMode : LibC::UInt32, dwDisposition : LibC::UInt32, ppstg : IPropertyStorage*, puCodePage : LibC::UInt32*) : HRESULT
-fun sHPropStgReadMultiple(pps : IPropertyStorage, uCodePage : LibC::UInt32, cpspec : LibC::UInt32, rgpspec : , rgvar : PROPVARIANT*) : HRESULT
-fun sHPropStgWriteMultiple(pps : IPropertyStorage, puCodePage : LibC::UInt32*, cpspec : LibC::UInt32, rgpspec : , rgvar : , propidNameFirst : LibC::UInt32) : HRESULT
 fun sHGetPropertyStoreForWindow(hwnd : HWND, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 
   end

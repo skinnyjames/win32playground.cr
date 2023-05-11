@@ -284,7 +284,6 @@ alias PF_NPAddConnection3 = (HWND, NETRESOURCEW*, PWSTR, PWSTR, LibC::UInt32 -> 
 alias PF_NPAddConnection4 = (HWND, NETRESOURCEW*, LibC::Void*, LibC::UInt32, LibC::UInt32, LibC::Byte*, LibC::UInt32 -> LibC::UInt32)
 alias PF_NPCancelConnection = (PWSTR, BOOL -> LibC::UInt32)
 alias PF_NPCancelConnection2 = (PWSTR, BOOL, LibC::UInt32 -> LibC::UInt32)
-alias PF_NPGetConnection = (PWSTR, , LibC::UInt32* -> LibC::UInt32)
 alias PF_NPGetConnection3 = (PWSTR, LibC::UInt32, LibC::Void*, LibC::UInt32* -> LibC::UInt32)
 alias PF_NPGetUniversalName = (PWSTR, LibC::UInt32, LibC::Void*, LibC::UInt32* -> LibC::UInt32)
 alias PF_NPGetConnectionPerformance = (PWSTR, NETCONNECTINFOSTRUCT* -> LibC::UInt32)
@@ -292,14 +291,10 @@ alias PF_NPOpenEnum = (LibC::UInt32, LibC::UInt32, LibC::UInt32, NETRESOURCEW*, 
 alias PF_NPEnumResource = (HANDLE, LibC::UInt32*, LibC::Void*, LibC::UInt32* -> LibC::UInt32)
 alias PF_NPCloseEnum = (HANDLE -> LibC::UInt32)
 alias PF_NPGetCaps = (LibC::UInt32 -> LibC::UInt32)
-alias PF_NPGetUser = (PWSTR, , LibC::UInt32* -> LibC::UInt32)
 alias PF_NPGetPersistentUseOptionsForConnection = (PWSTR, LibC::Byte*, LibC::UInt32, LibC::Byte*, LibC::UInt32* -> LibC::UInt32)
 alias PF_NPDeviceMode = (HWND -> LibC::UInt32)
-alias PF_NPSearchDialog = (HWND, NETRESOURCEW*, , LibC::UInt32, LibC::UInt32* -> LibC::UInt32)
 alias PF_NPGetResourceParent = (NETRESOURCEW*, LibC::Void*, LibC::UInt32* -> LibC::UInt32)
 alias PF_NPGetResourceInformation = (NETRESOURCEW*, LibC::Void*, LibC::UInt32*, PWSTR* -> LibC::UInt32)
-alias PF_NPFormatNetworkName = (PWSTR, , LibC::UInt32*, LibC::UInt32, LibC::UInt32 -> LibC::UInt32)
-alias PF_NPGetPropertyText = (LibC::UInt32, LibC::UInt32, PWSTR, , LibC::UInt32, LibC::UInt32 -> LibC::UInt32)
 alias PF_NPPropertyDialog = (HWND, LibC::UInt32, LibC::UInt32, PWSTR, LibC::UInt32 -> LibC::UInt32)
 alias PF_NPGetDirectoryType = (PWSTR, LibC::Int32*, BOOL -> LibC::UInt32)
 alias PF_NPDirectoryNotify = (HWND, PWSTR, LibC::UInt32 -> LibC::UInt32)
@@ -325,7 +320,6 @@ alias PF_AddConnectNotify = (NOTIFYINFO*, NOTIFYADD* -> LibC::UInt32)
 alias PF_CancelConnectNotify = (NOTIFYINFO*, NOTIFYCANCEL* -> LibC::UInt32)
 alias PF_NPFMXGetPermCaps = (PWSTR -> LibC::UInt32)
 alias PF_NPFMXEditPerm = (PWSTR, HWND, LibC::UInt32 -> LibC::UInt32)
-alias PF_NPFMXGetPermHelp = (PWSTR, LibC::UInt32, BOOL, , LibC::UInt32*, LibC::UInt32* -> LibC::UInt32)
 fun wNetAddConnectionA(lpRemoteName : PSTR, lpPassword : PSTR, lpLocalName : PSTR) : LibC::UInt32
 fun wNetAddConnectionW(lpRemoteName : PWSTR, lpPassword : PWSTR, lpLocalName : PWSTR) : LibC::UInt32
 fun wNetAddConnection2A(lpNetResource : NETRESOURCEA*, lpPassword : PSTR, lpUserName : PSTR, dwFlags : LibC::UInt32) : LibC::UInt32
@@ -338,12 +332,6 @@ fun wNetCancelConnectionA(lpName : PSTR, fForce : BOOL) : LibC::UInt32
 fun wNetCancelConnectionW(lpName : PWSTR, fForce : BOOL) : LibC::UInt32
 fun wNetCancelConnection2A(lpName : PSTR, dwFlags : LibC::UInt32, fForce : BOOL) : LibC::UInt32
 fun wNetCancelConnection2W(lpName : PWSTR, dwFlags : LibC::UInt32, fForce : BOOL) : LibC::UInt32
-fun wNetGetConnectionA(lpLocalName : PSTR, lpRemoteName : , lpnLength : LibC::UInt32*) : LibC::UInt32
-fun wNetGetConnectionW(lpLocalName : PWSTR, lpRemoteName : , lpnLength : LibC::UInt32*) : LibC::UInt32
-fun wNetUseConnectionA(hwndOwner : HWND, lpNetResource : NETRESOURCEA*, lpPassword : PSTR, lpUserId : PSTR, dwFlags : NET_USE_CONNECT_FLAGS, lpAccessName : , lpBufferSize : LibC::UInt32*, lpResult : LibC::UInt32*) : LibC::UInt32
-fun wNetUseConnectionW(hwndOwner : HWND, lpNetResource : NETRESOURCEW*, lpPassword : PWSTR, lpUserId : PWSTR, dwFlags : NET_USE_CONNECT_FLAGS, lpAccessName : , lpBufferSize : LibC::UInt32*, lpResult : LibC::UInt32*) : LibC::UInt32
-fun wNetUseConnection4A(hwndOwner : HWND, lpNetResource : NETRESOURCEA*, pAuthBuffer : LibC::Void*, cbAuthBuffer : LibC::UInt32, dwFlags : LibC::UInt32, lpUseOptions : LibC::Byte*, cbUseOptions : LibC::UInt32, lpAccessName : , lpBufferSize : LibC::UInt32*, lpResult : LibC::UInt32*) : LibC::UInt32
-fun wNetUseConnection4W(hwndOwner : HWND, lpNetResource : NETRESOURCEW*, pAuthBuffer : LibC::Void*, cbAuthBuffer : LibC::UInt32, dwFlags : LibC::UInt32, lpUseOptions : LibC::Byte*, cbUseOptions : LibC::UInt32, lpAccessName : , lpBufferSize : LibC::UInt32*, lpResult : LibC::UInt32*) : LibC::UInt32
 fun wNetConnectionDialog(hwnd : HWND, dwType : LibC::UInt32) : LibC::UInt32
 fun wNetDisconnectDialog(hwnd : HWND, dwType : LibC::UInt32) : LibC::UInt32
 fun wNetConnectionDialog1A(lpConnDlgStruct : CONNECTDLGSTRUCTA*) : LibC::UInt32
@@ -361,14 +349,8 @@ fun wNetGetResourceInformationA(lpNetResource : NETRESOURCEA*, lpBuffer : LibC::
 fun wNetGetResourceInformationW(lpNetResource : NETRESOURCEW*, lpBuffer : LibC::Void*, lpcbBuffer : LibC::UInt32*, lplpSystem : PWSTR*) : LibC::UInt32
 fun wNetGetUniversalNameA(lpLocalPath : PSTR, dwInfoLevel : UNC_INFO_LEVEL, lpBuffer : LibC::Void*, lpBufferSize : LibC::UInt32*) : LibC::UInt32
 fun wNetGetUniversalNameW(lpLocalPath : PWSTR, dwInfoLevel : UNC_INFO_LEVEL, lpBuffer : LibC::Void*, lpBufferSize : LibC::UInt32*) : LibC::UInt32
-fun wNetGetUserA(lpName : PSTR, lpUserName : , lpnLength : LibC::UInt32*) : LibC::UInt32
-fun wNetGetUserW(lpName : PWSTR, lpUserName : , lpnLength : LibC::UInt32*) : LibC::UInt32
-fun wNetGetProviderNameA(dwNetType : LibC::UInt32, lpProviderName : , lpBufferSize : LibC::UInt32*) : LibC::UInt32
-fun wNetGetProviderNameW(dwNetType : LibC::UInt32, lpProviderName : , lpBufferSize : LibC::UInt32*) : LibC::UInt32
 fun wNetGetNetworkInformationA(lpProvider : PSTR, lpNetInfoStruct : NETINFOSTRUCT*) : LibC::UInt32
 fun wNetGetNetworkInformationW(lpProvider : PWSTR, lpNetInfoStruct : NETINFOSTRUCT*) : LibC::UInt32
-fun wNetGetLastErrorA(lpError : LibC::UInt32*, lpErrorBuf : , nErrorBufSize : LibC::UInt32, lpNameBuf : , nNameBufSize : LibC::UInt32) : LibC::UInt32
-fun wNetGetLastErrorW(lpError : LibC::UInt32*, lpErrorBuf : , nErrorBufSize : LibC::UInt32, lpNameBuf : , nNameBufSize : LibC::UInt32) : LibC::UInt32
 fun multinetGetConnectionPerformanceA(lpNetResource : NETRESOURCEA*, lpNetConnectInfoStruct : NETCONNECTINFOSTRUCT*) : LibC::UInt32
 fun multinetGetConnectionPerformanceW(lpNetResource : NETRESOURCEW*, lpNetConnectInfoStruct : NETCONNECTINFOSTRUCT*) : LibC::UInt32
 fun nPAddConnection(lpNetResource : NETRESOURCEW*, lpPassword : PWSTR, lpUserName : PWSTR) : LibC::UInt32
@@ -376,7 +358,6 @@ fun nPAddConnection3(hwndOwner : HWND, lpNetResource : NETRESOURCEW*, lpPassword
 fun nPAddConnection4(hwndOwner : HWND, lpNetResource : NETRESOURCEW*, lpAuthBuffer : LibC::Void*, cbAuthBuffer : LibC::UInt32, dwFlags : LibC::UInt32, lpUseOptions : LibC::Byte*, cbUseOptions : LibC::UInt32) : LibC::UInt32
 fun nPCancelConnection(lpName : PWSTR, fForce : BOOL) : LibC::UInt32
 fun nPCancelConnection2(lpName : PWSTR, fForce : BOOL, dwFlags : LibC::UInt32) : LibC::UInt32
-fun nPGetConnection(lpLocalName : PWSTR, lpRemoteName : , lpnBufferLen : LibC::UInt32*) : LibC::UInt32
 fun nPGetConnection3(lpLocalName : PWSTR, dwLevel : LibC::UInt32, lpBuffer : LibC::Void*, lpBufferSize : LibC::UInt32*) : LibC::UInt32
 fun nPGetUniversalName(lpLocalPath : PWSTR, dwInfoLevel : UNC_INFO_LEVEL, lpBuffer : LibC::Void*, lpBufferSize : LibC::UInt32*) : LibC::UInt32
 fun nPGetConnectionPerformance(lpRemoteName : PWSTR, lpNetConnectInfo : NETCONNECTINFOSTRUCT*) : LibC::UInt32
@@ -384,11 +365,9 @@ fun nPOpenEnum(dwScope : LibC::UInt32, dwType : LibC::UInt32, dwUsage : LibC::UI
 fun nPEnumResource(hEnum : HANDLE, lpcCount : LibC::UInt32*, lpBuffer : LibC::Void*, lpBufferSize : LibC::UInt32*) : LibC::UInt32
 fun nPCloseEnum(hEnum : HANDLE) : LibC::UInt32
 fun nPGetCaps(ndex : LibC::UInt32) : LibC::UInt32
-fun nPGetUser(lpName : PWSTR, lpUserName : , lpnBufferLen : LibC::UInt32*) : LibC::UInt32
 fun nPGetPersistentUseOptionsForConnection(lpRemotePath : PWSTR, lpReadUseOptions : LibC::Byte*, cbReadUseOptions : LibC::UInt32, lpWriteUseOptions : LibC::Byte*, lpSizeWriteUseOptions : LibC::UInt32*) : LibC::UInt32
 fun nPGetResourceParent(lpNetResource : NETRESOURCEW*, lpBuffer : LibC::Void*, lpBufferSize : LibC::UInt32*) : LibC::UInt32
 fun nPGetResourceInformation(lpNetResource : NETRESOURCEW*, lpBuffer : LibC::Void*, lpBufferSize : LibC::UInt32*, lplpSystem : PWSTR*) : LibC::UInt32
-fun nPFormatNetworkName(lpRemoteName : PWSTR, lpFormattedName : , lpnLength : LibC::UInt32*, dwFlags : NETWORK_NAME_FORMAT_FLAGS, dwAveCharPerLine : LibC::UInt32) : LibC::UInt32
 fun wNetSetLastErrorA(err : LibC::UInt32, lpError : PSTR, lpProviders : PSTR) : LibC::Void
 fun wNetSetLastErrorW(err : LibC::UInt32, lpError : PWSTR, lpProviders : PWSTR) : LibC::Void
 

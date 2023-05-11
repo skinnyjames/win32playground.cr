@@ -1,5 +1,6 @@
 require "json"
 require "stringio"
+require "securerandom"
 @namespaces = {}
 
 def read_namespace(namespace)
@@ -95,49 +96,146 @@ def handle_constanct(type, io)
   end
 end
 
+BAD_CALLBACKS = []
 
-def process(ole)
-  io = StringIO.new
-  ole["Constants"]&.each do |constant|
-    handle_constanct(constant, io)
-    #io.puts "#{constant["Name"]} : #{payload_to_pointers(constant.fetch("Type", "Name"))} = #{constant["Value"]}\n"
+
+def process_type(type, io, bad_callbacks)
+
+  if type["Kind"] == "Enum"
+    if type["Flag"]
+      io.puts "@[Flags]"
+    end
+    io.puts "enum #{type["Name"].normalize_const} : #{type["IntegerBase"]}"
+    type["Values"].each do |enum_val|
+      io.puts handle_constanct(enum_val, io)
+    end
+    io.puts "end\n"
+  elsif type["Kind"] == "Struct"
+    io.puts "struct #{type["Name"].normalize_const}"
+    type["Fields"].each do |field|
+      next if field["Name"] == "Anonymous"
+
+      io.puts "  #{field["Name"].normalize} : #{payload_to_pointers(field["Type"])}"
+    end
+    io.puts "end\n"
+  elsif type["Kind"] == "NativeTypedef"
+    io.puts "type #{type["Name"]} = #{payload_to_pointers(type.fetch("Def"))}"
+  elsif type["Kind"] == "FunctionPointer"
+
+    if type["Params"].any? { |p| p.dig("Type", "Kind")  == "LPArray" }
+      bad_callbacks << type["Name"]
+      return bad_callbacks
+    end
+
+    params = type["Params"].map {|p| payload_to_pointers(p.dig("Type"))}.join(", ")
+
+    io.puts "alias #{type["Name"].normalize_const} = (#{params} -> #{payload_to_pointers(type["ReturnType"])})"
+  elsif ["ComClassID", "Com"].include?(type["Kind"])
+  elsif type["Kind"] == "Union"
+    stuff = type["Fields"].map do |f|
+      nested_group = (type["NestedTypes"] || []).reduce({}) { |m, t| m[t["Name"]] = t; m }
+      if nested_group[type["Name"]]
+        payload_to_pointers(nested_group[type["Name"]])
+      else
+        payload_to_pointers(f.dig("Type"))
+      end
+    end.join(" | ")
+    
+    io.puts "type #{type["Name"]} = #{stuff}"
+
+    #puts "Don't think Com objects can be supported"
+  else
+    puts "missing #{type["Kind"]} - #{type}"
+  end
+end
+
+def generate_new_type_name
+  "#{%w[Owl Rabbit Bird Pig Duck Other].sample}#{SecureRandom.hex(6)}"
+end
+
+def unnest_arr(types, arr = [])
+  types.each do |type|
+    arr.concat(unnest(type))
+  end
+end
+
+def unnest(type, unnested = [], idx: 0)
+  return unnested if type["NestedTypes"].nil? || type["NestedTypes"].empty?
+  children = type["NestedTypes"]
+  nested_group = []
+
+  children.each do |child|
+    nested_group << { nested: child, new_name: generate_new_type_name }
   end
 
-  ole["Types"]&.each do |type|
-    if type["Kind"] == "Enum"
-      if type["Flag"]
-        io.puts "@[Flags]"
-      end
-      io.puts "enum #{type["Name"].normalize_const} : #{type["IntegerBase"]}"
-      type["Values"].each do |enum_val|
-        io.puts handle_constanct(enum_val, io)
-      end
-      io.puts "end\n"
-    elsif type["Kind"] == "Struct"
-      io.puts "struct #{type["Name"].normalize_const}"
-      type["Fields"].each do |field|
-        next if field["Name"] == "Anonymous"
+  unnested.unshift(nested_group)
 
-        io.puts "  #{field["Name"].normalize} : #{payload_to_pointers(field["Type"])}"
-      end
-      io.puts "end\n"
-    elsif type["Kind"] == "NativeTypedef"
-      io.puts "type #{type["Name"]} = #{payload_to_pointers(type.fetch("Def"))}"
-    elsif type["Kind"] == "FunctionPointer"
-      params = type["Params"].map {|p| payload_to_pointers(p.dig("Type"))}.join(", ")
+  # assumes the parent
+  if unnested[idx]
+    groups = unnested[idx].reduce({}) do |memo, child|
+      memo[child[:nested]["Name"]] = child
+      memo
+    end
 
-      io.puts "alias #{type["Name"]} = (#{params} -> #{payload_to_pointers(type["ReturnType"])})"
-    else
-      puts type["Kind"], "missing"
+    type["Fields"].each do |field|
+      if groups[field.dig("Type", "Name")]
+        old_name = field["Type"]["Name"]
+        new_name = groups[field.dig("Type", "Name")][:new_name]
+
+         field["Type"]["Name"] = new_name
+        field["Type"]["OldName"] = old_name
+        # groups[field.dig("Type", "Name")][:new_name]
+      elsif groups[field.dig("Type", "OldName")]
+        field["Type"]["Name"] = groups[field.dig("Type", "OldName")][:new_name]
+      end
     end
   end
 
+  children.each do |child|
+    unnested.unshift(*[*unnest(child, unnested, idx: 0)])
+  end
+
+  unnested.uniq
+end
+
+@bad_callbacks = []
+
+def process(ole, io = StringIO.new)
+  ole["Constants"]&.each do |constant|
+    handle_constanct(constant, io)
+  end
+
+  puts ole.keys
+
+
+  ole["Types"]&.each do |type|
+    types = unnest(type)
+    types.each do |type_set|
+      type_set.each do |nested|
+        inner = nested[:nested]
+        inner["Name"] = nested[:new_name]
+        process_type(inner, io, @bad_callbacks)
+      end
+    end
+
+    process_type(type, io, @bad_callbacks)
+  end
+
+puts "BAD CALLBACKS", @bad_callbacks
+
   ole["Functions"]&.each do |func|
+    test = func["Params"].any? do |p|
+      p.dig("Type", "Kind") == "LPArray" || @bad_callbacks.include?(p["Type"]["Name"])
+    end
+
+    next if test
+
     io.puts "fun #{func["Name"].normalize}(#{get_func_args(func)}) : #{payload_to_pointers(func["ReturnType"])}" 
   end
 
   io
 end
+
 
 io = process(read_namespace("System.Ole"))
 
@@ -145,6 +243,7 @@ def recurse(keys, namespaces, already_done = [], ios = {})
   return ios if (keys - already_done).empty?
   key = keys.shift
   data = namespaces.delete(key)
+  
   ios[key] = process(data).string
   already_done << key
   recurse(namespaces.keys, namespaces, already_done, ios)

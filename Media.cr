@@ -110,9 +110,22 @@ ED_DEVCAP_RTC_READ = 5050
 
 end
 type HTASK = LibC::Int*
+struct Owl4071eb899841
+  hour : LibC::Byte
+  min : LibC::Byte
+  sec : LibC::Byte
+  frame : LibC::Byte
+  fps : LibC::Byte
+  dummy : LibC::Byte
+  pad : Array(LibC::Byte)
+end
+struct Otherc1ec799d85c2
+  songptrpos : LibC::UInt32
+end
+type Owlb5d36220821d = LibC::UInt32 | LibC::UInt32 | LibC::UInt32 | LibC::UInt32 | Owl4071eb899841 | Otherc1ec799d85c2
 struct MMTIME
   wType : LibC::UInt32
-  u : U_e__Union
+  u : Owlb5d36220821d
 end
 alias LPDRVCALLBACK = (HDRVR, LibC::UInt32, LibC::UIint*, LibC::UIint*, LibC::UIint* -> LibC::Void)
 struct TIMECAPS
@@ -120,6 +133,12 @@ struct TIMECAPS
   wPeriodMax : LibC::UInt32
 end
 alias LPTIMECALLBACK = (LibC::UInt32, LibC::UInt32, LibC::UIint*, LibC::UIint*, LibC::UIint* -> LibC::Void)
+struct Pig28915fa8b8a0
+  wFrameRate : LibC::UInt16
+  wFrameFract : LibC::UInt16
+  dwFrames : LibC::UInt32
+end
+type TIMECODE = Pig28915fa8b8a0 | LibC::UInt64
 struct TIMECODE_SAMPLE
   qwTick : LibC::Int64
   timecode : TIMECODE

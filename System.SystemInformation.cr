@@ -485,6 +485,11 @@ struct GROUP_AFFINITY
   group : LibC::UInt16
   reserved : Array(LibC::UInt16)
 end
+struct Pig10152075f192
+  wProcessorArchitecture : PROCESSOR_ARCHITECTURE
+  wReserved : LibC::UInt16
+end
+type Pigc69f398438b3 = LibC::UInt32 | Pig10152075f192
 struct SYSTEM_INFO
   dwPageSize : LibC::UInt32
   lpMinimumApplicationAddress : LibC::Void*
@@ -574,6 +579,13 @@ struct CACHE_DESCRIPTOR
   size : LibC::UInt32
   type : PROCESSOR_CACHE_TYPE
 end
+struct Piga71e6593aaa7
+  flags : LibC::Byte
+end
+struct Other423c35da13f8
+  nodeNumber : LibC::UInt32
+end
+type Rabbit344adbd6eb8b = Piga71e6593aaa7 | Other423c35da13f8 | CACHE_DESCRIPTOR | Array(LibC::UInt64)
 struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION
   processorMask : LibC::UIint*
   relationship : LOGICAL_PROCESSOR_RELATIONSHIP
@@ -585,11 +597,13 @@ struct PROCESSOR_RELATIONSHIP
   groupCount : LibC::UInt16
   groupMask : Array(GROUP_AFFINITY)
 end
+type Pige06e3950eca0 = GROUP_AFFINITY | Array(GROUP_AFFINITY)
 struct NUMA_NODE_RELATIONSHIP
   nodeNumber : LibC::UInt32
   reserved : Array(LibC::Byte)
   groupCount : LibC::UInt16
 end
+type Rabbit0406acfe5aee = GROUP_AFFINITY | Array(GROUP_AFFINITY)
 struct CACHE_RELATIONSHIP
   level : LibC::Byte
   associativity : LibC::Byte
@@ -611,6 +625,7 @@ struct GROUP_RELATIONSHIP
   reserved : Array(LibC::Byte)
   groupInfo : Array(PROCESSOR_GROUP_INFO)
 end
+type Duck0e779ea14746 = PROCESSOR_RELATIONSHIP | NUMA_NODE_RELATIONSHIP | CACHE_RELATIONSHIP | GROUP_RELATIONSHIP
 struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX
   relationship : LOGICAL_PROCESSOR_RELATIONSHIP
   size : LibC::UInt32
@@ -619,6 +634,24 @@ enum CPU_SET_INFORMATION_TYPE : Int32
 CpuSetInformation = 0
 
 end
+struct Pig721be688edf7
+  bitfield : LibC::Byte
+end
+type Pigaed5fe74d173 = LibC::Byte | Pig721be688edf7
+type Owlce3278645c8d = LibC::UInt32 | LibC::Byte
+struct Duck8efdd2954bbe
+  id : LibC::UInt32
+  group : LibC::UInt16
+  logicalProcessorIndex : LibC::Byte
+  coreIndex : LibC::Byte
+  lastLevelCacheIndex : LibC::Byte
+  numaNodeIndex : LibC::Byte
+  efficiencyClass : LibC::Byte
+  anonymous1 : Pigaed5fe74d173
+  anonymous2 : Owlce3278645c8d
+  allocationTag : LibC::UInt64
+end
+type Rabbit4274bc404ff6 = Duck8efdd2954bbe
 struct SYSTEM_CPU_SET_INFORMATION
   size : LibC::UInt32
   type : CPU_SET_INFORMATION_TYPE
@@ -732,8 +765,6 @@ DEPPolicyOptOut = 3
 DEPTotalPolicyCount = 4
 
 end
-alias PGET_SYSTEM_WOW64_DIRECTORY_A = (, LibC::UInt32 -> LibC::UInt32)
-alias PGET_SYSTEM_WOW64_DIRECTORY_W = (, LibC::UInt32 -> LibC::UInt32)
 fun globalMemoryStatusEx(lpBuffer : MEMORYSTATUSEX*) : BOOL
 fun getSystemInfo(lpSystemInfo : SYSTEM_INFO*) : LibC::Void
 fun getSystemTime(lpSystemTime : SYSTEMTIME*) : LibC::Void
@@ -747,14 +778,6 @@ fun getTickCount() : LibC::UInt32
 fun getTickCount64() : LibC::UInt64
 fun getSystemTimeAdjustment(lpTimeAdjustment : LibC::UInt32*, lpTimeIncrement : LibC::UInt32*, lpTimeAdjustmentDisabled : BOOL*) : BOOL
 fun getSystemTimeAdjustmentPrecise(lpTimeAdjustment : LibC::UInt64*, lpTimeIncrement : LibC::UInt64*, lpTimeAdjustmentDisabled : BOOL*) : BOOL
-fun getSystemDirectoryA(lpBuffer : , uSize : LibC::UInt32) : LibC::UInt32
-fun getSystemDirectoryW(lpBuffer : , uSize : LibC::UInt32) : LibC::UInt32
-fun getWindowsDirectoryA(lpBuffer : , uSize : LibC::UInt32) : LibC::UInt32
-fun getWindowsDirectoryW(lpBuffer : , uSize : LibC::UInt32) : LibC::UInt32
-fun getSystemWindowsDirectoryA(lpBuffer : , uSize : LibC::UInt32) : LibC::UInt32
-fun getSystemWindowsDirectoryW(lpBuffer : , uSize : LibC::UInt32) : LibC::UInt32
-fun getComputerNameExA(nameType : COMPUTER_NAME_FORMAT, lpBuffer : , nSize : LibC::UInt32*) : BOOL
-fun getComputerNameExW(nameType : COMPUTER_NAME_FORMAT, lpBuffer : , nSize : LibC::UInt32*) : BOOL
 fun setComputerNameExW(nameType : COMPUTER_NAME_FORMAT, lpBuffer : PWSTR) : BOOL
 fun setSystemTime(lpSystemTime : SYSTEMTIME*) : BOOL
 fun getVersionExA(lpVersionInformation : OSVERSIONINFOA*) : BOOL
@@ -768,7 +791,6 @@ fun verSetConditionMask(conditionMask : LibC::UInt64, typeMask : VER_FLAGS, cond
 fun getOsSafeBootMode(flags : LibC::UInt32*) : BOOL
 fun enumSystemFirmwareTables(firmwareTableProviderSignature : FIRMWARE_TABLE_PROVIDER, pFirmwareTableEnumBuffer : FIRMWARE_TABLE_ID*, bufferSize : LibC::UInt32) : LibC::UInt32
 fun getSystemFirmwareTable(firmwareTableProviderSignature : FIRMWARE_TABLE_PROVIDER, firmwareTableID : FIRMWARE_TABLE_ID, pFirmwareTableBuffer : LibC::Void*, bufferSize : LibC::UInt32) : LibC::UInt32
-fun dnsHostnameToComputerNameExW(hostname : PWSTR, computerName : , nSize : LibC::UInt32*) : BOOL
 fun getPhysicallyInstalledSystemMemory(totalMemoryInKilobytes : LibC::UInt64*) : BOOL
 fun setComputerNameEx2W(nameType : COMPUTER_NAME_FORMAT, flags : LibC::UInt32, lpBuffer : PWSTR) : BOOL
 fun setSystemTimeAdjustment(dwTimeAdjustment : LibC::UInt32, bTimeAdjustmentDisabled : BOOL) : BOOL
@@ -780,10 +802,6 @@ fun setComputerNameA(lpComputerName : PSTR) : BOOL
 fun setComputerNameW(lpComputerName : PWSTR) : BOOL
 fun setComputerNameExA(nameType : COMPUTER_NAME_FORMAT, lpBuffer : PSTR) : BOOL
 fun getSystemCpuSetInformation(information : SYSTEM_CPU_SET_INFORMATION*, bufferLength : LibC::UInt32, returnedLength : LibC::UInt32*, process : HANDLE, flags : LibC::UInt32) : BOOL
-fun getSystemWow64DirectoryA(lpBuffer : , uSize : LibC::UInt32) : LibC::UInt32
-fun getSystemWow64DirectoryW(lpBuffer : , uSize : LibC::UInt32) : LibC::UInt32
-fun getSystemWow64Directory2A(lpBuffer : , uSize : LibC::UInt32, imageFileMachineType : LibC::UInt16) : LibC::UInt32
-fun getSystemWow64Directory2W(lpBuffer : , uSize : LibC::UInt32, imageFileMachineType : LibC::UInt16) : LibC::UInt32
 fun isWow64GuestMachineSupported(wowGuestMachine : LibC::UInt16, machineIsSupported : BOOL*) : HRESULT
 fun rtlGetProductInfo(oSMajorVersion : LibC::UInt32, oSMinorVersion : LibC::UInt32, spMajorVersion : LibC::UInt32, spMinorVersion : LibC::UInt32, returnedProductType : LibC::UInt32*) : BOOLEAN
 fun rtlOsDeploymentState(flags : LibC::UInt32) : OS_DEPLOYEMENT_STATE_VALUES

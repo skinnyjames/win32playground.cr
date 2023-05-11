@@ -1887,6 +1887,7 @@ NTMS_NEEDS_SERVICE = 20
 NTMS_NOT_PRESENT = 21
 
 end
+type Owlc022a213761d = NTMS_DRIVEINFORMATIONA | NTMS_DRIVETYPEINFORMATIONA | NTMS_LIBRARYINFORMATION | NTMS_CHANGERINFORMATIONA | NTMS_CHANGERTYPEINFORMATIONA | NTMS_STORAGESLOTINFORMATION | NTMS_IEDOORINFORMATION | NTMS_IEPORTINFORMATION | NTMS_PMIDINFORMATIONA | NTMS_LMIDINFORMATION | NTMS_PARTITIONINFORMATIONA | NTMS_MEDIAPOOLINFORMATION | NTMS_MEDIATYPEINFORMATION | NTMS_LIBREQUESTINFORMATIONA | NTMS_OPREQUESTINFORMATIONA | NTMS_COMPUTERINFORMATION
 struct NTMS_OBJECTINFORMATIONA
   dwSize : LibC::UInt32
   dwType : NtmsObjectsTypes
@@ -1897,8 +1898,9 @@ struct NTMS_OBJECTINFORMATIONA
   dwOperationalState : NtmsOperationalState
   szName : Array(CHAR)
   szDescription : Array(CHAR)
-  info : Info_e__Union
+  info : Owlc022a213761d
 end
+type Rabbitd5e25202c626 = NTMS_DRIVEINFORMATIONW | NTMS_DRIVETYPEINFORMATIONW | NTMS_LIBRARYINFORMATION | NTMS_CHANGERINFORMATIONW | NTMS_CHANGERTYPEINFORMATIONW | NTMS_STORAGESLOTINFORMATION | NTMS_IEDOORINFORMATION | NTMS_IEPORTINFORMATION | NTMS_PMIDINFORMATIONW | NTMS_LMIDINFORMATION | NTMS_PARTITIONINFORMATIONW | NTMS_MEDIAPOOLINFORMATION | NTMS_MEDIATYPEINFORMATION | NTMS_LIBREQUESTINFORMATIONW | NTMS_OPREQUESTINFORMATIONW | NTMS_COMPUTERINFORMATION
 struct NTMS_OBJECTINFORMATIONW
   dwSize : LibC::UInt32
   dwType : NtmsObjectsTypes
@@ -1909,7 +1911,7 @@ struct NTMS_OBJECTINFORMATIONW
   dwOperationalState : NtmsOperationalState
   szName : Array(LibC::Char)
   szDescription : Array(LibC::Char)
-  info : Info_e__Union
+  info : Rabbitd5e25202c626
 end
 struct NTMS_I1_LIBRARYINFORMATION
   libraryType : LibC::UInt32
@@ -2040,6 +2042,7 @@ struct NTMS_I1_OPREQUESTINFORMATIONW
   szUser : Array(LibC::Char)
   szComputer : Array(LibC::Char)
 end
+type Owld6e044a3f6a7 = NTMS_DRIVEINFORMATIONA | NTMS_DRIVETYPEINFORMATIONA | NTMS_I1_LIBRARYINFORMATION | NTMS_CHANGERINFORMATIONA | NTMS_CHANGERTYPEINFORMATIONA | NTMS_STORAGESLOTINFORMATION | NTMS_IEDOORINFORMATION | NTMS_IEPORTINFORMATION | NTMS_I1_PMIDINFORMATIONA | NTMS_LMIDINFORMATION | NTMS_I1_PARTITIONINFORMATIONA | NTMS_MEDIAPOOLINFORMATION | NTMS_MEDIATYPEINFORMATION | NTMS_I1_LIBREQUESTINFORMATIONA | NTMS_I1_OPREQUESTINFORMATIONA
 struct NTMS_I1_OBJECTINFORMATIONA
   dwSize : LibC::UInt32
   dwType : LibC::UInt32
@@ -2050,8 +2053,9 @@ struct NTMS_I1_OBJECTINFORMATIONA
   dwOperationalState : LibC::UInt32
   szName : Array(CHAR)
   szDescription : Array(CHAR)
-  info : Info_e__Union
+  info : Owld6e044a3f6a7
 end
+type Rabbit7c022eed0c09 = NTMS_DRIVEINFORMATIONW | NTMS_DRIVETYPEINFORMATIONW | NTMS_I1_LIBRARYINFORMATION | NTMS_CHANGERINFORMATIONW | NTMS_CHANGERTYPEINFORMATIONW | NTMS_STORAGESLOTINFORMATION | NTMS_IEDOORINFORMATION | NTMS_IEPORTINFORMATION | NTMS_I1_PMIDINFORMATIONW | NTMS_LMIDINFORMATION | NTMS_I1_PARTITIONINFORMATIONW | NTMS_MEDIAPOOLINFORMATION | NTMS_MEDIATYPEINFORMATION | NTMS_I1_LIBREQUESTINFORMATIONW | NTMS_I1_OPREQUESTINFORMATIONW
 struct NTMS_I1_OBJECTINFORMATIONW
   dwSize : LibC::UInt32
   dwType : LibC::UInt32
@@ -2062,7 +2066,7 @@ struct NTMS_I1_OBJECTINFORMATIONW
   dwOperationalState : LibC::UInt32
   szName : Array(LibC::Char)
   szDescription : Array(LibC::Char)
-  info : Info_e__Union
+  info : Rabbit7c022eed0c09
 end
 enum NtmsCreateNtmsMediaOptions : Int32
 NTMS_ERROR_ON_DUPLICATE = 1
@@ -2324,12 +2328,47 @@ ClfsMgmtPolicyNewContainerExtension = 9
 ClfsMgmtPolicyInvalid = 10
 
 end
+struct Pige7f0b125ad24
+  extensionLengthInBytes : LibC::UInt16
+  extensionString : Array(LibC::Char)
+end
+struct Pigde12e55be714
+  prefixLengthInBytes : LibC::UInt16
+  prefixString : Array(LibC::Char)
+end
+struct Otherc4e3f27c8713
+  percentage : LibC::UInt32
+end
+struct Rabbit1da739a3c156
+  absoluteGrowthInContainers : LibC::UInt32
+  relativeGrowthPercentage : LibC::UInt32
+end
+struct Rabbit00c53b452795
+  containers : LibC::UInt32
+end
+struct Rabbit2f91f68ae816
+  nextContainerSuffix : LibC::UInt64
+end
+struct Bird5397097c68ca
+  minimumAvailablePercentage : LibC::UInt32
+  minimumAvailableContainers : LibC::UInt32
+end
+struct Bird0c761c1d2645
+  containers : LibC::UInt32
+end
+struct Rabbitf69b52bd59c1
+  enabled : LibC::UInt32
+end
+struct Owl956fba149426
+  sizeInBytes : LibC::UInt32
+end
+type Ducka8d7f007095f = Bird0c761c1d2645 | Rabbit00c53b452795 | Owl956fba149426 | Rabbit1da739a3c156 | Bird5397097c68ca | Otherc4e3f27c8713 | Rabbitf69b52bd59c1 | Pigde12e55be714 | Rabbit2f91f68ae816 | Pige7f0b125ad24
 struct CLFS_MGMT_POLICY
   version : LibC::UInt32
   lengthInBytes : LibC::UInt32
   policyFlags : LibC::UInt32
   policyType : CLFS_MGMT_POLICY_TYPE
-  policyParameters : PolicyParameters_e__Union
+  policyParameters : Ducka8d7f007095f
 end
 enum CLFS_MGMT_NOTIFICATION_TYPE : Int32
 ClfsMgmtAdvanceTailNotification = 0
@@ -2456,6 +2495,10 @@ end
 struct WOF_FILE_COMPRESSION_INFO_V1
   algorithm : LibC::UInt32
   flags : LibC::UInt32
+end
+struct Owl2fdb68e5f0ab
+  lowPart : LibC::Int64
+  highPart : LibC::Int64
 end
 struct TXF_ID
 end
@@ -2889,13 +2932,15 @@ IORING_REF_RAW = 0
 IORING_REF_REGISTERED = 1
 
 end
+type Owl7b59a6ac91c6 = HANDLE | LibC::UInt32
 struct IORING_HANDLE_REF
   kind : IORING_REF_KIND
-  handle : HandleUnion
+  handle : Owl7b59a6ac91c6
 end
+type Duck6eacdbae93a0 = LibC::Void* | IORING_REGISTERED_BUFFER
 struct IORING_BUFFER_REF
   kind : IORING_REF_KIND
-  buffer : BufferUnion
+  buffer : Duck6eacdbae93a0
 end
 struct IORING_CQE
   userData : LibC::UIint*
@@ -2927,12 +2972,16 @@ struct FILE_NOTIFY_EXTENDED_INFORMATION
   fileNameLength : LibC::UInt32
   fileName : Array(LibC::Char)
 end
+type FILE_SEGMENT_ELEMENT = LibC::Void* | LibC::UInt64
+struct Rabbit35c20cc24c65
+  dataBuffer : Array(LibC::Byte)
+end
 struct REPARSE_GUID_DATA_BUFFER
   reparseTag : LibC::UInt32
   reparseDataLength : LibC::UInt16
   reserved : LibC::UInt16
   reparseGuid : LibC::Guid
-  genericReparseBuffer : GenericReparseBuffer_e__Struct
+  genericReparseBuffer : Rabbit35c20cc24c65
 end
 struct TAPE_ERASE
   type : ERASE_TAPE_TYPE
@@ -3078,10 +3127,65 @@ COPYFILE2_PHASE_NAMEGRAFT_COPY = 6
 COPYFILE2_PHASE_MAX = 7
 
 end
+struct Owl1212971ddd55
+  copyPhase : COPYFILE2_COPY_PHASE
+  dwStreamNumber : LibC::UInt32
+  hrFailure : HRESULT
+  dwReserved : LibC::UInt32
+  uliChunkNumber : ULARGE_INTEGER
+  uliStreamSize : ULARGE_INTEGER
+  uliStreamBytesTransferred : ULARGE_INTEGER
+  uliTotalFileSize : ULARGE_INTEGER
+  uliTotalBytesTransferred : ULARGE_INTEGER
+end
+struct Otherf18d716af4f6
+  dwStreamNumber : LibC::UInt32
+  dwReserved : LibC::UInt32
+  hSourceFile : HANDLE
+  hDestinationFile : HANDLE
+  uliStreamSize : ULARGE_INTEGER
+  uliStreamBytesTransferred : ULARGE_INTEGER
+  uliTotalFileSize : ULARGE_INTEGER
+  uliTotalBytesTransferred : ULARGE_INTEGER
+end
+struct Pig3f9331cfcc25
+  dwStreamNumber : LibC::UInt32
+  dwFlags : LibC::UInt32
+  hSourceFile : HANDLE
+  hDestinationFile : HANDLE
+  uliChunkNumber : ULARGE_INTEGER
+  uliChunkSize : ULARGE_INTEGER
+  uliStreamSize : ULARGE_INTEGER
+  uliStreamBytesTransferred : ULARGE_INTEGER
+  uliTotalFileSize : ULARGE_INTEGER
+  uliTotalBytesTransferred : ULARGE_INTEGER
+end
+struct Bird3b742496c968
+  dwReserved : LibC::UInt32
+end
+struct Owldaf7c3ef8984
+  dwStreamNumber : LibC::UInt32
+  dwReserved : LibC::UInt32
+  hSourceFile : HANDLE
+  hDestinationFile : HANDLE
+  uliChunkNumber : ULARGE_INTEGER
+  uliChunkSize : ULARGE_INTEGER
+  uliStreamSize : ULARGE_INTEGER
+  uliTotalFileSize : ULARGE_INTEGER
+end
+struct Duckd9e8c109ec4a
+  dwStreamNumber : LibC::UInt32
+  dwReserved : LibC::UInt32
+  hSourceFile : HANDLE
+  hDestinationFile : HANDLE
+  uliStreamSize : ULARGE_INTEGER
+  uliTotalFileSize : ULARGE_INTEGER
+end
+type Bird83492d3f781a = Owldaf7c3ef8984 | Pig3f9331cfcc25 | Duckd9e8c109ec4a | Otherf18d716af4f6 | Bird3b742496c968 | Owl1212971ddd55
 struct COPYFILE2_MESSAGE
   type : COPYFILE2_MESSAGE_TYPE
   dwPadding : LibC::UInt32
-  info : Info_e__Union
+  info : Bird83492d3f781a
 end
 alias PCOPYFILE2_PROGRESS_ROUTINE = (COPYFILE2_MESSAGE*, LibC::Void* -> COPYFILE2_MESSAGE_ACTION)
 struct COPYFILE2_EXTENDED_PARAMETERS
@@ -3120,6 +3224,7 @@ struct FILE_NAME_INFO
   fileNameLength : LibC::UInt32
   fileName : Array(LibC::Char)
 end
+type Otherd2e2c443509d = BOOLEAN | LibC::UInt32
 struct FILE_RENAME_INFO
   rootDirectory : HANDLE
   fileNameLength : LibC::UInt32
@@ -3229,6 +3334,21 @@ struct FILE_ID_EXTD_DIR_INFO
   fileId : FILE_ID_128
   fileName : Array(LibC::Char)
 end
+struct Other93e827ddd2a1
+  capabilities : LibC::UInt32
+end
+struct Owlfec8aa16cf32
+  capabilities : LibC::UInt32
+  cachingFlags : LibC::UInt32
+end
+struct Other14edb0fa9334
+  server : Other93e827ddd2a1
+  share : Owlfec8aa16cf32
+end
+type Otherb9a73bea1ab5 = Other14edb0fa9334 | Array(LibC::UInt32)
+struct Owl1629c80beac9
+  reserved : Array(LibC::UInt32)
+end
 struct FILE_REMOTE_PROTOCOL_INFO
   structureVersion : LibC::UInt16
   structureSize : LibC::UInt16
@@ -3238,8 +3358,8 @@ struct FILE_REMOTE_PROTOCOL_INFO
   protocolRevision : LibC::UInt16
   reserved : LibC::UInt16
   flags : LibC::UInt32
-  genericReserved : GenericReserved_e__Struct
-  protocolSpecific : ProtocolSpecific_e__Union
+  genericReserved : Owl1629c80beac9
+  protocolSpecific : Otherb9a73bea1ab5
 end
 enum FILE_ID_TYPE : Int32
 FileIdType = 0
@@ -3251,12 +3371,11 @@ ExtendedFileIdType = 2
 MaximumFileIdType = 3
 
 end
+type Pig020abac2860d = LARGE_INTEGER | LibC::Guid | FILE_ID_128
 struct FILE_ID_DESCRIPTOR
   dwSize : LibC::UInt32
   type : FILE_ID_TYPE
 end
-fun searchPathW(lpPath : PWSTR, lpFileName : PWSTR, lpExtension : PWSTR, nBufferLength : LibC::UInt32, lpBuffer : , lpFilePart : PWSTR*) : LibC::UInt32
-fun searchPathA(lpPath : PSTR, lpFileName : PSTR, lpExtension : PSTR, nBufferLength : LibC::UInt32, lpBuffer : , lpFilePart : PSTR*) : LibC::UInt32
 fun compareFileTime(lpFileTime1 : FILETIME*, lpFileTime2 : FILETIME*) : LibC::Int32
 fun createDirectoryA(lpPathName : PSTR, lpSecurityAttributes : SECURITY_ATTRIBUTES*) : BOOL
 fun createDirectoryW(lpPathName : PWSTR, lpSecurityAttributes : SECURITY_ATTRIBUTES*) : BOOL
@@ -3275,11 +3394,9 @@ fun findFirstFileA(lpFileName : PSTR, lpFindFileData : WIN32_FIND_DATAA*) : Find
 fun findFirstFileW(lpFileName : PWSTR, lpFindFileData : WIN32_FIND_DATAW*) : FindFileHandle
 fun findFirstFileExA(lpFileName : PSTR, fInfoLevelId : FINDEX_INFO_LEVELS, lpFindFileData : LibC::Void*, fSearchOp : FINDEX_SEARCH_OPS, lpSearchFilter : LibC::Void*, dwAdditionalFlags : FIND_FIRST_EX_FLAGS) : FindFileHandle
 fun findFirstFileExW(lpFileName : PWSTR, fInfoLevelId : FINDEX_INFO_LEVELS, lpFindFileData : LibC::Void*, fSearchOp : FINDEX_SEARCH_OPS, lpSearchFilter : LibC::Void*, dwAdditionalFlags : FIND_FIRST_EX_FLAGS) : FindFileHandle
-fun findFirstVolumeW(lpszVolumeName : , cchBufferLength : LibC::UInt32) : FindVolumeHandle
 fun findNextChangeNotification(hChangeHandle : FindChangeNotificationHandle) : BOOL
 fun findNextFileA(hFindFile : FindFileHandle, lpFindFileData : WIN32_FIND_DATAA*) : BOOL
 fun findNextFileW(hFindFile : HANDLE, lpFindFileData : WIN32_FIND_DATAW*) : BOOL
-fun findNextVolumeW(hFindVolume : FindVolumeHandle, lpszVolumeName : , cchBufferLength : LibC::UInt32) : BOOL
 fun findVolumeClose(hFindVolume : FindVolumeHandle) : BOOL
 fun flushFileBuffers(hFile : HANDLE) : BOOL
 fun getDiskFreeSpaceA(lpRootPathName : PSTR, lpSectorsPerCluster : LibC::UInt32*, lpBytesPerSector : LibC::UInt32*, lpNumberOfFreeClusters : LibC::UInt32*, lpTotalNumberOfClusters : LibC::UInt32*) : BOOL
@@ -3298,25 +3415,12 @@ fun getFileInformationByHandle(hFile : HANDLE, lpFileInformation : BY_HANDLE_FIL
 fun getFileSize(hFile : HANDLE, lpFileSizeHigh : LibC::UInt32*) : LibC::UInt32
 fun getFileSizeEx(hFile : HANDLE, lpFileSize : LARGE_INTEGER*) : BOOL
 fun getFileType(hFile : HANDLE) : LibC::UInt32
-fun getFinalPathNameByHandleA(hFile : HANDLE, lpszFilePath : , cchFilePath : LibC::UInt32, dwFlags : FILE_NAME) : LibC::UInt32
-fun getFinalPathNameByHandleW(hFile : HANDLE, lpszFilePath : , cchFilePath : LibC::UInt32, dwFlags : FILE_NAME) : LibC::UInt32
 fun getFileTime(hFile : HANDLE, lpCreationTime : FILETIME*, lpLastAccessTime : FILETIME*, lpLastWriteTime : FILETIME*) : BOOL
-fun getFullPathNameW(lpFileName : PWSTR, nBufferLength : LibC::UInt32, lpBuffer : , lpFilePart : PWSTR*) : LibC::UInt32
-fun getFullPathNameA(lpFileName : PSTR, nBufferLength : LibC::UInt32, lpBuffer : , lpFilePart : PSTR*) : LibC::UInt32
 fun getLogicalDrives() : LibC::UInt32
-fun getLogicalDriveStringsW(nBufferLength : LibC::UInt32, lpBuffer : ) : LibC::UInt32
-fun getLongPathNameA(lpszShortPath : PSTR, lpszLongPath : , cchBuffer : LibC::UInt32) : LibC::UInt32
-fun getLongPathNameW(lpszShortPath : PWSTR, lpszLongPath : , cchBuffer : LibC::UInt32) : LibC::UInt32
 fun areShortNamesEnabled(handle : HANDLE, enabled : BOOL*) : BOOL
-fun getShortPathNameW(lpszLongPath : PWSTR, lpszShortPath : , cchBuffer : LibC::UInt32) : LibC::UInt32
-fun getTempFileNameW(lpPathName : PWSTR, lpPrefixString : PWSTR, uUnique : LibC::UInt32, lpTempFileName : ) : LibC::UInt32
-fun getVolumeInformationByHandleW(hFile : HANDLE, lpVolumeNameBuffer : , nVolumeNameSize : LibC::UInt32, lpVolumeSerialNumber : LibC::UInt32*, lpMaximumComponentLength : LibC::UInt32*, lpFileSystemFlags : LibC::UInt32*, lpFileSystemNameBuffer : , nFileSystemNameSize : LibC::UInt32) : BOOL
-fun getVolumeInformationW(lpRootPathName : PWSTR, lpVolumeNameBuffer : , nVolumeNameSize : LibC::UInt32, lpVolumeSerialNumber : LibC::UInt32*, lpMaximumComponentLength : LibC::UInt32*, lpFileSystemFlags : LibC::UInt32*, lpFileSystemNameBuffer : , nFileSystemNameSize : LibC::UInt32) : BOOL
-fun getVolumePathNameW(lpszFileName : PWSTR, lpszVolumePathName : , cchBufferLength : LibC::UInt32) : BOOL
 fun localFileTimeToFileTime(lpLocalFileTime : FILETIME*, lpFileTime : FILETIME*) : BOOL
 fun lockFile(hFile : HANDLE, dwFileOffsetLow : LibC::UInt32, dwFileOffsetHigh : LibC::UInt32, nNumberOfBytesToLockLow : LibC::UInt32, nNumberOfBytesToLockHigh : LibC::UInt32) : BOOL
 fun lockFileEx(hFile : HANDLE, dwFlags : LOCK_FILE_FLAGS, dwReserved : LibC::UInt32, nNumberOfBytesToLockLow : LibC::UInt32, nNumberOfBytesToLockHigh : LibC::UInt32, lpOverlapped : OVERLAPPED*) : BOOL
-fun queryDosDeviceW(lpDeviceName : PWSTR, lpTargetPath : , ucchMax : LibC::UInt32) : LibC::UInt32
 fun readFile(hFile : HANDLE, lpBuffer : LibC::Void*, nNumberOfBytesToRead : LibC::UInt32, lpNumberOfBytesRead : LibC::UInt32*, lpOverlapped : OVERLAPPED*) : BOOL
 fun readFileEx(hFile : HANDLE, lpBuffer : LibC::Void*, nNumberOfBytesToRead : LibC::UInt32, lpOverlapped : OVERLAPPED*, lpCompletionRoutine : LPOVERLAPPED_COMPLETION_ROUTINE) : BOOL
 fun readFileScatter(hFile : HANDLE, aSegmentArray : FILE_SEGMENT_ELEMENT*, nNumberOfBytesToRead : LibC::UInt32, lpReserved : LibC::UInt32*, lpOverlapped : OVERLAPPED*) : BOOL
@@ -3335,9 +3439,6 @@ fun unlockFileEx(hFile : HANDLE, dwReserved : LibC::UInt32, nNumberOfBytesToUnlo
 fun writeFile(hFile : HANDLE, lpBuffer : LibC::Void*, nNumberOfBytesToWrite : LibC::UInt32, lpNumberOfBytesWritten : LibC::UInt32*, lpOverlapped : OVERLAPPED*) : BOOL
 fun writeFileEx(hFile : HANDLE, lpBuffer : LibC::Void*, nNumberOfBytesToWrite : LibC::UInt32, lpOverlapped : OVERLAPPED*, lpCompletionRoutine : LPOVERLAPPED_COMPLETION_ROUTINE) : BOOL
 fun writeFileGather(hFile : HANDLE, aSegmentArray : FILE_SEGMENT_ELEMENT*, nNumberOfBytesToWrite : LibC::UInt32, lpReserved : LibC::UInt32*, lpOverlapped : OVERLAPPED*) : BOOL
-fun getTempPathW(nBufferLength : LibC::UInt32, lpBuffer : ) : LibC::UInt32
-fun getVolumeNameForVolumeMountPointW(lpszVolumeMountPoint : PWSTR, lpszVolumeName : , cchBufferLength : LibC::UInt32) : BOOL
-fun getVolumePathNamesForVolumeNameW(lpszVolumeName : PWSTR, lpszVolumePathNames : , cchBufferLength : LibC::UInt32, lpcchReturnLength : LibC::UInt32*) : BOOL
 fun createFile2(lpFileName : PWSTR, dwDesiredAccess : FILE_ACCESS_FLAGS, dwShareMode : FILE_SHARE_MODE, dwCreationDisposition : FILE_CREATION_DISPOSITION, pCreateExParams : CREATEFILE2_EXTENDED_PARAMETERS*) : HANDLE
 fun setFileIoOverlappedRange(fileHandle : HANDLE, overlappedRangeStart : LibC::Byte*, length : LibC::UInt32) : BOOL
 fun getCompressedFileSizeA(lpFileName : PSTR, lpFileSizeHigh : LibC::UInt32*) : LibC::UInt32
@@ -3345,15 +3446,8 @@ fun getCompressedFileSizeW(lpFileName : PWSTR, lpFileSizeHigh : LibC::UInt32*) :
 fun findFirstStreamW(lpFileName : PWSTR, infoLevel : STREAM_INFO_LEVELS, lpFindStreamData : LibC::Void*, dwFlags : LibC::UInt32) : FindStreamHandle
 fun findNextStreamW(hFindStream : FindStreamHandle, lpFindStreamData : LibC::Void*) : BOOL
 fun areFileApisANSI() : BOOL
-fun getTempPathA(nBufferLength : LibC::UInt32, lpBuffer : ) : LibC::UInt32
-fun findFirstFileNameW(lpFileName : PWSTR, dwFlags : LibC::UInt32, stringLength : LibC::UInt32*, linkName : ) : FindFileNameHandle
-fun findNextFileNameW(hFindStream : FindFileNameHandle, stringLength : LibC::UInt32*, linkName : ) : BOOL
-fun getVolumeInformationA(lpRootPathName : PSTR, lpVolumeNameBuffer : , nVolumeNameSize : LibC::UInt32, lpVolumeSerialNumber : LibC::UInt32*, lpMaximumComponentLength : LibC::UInt32*, lpFileSystemFlags : LibC::UInt32*, lpFileSystemNameBuffer : , nFileSystemNameSize : LibC::UInt32) : BOOL
-fun getTempFileNameA(lpPathName : PSTR, lpPrefixString : PSTR, uUnique : LibC::UInt32, lpTempFileName : ) : LibC::UInt32
 fun setFileApisToOEM() : LibC::Void
 fun setFileApisToANSI() : LibC::Void
-fun getTempPath2W(bufferLength : LibC::UInt32, buffer : ) : LibC::UInt32
-fun getTempPath2A(bufferLength : LibC::UInt32, buffer : ) : LibC::UInt32
 fun copyFileFromAppW(lpExistingFileName : PWSTR, lpNewFileName : PWSTR, bFailIfExists : BOOL) : BOOL
 fun createDirectoryFromAppW(lpPathName : PWSTR, lpSecurityAttributes : SECURITY_ATTRIBUTES*) : BOOL
 fun createFileFromAppW(lpFileName : PWSTR, dwDesiredAccess : LibC::UInt32, dwShareMode : LibC::UInt32, lpSecurityAttributes : SECURITY_ATTRIBUTES*, dwCreationDisposition : LibC::UInt32, dwFlagsAndAttributes : LibC::UInt32, hTemplateFile : HANDLE) : HANDLE
@@ -3365,10 +3459,6 @@ fun moveFileFromAppW(lpExistingFileName : PWSTR, lpNewFileName : PWSTR) : BOOL
 fun removeDirectoryFromAppW(lpPathName : PWSTR) : BOOL
 fun replaceFileFromAppW(lpReplacedFileName : PWSTR, lpReplacementFileName : PWSTR, lpBackupFileName : PWSTR, dwReplaceFlags : LibC::UInt32, lpExclude : LibC::Void*, lpReserved : LibC::Void*) : BOOL
 fun setFileAttributesFromAppW(lpFileName : PWSTR, dwFileAttributes : LibC::UInt32) : BOOL
-fun verFindFileA(uFlags : VER_FIND_FILE_FLAGS, szFileName : PSTR, szWinDir : PSTR, szAppDir : PSTR, szCurDir : , puCurDirLen : LibC::UInt32*, szDestDir : , puDestDirLen : LibC::UInt32*) : VER_FIND_FILE_STATUS
-fun verFindFileW(uFlags : VER_FIND_FILE_FLAGS, szFileName : PWSTR, szWinDir : PWSTR, szAppDir : PWSTR, szCurDir : , puCurDirLen : LibC::UInt32*, szDestDir : , puDestDirLen : LibC::UInt32*) : VER_FIND_FILE_STATUS
-fun verInstallFileA(uFlags : VER_INSTALL_FILE_FLAGS, szSrcFileName : PSTR, szDestFileName : PSTR, szSrcDir : PSTR, szDestDir : PSTR, szCurDir : PSTR, szTmpFile : , puTmpFileLen : LibC::UInt32*) : VER_INSTALL_FILE_STATUS
-fun verInstallFileW(uFlags : VER_INSTALL_FILE_FLAGS, szSrcFileName : PWSTR, szDestFileName : PWSTR, szSrcDir : PWSTR, szDestDir : PWSTR, szCurDir : PWSTR, szTmpFile : , puTmpFileLen : LibC::UInt32*) : VER_INSTALL_FILE_STATUS
 fun getFileVersionInfoSizeA(lptstrFilename : PSTR, lpdwHandle : LibC::UInt32*) : LibC::UInt32
 fun getFileVersionInfoSizeW(lptstrFilename : PWSTR, lpdwHandle : LibC::UInt32*) : LibC::UInt32
 fun getFileVersionInfoA(lptstrFilename : PSTR, dwHandle : LibC::UInt32, dwLen : LibC::UInt32, lpData : LibC::Void*) : BOOL
@@ -3377,8 +3467,6 @@ fun getFileVersionInfoSizeExA(dwFlags : GET_FILE_VERSION_INFO_FLAGS, lpwstrFilen
 fun getFileVersionInfoSizeExW(dwFlags : GET_FILE_VERSION_INFO_FLAGS, lpwstrFilename : PWSTR, lpdwHandle : LibC::UInt32*) : LibC::UInt32
 fun getFileVersionInfoExA(dwFlags : GET_FILE_VERSION_INFO_FLAGS, lpwstrFilename : PSTR, dwHandle : LibC::UInt32, dwLen : LibC::UInt32, lpData : LibC::Void*) : BOOL
 fun getFileVersionInfoExW(dwFlags : GET_FILE_VERSION_INFO_FLAGS, lpwstrFilename : PWSTR, dwHandle : LibC::UInt32, dwLen : LibC::UInt32, lpData : LibC::Void*) : BOOL
-fun verLanguageNameA(wLang : LibC::UInt32, szLang : , cchLang : LibC::UInt32) : LibC::UInt32
-fun verLanguageNameW(wLang : LibC::UInt32, szLang : , cchLang : LibC::UInt32) : LibC::UInt32
 fun verQueryValueA(pBlock : LibC::Void*, lpSubBlock : PSTR, lplpBuffer : LibC::Void**, puLen : LibC::UInt32*) : BOOL
 fun verQueryValueW(pBlock : LibC::Void*, lpSubBlock : PWSTR, lplpBuffer : LibC::Void**, puLen : LibC::UInt32*) : BOOL
 fun lsnEqual(plsn1 : CLS_LSN*, plsn2 : CLS_LSN*) : BOOLEAN
@@ -3395,9 +3483,7 @@ fun createLogFile(pszLogFileName : PWSTR, fDesiredAccess : FILE_ACCESS_FLAGS, dw
 fun deleteLogByHandle(hLog : HANDLE) : BOOL
 fun deleteLogFile(pszLogFileName : PWSTR, pvReserved : LibC::Void*) : BOOL
 fun addLogContainer(hLog : HANDLE, pcbContainer : LibC::UInt64*, pwszContainerPath : PWSTR, pReserved : LibC::Void*) : BOOL
-fun addLogContainerSet(hLog : HANDLE, cContainer : LibC::UInt16, pcbContainer : LibC::UInt64*, rgwszContainerPath : , pReserved : LibC::Void*) : BOOL
 fun removeLogContainer(hLog : HANDLE, pwszContainerPath : PWSTR, fForce : BOOL, pReserved : LibC::Void*) : BOOL
-fun removeLogContainerSet(hLog : HANDLE, cContainer : LibC::UInt16, rgwszContainerPath : , fForce : BOOL, pReserved : LibC::Void*) : BOOL
 fun setLogArchiveTail(hLog : HANDLE, plsnArchiveTail : CLS_LSN*, pReserved : LibC::Void*) : BOOL
 fun setEndOfLog(hLog : HANDLE, plsnEnd : CLS_LSN*, lpOverlapped : OVERLAPPED*) : BOOL
 fun truncateLog(pvMarshal : LibC::Void*, plsnEnd : CLS_LSN*, lpOverlapped : OVERLAPPED*) : BOOL
@@ -3423,7 +3509,6 @@ fun flushLogToLsn(pvMarshalContext : LibC::Void*, plsnFlush : CLS_LSN*, plsnLast
 fun readLogRecord(pvMarshal : LibC::Void*, plsnFirst : CLS_LSN*, eContextMode : CLFS_CONTEXT_MODE, ppvReadBuffer : LibC::Void**, pcbReadBuffer : LibC::UInt32*, peRecordType : LibC::Byte*, plsnUndoNext : CLS_LSN*, plsnPrevious : CLS_LSN*, ppvReadContext : LibC::Void**, pOverlapped : OVERLAPPED*) : BOOL
 fun readNextLogRecord(pvReadContext : LibC::Void*, ppvBuffer : LibC::Void**, pcbBuffer : LibC::UInt32*, peRecordType : LibC::Byte*, plsnUser : CLS_LSN*, plsnUndoNext : CLS_LSN*, plsnPrevious : CLS_LSN*, plsnRecord : CLS_LSN*, pOverlapped : OVERLAPPED*) : BOOL
 fun terminateReadLog(pvCursorContext : LibC::Void*) : BOOL
-fun prepareLogArchive(hLog : HANDLE, pszBaseLogFileName : , cLen : LibC::UInt32, plsnLow : CLS_LSN*, plsnHigh : CLS_LSN*, pcActualLength : LibC::UInt32*, poffBaseLogFileData : LibC::UInt64*, pcbBaseLogFileLength : LibC::UInt64*, plsnBase : CLS_LSN*, plsnLast : CLS_LSN*, plsnCurrentArchiveTail : CLS_LSN*, ppvArchiveContext : LibC::Void**) : BOOL
 fun readLogArchiveMetadata(pvArchiveContext : LibC::Void*, cbOffset : LibC::UInt32, cbBytesToRead : LibC::UInt32, pbReadBuffer : LibC::Byte*, pcbBytesRead : LibC::UInt32*) : BOOL
 fun getNextLogArchiveExtent(pvArchiveContext : LibC::Void*, rgadExtent : CLS_ARCHIVE_DESCRIPTOR*, cDescriptors : LibC::UInt32, pcDescriptorsReturned : LibC::UInt32*) : BOOL
 fun terminateLogArchive(pvArchiveContext : LibC::Void*) : BOOL
@@ -3457,8 +3542,6 @@ fun lZDone() : LibC::Void
 fun copyLZFile(hfSource : LibC::Int32, hfDest : LibC::Int32) : LibC::Int32
 fun lZCopy(hfSource : LibC::Int32, hfDest : LibC::Int32) : LibC::Int32
 fun lZInit(hfSource : LibC::Int32) : LibC::Int32
-fun getExpandedNameA(lpszSource : PSTR, lpszBuffer : ) : LibC::Int32
-fun getExpandedNameW(lpszSource : PWSTR, lpszBuffer : ) : LibC::Int32
 fun lZOpenFileA(lpFileName : PSTR, lpReOpenBuf : OFSTRUCT*, wStyle : LZOPENFILE_STYLE) : LibC::Int32
 fun lZOpenFileW(lpFileName : PWSTR, lpReOpenBuf : OFSTRUCT*, wStyle : LZOPENFILE_STYLE) : LibC::Int32
 fun lZSeek(hFile : LibC::Int32, lOffset : LibC::Int32, iOrigin : LibC::Int32) : LibC::Int32
@@ -3491,7 +3574,6 @@ fun commitTransactionAsync(transactionHandle : HANDLE) : BOOL
 fun rollbackTransaction(transactionHandle : HANDLE) : BOOL
 fun rollbackTransactionAsync(transactionHandle : HANDLE) : BOOL
 fun getTransactionId(transactionHandle : HANDLE, transactionId : LibC::Guid*) : BOOL
-fun getTransactionInformation(transactionHandle : HANDLE, outcome : LibC::UInt32*, isolationLevel : LibC::UInt32*, isolationFlags : LibC::UInt32*, timeout : LibC::UInt32*, bufferLength : LibC::UInt32, description : ) : BOOL
 fun setTransactionInformation(transactionHandle : HANDLE, isolationLevel : LibC::UInt32, isolationFlags : LibC::UInt32, timeout : LibC::UInt32, description : PWSTR) : BOOL
 fun createTransactionManager(lpTransactionAttributes : SECURITY_ATTRIBUTES*, logFileName : PWSTR, createOptions : LibC::UInt32, commitStrength : LibC::UInt32) : HANDLE
 fun openTransactionManager(logFileName : PWSTR, desiredAccess : LibC::UInt32, openOptions : LibC::UInt32) : HANDLE
@@ -3553,16 +3635,11 @@ fun popIoRingCompletion(ioRing : HIORING__*, cqe : IORING_CQE*) : HRESULT
 fun setIoRingCompletionEvent(ioRing : HIORING__*, hEvent : HANDLE) : HRESULT
 fun buildIoRingCancelRequest(ioRing : HIORING__*, file : IORING_HANDLE_REF, opToCancel : LibC::UIint*, userData : LibC::UIint*) : HRESULT
 fun buildIoRingReadFile(ioRing : HIORING__*, fileRef : IORING_HANDLE_REF, dataRef : IORING_BUFFER_REF, numberOfBytesToRead : LibC::UInt32, fileOffset : LibC::UInt64, userData : LibC::UIint*, flags : IORING_SQE_FLAGS) : HRESULT
-fun buildIoRingRegisterFileHandles(ioRing : HIORING__*, count : LibC::UInt32, handles : , userData : LibC::UIint*) : HRESULT
-fun buildIoRingRegisterBuffers(ioRing : HIORING__*, count : LibC::UInt32, buffers : , userData : LibC::UIint*) : HRESULT
 fun wow64EnableWow64FsRedirection(wow64FsEnableRedirection : BOOLEAN) : BOOLEAN
 fun wow64DisableWow64FsRedirection(oldValue : LibC::Void**) : BOOL
 fun wow64RevertWow64FsRedirection(olValue : LibC::Void*) : BOOL
 fun getBinaryTypeA(lpApplicationName : PSTR, lpBinaryType : LibC::UInt32*) : BOOL
 fun getBinaryTypeW(lpApplicationName : PWSTR, lpBinaryType : LibC::UInt32*) : BOOL
-fun getShortPathNameA(lpszLongPath : PSTR, lpszShortPath : , cchBuffer : LibC::UInt32) : LibC::UInt32
-fun getLongPathNameTransactedA(lpszShortPath : PSTR, lpszLongPath : , cchBuffer : LibC::UInt32, hTransaction : HANDLE) : LibC::UInt32
-fun getLongPathNameTransactedW(lpszShortPath : PWSTR, lpszLongPath : , cchBuffer : LibC::UInt32, hTransaction : HANDLE) : LibC::UInt32
 fun setFileCompletionNotificationModes(fileHandle : HANDLE, flags : LibC::Byte) : BOOL
 fun setFileShortNameA(hFile : HANDLE, lpShortName : PSTR) : BOOL
 fun setFileShortNameW(hFile : HANDLE, lpShortName : PWSTR) : BOOL
@@ -3590,7 +3667,6 @@ fun openFile(lpFileName : PSTR, lpReOpenBuff : OFSTRUCT*, uStyle : LZOPENFILE_ST
 fun backupRead(hFile : HANDLE, lpBuffer : LibC::Byte*, nNumberOfBytesToRead : LibC::UInt32, lpNumberOfBytesRead : LibC::UInt32*, bAbort : BOOL, bProcessSecurity : BOOL, lpContext : LibC::Void**) : BOOL
 fun backupSeek(hFile : HANDLE, dwLowBytesToSeek : LibC::UInt32, dwHighBytesToSeek : LibC::UInt32, lpdwLowByteSeeked : LibC::UInt32*, lpdwHighByteSeeked : LibC::UInt32*, lpContext : LibC::Void**) : BOOL
 fun backupWrite(hFile : HANDLE, lpBuffer : LibC::Byte*, nNumberOfBytesToWrite : LibC::UInt32, lpNumberOfBytesWritten : LibC::UInt32*, bAbort : BOOL, bProcessSecurity : BOOL, lpContext : LibC::Void**) : BOOL
-fun getLogicalDriveStringsA(nBufferLength : LibC::UInt32, lpBuffer : ) : LibC::UInt32
 fun setSearchPathMode(flags : LibC::UInt32) : BOOL
 fun createDirectoryExA(lpTemplateDirectory : PSTR, lpNewDirectory : PSTR, lpSecurityAttributes : SECURITY_ATTRIBUTES*) : BOOL
 fun createDirectoryExW(lpTemplateDirectory : PWSTR, lpNewDirectory : PWSTR, lpSecurityAttributes : SECURITY_ATTRIBUTES*) : BOOL
@@ -3598,10 +3674,7 @@ fun createDirectoryTransactedA(lpTemplateDirectory : PSTR, lpNewDirectory : PSTR
 fun createDirectoryTransactedW(lpTemplateDirectory : PWSTR, lpNewDirectory : PWSTR, lpSecurityAttributes : SECURITY_ATTRIBUTES*, hTransaction : HANDLE) : BOOL
 fun removeDirectoryTransactedA(lpPathName : PSTR, hTransaction : HANDLE) : BOOL
 fun removeDirectoryTransactedW(lpPathName : PWSTR, hTransaction : HANDLE) : BOOL
-fun getFullPathNameTransactedA(lpFileName : PSTR, nBufferLength : LibC::UInt32, lpBuffer : , lpFilePart : PSTR*, hTransaction : HANDLE) : LibC::UInt32
-fun getFullPathNameTransactedW(lpFileName : PWSTR, nBufferLength : LibC::UInt32, lpBuffer : , lpFilePart : PWSTR*, hTransaction : HANDLE) : LibC::UInt32
 fun defineDosDeviceA(dwFlags : DEFINE_DOS_DEVICE_FLAGS, lpDeviceName : PSTR, lpTargetPath : PSTR) : BOOL
-fun queryDosDeviceA(lpDeviceName : PSTR, lpTargetPath : , ucchMax : LibC::UInt32) : LibC::UInt32
 fun createFileTransactedA(lpFileName : PSTR, dwDesiredAccess : LibC::UInt32, dwShareMode : FILE_SHARE_MODE, lpSecurityAttributes : SECURITY_ATTRIBUTES*, dwCreationDisposition : FILE_CREATION_DISPOSITION, dwFlagsAndAttributes : FILE_FLAGS_AND_ATTRIBUTES, hTemplateFile : HANDLE, hTransaction : HANDLE, pusMiniVersion : TXFS_MINIVERSION*, lpExtendedParameter : LibC::Void*) : HANDLE
 fun createFileTransactedW(lpFileName : PWSTR, dwDesiredAccess : LibC::UInt32, dwShareMode : FILE_SHARE_MODE, lpSecurityAttributes : SECURITY_ATTRIBUTES*, dwCreationDisposition : FILE_CREATION_DISPOSITION, dwFlagsAndAttributes : FILE_FLAGS_AND_ATTRIBUTES, hTemplateFile : HANDLE, hTransaction : HANDLE, pusMiniVersion : TXFS_MINIVERSION*, lpExtendedParameter : LibC::Void*) : HANDLE
 fun reOpenFile(hOriginalFile : HANDLE, dwDesiredAccess : FILE_ACCESS_FLAGS, dwShareMode : FILE_SHARE_MODE, dwFlagsAndAttributes : FILE_FLAGS_AND_ATTRIBUTES) : HANDLE
@@ -3613,8 +3686,6 @@ fun getCompressedFileSizeTransactedA(lpFileName : PSTR, lpFileSizeHigh : LibC::U
 fun getCompressedFileSizeTransactedW(lpFileName : PWSTR, lpFileSizeHigh : LibC::UInt32*, hTransaction : HANDLE) : LibC::UInt32
 fun deleteFileTransactedA(lpFileName : PSTR, hTransaction : HANDLE) : BOOL
 fun deleteFileTransactedW(lpFileName : PWSTR, hTransaction : HANDLE) : BOOL
-fun checkNameLegalDOS8Dot3A(lpName : PSTR, lpOemName : , oemNameSize : LibC::UInt32, pbNameContainsSpaces : BOOL*, pbNameLegal : BOOL*) : BOOL
-fun checkNameLegalDOS8Dot3W(lpName : PWSTR, lpOemName : , oemNameSize : LibC::UInt32, pbNameContainsSpaces : BOOL*, pbNameLegal : BOOL*) : BOOL
 fun findFirstFileTransactedA(lpFileName : PSTR, fInfoLevelId : FINDEX_INFO_LEVELS, lpFindFileData : LibC::Void*, fSearchOp : FINDEX_SEARCH_OPS, lpSearchFilter : LibC::Void*, dwAdditionalFlags : LibC::UInt32, hTransaction : HANDLE) : FindFileHandle
 fun findFirstFileTransactedW(lpFileName : PWSTR, fInfoLevelId : FINDEX_INFO_LEVELS, lpFindFileData : LibC::Void*, fSearchOp : FINDEX_SEARCH_OPS, lpSearchFilter : LibC::Void*, dwAdditionalFlags : LibC::UInt32, hTransaction : HANDLE) : FindFileHandle
 fun copyFileA(lpExistingFileName : PSTR, lpNewFileName : PSTR, bFailIfExists : BOOL) : BOOL
@@ -3639,26 +3710,16 @@ fun createHardLinkW(lpFileName : PWSTR, lpExistingFileName : PWSTR, lpSecurityAt
 fun createHardLinkTransactedA(lpFileName : PSTR, lpExistingFileName : PSTR, lpSecurityAttributes : SECURITY_ATTRIBUTES*, hTransaction : HANDLE) : BOOL
 fun createHardLinkTransactedW(lpFileName : PWSTR, lpExistingFileName : PWSTR, lpSecurityAttributes : SECURITY_ATTRIBUTES*, hTransaction : HANDLE) : BOOL
 fun findFirstStreamTransactedW(lpFileName : PWSTR, infoLevel : STREAM_INFO_LEVELS, lpFindStreamData : LibC::Void*, dwFlags : LibC::UInt32, hTransaction : HANDLE) : FindStreamHandle
-fun findFirstFileNameTransactedW(lpFileName : PWSTR, dwFlags : LibC::UInt32, stringLength : LibC::UInt32*, linkName : , hTransaction : HANDLE) : FindFileNameHandle
 fun setVolumeLabelA(lpRootPathName : PSTR, lpVolumeName : PSTR) : BOOL
 fun setVolumeLabelW(lpRootPathName : PWSTR, lpVolumeName : PWSTR) : BOOL
 fun setFileBandwidthReservation(hFile : HANDLE, nPeriodMilliseconds : LibC::UInt32, nBytesPerPeriod : LibC::UInt32, bDiscardable : BOOL, lpTransferSize : LibC::UInt32*, lpNumOutstandingRequests : LibC::UInt32*) : BOOL
 fun getFileBandwidthReservation(hFile : HANDLE, lpPeriodMilliseconds : LibC::UInt32*, lpBytesPerPeriod : LibC::UInt32*, pDiscardable : LibC::Int32*, lpTransferSize : LibC::UInt32*, lpNumOutstandingRequests : LibC::UInt32*) : BOOL
 fun readDirectoryChangesW(hDirectory : HANDLE, lpBuffer : LibC::Void*, nBufferLength : LibC::UInt32, bWatchSubtree : BOOL, dwNotifyFilter : FILE_NOTIFY_CHANGE, lpBytesReturned : LibC::UInt32*, lpOverlapped : OVERLAPPED*, lpCompletionRoutine : LPOVERLAPPED_COMPLETION_ROUTINE) : BOOL
 fun readDirectoryChangesExW(hDirectory : HANDLE, lpBuffer : LibC::Void*, nBufferLength : LibC::UInt32, bWatchSubtree : BOOL, dwNotifyFilter : FILE_NOTIFY_CHANGE, lpBytesReturned : LibC::UInt32*, lpOverlapped : OVERLAPPED*, lpCompletionRoutine : LPOVERLAPPED_COMPLETION_ROUTINE, readDirectoryNotifyInformationClass : READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) : BOOL
-fun findFirstVolumeA(lpszVolumeName : , cchBufferLength : LibC::UInt32) : FindVolumeHandle
-fun findNextVolumeA(hFindVolume : FindVolumeHandle, lpszVolumeName : , cchBufferLength : LibC::UInt32) : BOOL
-fun findFirstVolumeMountPointA(lpszRootPathName : PSTR, lpszVolumeMountPoint : , cchBufferLength : LibC::UInt32) : FindVolumeMointPointHandle
-fun findFirstVolumeMountPointW(lpszRootPathName : PWSTR, lpszVolumeMountPoint : , cchBufferLength : LibC::UInt32) : FindVolumeMointPointHandle
-fun findNextVolumeMountPointA(hFindVolumeMountPoint : FindVolumeMointPointHandle, lpszVolumeMountPoint : , cchBufferLength : LibC::UInt32) : BOOL
-fun findNextVolumeMountPointW(hFindVolumeMountPoint : FindVolumeMointPointHandle, lpszVolumeMountPoint : , cchBufferLength : LibC::UInt32) : BOOL
 fun findVolumeMountPointClose(hFindVolumeMountPoint : FindVolumeMointPointHandle) : BOOL
 fun setVolumeMountPointA(lpszVolumeMountPoint : PSTR, lpszVolumeName : PSTR) : BOOL
 fun setVolumeMountPointW(lpszVolumeMountPoint : PWSTR, lpszVolumeName : PWSTR) : BOOL
 fun deleteVolumeMountPointA(lpszVolumeMountPoint : PSTR) : BOOL
-fun getVolumeNameForVolumeMountPointA(lpszVolumeMountPoint : PSTR, lpszVolumeName : , cchBufferLength : LibC::UInt32) : BOOL
-fun getVolumePathNameA(lpszFileName : PSTR, lpszVolumePathName : , cchBufferLength : LibC::UInt32) : BOOL
-fun getVolumePathNamesForVolumeNameA(lpszVolumeName : PSTR, lpszVolumePathNames : , cchBufferLength : LibC::UInt32, lpcchReturnLength : LibC::UInt32*) : BOOL
 fun getFileInformationByHandleEx(hFile : HANDLE, fileInformationClass : FILE_INFO_BY_HANDLE_CLASS, lpFileInformation : LibC::Void*, dwBufferSize : LibC::UInt32) : BOOL
 fun openFileById(hVolumeHint : HANDLE, lpFileId : FILE_ID_DESCRIPTOR*, dwDesiredAccess : FILE_ACCESS_FLAGS, dwShareMode : FILE_SHARE_MODE, lpSecurityAttributes : SECURITY_ATTRIBUTES*, dwFlagsAndAttributes : FILE_FLAGS_AND_ATTRIBUTES) : HANDLE
 fun createSymbolicLinkA(lpSymlinkFileName : PSTR, lpTargetFileName : PSTR, dwFlags : SYMBOLIC_LINK_FLAGS) : BOOLEAN

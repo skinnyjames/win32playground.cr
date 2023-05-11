@@ -3188,6 +3188,40 @@ DBHHEADER_DEBUGDIRS = 1
 DBHHEADER_CVMISC = 2
 
 end
+struct Duck3e23231cb652
+  x0 : LibC::UInt64
+  x1 : LibC::UInt64
+  x2 : LibC::UInt64
+  x3 : LibC::UInt64
+  x4 : LibC::UInt64
+  x5 : LibC::UInt64
+  x6 : LibC::UInt64
+  x7 : LibC::UInt64
+  x8 : LibC::UInt64
+  x9 : LibC::UInt64
+  x10 : LibC::UInt64
+  x11 : LibC::UInt64
+  x12 : LibC::UInt64
+  x13 : LibC::UInt64
+  x14 : LibC::UInt64
+  x15 : LibC::UInt64
+  x16 : LibC::UInt64
+  x17 : LibC::UInt64
+  x18 : LibC::UInt64
+  x19 : LibC::UInt64
+  x20 : LibC::UInt64
+  x21 : LibC::UInt64
+  x22 : LibC::UInt64
+  x23 : LibC::UInt64
+  x24 : LibC::UInt64
+  x25 : LibC::UInt64
+  x26 : LibC::UInt64
+  x27 : LibC::UInt64
+  x28 : LibC::UInt64
+  fp : LibC::UInt64
+  lr : LibC::UInt64
+end
+type Pig3c4208739df0 = Duck3e23231cb652 | Array(LibC::UInt64)
 struct CONTEXT
   contextFlags : LibC::UInt32
   cpsr : LibC::UInt32
@@ -3309,11 +3343,12 @@ struct RIP_INFO
   dwError : LibC::UInt32
   dwType : RIP_INFO_TYPE
 end
+type Duckcce8045c2db2 = EXCEPTION_DEBUG_INFO | CREATE_THREAD_DEBUG_INFO | CREATE_PROCESS_DEBUG_INFO | EXIT_THREAD_DEBUG_INFO | EXIT_PROCESS_DEBUG_INFO | LOAD_DLL_DEBUG_INFO | UNLOAD_DLL_DEBUG_INFO | OUTPUT_DEBUG_STRING_INFO | RIP_INFO
 struct DEBUG_EVENT
   dwDebugEventCode : DEBUG_EVENT_CODE
   dwProcessId : LibC::UInt32
   dwThreadId : LibC::UInt32
-  u : U_e__Union
+  u : Duckcce8045c2db2
 end
 struct DEBUG_OFFSET_REGION
   base : LibC::UInt64
@@ -3420,6 +3455,12 @@ struct DEBUG_STACK_FRAME_EX
   inlineFrameContext : LibC::UInt32
   reserved1 : LibC::UInt32
 end
+struct Other49e202775955
+  frameId : LibC::Byte
+  frameType : LibC::Byte
+  frameSignature : LibC::UInt16
+end
+type INLINE_FRAME_CONTEXT = LibC::UInt32 | Other49e202775955
 struct STACK_SRC_INFO
   imagePath : PWSTR
   moduleName : PWSTR
@@ -3475,6 +3516,19 @@ struct DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION
   dataSize : LibC::UInt32
   address : LibC::UInt64
 end
+struct Bird401e970f90fc
+  lowPart : LibC::UInt32
+  highPart : LibC::UInt32
+end
+struct Other6a3522249136
+  lowPart : LibC::UInt64
+  highPart : LibC::Int64
+end
+struct Pig3c34f482e39e
+  i64 : LibC::UInt64
+  nat : BOOL
+end
+type Other4cc451e7f692 = LibC::Byte | LibC::UInt16 | LibC::UInt32 | Pig3c34f482e39e | LibC::Single | LibC::Double | Array(LibC::Byte) | Array(LibC::Byte) | Array(LibC::Byte) | Array(LibC::Byte) | Array(LibC::UInt16) | Array(LibC::UInt32) | Array(LibC::UInt64) | Array(LibC::Single) | Array(LibC::Double) | Bird401e970f90fc | Other6a3522249136 | Array(LibC::Byte)
 struct DEBUG_VALUE
   tailOfRawBytes : LibC::UInt32
   type : LibC::UInt32
@@ -3512,6 +3566,7 @@ struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64
   revision : LibC::UInt32
   vendorString : Array(CHAR)
 end
+type DEBUG_PROCESSOR_IDENTIFICATION_ALL = DEBUG_PROCESSOR_IDENTIFICATION_ALPHA | DEBUG_PROCESSOR_IDENTIFICATION_AMD64 | DEBUG_PROCESSOR_IDENTIFICATION_IA64 | DEBUG_PROCESSOR_IDENTIFICATION_X86 | DEBUG_PROCESSOR_IDENTIFICATION_ARM | DEBUG_PROCESSOR_IDENTIFICATION_ARM64
 struct DEBUG_HANDLE_DATA_BASIC
   typeNameSize : LibC::UInt32
   objectNameSize : LibC::UInt32
@@ -3595,12 +3650,7 @@ alias PDEBUG_EXTENSION_CANUNLOAD = ( -> HRESULT)
 alias PDEBUG_EXTENSION_UNLOAD = ( -> LibC::Void)
 alias PDEBUG_EXTENSION_NOTIFY = (LibC::UInt32, LibC::UInt64 -> LibC::Void)
 alias PDEBUG_EXTENSION_CALL = (IDebugClient, PSTR -> HRESULT)
-alias PDEBUG_EXTENSION_KNOWN_STRUCT = (LibC::UInt32, LibC::UInt64, PSTR, , LibC::UInt32* -> HRESULT)
-alias PDEBUG_EXTENSION_KNOWN_STRUCT_EX = (IDebugClient, LibC::UInt32, LibC::UInt64, PSTR, , LibC::UInt32* -> HRESULT)
-alias PDEBUG_EXTENSION_QUERY_VALUE_NAMES = (IDebugClient, LibC::UInt32, , LibC::UInt32, LibC::UInt32* -> HRESULT)
 alias PDEBUG_EXTENSION_PROVIDE_VALUE = (IDebugClient, LibC::UInt32, PWSTR, LibC::UInt64*, LibC::UInt64*, LibC::UInt32*, LibC::UInt32* -> HRESULT)
-alias PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = (LibC::UInt32, , LibC::UInt32 -> HRESULT)
-alias PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = (LibC::UInt32, , LibC::UInt32, STACK_SYM_FRAME_INFO**, LibC::UInt32* -> HRESULT)
 alias PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = (STACK_SYM_FRAME_INFO* -> HRESULT)
 alias PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = ( -> HRESULT)
 struct Location
@@ -3866,11 +3916,18 @@ struct ScriptDebugPosition
   line : LibC::UInt32
   column : LibC::UInt32
 end
+struct Pigbca3add78121
+  isUncaught : LibC::Boolean
+end
+struct Pigd9ffbb2246c8
+  breakpointId : LibC::UInt64
+end
+type Duck4eba1438e919 = Pigbca3add78121 | Pigd9ffbb2246c8
 struct ScriptDebugEventInformation
   debugEvent : ScriptDebugEvent
   eventPosition : ScriptDebugPosition
   eventSpanEnd : ScriptDebugPosition
-  u : U_e__Union
+  u : Duck4eba1438e919
 end
 alias PWINDBG_OUTPUT_ROUTINE = (PSTR -> LibC::Void)
 alias PWINDBG_GET_EXPRESSION = (PSTR -> LibC::UIint*)
@@ -4574,6 +4631,11 @@ struct KDDEBUGGER_DATA64
   offsetEProcessMmHotPatchContext : LibC::UInt16
 end
 alias PSYM_DUMP_FIELD_CALLBACK = (FIELD_INFO*, LibC::Void* -> LibC::UInt32)
+type Pig2d9aee045957 = LibC::Void* | LibC::Void*
+struct Bird4f9e0e534305
+  position : LibC::UInt16
+  size : LibC::UInt16
+end
 struct FIELD_INFO
   fName : LibC::Byte*
   printName : LibC::Byte*
@@ -4583,9 +4645,10 @@ struct FIELD_INFO
   typeId : LibC::UInt32
   fieldOffset : LibC::UInt32
   bufferSize : LibC::UInt32
-  bitField : BitField
+  bitField : Bird4f9e0e534305
   bitfield : LibC::UInt32
 end
+type Owl362563184a78 = LibC::Void* | LibC::Void*
 struct SYM_DUMP_PARAM
   size : LibC::UInt32
   sName : LibC::Byte*
@@ -4639,6 +4702,27 @@ struct XSTATE_CONTEXT
   area : XSAVE_AREA*
   buffer : LibC::Void*
 end
+struct Owl8103c245589c
+  header : Array(M128A)
+  legacy : Array(M128A)
+  xmm0 : M128A
+  xmm1 : M128A
+  xmm2 : M128A
+  xmm3 : M128A
+  xmm4 : M128A
+  xmm5 : M128A
+  xmm6 : M128A
+  xmm7 : M128A
+  xmm8 : M128A
+  xmm9 : M128A
+  xmm10 : M128A
+  xmm11 : M128A
+  xmm12 : M128A
+  xmm13 : M128A
+  xmm14 : M128A
+  xmm15 : M128A
+end
+type Other62f7e7743ad7 = XSAVE_FORMAT | Owl8103c245589c
 struct CONTEXT
   p1Home : LibC::UInt64
   p2Home : LibC::UInt64
@@ -4700,10 +4784,87 @@ struct DISPATCHER_CONTEXT
   scopeIndex : LibC::UInt32
   fill0 : LibC::UInt32
 end
-struct KNONVOLATILE_CONTEXT_POINTERS
-  anonymous1 : Anonymous1_e__Union
-  anonymous2 : Anonymous2_e__Union
+struct Other72dbff2ebbb6
+  xmm0 : M128A*
+  xmm1 : M128A*
+  xmm2 : M128A*
+  xmm3 : M128A*
+  xmm4 : M128A*
+  xmm5 : M128A*
+  xmm6 : M128A*
+  xmm7 : M128A*
+  xmm8 : M128A*
+  xmm9 : M128A*
+  xmm10 : M128A*
+  xmm11 : M128A*
+  xmm12 : M128A*
+  xmm13 : M128A*
+  xmm14 : M128A*
+  xmm15 : M128A*
 end
+struct Bird535b19283c02
+  rax : LibC::UInt64*
+  rcx : LibC::UInt64*
+  rdx : LibC::UInt64*
+  rbx : LibC::UInt64*
+  rsp : LibC::UInt64*
+  rbp : LibC::UInt64*
+  rsi : LibC::UInt64*
+  rdi : LibC::UInt64*
+  r8 : LibC::UInt64*
+  r9 : LibC::UInt64*
+  r10 : LibC::UInt64*
+  r11 : LibC::UInt64*
+  r12 : LibC::UInt64*
+  r13 : LibC::UInt64*
+  r14 : LibC::UInt64*
+  r15 : LibC::UInt64*
+end
+type Pig4f5696f34482 = LibC::UInt64Array({{type}})* | Bird535b19283c02
+type Duck61c5caee8eab = M128AArray({{type}})* | Other72dbff2ebbb6
+struct KNONVOLATILE_CONTEXT_POINTERS
+  anonymous1 : Duck61c5caee8eab
+  anonymous2 : Pig4f5696f34482
+end
+struct Owl35bc402d7674
+  low : LibC::UInt64
+  high : LibC::Int64
+end
+type ARM64_NT_NEON128 = Owl35bc402d7674 | Array(LibC::Double) | Array(LibC::Single) | Array(LibC::UInt16) | Array(LibC::Byte)
+struct Othera49dbed97d44
+  x0 : LibC::UInt64
+  x1 : LibC::UInt64
+  x2 : LibC::UInt64
+  x3 : LibC::UInt64
+  x4 : LibC::UInt64
+  x5 : LibC::UInt64
+  x6 : LibC::UInt64
+  x7 : LibC::UInt64
+  x8 : LibC::UInt64
+  x9 : LibC::UInt64
+  x10 : LibC::UInt64
+  x11 : LibC::UInt64
+  x12 : LibC::UInt64
+  x13 : LibC::UInt64
+  x14 : LibC::UInt64
+  x15 : LibC::UInt64
+  x16 : LibC::UInt64
+  x17 : LibC::UInt64
+  x18 : LibC::UInt64
+  x19 : LibC::UInt64
+  x20 : LibC::UInt64
+  x21 : LibC::UInt64
+  x22 : LibC::UInt64
+  x23 : LibC::UInt64
+  x24 : LibC::UInt64
+  x25 : LibC::UInt64
+  x26 : LibC::UInt64
+  x27 : LibC::UInt64
+  x28 : LibC::UInt64
+  fp : LibC::UInt64
+  lr : LibC::UInt64
+end
+type Otherde1d2ad3c5d8 = Othera49dbed97d44 | Array(LibC::UInt64)
 struct ARM64_NT_CONTEXT
   contextFlags : LibC::UInt32
   cpsr : LibC::UInt32
@@ -4731,10 +4892,20 @@ struct DISPATCHER_CONTEXT_ARM64
   controlPcIsUnwound : BOOLEAN
   nonVolatileRegisters : LibC::Byte*
 end
+struct Othereab704c3ccaa
+  baseMid : LibC::Byte
+  flags1 : LibC::Byte
+  flags2 : LibC::Byte
+  baseHi : LibC::Byte
+end
+struct Pigf4088b76ba45
+  bitfield : LibC::UInt32
+end
+type Owl582b4f30a35b = Othereab704c3ccaa | Pigf4088b76ba45
 struct LDT_ENTRY
   limitLow : LibC::UInt16
   baseLow : LibC::UInt16
-  highWord : HighWord_e__Union
+  highWord : Owl582b4f30a35b
 end
 struct WOW64_FLOATING_SAVE_AREA
   controlWord : LibC::UInt32
@@ -4774,10 +4945,20 @@ struct WOW64_CONTEXT
   segSs : LibC::UInt32
   extendedRegisters : Array(LibC::Byte)
 end
+struct Owld2b09dceb944
+  baseMid : LibC::Byte
+  flags1 : LibC::Byte
+  flags2 : LibC::Byte
+  baseHi : LibC::Byte
+end
+struct Pig9e80bab855a0
+  bitfield : LibC::UInt32
+end
+type Bird41f090ac53ff = Owld2b09dceb944 | Pig9e80bab855a0
 struct WOW64_LDT_ENTRY
   limitLow : LibC::UInt16
   baseLow : LibC::UInt16
-  highWord : HighWord_e__Union
+  highWord : Bird41f090ac53ff
 end
 struct WOW64_DESCRIPTOR_TABLE_ENTRY
   selector : LibC::UInt32
@@ -4816,6 +4997,10 @@ struct XSTATE_FEATURE
   offset : LibC::UInt32
   size : LibC::UInt32
 end
+struct Pigce8b2599c46f
+  bitfield : LibC::UInt32
+end
+type Other95ef9665fa69 = LibC::UInt32 | Pigce8b2599c46f
 struct XSTATE_CONFIGURATION
   enabledFeatures : LibC::UInt64
   enabledVolatileFeatures : LibC::UInt64
@@ -4937,9 +5122,10 @@ struct IMAGE_ROM_HEADERS
   fileHeader : IMAGE_FILE_HEADER
   optionalHeader : IMAGE_ROM_OPTIONAL_HEADER
 end
+type Other64155139a15e = LibC::UInt32 | LibC::UInt32
 struct IMAGE_SECTION_HEADER
   name : Array(LibC::Byte)
-  misc : Misc_e__Union
+  misc : Other64155139a15e
   virtualAddress : LibC::UInt32
   sizeOfRawData : LibC::UInt32
   pointerToRawData : LibC::UInt32
@@ -5055,9 +5241,14 @@ struct IMAGE_LOAD_CONFIG_DIRECTORY64
   guardXFGTableDispatchFunctionPointer : LibC::UInt64
   castGuardOsDeterminedFailureMode : LibC::UInt64
 end
+struct Owl5f66c6656d4c
+  bitfield : LibC::UInt32
+end
+type Rabbitc6dece62a2db = LibC::UInt32 | Owl5f66c6656d4c
 struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY
   beginAddress : LibC::UInt32
 end
+type Otherda5848d5d006 = LibC::UInt32 | LibC::UInt32
 struct IMAGE_RUNTIME_FUNCTION_ENTRY
   beginAddress : LibC::UInt32
   endAddress : LibC::UInt32
@@ -5094,10 +5285,12 @@ struct IMAGE_FUNCTION_ENTRY
   endingAddress : LibC::UInt32
   endOfPrologue : LibC::UInt32
 end
+type Duck8c7455b70c87 = LibC::UInt64 | LibC::UInt64
 struct IMAGE_FUNCTION_ENTRY64
   startingAddress : LibC::UInt64
   endingAddress : LibC::UInt64
 end
+type Bird67e98b39e385 = LibC::UInt32 | LibC::UInt32
 struct IMAGE_COR20_HEADER
   cb : LibC::UInt32
   majorRuntimeVersion : LibC::UInt16
@@ -5179,6 +5372,18 @@ WctStatusError = 10
 WctStatusMax = 11
 
 end
+struct Owl282680c3a799
+  objectName : Array(LibC::Char)
+  timeout : LARGE_INTEGER
+  alertable : BOOL
+end
+struct Otherd057e8dc2087
+  processId : LibC::UInt32
+  threadId : LibC::UInt32
+  waitTime : LibC::UInt32
+  contextSwitches : LibC::UInt32
+end
+type Rabbit6a784207a5b2 = Owl282680c3a799 | Otherd057e8dc2087
 struct WAITCHAIN_NODE_INFO
   objectType : WCT_OBJECT_TYPE
   objectStatus : WCT_OBJECT_STATUS
@@ -5202,6 +5407,7 @@ struct MINIDUMP_MEMORY_DESCRIPTOR64
   startOfMemoryRange : LibC::UInt64
   dataSize : LibC::UInt64
 end
+type Pig5d2bd2a4e7ea = LibC::UInt32 | LibC::UInt32
 struct MINIDUMP_HEADER
   signature : LibC::UInt32
   version : LibC::UInt32
@@ -5298,17 +5504,37 @@ CeStreamDiagnosisList = 32780
 LastReservedStream = 65535
 
 end
+struct Owlabd7727d7f2c
+  vendorId : Array(LibC::UInt32)
+  versionInformation : LibC::UInt32
+  featureInformation : LibC::UInt32
+  aMDExtendedCpuFeatures : LibC::UInt32
+end
+struct Pig6f5ea2a294a3
+  processorFeatures : Array(LibC::UInt64)
+end
+type CPU_INFORMATION = Owlabd7727d7f2c | Pig6f5ea2a294a3
+struct Ducka441710aa449
+  numberOfProcessors : LibC::Byte
+  productType : LibC::Byte
+end
+struct Rabbitc4c46a01000d
+  suiteMask : LibC::UInt16
+  reserved2 : LibC::UInt16
+end
+type Other26836bd86a76 = LibC::UInt32 | Rabbitc4c46a01000d
+type Duck24c270c5774a = LibC::UInt16 | Ducka441710aa449
 struct MINIDUMP_SYSTEM_INFO
   processorArchitecture : PROCESSOR_ARCHITECTURE
   processorLevel : LibC::UInt16
   processorRevision : LibC::UInt16
-  anonymous1 : Anonymous1_e__Union
+  anonymous1 : Duck24c270c5774a
   majorVersion : LibC::UInt32
   minorVersion : LibC::UInt32
   buildNumber : LibC::UInt32
   platformId : VER_PLATFORM
   cSDVersionRva : LibC::UInt32
-  anonymous2 : Anonymous2_e__Union
+  anonymous2 : Other26836bd86a76
   cpu : CPU_INFORMATION
 end
 struct MINIDUMP_THREAD
@@ -5918,11 +6144,33 @@ struct MINIDUMP_VM_POST_READ_CALLBACK
   completed : LibC::UInt32
   status : HRESULT
 end
+type Owl3e8081436de7 = HRESULT | MINIDUMP_THREAD_CALLBACK | MINIDUMP_THREAD_EX_CALLBACK | MINIDUMP_MODULE_CALLBACK | MINIDUMP_INCLUDE_THREAD_CALLBACK | MINIDUMP_INCLUDE_MODULE_CALLBACK | MINIDUMP_IO_CALLBACK | MINIDUMP_READ_MEMORY_FAILURE_CALLBACK | LibC::UInt32 | MINIDUMP_VM_QUERY_CALLBACK | MINIDUMP_VM_PRE_READ_CALLBACK | MINIDUMP_VM_POST_READ_CALLBACK
 struct MINIDUMP_CALLBACK_INPUT
   processId : LibC::UInt32
   processHandle : HANDLE
   callbackType : LibC::UInt32
 end
+struct Pig5e84241271e9
+  vmQueryStatus : HRESULT
+  vmQueryResult : MINIDUMP_MEMORY_INFO
+end
+struct Bird224f12cb52c5
+  checkCancel : BOOL
+  cancel : BOOL
+end
+struct Duckb8e7963fdb4f
+  vmReadStatus : HRESULT
+  vmReadBytesCompleted : LibC::UInt32
+end
+struct Birdec19c4e12188
+  memoryBase : LibC::UInt64
+  memorySize : LibC::UInt32
+end
+struct Birda8e099f9fb55
+  vmRegion : MINIDUMP_MEMORY_INFO
+  continue : BOOL
+end
+type Rabbit7f62b1275c0d = LibC::UInt32 | LibC::UInt32 | LibC::UInt32 | Birdec19c4e12188 | Bird224f12cb52c5 | HANDLE | Birda8e099f9fb55 | Pig5e84241271e9 | Duckb8e7963fdb4f | HRESULT
 struct MINIDUMP_CALLBACK_OUTPUT
 end
 enum MINIDUMP_TYPE : UInt32
@@ -6459,6 +6707,7 @@ struct PROFILER_PROPERTY_TYPE_SUBSTRING_INFO
   length : LibC::UInt32
   value : PWSTR
 end
+type Duckb4e9fb1d2977 = LibC::Double | PWSTR | BSTR | LibC::UIint* | LibC::Void* | PROFILER_PROPERTY_TYPE_SUBSTRING_INFO*
 struct PROFILER_HEAP_OBJECT_RELATIONSHIP
   relationshipId : LibC::UInt32
   relationshipInfo : PROFILER_RELATIONSHIP_INFO
@@ -6467,9 +6716,11 @@ struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST
   count : LibC::UInt32
   elements : Array(PROFILER_HEAP_OBJECT_RELATIONSHIP)
 end
+type Birdadb230aed443 = LibC::UIint* | PWSTR | LibC::UInt32 | LibC::UInt32 | PROFILER_HEAP_OBJECT_SCOPE_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST*
 struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO
   infoType : PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE
 end
+type Duck0baa9b50368a = LibC::UIint* | LibC::Void*
 struct PROFILER_HEAP_OBJECT
   size : LibC::UInt32
   typeNameId : LibC::UInt32
@@ -7285,6 +7536,11 @@ struct PHYSICAL_MEMORY_DESCRIPTOR64
   numberOfPages : LibC::UInt64
   run : Array(PHYSICAL_MEMORY_RUN64)
 end
+struct Bird3de5dc073dc8
+  bitfield : LibC::UInt32
+end
+type DUMP_FILE_ATTRIBUTES = Bird3de5dc073dc8 | LibC::UInt32
+type Bird9d119112d310 = PHYSICAL_MEMORY_DESCRIPTOR32 | Array(LibC::Byte)
 struct DUMP_HEADER32
   signature : LibC::UInt32
   validDump : LibC::UInt32
@@ -7324,6 +7580,7 @@ struct DUMP_HEADER32
   systemTime : LARGE_INTEGER
   reserved3 : Array(LibC::Byte)
 end
+type Duck9db4d850c7b4 = PHYSICAL_MEMORY_DESCRIPTOR64 | Array(LibC::Byte)
 struct DUMP_HEADER64
   signature : LibC::UInt32
   validDump : LibC::UInt32
@@ -7445,11 +7702,95 @@ struct WHEA_DRIVER_BUFFER_SET
   sectionFriendlyName : LibC::Byte*
   flags : LibC::Byte*
 end
+struct Duck468e6943dd19
+  bitfield : LibC::UInt16
+end
+type WHEA_NOTIFICATION_FLAGS = Duck468e6943dd19 | LibC::UInt16
+struct Bird64eecaf7bcf7
+  bitfield : LibC::Byte
+end
+type XPF_MC_BANK_FLAGS = Bird64eecaf7bcf7 | LibC::Byte
+struct Duck3214be0c3aa3
+  bitfield : LibC::UInt32
+end
+type XPF_MCE_FLAGS = Duck3214be0c3aa3 | LibC::UInt32
+struct Pig1d6b1e6e4cbd
+  bitfield : LibC::UInt16
+end
+type AER_ROOTPORT_DESCRIPTOR_FLAGS = Pig1d6b1e6e4cbd | LibC::UInt16
+struct Birdec07fefa6205
+  bitfield : LibC::UInt16
+end
+type AER_ENDPOINT_DESCRIPTOR_FLAGS = Birdec07fefa6205 | LibC::UInt16
+struct Rabbite1e44a403950
+  bitfield : LibC::UInt16
+end
+type AER_BRIDGE_DESCRIPTOR_FLAGS = Rabbite1e44a403950 | LibC::UInt16
+struct Birdcfe75b963fba
+  pollInterval : LibC::UInt32
+  vector : LibC::UInt32
+  switchToPollingThreshold : LibC::UInt32
+  switchToPollingWindow : LibC::UInt32
+  errorThreshold : LibC::UInt32
+  errorThresholdWindow : LibC::UInt32
+end
+struct Bird3346a44418a8
+  pollInterval : LibC::UInt32
+  vector : LibC::UInt32
+  switchToPollingThreshold : LibC::UInt32
+  switchToPollingWindow : LibC::UInt32
+  errorThreshold : LibC::UInt32
+  errorThresholdWindow : LibC::UInt32
+end
+struct Duckfacfcc1dad98
+  pollInterval : LibC::UInt32
+  vector : LibC::UInt32
+  switchToPollingThreshold : LibC::UInt32
+  switchToPollingWindow : LibC::UInt32
+  errorThreshold : LibC::UInt32
+  errorThresholdWindow : LibC::UInt32
+end
+struct Otherd61b97e8b7b4
+  pollInterval : LibC::UInt32
+end
+struct Bird558e8ccbc5c4
+  pollInterval : LibC::UInt32
+  vector : LibC::UInt32
+  switchToPollingThreshold : LibC::UInt32
+  switchToPollingWindow : LibC::UInt32
+  errorThreshold : LibC::UInt32
+  errorThresholdWindow : LibC::UInt32
+end
+struct Bird3c2394a29fb3
+  pollInterval : LibC::UInt32
+  vector : LibC::UInt32
+  switchToPollingThreshold : LibC::UInt32
+  switchToPollingWindow : LibC::UInt32
+  errorThreshold : LibC::UInt32
+  errorThresholdWindow : LibC::UInt32
+end
+struct Owl3738603412f4
+  pollInterval : LibC::UInt32
+  vector : LibC::UInt32
+  switchToPollingThreshold : LibC::UInt32
+  switchToPollingWindow : LibC::UInt32
+  errorThreshold : LibC::UInt32
+  errorThresholdWindow : LibC::UInt32
+end
+struct Pigbe0e9ca3255e
+  pollInterval : LibC::UInt32
+  vector : LibC::UInt32
+  switchToPollingThreshold : LibC::UInt32
+  switchToPollingWindow : LibC::UInt32
+  errorThreshold : LibC::UInt32
+  errorThresholdWindow : LibC::UInt32
+end
+type Owlcf9d85c0aa37 = Otherd61b97e8b7b4 | Bird3c2394a29fb3 | Duckfacfcc1dad98 | Owl3738603412f4 | Bird3346a44418a8 | Bird558e8ccbc5c4 | Birdcfe75b963fba | Pigbe0e9ca3255e
 struct WHEA_NOTIFICATION_DESCRIPTOR
   type : LibC::Byte
   length : LibC::Byte
   flags : WHEA_NOTIFICATION_FLAGS
-  u : U_e__Union
+  u : Owlcf9d85c0aa37
 end
 struct WHEA_XPF_MC_BANK_DESCRIPTOR
   bankNumber : LibC::Byte
@@ -7479,8 +7820,12 @@ struct WHEA_XPF_CMC_DESCRIPTOR
   notify : WHEA_NOTIFICATION_DESCRIPTOR
   banks : Array(WHEA_XPF_MC_BANK_DESCRIPTOR)
 end
+struct Pig1504cde79dfd
+  bitfield : LibC::UInt32
+end
+type Other7d193606e798 = Pig1504cde79dfd | LibC::UInt32
 struct WHEA_PCI_SLOT_NUMBER
-  u : U_e__Union
+  u : Other7d193606e798
 end
 struct WHEA_XPF_NMI_DESCRIPTOR
   type : LibC::UInt16
@@ -7595,6 +7940,7 @@ struct WHEA_IPF_CPE_DESCRIPTOR
   enabled : LibC::Byte
   reserved : LibC::Byte
 end
+type Rabbitd716ce92d0f3 = WHEA_XPF_MCE_DESCRIPTOR | WHEA_XPF_CMC_DESCRIPTOR | WHEA_XPF_NMI_DESCRIPTOR | WHEA_IPF_MCA_DESCRIPTOR | WHEA_IPF_CMC_DESCRIPTOR | WHEA_IPF_CPE_DESCRIPTOR | WHEA_AER_ROOTPORT_DESCRIPTOR | WHEA_AER_ENDPOINT_DESCRIPTOR | WHEA_AER_BRIDGE_DESCRIPTOR | WHEA_GENERIC_ERROR_DESCRIPTOR | WHEA_GENERIC_ERROR_DESCRIPTOR_V2 | WHEA_DEVICE_DRIVER_DESCRIPTOR
 struct WHEA_ERROR_SOURCE_DESCRIPTOR
   length : LibC::UInt32
   version : LibC::UInt32
@@ -7606,7 +7952,7 @@ struct WHEA_ERROR_SOURCE_DESCRIPTOR
   errorSourceId : LibC::UInt32
   platformErrorSourceId : LibC::UInt32
   flags : LibC::UInt32
-  info : Info_e__Union
+  info : Rabbitd716ce92d0f3
 end
 enum IPMI_OS_SEL_RECORD_TYPE : Int32
 IpmiOsSelRecordTypeWhea = 0
@@ -7882,9 +8228,7 @@ struct IMAGEHLP_DUPLICATE_SYMBOL
   symbol : IMAGEHLP_SYMBOL*
   selectedSymbol : LibC::UInt32
 end
-fun rtlAddFunctionTable(functionTable : , entryCount : LibC::UInt32, baseAddress : LibC::UIint*) : BOOLEAN
 fun rtlDeleteFunctionTable(functionTable : IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY*) : BOOLEAN
-fun rtlAddGrowableFunctionTable(dynamicTable : LibC::Void**, functionTable : , entryCount : LibC::UInt32, maximumEntryCount : LibC::UInt32, rangeBase : LibC::UIint*, rangeEnd : LibC::UIint*) : LibC::UInt32
 fun rtlLookupFunctionEntry(controlPc : LibC::UIint*, imageBase : LibC::UIint**, historyTable : UNWIND_HISTORY_TABLE*) : IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY*
 fun rtlVirtualUnwind(handlerType : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imageBase : LibC::UIint*, controlPc : LibC::UIint*, functionEntry : IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY*, contextRecord : CONTEXT*, handlerData : LibC::Void**, establisherFrame : LibC::UIint**, contextPointers : KNONVOLATILE_CONTEXT_POINTERS_ARM64*) : EXCEPTION_ROUTINE
 fun debugConnect(remoteOptions : PSTR, interfaceId : LibC::Guid*, interface : LibC::Void**) : HRESULT
@@ -7899,14 +8243,11 @@ fun setThreadContext(hThread : HANDLE, lpContext : CONTEXT*) : BOOL
 fun flushInstructionCache(hProcess : HANDLE, lpBaseAddress : LibC::Void*, dwSize : LibC::UIint*) : BOOL
 fun wow64GetThreadContext(hThread : HANDLE, lpContext : WOW64_CONTEXT*) : BOOL
 fun wow64SetThreadContext(hThread : HANDLE, lpContext : WOW64_CONTEXT*) : BOOL
-fun rtlCaptureStackBackTrace(framesToSkip : LibC::UInt32, framesToCapture : LibC::UInt32, backTrace : , backTraceHash : LibC::UInt32*) : LibC::UInt16
 fun rtlCaptureContext(contextRecord : CONTEXT*) : LibC::Void
 fun rtlCaptureContext2(contextRecord : CONTEXT*) : LibC::Void
 fun rtlUnwind(targetFrame : LibC::Void*, targetIp : LibC::Void*, exceptionRecord : EXCEPTION_RECORD*, returnValue : LibC::Void*) : LibC::Void
-fun rtlAddFunctionTable(functionTable : , entryCount : LibC::UInt32, baseAddress : LibC::UInt64) : BOOLEAN
 fun rtlDeleteFunctionTable(functionTable : IMAGE_RUNTIME_FUNCTION_ENTRY*) : BOOLEAN
 fun rtlInstallFunctionTableCallback(tableIdentifier : LibC::UInt64, baseAddress : LibC::UInt64, length : LibC::UInt32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : LibC::Void*, outOfProcessCallbackDll : PWSTR) : BOOLEAN
-fun rtlAddGrowableFunctionTable(dynamicTable : LibC::Void**, functionTable : , entryCount : LibC::UInt32, maximumEntryCount : LibC::UInt32, rangeBase : LibC::UIint*, rangeEnd : LibC::UIint*) : LibC::UInt32
 fun rtlGrowFunctionTable(dynamicTable : LibC::Void*, newEntryCount : LibC::UInt32) : LibC::Void
 fun rtlDeleteGrowableFunctionTable(dynamicTable : LibC::Void*) : LibC::Void
 fun rtlLookupFunctionEntry(controlPc : LibC::UInt64, imageBase : LibC::UInt64*, historyTable : UNWIND_HISTORY_TABLE*) : IMAGE_RUNTIME_FUNCTION_ENTRY*
@@ -7932,7 +8273,6 @@ fun decodeSystemPointer(ptr : LibC::Void*) : LibC::Void*
 fun encodeRemotePointer(processHandle : HANDLE, ptr : LibC::Void*, encodedPtr : LibC::Void**) : HRESULT
 fun decodeRemotePointer(processHandle : HANDLE, ptr : LibC::Void*, decodedPtr : LibC::Void**) : HRESULT
 fun beep(dwFreq : LibC::UInt32, dwDuration : LibC::UInt32) : BOOL
-fun raiseException(dwExceptionCode : LibC::UInt32, dwExceptionFlags : LibC::UInt32, nNumberOfArguments : LibC::UInt32, lpArguments : ) : LibC::Void
 fun unhandledExceptionFilter(exceptionInfo : EXCEPTION_POINTERS*) : LibC::Int32
 fun setUnhandledExceptionFilter(lpTopLevelExceptionFilter : LPTOP_LEVEL_EXCEPTION_FILTER) : LPTOP_LEVEL_EXCEPTION_FILTER
 fun getErrorMode() : LibC::UInt32
@@ -7949,7 +8289,6 @@ fun setThreadErrorMode(dwNewMode : THREAD_ERROR_MODE, lpOldMode : THREAD_ERROR_M
 fun terminateProcessOnMemoryExhaustion(failedAllocationSize : LibC::UIint*) : LibC::Void
 fun openThreadWaitChainSession(flags : OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback : PWAITCHAINCALLBACK) : LibC::Void*
 fun closeThreadWaitChainSession(wctHandle : LibC::Void*) : LibC::Void
-fun getThreadWaitChain(wctHandle : LibC::Void*, context : LibC::UIint*, flags : WAIT_CHAIN_THREAD_OPTIONS, threadId : LibC::UInt32, nodeCount : LibC::UInt32*, nodeInfoArray : , isCycle : LibC::Int32*) : BOOL
 fun registerWaitChainCOMCallback(callStateCallback : PCOGETCALLSTATE, activationStateCallback : PCOGETACTIVATIONSTATE) : LibC::Void
 fun miniDumpWriteDump(hProcess : HANDLE, processId : LibC::UInt32, hFile : HANDLE, dumpType : MINIDUMP_TYPE, exceptionParam : MINIDUMP_EXCEPTION_INFORMATION*, userStreamParam : MINIDUMP_USER_STREAM_INFORMATION*, callbackParam : MINIDUMP_CALLBACK_INFORMATION*) : BOOL
 fun miniDumpReadDumpStream(baseOfDump : LibC::Void*, streamNumber : LibC::UInt32, dir : MINIDUMP_DIRECTORY**, streamPointer : LibC::Void**, streamSize : LibC::UInt32*) : BOOL
@@ -7966,7 +8305,6 @@ fun setImageConfigInformation(loadedImage : LOADED_IMAGE*, imageConfigInformatio
 fun imageGetDigestStream(fileHandle : HANDLE, digestLevel : LibC::UInt32, digestFunction : DIGEST_FUNCTION, digestHandle : LibC::Void*) : BOOL
 fun imageAddCertificate(fileHandle : HANDLE, certificate : WIN_CERTIFICATE*, index : LibC::UInt32*) : BOOL
 fun imageRemoveCertificate(fileHandle : HANDLE, index : LibC::UInt32) : BOOL
-fun imageEnumerateCertificates(fileHandle : HANDLE, typeFilter : LibC::UInt16, certificateCount : LibC::UInt32*, indices : , indexCount : LibC::UInt32) : BOOL
 fun imageGetCertificateData(fileHandle : HANDLE, certificateIndex : LibC::UInt32, certificate : WIN_CERTIFICATE*, requiredLength : LibC::UInt32*) : BOOL
 fun imageGetCertificateHeader(fileHandle : HANDLE, certificateIndex : LibC::UInt32, certificateheader : WIN_CERTIFICATE*) : BOOL
 fun imageLoad(dllName : PSTR, dllPath : PSTR) : LOADED_IMAGE*
@@ -7998,8 +8336,6 @@ fun searchTreeForFileW(rootPath : PWSTR, inputPathName : PWSTR, outputPathBuffer
 fun enumDirTree(hProcess : HANDLE, rootPath : PSTR, inputPathName : PSTR, outputPathBuffer : PSTR, cb : PENUMDIRTREE_CALLBACK, data : LibC::Void*) : BOOL
 fun enumDirTreeW(hProcess : HANDLE, rootPath : PWSTR, inputPathName : PWSTR, outputPathBuffer : PWSTR, cb : PENUMDIRTREE_CALLBACKW, data : LibC::Void*) : BOOL
 fun makeSureDirectoryPathExists(dirPath : PSTR) : BOOL
-fun unDecorateSymbolName(name : PSTR, outputString : , maxStringLength : LibC::UInt32, flags : LibC::UInt32) : LibC::UInt32
-fun unDecorateSymbolNameW(name : PWSTR, outputString : , maxStringLength : LibC::UInt32, flags : LibC::UInt32) : LibC::UInt32
 fun stackWalk64(machineType : LibC::UInt32, hProcess : HANDLE, hThread : HANDLE, stackFrame : STACKFRAME64*, contextRecord : LibC::Void*, readMemoryRoutine : PREAD_PROCESS_MEMORY_ROUTINE64, functionTableAccessRoutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getModuleBaseRoutine : PGET_MODULE_BASE_ROUTINE64, translateAddress : PTRANSLATE_ADDRESS_ROUTINE64) : BOOL
 fun stackWalkEx(machineType : LibC::UInt32, hProcess : HANDLE, hThread : HANDLE, stackFrame : STACKFRAME_EX*, contextRecord : LibC::Void*, readMemoryRoutine : PREAD_PROCESS_MEMORY_ROUTINE64, functionTableAccessRoutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getModuleBaseRoutine : PGET_MODULE_BASE_ROUTINE64, translateAddress : PTRANSLATE_ADDRESS_ROUTINE64, flags : LibC::UInt32) : BOOL
 fun imagehlpApiVersion() : API_VERSION*
@@ -8008,8 +8344,6 @@ fun getTimestampForLoadedLibrary(module : HINSTANCE) : LibC::UInt32
 fun symSetParentWindow(hwnd : HWND) : BOOL
 fun symSetHomeDirectory(hProcess : HANDLE, dir : PSTR) : PSTR
 fun symSetHomeDirectoryW(hProcess : HANDLE, dir : PWSTR) : PWSTR
-fun symGetHomeDirectory(type : IMAGEHLP_HD_TYPE, dir : , size : LibC::UIint*) : PSTR
-fun symGetHomeDirectoryW(type : IMAGEHLP_HD_TYPE, dir : , size : LibC::UIint*) : PWSTR
 fun symGetOmaps(hProcess : HANDLE, baseOfDll : LibC::UInt64, omapTo : OMAP**, cOmapTo : LibC::UInt64*, omapFrom : OMAP**, cOmapFrom : LibC::UInt64*) : BOOL
 fun symSetOptions(symOptions : LibC::UInt32) : LibC::UInt32
 fun symGetOptions() : LibC::UInt32
@@ -8050,34 +8384,20 @@ fun symGetLineNext64(hProcess : HANDLE, line : IMAGEHLP_LINE64*) : BOOL
 fun symGetLineNextW64(hProcess : HANDLE, line : IMAGEHLP_LINEW64*) : BOOL
 fun symGetLinePrev64(hProcess : HANDLE, line : IMAGEHLP_LINE64*) : BOOL
 fun symGetLinePrevW64(hProcess : HANDLE, line : IMAGEHLP_LINEW64*) : BOOL
-fun symGetFileLineOffsets64(hProcess : HANDLE, moduleName : PSTR, fileName : PSTR, buffer : , bufferLines : LibC::UInt32) : LibC::UInt32
 fun symMatchFileName(fileName : PSTR, match : PSTR, fileNameStop : PSTR*, matchStop : PSTR*) : BOOL
 fun symMatchFileNameW(fileName : PWSTR, match : PWSTR, fileNameStop : PWSTR*, matchStop : PWSTR*) : BOOL
-fun symGetSourceFile(hProcess : HANDLE, base : LibC::UInt64, params : PSTR, fileSpec : PSTR, filePath : , size : LibC::UInt32) : BOOL
-fun symGetSourceFileW(hProcess : HANDLE, base : LibC::UInt64, params : PWSTR, fileSpec : PWSTR, filePath : , size : LibC::UInt32) : BOOL
 fun symGetSourceFileToken(hProcess : HANDLE, base : LibC::UInt64, fileSpec : PSTR, token : LibC::Void**, size : LibC::UInt32*) : BOOL
 fun symGetSourceFileTokenByTokenName(hProcess : HANDLE, base : LibC::UInt64, fileSpec : PSTR, tokenName : PSTR, tokenParameters : PSTR, token : LibC::Void**, size : LibC::UInt32*) : BOOL
-fun symGetSourceFileChecksumW(hProcess : HANDLE, base : LibC::UInt64, fileSpec : PWSTR, pCheckSumType : LibC::UInt32*, pChecksum : , checksumSize : LibC::UInt32, pActualBytesWritten : LibC::UInt32*) : BOOL
-fun symGetSourceFileChecksum(hProcess : HANDLE, base : LibC::UInt64, fileSpec : PSTR, pCheckSumType : LibC::UInt32*, pChecksum : , checksumSize : LibC::UInt32, pActualBytesWritten : LibC::UInt32*) : BOOL
 fun symGetSourceFileTokenW(hProcess : HANDLE, base : LibC::UInt64, fileSpec : PWSTR, token : LibC::Void**, size : LibC::UInt32*) : BOOL
 fun symGetSourceFileTokenByTokenNameW(hProcess : HANDLE, base : LibC::UInt64, fileSpec : PWSTR, tokenName : PWSTR, tokenParameters : PWSTR, token : LibC::Void**, size : LibC::UInt32*) : BOOL
-fun symGetSourceFileFromToken(hProcess : HANDLE, token : LibC::Void*, params : PSTR, filePath : , size : LibC::UInt32) : BOOL
-fun symGetSourceFileFromTokenByTokenName(hProcess : HANDLE, token : LibC::Void*, tokenName : PSTR, params : PSTR, filePath : , size : LibC::UInt32) : BOOL
-fun symGetSourceFileFromTokenW(hProcess : HANDLE, token : LibC::Void*, params : PWSTR, filePath : , size : LibC::UInt32) : BOOL
-fun symGetSourceFileFromTokenByTokenNameW(hProcess : HANDLE, token : LibC::Void*, tokenName : PWSTR, params : PWSTR, filePath : , size : LibC::UInt32) : BOOL
-fun symGetSourceVarFromToken(hProcess : HANDLE, token : LibC::Void*, params : PSTR, varName : PSTR, value : , size : LibC::UInt32) : BOOL
-fun symGetSourceVarFromTokenW(hProcess : HANDLE, token : LibC::Void*, params : PWSTR, varName : PWSTR, value : , size : LibC::UInt32) : BOOL
 fun symEnumSourceFileTokens(hProcess : HANDLE, base : LibC::UInt64, callback : PENUMSOURCEFILETOKENSCALLBACK) : BOOL
 fun symInitialize(hProcess : HANDLE, userSearchPath : PSTR, fInvadeProcess : BOOL) : BOOL
 fun symInitializeW(hProcess : HANDLE, userSearchPath : PWSTR, fInvadeProcess : BOOL) : BOOL
-fun symGetSearchPath(hProcess : HANDLE, searchPathA : , searchPathLength : LibC::UInt32) : BOOL
-fun symGetSearchPathW(hProcess : HANDLE, searchPathA : , searchPathLength : LibC::UInt32) : BOOL
 fun symSetSearchPath(hProcess : HANDLE, searchPathA : PSTR) : BOOL
 fun symSetSearchPathW(hProcess : HANDLE, searchPathA : PWSTR) : BOOL
 fun symLoadModuleEx(hProcess : HANDLE, hFile : HANDLE, imageName : PSTR, moduleName : PSTR, baseOfDll : LibC::UInt64, dllSize : LibC::UInt32, data : MODLOAD_DATA*, flags : SYM_LOAD_FLAGS) : LibC::UInt64
 fun symLoadModuleExW(hProcess : HANDLE, hFile : HANDLE, imageName : PWSTR, moduleName : PWSTR, baseOfDll : LibC::UInt64, dllSize : LibC::UInt32, data : MODLOAD_DATA*, flags : SYM_LOAD_FLAGS) : LibC::UInt64
 fun symUnloadModule64(hProcess : HANDLE, baseOfDll : LibC::UInt64) : BOOL
-fun symUnDName64(sym : IMAGEHLP_SYMBOL64*, unDecName : , unDecNameLength : LibC::UInt32) : BOOL
 fun symRegisterCallback64(hProcess : HANDLE, callbackFunction : PSYMBOL_REGISTERED_CALLBACK64, userContext : LibC::UInt64) : BOOL
 fun symRegisterCallbackW64(hProcess : HANDLE, callbackFunction : PSYMBOL_REGISTERED_CALLBACK64, userContext : LibC::UInt64) : BOOL
 fun symRegisterFunctionEntryCallback64(hProcess : HANDLE, callbackFunction : PSYMBOL_FUNCENTRY_CALLBACK64, userContext : LibC::UInt64) : BOOL
@@ -8134,16 +8454,12 @@ fun symSrvGetSupplement(hProcess : HANDLE, symPath : PSTR, node : PSTR, file : P
 fun symSrvGetSupplementW(hProcess : HANDLE, symPath : PWSTR, node : PWSTR, file : PWSTR) : PWSTR
 fun symSrvGetFileIndexes(file : PSTR, id : LibC::Guid*, val1 : LibC::UInt32*, val2 : LibC::UInt32*, flags : LibC::UInt32) : BOOL
 fun symSrvGetFileIndexesW(file : PWSTR, id : LibC::Guid*, val1 : LibC::UInt32*, val2 : LibC::UInt32*, flags : LibC::UInt32) : BOOL
-fun symSrvGetFileIndexStringW(hProcess : HANDLE, srvPath : PWSTR, file : PWSTR, index : , size : LibC::UIint*, flags : LibC::UInt32) : BOOL
-fun symSrvGetFileIndexString(hProcess : HANDLE, srvPath : PSTR, file : PSTR, index : , size : LibC::UIint*, flags : LibC::UInt32) : BOOL
 fun symSrvGetFileIndexInfo(file : PSTR, info : SYMSRV_INDEX_INFO*, flags : LibC::UInt32) : BOOL
 fun symSrvGetFileIndexInfoW(file : PWSTR, info : SYMSRV_INDEX_INFOW*, flags : LibC::UInt32) : BOOL
 fun symSrvStoreSupplement(hProcess : HANDLE, srvPath : PSTR, node : PSTR, file : PSTR, flags : LibC::UInt32) : PSTR
 fun symSrvStoreSupplementW(hProcess : HANDLE, symPath : PWSTR, node : PWSTR, file : PWSTR, flags : LibC::UInt32) : PWSTR
 fun symSrvStoreFile(hProcess : HANDLE, srvPath : PSTR, file : PSTR, flags : SYM_SRV_STORE_FILE_FLAGS) : PSTR
 fun symSrvStoreFileW(hProcess : HANDLE, srvPath : PWSTR, file : PWSTR, flags : SYM_SRV_STORE_FILE_FLAGS) : PWSTR
-fun symGetSymbolFile(hProcess : HANDLE, symPath : PSTR, imageFile : PSTR, type : IMAGEHLP_SF_TYPE, symbolFile : , cSymbolFile : LibC::UIint*, dbgFile : , cDbgFile : LibC::UIint*) : BOOL
-fun symGetSymbolFileW(hProcess : HANDLE, symPath : PWSTR, imageFile : PWSTR, type : IMAGEHLP_SF_TYPE, symbolFile : , cSymbolFile : LibC::UIint*, dbgFile : , cDbgFile : LibC::UIint*) : BOOL
 fun dbgHelpCreateUserDump(fileName : PSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userData : LibC::Void*) : BOOL
 fun dbgHelpCreateUserDumpW(fileName : PWSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userData : LibC::Void*) : BOOL
 fun symGetSymFromAddr64(hProcess : HANDLE, qwAddr : LibC::UInt64, pdwDisplacement : LibC::UInt64*, symbol : IMAGEHLP_SYMBOL64*) : BOOL
@@ -8200,7 +8516,6 @@ fun symGetLineFromName(hProcess : HANDLE, moduleName : PSTR, fileName : PSTR, dw
 fun symGetLineNext(hProcess : HANDLE, line : IMAGEHLP_LINE*) : BOOL
 fun symGetLinePrev(hProcess : HANDLE, line : IMAGEHLP_LINE*) : BOOL
 fun symUnloadModule(hProcess : HANDLE, baseOfDll : LibC::UInt32) : BOOL
-fun symUnDName(sym : IMAGEHLP_SYMBOL*, unDecName : , unDecNameLength : LibC::UInt32) : BOOL
 fun symRegisterCallback(hProcess : HANDLE, callbackFunction : PSYMBOL_REGISTERED_CALLBACK, userContext : LibC::Void*) : BOOL
 fun symRegisterFunctionEntryCallback(hProcess : HANDLE, callbackFunction : PSYMBOL_FUNCENTRY_CALLBACK, userContext : LibC::Void*) : BOOL
 fun symGetSymFromAddr(hProcess : HANDLE, dwAddr : LibC::UInt32, pdwDisplacement : LibC::UInt32*, symbol : IMAGEHLP_SYMBOL*) : BOOL

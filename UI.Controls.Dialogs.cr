@@ -1091,8 +1091,6 @@ fun getOpenFileNameA(param0 : OPENFILENAMEA*) : BOOL
 fun getOpenFileNameW(param0 : OPENFILENAMEW*) : BOOL
 fun getSaveFileNameA(param0 : OPENFILENAMEA*) : BOOL
 fun getSaveFileNameW(param0 : OPENFILENAMEW*) : BOOL
-fun getFileTitleA(param0 : PSTR, buf : , cchSize : LibC::UInt16) : LibC::Int16
-fun getFileTitleW(param0 : PWSTR, buf : , cchSize : LibC::UInt16) : LibC::Int16
 fun chooseColorA(param0 : CHOOSECOLORA*) : BOOL
 fun chooseColorW(param0 : CHOOSECOLORW*) : BOOL
 fun findTextA(param0 : FINDREPLACEA*) : HWND

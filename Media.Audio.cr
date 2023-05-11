@@ -569,9 +569,10 @@ type HACMDRIVERID = LibC::Int*
 type HACMDRIVER = LibC::Int*
 type HACMSTREAM = LibC::Int*
 type HACMOBJ = LibC::Int*
+type Othere5027c91480f = LibC::UInt16 | LibC::UInt16 | LibC::UInt16
 struct WAVEFORMATEXTENSIBLE
   format : WAVEFORMATEX
-  samples : Samples_e__Union
+  samples : Othere5027c91480f
   dwChannelMask : LibC::UInt32
   subFormat : LibC::Guid
 end
@@ -902,6 +903,14 @@ struct MIXERCAPS2W
   productGuid : LibC::Guid
   nameGuid : LibC::Guid
 end
+struct Rabbit771e67c26248
+  dwType : LibC::UInt32
+  dwDeviceID : LibC::UInt32
+  wMid : LibC::UInt16
+  wPid : LibC::UInt16
+  vDriverVersion : LibC::UInt32
+  szPname : Array(CHAR)
+end
 struct MIXERLINEA
   cbStruct : LibC::UInt32
   dwDestination : LibC::UInt32
@@ -915,7 +924,15 @@ struct MIXERLINEA
   cControls : LibC::UInt32
   szShortName : Array(CHAR)
   szName : Array(CHAR)
-  target : Target_e__Struct
+  target : Rabbit771e67c26248
+end
+struct Duckf9ff6bc34d98
+  dwType : LibC::UInt32
+  dwDeviceID : LibC::UInt32
+  wMid : LibC::UInt16
+  wPid : LibC::UInt16
+  vDriverVersion : LibC::UInt32
+  szPname : Array(LibC::Char)
 end
 struct MIXERLINEW
   cbStruct : LibC::UInt32
@@ -930,8 +947,18 @@ struct MIXERLINEW
   cControls : LibC::UInt32
   szShortName : Array(LibC::Char)
   szName : Array(LibC::Char)
-  target : Target_e__Struct
+  target : Duckf9ff6bc34d98
 end
+struct Other745752e7feba
+  dwMinimum : LibC::UInt32
+  dwMaximum : LibC::UInt32
+end
+struct Other263c50425b3e
+  lMinimum : LibC::Int32
+  lMaximum : LibC::Int32
+end
+type Owl132e1ed33e09 = Other263c50425b3e | Other745752e7feba | Array(LibC::UInt32)
+type Duck0996368ae788 = LibC::UInt32 | LibC::UInt32 | Array(LibC::UInt32)
 struct MIXERCONTROLA
   cbStruct : LibC::UInt32
   dwControlID : LibC::UInt32
@@ -940,9 +967,19 @@ struct MIXERCONTROLA
   cMultipleItems : LibC::UInt32
   szShortName : Array(CHAR)
   szName : Array(CHAR)
-  bounds : Bounds_e__Union
-  metrics : Metrics_e__Union
+  bounds : Owl132e1ed33e09
+  metrics : Duck0996368ae788
 end
+struct Piga9f63b8c075a
+  lMinimum : LibC::Int32
+  lMaximum : LibC::Int32
+end
+struct Rabbite8077deef9f9
+  dwMinimum : LibC::UInt32
+  dwMaximum : LibC::UInt32
+end
+type Rabbita1d6e5ca543d = Piga9f63b8c075a | Rabbite8077deef9f9 | Array(LibC::UInt32)
+type Duck869974e60183 = LibC::UInt32 | LibC::UInt32 | Array(LibC::UInt32)
 struct MIXERCONTROLW
   cbStruct : LibC::UInt32
   dwControlID : LibC::UInt32
@@ -951,9 +988,10 @@ struct MIXERCONTROLW
   cMultipleItems : LibC::UInt32
   szShortName : Array(LibC::Char)
   szName : Array(LibC::Char)
-  bounds : Bounds_e__Union
-  metrics : Metrics_e__Union
+  bounds : Rabbita1d6e5ca543d
+  metrics : Duck869974e60183
 end
+type Duckf2cf9f87c03b = LibC::UInt32 | LibC::UInt32
 struct MIXERLINECONTROLSA
   cbStruct : LibC::UInt32
   dwLineID : LibC::UInt32
@@ -961,6 +999,7 @@ struct MIXERLINECONTROLSA
   cbmxctrl : LibC::UInt32
   pamxctrl : MIXERCONTROLA*
 end
+type Duck0c0b50c619aa = LibC::UInt32 | LibC::UInt32
 struct MIXERLINECONTROLSW
   cbStruct : LibC::UInt32
   dwLineID : LibC::UInt32
@@ -968,6 +1007,7 @@ struct MIXERLINECONTROLSW
   cbmxctrl : LibC::UInt32
   pamxctrl : MIXERCONTROLW*
 end
+type Other3569c5051196 = HWND | LibC::UInt32
 struct MIXERCONTROLDETAILS
   cbStruct : LibC::UInt32
   dwControlID : LibC::UInt32
@@ -1218,6 +1258,7 @@ struct SpatialAudioHrtfDirectivityCone
   innerAngle : LibC::Single
   outerAngle : LibC::Single
 end
+type SpatialAudioHrtfDirectivityUnion = SpatialAudioHrtfDirectivityCone | SpatialAudioHrtfDirectivityCardioid | SpatialAudioHrtfDirectivity
 struct SpatialAudioHrtfDistanceDecay
   type : SpatialAudioHrtfDistanceDecayType
   maxGain : LibC::Single
@@ -1424,6 +1465,7 @@ AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT = 0
 AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK = 1
 
 end
+type Duckf400ea31e9d5 = AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS
 struct AUDIOCLIENT_ACTIVATION_PARAMS
   activationType : AUDIOCLIENT_ACTIVATION_TYPE
 end
@@ -1739,8 +1781,6 @@ fun waveOutGetDevCapsA(uDeviceID : LibC::UIint*, pwoc : WAVEOUTCAPSA*, cbwoc : L
 fun waveOutGetDevCapsW(uDeviceID : LibC::UIint*, pwoc : WAVEOUTCAPSW*, cbwoc : LibC::UInt32) : LibC::UInt32
 fun waveOutGetVolume(hwo : HWAVEOUT, pdwVolume : LibC::UInt32*) : LibC::UInt32
 fun waveOutSetVolume(hwo : HWAVEOUT, dwVolume : LibC::UInt32) : LibC::UInt32
-fun waveOutGetErrorTextA(mmrError : LibC::UInt32, pszText : , cchText : LibC::UInt32) : LibC::UInt32
-fun waveOutGetErrorTextW(mmrError : LibC::UInt32, pszText : , cchText : LibC::UInt32) : LibC::UInt32
 fun waveOutOpen(phwo : HWAVEOUT*, uDeviceID : LibC::UInt32, pwfx : WAVEFORMATEX*, dwCallback : LibC::UIint*, dwInstance : LibC::UIint*, fdwOpen : MIDI_WAVE_OPEN_TYPE) : LibC::UInt32
 fun waveOutClose(hwo : HWAVEOUT) : LibC::UInt32
 fun waveOutPrepareHeader(hwo : HWAVEOUT, pwh : WAVEHDR*, cbwh : LibC::UInt32) : LibC::UInt32
@@ -1760,8 +1800,6 @@ fun waveOutMessage(hwo : HWAVEOUT, uMsg : LibC::UInt32, dw1 : LibC::UIint*, dw2 
 fun waveInGetNumDevs() : LibC::UInt32
 fun waveInGetDevCapsA(uDeviceID : LibC::UIint*, pwic : WAVEINCAPSA*, cbwic : LibC::UInt32) : LibC::UInt32
 fun waveInGetDevCapsW(uDeviceID : LibC::UIint*, pwic : WAVEINCAPSW*, cbwic : LibC::UInt32) : LibC::UInt32
-fun waveInGetErrorTextA(mmrError : LibC::UInt32, pszText : , cchText : LibC::UInt32) : LibC::UInt32
-fun waveInGetErrorTextW(mmrError : LibC::UInt32, pszText : , cchText : LibC::UInt32) : LibC::UInt32
 fun waveInOpen(phwi : HWAVEIN*, uDeviceID : LibC::UInt32, pwfx : WAVEFORMATEX*, dwCallback : LibC::UIint*, dwInstance : LibC::UIint*, fdwOpen : MIDI_WAVE_OPEN_TYPE) : LibC::UInt32
 fun waveInClose(hwi : HWAVEIN) : LibC::UInt32
 fun waveInPrepareHeader(hwi : HWAVEIN, pwh : WAVEHDR*, cbwh : LibC::UInt32) : LibC::UInt32
@@ -1774,7 +1812,6 @@ fun waveInGetPosition(hwi : HWAVEIN, pmmt : MMTIME*, cbmmt : LibC::UInt32) : Lib
 fun waveInGetID(hwi : HWAVEIN, puDeviceID : LibC::UInt32*) : LibC::UInt32
 fun waveInMessage(hwi : HWAVEIN, uMsg : LibC::UInt32, dw1 : LibC::UIint*, dw2 : LibC::UIint*) : LibC::UInt32
 fun midiOutGetNumDevs() : LibC::UInt32
-fun midiStreamOpen(phms : HMIDISTRM*, puDeviceID : , cMidi : LibC::UInt32, dwCallback : LibC::UIint*, dwInstance : LibC::UIint*, fdwOpen : LibC::UInt32) : LibC::UInt32
 fun midiStreamClose(hms : HMIDISTRM) : LibC::UInt32
 fun midiStreamProperty(hms : HMIDISTRM, lppropdata : LibC::Byte*, dwProperty : LibC::UInt32) : LibC::UInt32
 fun midiStreamPosition(hms : HMIDISTRM, lpmmt : MMTIME*, cbmmt : LibC::UInt32) : LibC::UInt32
@@ -1788,8 +1825,6 @@ fun midiOutGetDevCapsA(uDeviceID : LibC::UIint*, pmoc : MIDIOUTCAPSA*, cbmoc : L
 fun midiOutGetDevCapsW(uDeviceID : LibC::UIint*, pmoc : MIDIOUTCAPSW*, cbmoc : LibC::UInt32) : LibC::UInt32
 fun midiOutGetVolume(hmo : HMIDIOUT, pdwVolume : LibC::UInt32*) : LibC::UInt32
 fun midiOutSetVolume(hmo : HMIDIOUT, dwVolume : LibC::UInt32) : LibC::UInt32
-fun midiOutGetErrorTextA(mmrError : LibC::UInt32, pszText : , cchText : LibC::UInt32) : LibC::UInt32
-fun midiOutGetErrorTextW(mmrError : LibC::UInt32, pszText : , cchText : LibC::UInt32) : LibC::UInt32
 fun midiOutOpen(phmo : HMIDIOUT*, uDeviceID : LibC::UInt32, dwCallback : LibC::UIint*, dwInstance : LibC::UIint*, fdwOpen : MIDI_WAVE_OPEN_TYPE) : LibC::UInt32
 fun midiOutClose(hmo : HMIDIOUT) : LibC::UInt32
 fun midiOutPrepareHeader(hmo : HMIDIOUT, pmh : MIDIHDR*, cbmh : LibC::UInt32) : LibC::UInt32
@@ -1797,15 +1832,11 @@ fun midiOutUnprepareHeader(hmo : HMIDIOUT, pmh : MIDIHDR*, cbmh : LibC::UInt32) 
 fun midiOutShortMsg(hmo : HMIDIOUT, dwMsg : LibC::UInt32) : LibC::UInt32
 fun midiOutLongMsg(hmo : HMIDIOUT, pmh : MIDIHDR*, cbmh : LibC::UInt32) : LibC::UInt32
 fun midiOutReset(hmo : HMIDIOUT) : LibC::UInt32
-fun midiOutCachePatches(hmo : HMIDIOUT, uBank : LibC::UInt32, pwpa : , fuCache : LibC::UInt32) : LibC::UInt32
-fun midiOutCacheDrumPatches(hmo : HMIDIOUT, uPatch : LibC::UInt32, pwkya : , fuCache : LibC::UInt32) : LibC::UInt32
 fun midiOutGetID(hmo : HMIDIOUT, puDeviceID : LibC::UInt32*) : LibC::UInt32
 fun midiOutMessage(hmo : HMIDIOUT, uMsg : LibC::UInt32, dw1 : LibC::UIint*, dw2 : LibC::UIint*) : LibC::UInt32
 fun midiInGetNumDevs() : LibC::UInt32
 fun midiInGetDevCapsA(uDeviceID : LibC::UIint*, pmic : MIDIINCAPSA*, cbmic : LibC::UInt32) : LibC::UInt32
 fun midiInGetDevCapsW(uDeviceID : LibC::UIint*, pmic : MIDIINCAPSW*, cbmic : LibC::UInt32) : LibC::UInt32
-fun midiInGetErrorTextA(mmrError : LibC::UInt32, pszText : , cchText : LibC::UInt32) : LibC::UInt32
-fun midiInGetErrorTextW(mmrError : LibC::UInt32, pszText : , cchText : LibC::UInt32) : LibC::UInt32
 fun midiInOpen(phmi : HMIDIIN*, uDeviceID : LibC::UInt32, dwCallback : LibC::UIint*, dwInstance : LibC::UIint*, fdwOpen : MIDI_WAVE_OPEN_TYPE) : LibC::UInt32
 fun midiInClose(hmi : HMIDIIN) : LibC::UInt32
 fun midiInPrepareHeader(hmi : HMIDIIN, pmh : MIDIHDR*, cbmh : LibC::UInt32) : LibC::UInt32

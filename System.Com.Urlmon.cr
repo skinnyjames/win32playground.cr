@@ -1221,18 +1221,13 @@ fun iEInstallScope(pdwScope : LibC::UInt32*) : HRESULT
 fun faultInIEFeature(hWnd : HWND, pClassSpec : UCLSSPEC*, pQuery : QUERYCONTEXT*, dwFlags : LibC::UInt32) : HRESULT
 fun getComponentIDFromCLSSPEC(pClassspec : UCLSSPEC*, ppszComponentID : PSTR*) : HRESULT
 fun isAsyncMoniker(pmk : IMoniker) : HRESULT
-fun registerMediaTypes(ctypes : LibC::UInt32, rgszTypes : , rgcfTypes : ) : HRESULT
 fun findMediaType(rgszTypes : PSTR, rgcfTypes : LibC::UInt16*) : HRESULT
-fun createFormatEnumerator(cfmtetc : LibC::UInt32, rgfmtetc : , ppenumfmtetc : IEnumFORMATETC*) : HRESULT
 fun registerFormatEnumerator(pBC : IBindCtx, pEFetc : IEnumFORMATETC, reserved : LibC::UInt32) : HRESULT
 fun revokeFormatEnumerator(pBC : IBindCtx, pEFetc : IEnumFORMATETC) : HRESULT
-fun registerMediaTypeClass(pBC : IBindCtx, ctypes : LibC::UInt32, rgszTypes : , rgclsID : , reserved : LibC::UInt32) : HRESULT
 fun findMediaTypeClass(pBC : IBindCtx, szType : PSTR, pclsID : LibC::Guid*, reserved : LibC::UInt32) : HRESULT
 fun urlMkSetSessionOption(dwOption : LibC::UInt32, pBuffer : LibC::Void*, dwBufferLength : LibC::UInt32, dwReserved : LibC::UInt32) : HRESULT
 fun urlMkGetSessionOption(dwOption : LibC::UInt32, pBuffer : LibC::Void*, dwBufferLength : LibC::UInt32, pdwBufferLengthOut : LibC::UInt32*, dwReserved : LibC::UInt32) : HRESULT
 fun findMimeFromData(pBC : IBindCtx, pwzUrl : PWSTR, pBuffer : LibC::Void*, cbSize : LibC::UInt32, pwzMimeProposed : PWSTR, dwMimeFlags : LibC::UInt32, ppwzMimeOut : PWSTR*, dwReserved : LibC::UInt32) : HRESULT
-fun obtainUserAgentString(dwOption : LibC::UInt32, pszUAOut : , cbSize : LibC::UInt32*) : HRESULT
-fun compareSecurityIds(pbSecurityId1 : , dwLen1 : LibC::UInt32, pbSecurityId2 : , dwLen2 : LibC::UInt32, dwReserved : LibC::UInt32) : HRESULT
 fun compatFlagsFromClsid(pclsid : LibC::Guid*, pdwCompatFlags : LibC::UInt32*, pdwMiscStatusFlags : LibC::UInt32*) : HRESULT
 fun setAccessForIEAppContainer(hObject : HANDLE, ieObjectType : IEObjectType, dwAccessMask : LibC::UInt32) : HRESULT
 fun hlinkSimpleNavigateToString(szTarget : PWSTR, szLocation : PWSTR, szTargetFrameName : PWSTR, pUnk : IUnknown, pbc : IBindCtx, param5 : IBindStatusCallback, grfHLNF : LibC::UInt32, dwReserved : LibC::UInt32) : HRESULT
@@ -1243,17 +1238,12 @@ fun uRLOpenPullStreamA(param0 : IUnknown, param1 : PSTR, param2 : LibC::UInt32, 
 fun uRLOpenPullStreamW(param0 : IUnknown, param1 : PWSTR, param2 : LibC::UInt32, param3 : IBindStatusCallback) : HRESULT
 fun uRLDownloadToFileA(param0 : IUnknown, param1 : PSTR, param2 : PSTR, param3 : LibC::UInt32, param4 : IBindStatusCallback) : HRESULT
 fun uRLDownloadToFileW(param0 : IUnknown, param1 : PWSTR, param2 : PWSTR, param3 : LibC::UInt32, param4 : IBindStatusCallback) : HRESULT
-fun uRLDownloadToCacheFileA(param0 : IUnknown, param1 : PSTR, param2 : , cchFileName : LibC::UInt32, param4 : LibC::UInt32, param5 : IBindStatusCallback) : HRESULT
-fun uRLDownloadToCacheFileW(param0 : IUnknown, param1 : PWSTR, param2 : , cchFileName : LibC::UInt32, param4 : LibC::UInt32, param5 : IBindStatusCallback) : HRESULT
 fun uRLOpenBlockingStreamA(param0 : IUnknown, param1 : PSTR, param2 : IStream*, param3 : LibC::UInt32, param4 : IBindStatusCallback) : HRESULT
 fun uRLOpenBlockingStreamW(param0 : IUnknown, param1 : PWSTR, param2 : IStream*, param3 : LibC::UInt32, param4 : IBindStatusCallback) : HRESULT
 fun hlinkGoBack(pUnk : IUnknown) : HRESULT
 fun hlinkGoForward(pUnk : IUnknown) : HRESULT
 fun hlinkNavigateString(pUnk : IUnknown, szTarget : PWSTR) : HRESULT
 fun hlinkNavigateMoniker(pUnk : IUnknown, pmkTarget : IMoniker) : HRESULT
-fun coInternetParseUrl(pwzUrl : PWSTR, parseAction : PARSEACTION, dwFlags : LibC::UInt32, pszResult : , cchResult : LibC::UInt32, pcchResult : LibC::UInt32*, dwReserved : LibC::UInt32) : HRESULT
-fun coInternetParseIUri(pIUri : IUri, parseAction : PARSEACTION, dwFlags : LibC::UInt32, pwzResult : , cchResult : LibC::UInt32, pcchResult : LibC::UInt32*, dwReserved : LibC::UIint*) : HRESULT
-fun coInternetCombineUrl(pwzBaseUrl : PWSTR, pwzRelativeUrl : PWSTR, dwCombineFlags : LibC::UInt32, pszResult : , cchResult : LibC::UInt32, pcchResult : LibC::UInt32*, dwReserved : LibC::UInt32) : HRESULT
 fun coInternetCombineUrlEx(pBaseUri : IUri, pwzRelativeUrl : PWSTR, dwCombineFlags : LibC::UInt32, ppCombinedUri : IUri*, dwReserved : LibC::UIint*) : HRESULT
 fun coInternetCombineIUri(pBaseUri : IUri, pRelativeUri : IUri, dwCombineFlags : LibC::UInt32, ppCombinedUri : IUri*, dwReserved : LibC::UIint*) : HRESULT
 fun coInternetCompareUrl(pwzUrl1 : PWSTR, pwzUrl2 : PWSTR, dwFlags : LibC::UInt32) : HRESULT

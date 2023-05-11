@@ -13047,11 +13047,21 @@ struct SYSTEMTIME
   wSecond : LibC::UInt16
   wMilliseconds : LibC::UInt16
 end
+struct Rabbitdb4e5864a0b0
+  scale : LibC::Byte
+  sign : LibC::Byte
+end
+struct Rabbitdb193a019271
+  lo32 : LibC::UInt32
+  mid32 : LibC::UInt32
+end
+type Owl3cbcb038cfd3 = Rabbitdb193a019271 | LibC::UInt64
+type Other9ca4a836463c = Rabbitdb4e5864a0b0 | LibC::UInt16
 struct DECIMAL
   wReserved : LibC::UInt16
-  anonymous1 : Anonymous1_e__Union
+  anonymous1 : Other9ca4a836463c
   hi32 : LibC::UInt32
-  anonymous2 : Anonymous2_e__Union
+  anonymous2 : Owl3cbcb038cfd3
 end
 alias FARPROC = ( -> LibC::Int*)
 alias NEARPROC = ( -> LibC::Int*)
@@ -13112,6 +13122,24 @@ struct FLOAT128
   lowPart : LibC::Int64
   highPart : LibC::Int64
 end
+struct Bird37116145c9ee
+  lowPart : LibC::UInt32
+  highPart : LibC::Int32
+end
+struct Birdda51f48e5adf
+  lowPart : LibC::UInt32
+  highPart : LibC::Int32
+end
+type LARGE_INTEGER = Bird37116145c9ee | Birdda51f48e5adf | LibC::Int64
+struct Rabbit8e6bb4c4a614
+  lowPart : LibC::UInt32
+  highPart : LibC::UInt32
+end
+struct Owl4b6a998b3c16
+  lowPart : LibC::UInt32
+  highPart : LibC::UInt32
+end
+type ULARGE_INTEGER = Rabbit8e6bb4c4a614 | Owl4b6a998b3c16 | LibC::UInt64
 struct LUID
   lowPart : LibC::UInt32
   highPart : LibC::Int32
@@ -13119,7 +13147,6 @@ end
 alias PAPCFUNC = (LibC::UIint* -> LibC::Void)
 fun sysAllocString(psz : PWSTR) : BSTR
 fun sysReAllocString(pbstr : BSTR*, psz : PWSTR) : LibC::Int32
-fun sysAllocStringLen(strIn : , ui : LibC::UInt32) : BSTR
 fun sysReAllocStringLen(pbstr : BSTR*, psz : PWSTR, len : LibC::UInt32) : LibC::Int32
 fun sysAddRefString(bstrString : BSTR) : HRESULT
 fun sysReleaseString(bstrString : BSTR) : LibC::Void

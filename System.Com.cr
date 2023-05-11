@@ -118,6 +118,11 @@ DVASPECT_ICON = 4
 DVASPECT_DOCPRINT = 8
 
 end
+struct Pig3a36b0297fa7
+  lo : LibC::UInt32
+  hi : LibC::Int32
+end
+type CY = Pig3a36b0297fa7 | LibC::Int64
 struct CSPLATFORM
   dwPlatformId : LibC::UInt32
   dwVersionHi : LibC::UInt32
@@ -147,9 +152,18 @@ TYSPEC_PACKAGENAME = 5
 TYSPEC_OBJECTID = 6
 
 end
+struct Other0cc25950b7d7
+  pPackageName : PWSTR
+  policyId : LibC::Guid
+end
+struct Birdd1e50283d69f
+  objectId : LibC::Guid
+  policyId : LibC::Guid
+end
+type Other3b8949f21714 = LibC::Guid | PWSTR | PWSTR | PWSTR | PWSTR | Other0cc25950b7d7 | Birdd1e50283d69f
 struct UCLSSPEC
   tyspec : LibC::UInt32
-  tagged_union : Tagged_union_e__Struct
+  tagged_union : Other3b8949f21714
 end
 enum REGCLS : Int32
 REGCLS_SINGLEUSE = 0
@@ -746,13 +760,20 @@ struct RemSTGMEDIUM
   cbData : LibC::UInt32
   data : Array(LibC::Byte)
 end
+type Duck5d3fb8155bc1 = HBITMAP | LibC::Void* | HENHMETAFILE | LibC::Int* | PWSTR | IStream | IStorage
 struct STGMEDIUM
   tymed : LibC::UInt32
   pUnkForRelease : IUnknown
 end
+type Other878285a47715 = UserHBITMAP* | UserHPALETTE* | UserHGLOBAL*
 struct GDI_OBJECT
   objectType : LibC::UInt32
-  u : U_e__Struct
+  u : Other878285a47715
+end
+type Other1acfc9e2ac66 = UserHMETAFILEPICT* | UserHENHMETAFILE* | GDI_OBJECT* | UserHGLOBAL* | PWSTR | BYTE_BLOB* | BYTE_BLOB*
+struct Othera040d79d0fd5
+  tymed : LibC::UInt32
+  u : Other1acfc9e2ac66
 end
 struct UserSTGMEDIUM
   pUnkForRelease : IUnknown
@@ -971,6 +992,18 @@ struct SAFEARRAY
   pvData : LibC::Void*
   rgsabound : Array(SAFEARRAYBOUND)
 end
+struct Pigcbb5a05715f9
+  pvRecord : LibC::Void*
+  pRecInfo : IRecordInfo
+end
+type Pigaf914b3bfeca = LibC::Int64 | LibC::Int32 | LibC::Byte | LibC::Int16 | LibC::Single | LibC::Double | LibC::Int16 | LibC::Int16 | LibC::Int32 | CY | LibC::Double | BSTR | IUnknown | IDispatch | SAFEARRAY* | LibC::Byte* | LibC::Int16* | LibC::Int32* | LibC::Int64* | LibC::Single* | LibC::Double* | LibC::Int16* | LibC::Int16* | LibC::Int32* | CY* | LibC::Double* | BSTR* | IUnknown* | IDispatch* | SAFEARRAY** | VARIANT* | LibC::Void* | CHAR | LibC::UInt16 | LibC::UInt32 | LibC::UInt64 | LibC::Int32 | LibC::UInt32 | DECIMAL* | PSTR | LibC::UInt16* | LibC::UInt32* | LibC::UInt64* | LibC::Int32* | LibC::UInt32* | Pigcbb5a05715f9
+struct Bird1ce3f23f0077
+  vt : LibC::UInt16
+  wReserved1 : LibC::UInt16
+  wReserved2 : LibC::UInt16
+  wReserved3 : LibC::UInt16
+end
+type Owldcbccbd112b3 = Bird1ce3f23f0077 | DECIMAL
 struct VARIANT
 end
 enum TYPEKIND : Int32
@@ -993,6 +1026,7 @@ TKIND_UNION = 7
 TKIND_MAX = 8
 
 end
+type Owlcebbbd6c56c8 = TYPEDESC* | ARRAYDESC* | LibC::UInt32
 struct TYPEDESC
   vt : LibC::UInt16
 end
@@ -1000,6 +1034,7 @@ struct IDLDESC
   dwReserved : LibC::UIint*
   wIDLFlags : LibC::UInt16
 end
+type Rabbit09b6addfcc2d = IDLDESC | PARAMDESC
 struct ELEMDESC
   tdesc : TYPEDESC
 end
@@ -1110,6 +1145,7 @@ VAR_CONST = 2
 VAR_DISPATCH = 3
 
 end
+type Bird367703b5472a = LibC::UInt32 | VARIANT*
 struct VARDESC
   memid : LibC::Int32
   lpstrSchema : PWSTR
@@ -1139,6 +1175,7 @@ DESCKIND_IMPLICITAPPOBJ = 4
 DESCKIND_MAX = 5
 
 end
+type BINDPTR = FUNCDESC* | VARDESC* | ITypeComp
 enum SYSKIND : Int32
 SYS_WIN16 = 0
 
@@ -1228,7 +1265,6 @@ fun coCreateFreeThreadedMarshaler(punkOuter : IUnknown, ppunkMarshal : IUnknown*
 fun coFreeUnusedLibraries() : LibC::Void
 fun coFreeUnusedLibrariesEx(dwUnloadDelay : LibC::UInt32, dwReserved : LibC::UInt32) : LibC::Void
 fun coDisconnectContext(dwTimeout : LibC::UInt32) : HRESULT
-fun coInitializeSecurity(pSecDesc : SECURITY_DESCRIPTOR*, cAuthSvc : LibC::Int32, asAuthSvc : , pReserved1 : LibC::Void*, dwAuthnLevel : RPC_C_AUTHN_LEVEL, dwImpLevel : RPC_C_IMP_LEVEL, pAuthList : LibC::Void*, dwCapabilities : EOLE_AUTHENTICATION_CAPABILITIES, pReserved3 : LibC::Void*) : HRESULT
 fun coGetCallContext(riid : LibC::Guid*, ppInterface : LibC::Void**) : HRESULT
 fun coQueryProxyBlanket(pProxy : IUnknown, pwAuthnSvc : LibC::UInt32*, pAuthzSvc : LibC::UInt32*, pServerPrincName : PWSTR*, pAuthnLevel : LibC::UInt32*, pImpLevel : LibC::UInt32*, pAuthInfo : LibC::Void**, pCapabilites : LibC::UInt32*) : HRESULT
 fun coSetProxyBlanket(pProxy : IUnknown, dwAuthnSvc : LibC::UInt32, dwAuthzSvc : LibC::UInt32, pServerPrincName : PWSTR, dwAuthnLevel : RPC_C_AUTHN_LEVEL, dwImpLevel : RPC_C_IMP_LEVEL, pAuthInfo : LibC::Void*, dwCapabilities : EOLE_AUTHENTICATION_CAPABILITIES) : HRESULT
@@ -1239,8 +1275,6 @@ fun coRevertToSelf() : HRESULT
 fun coQueryAuthenticationServices(pcAuthSvc : LibC::UInt32*, asAuthSvc : SOLE_AUTHENTICATION_SERVICE**) : HRESULT
 fun coSwitchCallContext(pNewObject : IUnknown, ppOldObject : IUnknown*) : HRESULT
 fun coCreateInstance(rclsid : LibC::Guid*, pUnkOuter : IUnknown, dwClsContext : CLSCTX, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
-fun coCreateInstanceEx(clsid : LibC::Guid*, punkOuter : IUnknown, dwClsCtx : CLSCTX, pServerInfo : COSERVERINFO*, dwCount : LibC::UInt32, pResults : ) : HRESULT
-fun coCreateInstanceFromApp(clsid : LibC::Guid*, punkOuter : IUnknown, dwClsCtx : CLSCTX, reserved : LibC::Void*, dwCount : LibC::UInt32, pResults : ) : HRESULT
 fun coRegisterActivationFilter(pActivationFilter : IActivationFilter) : HRESULT
 fun coGetCancelObject(dwThreadId : LibC::UInt32, iid : LibC::Guid*, ppUnk : LibC::Void**) : HRESULT
 fun coSetCancelObject(pUnk : IUnknown) : HRESULT
@@ -1254,10 +1288,7 @@ fun stringFromIID(rclsid : LibC::Guid*, lplpsz : PWSTR*) : HRESULT
 fun iIDFromString(lpsz : PWSTR, lpiid : LibC::Guid*) : HRESULT
 fun progIDFromCLSID(clsid : LibC::Guid*, lplpszProgID : PWSTR*) : HRESULT
 fun cLSIDFromProgID(lpszProgID : PWSTR, lpclsid : LibC::Guid*) : HRESULT
-fun stringFromGUID2(rguid : LibC::Guid*, lpsz : , cchMax : LibC::Int32) : LibC::Int32
 fun coCreateGuid(pguid : LibC::Guid*) : HRESULT
-fun coWaitForMultipleHandles(dwFlags : LibC::UInt32, dwTimeout : LibC::UInt32, cHandles : LibC::UInt32, pHandles : , lpdwindex : LibC::UInt32*) : HRESULT
-fun coWaitForMultipleObjects(dwFlags : LibC::UInt32, dwTimeout : LibC::UInt32, cHandles : LibC::UInt32, pHandles : , lpdwindex : LibC::UInt32*) : HRESULT
 fun coGetTreatAsClass(clsidOld : LibC::Guid*, pClsidNew : LibC::Guid*) : HRESULT
 fun coInvalidateRemoteMachineBindings(pszMachineName : PWSTR) : HRESULT
 fun coTaskMemAlloc(cb : LibC::UIint*) : LibC::Void*

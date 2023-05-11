@@ -208,6 +208,17 @@ MEM_IMAGE = 16777216
 
 end
 type HeapHandle = LibC::Int*
+struct Pigc92b47e61a17
+  hMem : HANDLE
+  dwReserved : Array(LibC::UInt32)
+end
+struct Pig585fdd43a81b
+  dwCommittedSize : LibC::UInt32
+  dwUnCommittedSize : LibC::UInt32
+  lpFirstBlock : LibC::Void*
+  lpLastBlock : LibC::Void*
+end
+type Owl2ef2e1e8f641 = Pigc92b47e61a17 | Pig585fdd43a81b
 struct PROCESS_HEAP_ENTRY
   lpData : LibC::Void*
   cbData : LibC::UInt32
@@ -247,6 +258,10 @@ enum WIN32_MEMORY_INFORMATION_CLASS : Int32
 MemoryRegionInfo = 0
 
 end
+struct Duck349e64572988
+  bitfield : LibC::UInt32
+end
+type Duck0b9017fa0cf5 = LibC::UInt32 | Duck349e64572988
 struct WIN32_MEMORY_REGION_INFORMATION
   allocationBase : LibC::Void*
   allocationProtect : LibC::UInt32
@@ -330,9 +345,13 @@ MemExtendedParameterImageMachine = 6
 MemExtendedParameterMax = 7
 
 end
+type Owl943b278dd548 = LibC::UInt64 | LibC::Void* | LibC::UIint* | HANDLE | LibC::UInt32
+struct Rabbit67f9e61207d7
+  bitfield : LibC::UInt64
+end
 struct MEM_EXTENDED_PARAMETER
-  anonymous1 : Anonymous1_e__Struct
-  anonymous2 : Anonymous2_e__Union
+  anonymous1 : Rabbit67f9e61207d7
+  anonymous2 : Owl943b278dd548
 end
 enum HEAP_INFORMATION_CLASS : Int32
 HeapCompatibilityInformation = 0
@@ -365,7 +384,6 @@ fun heapCompact(hHeap : HeapHandle, dwFlags : HEAP_FLAGS) : LibC::UIint*
 fun heapSetInformation(heapHandle : HeapHandle, heapInformationClass : HEAP_INFORMATION_CLASS, heapInformation : LibC::Void*, heapInformationLength : LibC::UIint*) : BOOL
 fun heapValidate(hHeap : HeapHandle, dwFlags : HEAP_FLAGS, lpMem : LibC::Void*) : BOOL
 fun heapSummary(hHeap : HANDLE, dwFlags : LibC::UInt32, lpSummary : HEAP_SUMMARY*) : BOOL
-fun getProcessHeaps(numberOfHeaps : LibC::UInt32, processHeaps : ) : LibC::UInt32
 fun heapLock(hHeap : HeapHandle) : BOOL
 fun heapUnlock(hHeap : HeapHandle) : BOOL
 fun heapWalk(hHeap : HeapHandle, lpEntry : PROCESS_HEAP_ENTRY*) : BOOL
@@ -389,30 +407,19 @@ fun getProcessWorkingSetSizeEx(hProcess : HANDLE, lpMinimumWorkingSetSize : LibC
 fun setProcessWorkingSetSizeEx(hProcess : HANDLE, dwMinimumWorkingSetSize : LibC::UIint*, dwMaximumWorkingSetSize : LibC::UIint*, flags : LibC::UInt32) : BOOL
 fun virtualLock(lpAddress : LibC::Void*, dwSize : LibC::UIint*) : BOOL
 fun virtualUnlock(lpAddress : LibC::Void*, dwSize : LibC::UIint*) : BOOL
-fun getWriteWatch(dwFlags : LibC::UInt32, lpBaseAddress : LibC::Void*, dwRegionSize : LibC::UIint*, lpAddresses : , lpdwCount : LibC::UIint**, lpdwGranularity : LibC::UInt32*) : LibC::UInt32
 fun resetWriteWatch(lpBaseAddress : LibC::Void*, dwRegionSize : LibC::UIint*) : LibC::UInt32
 fun createMemoryResourceNotification(notificationType : MEMORY_RESOURCE_NOTIFICATION_TYPE) : HANDLE
 fun queryMemoryResourceNotification(resourceNotificationHandle : HANDLE, resourceState : BOOL*) : BOOL
 fun getSystemFileCacheSize(lpMinimumFileCacheSize : LibC::UIint**, lpMaximumFileCacheSize : LibC::UIint**, lpFlags : LibC::UInt32*) : BOOL
 fun setSystemFileCacheSize(minimumFileCacheSize : LibC::UIint*, maximumFileCacheSize : LibC::UIint*, flags : LibC::UInt32) : BOOL
 fun createFileMappingNumaW(hFile : HANDLE, lpFileMappingAttributes : SECURITY_ATTRIBUTES*, flProtect : PAGE_PROTECTION_FLAGS, dwMaximumSizeHigh : LibC::UInt32, dwMaximumSizeLow : LibC::UInt32, lpName : PWSTR, nndPreferred : LibC::UInt32) : HANDLE
-fun prefetchVirtualMemory(hProcess : HANDLE, numberOfEntries : LibC::UIint*, virtualAddresses : , flags : LibC::UInt32) : BOOL
 fun createFileMappingFromApp(hFile : HANDLE, securityAttributes : SECURITY_ATTRIBUTES*, pageProtection : PAGE_PROTECTION_FLAGS, maximumSize : LibC::UInt64, name : PWSTR) : HANDLE
 fun mapViewOfFileFromApp(hFileMappingObject : HANDLE, desiredAccess : FILE_MAP, fileOffset : LibC::UInt64, numberOfBytesToMap : LibC::UIint*) : LibC::Void*
 fun unmapViewOfFileEx(baseAddress : LibC::Void*, unmapFlags : UNMAP_VIEW_OF_FILE_FLAGS) : BOOL
-fun allocateUserPhysicalPages(hProcess : HANDLE, numberOfPages : LibC::UIint**, pageArray : ) : BOOL
-fun freeUserPhysicalPages(hProcess : HANDLE, numberOfPages : LibC::UIint**, pageArray : ) : BOOL
-fun mapUserPhysicalPages(virtualAddress : LibC::Void*, numberOfPages : LibC::UIint*, pageArray : ) : BOOL
-fun allocateUserPhysicalPagesNuma(hProcess : HANDLE, numberOfPages : LibC::UIint**, pageArray : , nndPreferred : LibC::UInt32) : BOOL
 fun virtualAllocExNuma(hProcess : HANDLE, lpAddress : LibC::Void*, dwSize : LibC::UIint*, flAllocationType : VIRTUAL_ALLOCATION_TYPE, flProtect : LibC::UInt32, nndPreferred : LibC::UInt32) : LibC::Void*
 fun getMemoryErrorHandlingCapabilities(capabilities : LibC::UInt32*) : BOOL
 fun registerBadMemoryNotification(callback : PBAD_MEMORY_CALLBACK_ROUTINE) : LibC::Void*
 fun unregisterBadMemoryNotification(registrationHandle : LibC::Void*) : BOOL
-fun offerVirtualMemory(virtualAddress : , size : LibC::UIint*, priority : OFFER_PRIORITY) : LibC::UInt32
-fun reclaimVirtualMemory(virtualAddress : , size : LibC::UIint*) : LibC::UInt32
-fun discardVirtualMemory(virtualAddress : , size : LibC::UIint*) : LibC::UInt32
-fun setProcessValidCallTargets(hProcess : HANDLE, virtualAddress : LibC::Void*, regionSize : LibC::UIint*, numberOfOffsets : LibC::UInt32, offsetInformation : ) : BOOL
-fun setProcessValidCallTargetsForMappedView(process : HANDLE, virtualAddress : LibC::Void*, regionSize : LibC::UIint*, numberOfOffsets : LibC::UInt32, offsetInformation : , section : HANDLE, expectedFileOffset : LibC::UInt64) : BOOL
 fun virtualAllocFromApp(baseAddress : LibC::Void*, size : LibC::UIint*, allocationType : VIRTUAL_ALLOCATION_TYPE, protection : LibC::UInt32) : LibC::Void*
 fun virtualProtectFromApp(address : LibC::Void*, size : LibC::UIint*, newProtection : LibC::UInt32, oldProtection : LibC::UInt32*) : BOOL
 fun openFileMappingFromApp(desiredAccess : LibC::UInt32, inheritHandle : BOOL, name : PWSTR) : HANDLE
@@ -420,12 +427,6 @@ fun queryVirtualMemoryInformation(process : HANDLE, virtualAddress : LibC::Void*
 fun mapViewOfFileNuma2(fileMappingHandle : HANDLE, processHandle : HANDLE, offset : LibC::UInt64, baseAddress : LibC::Void*, viewSize : LibC::UIint*, allocationType : LibC::UInt32, pageProtection : LibC::UInt32, preferredNode : LibC::UInt32) : LibC::Void*
 fun unmapViewOfFile2(process : HANDLE, baseAddress : LibC::Void*, unmapFlags : UNMAP_VIEW_OF_FILE_FLAGS) : BOOL
 fun virtualUnlockEx(process : HANDLE, address : LibC::Void*, size : LibC::UIint*) : BOOL
-fun virtualAlloc2(process : HANDLE, baseAddress : LibC::Void*, size : LibC::UIint*, allocationType : VIRTUAL_ALLOCATION_TYPE, pageProtection : LibC::UInt32, extendedParameters : , parameterCount : LibC::UInt32) : LibC::Void*
-fun mapViewOfFile3(fileMapping : HANDLE, process : HANDLE, baseAddress : LibC::Void*, offset : LibC::UInt64, viewSize : LibC::UIint*, allocationType : VIRTUAL_ALLOCATION_TYPE, pageProtection : LibC::UInt32, extendedParameters : , parameterCount : LibC::UInt32) : LibC::Void*
-fun virtualAlloc2FromApp(process : HANDLE, baseAddress : LibC::Void*, size : LibC::UIint*, allocationType : VIRTUAL_ALLOCATION_TYPE, pageProtection : LibC::UInt32, extendedParameters : , parameterCount : LibC::UInt32) : LibC::Void*
-fun mapViewOfFile3FromApp(fileMapping : HANDLE, process : HANDLE, baseAddress : LibC::Void*, offset : LibC::UInt64, viewSize : LibC::UIint*, allocationType : VIRTUAL_ALLOCATION_TYPE, pageProtection : LibC::UInt32, extendedParameters : , parameterCount : LibC::UInt32) : LibC::Void*
-fun createFileMapping2(file : HANDLE, securityAttributes : SECURITY_ATTRIBUTES*, desiredAccess : LibC::UInt32, pageProtection : PAGE_PROTECTION_FLAGS, allocationAttributes : LibC::UInt32, maximumSize : LibC::UInt64, name : PWSTR, extendedParameters : , parameterCount : LibC::UInt32) : HANDLE
-fun allocateUserPhysicalPages2(objectHandle : HANDLE, numberOfPages : LibC::UIint**, pageArray : , extendedParameters : , extendedParameterCount : LibC::UInt32) : BOOL
 fun openDedicatedMemoryPartition(partition : HANDLE, dedicatedMemoryTypeId : LibC::UInt64, desiredAccess : LibC::UInt32, inheritHandle : BOOL) : HANDLE
 fun queryPartitionInformation(partition : HANDLE, partitionInformationClass : WIN32_MEMORY_PARTITION_INFORMATION_CLASS, partitionInformation : LibC::Void*, partitionInformationLength : LibC::UInt32) : BOOL
 fun rtlCompareMemory(source1 : LibC::Void*, source2 : LibC::Void*, length : LibC::UIint*) : LibC::UIint*
@@ -457,7 +458,6 @@ fun isBadWritePtr(lp : LibC::Void*, ucb : LibC::UIint*) : BOOL
 fun isBadCodePtr(lpfn : FARPROC) : BOOL
 fun isBadStringPtrA(lpsz : PSTR, ucchMax : LibC::UIint*) : BOOL
 fun isBadStringPtrW(lpsz : PWSTR, ucchMax : LibC::UIint*) : BOOL
-fun mapUserPhysicalPagesScatter(virtualAddresses : , numberOfPages : LibC::UIint*, pageArray : ) : BOOL
 fun addSecureMemoryCacheCallback(pfnCallBack : PSECURE_MEMORY_CACHE_CALLBACK) : BOOL
 fun removeSecureMemoryCacheCallback(pfnCallBack : PSECURE_MEMORY_CACHE_CALLBACK) : BOOL
 

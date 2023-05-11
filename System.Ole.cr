@@ -793,9 +793,10 @@ SF_RECORD = 36
 SF_HAVEIID = 32781
 
 end
+type Pig43fd860e1a4c = WireSAFEARR_BSTR | WireSAFEARR_UNKNOWN | WireSAFEARR_DISPATCH | WireSAFEARR_VARIANT | WireSAFEARR_BRECORD | WireSAFEARR_HAVEIID | BYTE_SIZEDARR | SHORT_SIZEDARR | LONG_SIZEDARR | HYPER_SIZEDARR
 struct WireSAFEARRAY_UNION
   sfType : LibC::UInt32
-  u : U_e__Struct
+  u : Pig43fd860e1a4c
 end
 struct WireSAFEARRAY
   cDims : LibC::UInt16
@@ -811,6 +812,7 @@ struct WireBRECORD
   pRecInfo : IRecordInfo
   pRecord : LibC::Byte*
 end
+type Rabbit72eeb314ef9c = LibC::Int64 | LibC::Int32 | LibC::Byte | LibC::Int16 | LibC::Single | LibC::Double | LibC::Int16 | LibC::Int32 | CY | LibC::Double | FLAGGED_WORD_BLOB* | IUnknown | IDispatch | WireSAFEARRAY** | WireBRECORD* | LibC::Byte* | LibC::Int16* | LibC::Int32* | LibC::Int64* | LibC::Single* | LibC::Double* | LibC::Int16* | LibC::Int32* | CY* | LibC::Double* | FLAGGED_WORD_BLOB** | IUnknown* | IDispatch* | WireSAFEARRAY*** | WireVARIANT** | CHAR | LibC::UInt16 | LibC::UInt32 | LibC::UInt64 | LibC::Int32 | LibC::UInt32 | DECIMAL | DECIMAL* | PSTR | LibC::UInt16* | LibC::UInt32* | LibC::UInt64* | LibC::Int32* | LibC::UInt32*
 struct WireVARIANT
   clSize : LibC::UInt32
   rpcReserved : LibC::UInt32
@@ -1394,6 +1396,22 @@ struct FONTDESC
   fUnderline : BOOL
   fStrikethrough : BOOL
 end
+struct Rabbit1b3373ff4e91
+  hicon : HICON
+end
+struct Birdf4721614adf2
+  hbitmap : HBITMAP
+  hpal : HPALETTE
+end
+struct Other52dcc7b3df7a
+  hmeta : HMETAFILE
+  xExt : LibC::Int32
+  yExt : LibC::Int32
+end
+struct Birdc6f5a74b3a43
+  hemf : HENHMETAFILE
+end
+type Ducke7f8f218a192 = Birdf4721614adf2 | Other52dcc7b3df7a | Rabbit1b3373ff4e91 | Birdc6f5a74b3a43
 struct PICTDESC
   cbSizeofstruct : LibC::UInt32
   picType : LibC::UInt32
@@ -2557,7 +2575,6 @@ fun varFormatCurrency(pvarIn : VARIANT*, iNumDig : LibC::Int32, iIncLead : LibC:
 fun varWeekdayName(iWeekday : LibC::Int32, fAbbrev : LibC::Int32, iFirstDay : LibC::Int32, dwFlags : LibC::UInt32, pbstrOut : BSTR*) : HRESULT
 fun varMonthName(iMonth : LibC::Int32, fAbbrev : LibC::Int32, dwFlags : LibC::UInt32, pbstrOut : BSTR*) : HRESULT
 fun varFormatFromTokens(pvarIn : VARIANT*, pstrFormat : PWSTR, pbTokCur : LibC::Byte*, dwFlags : LibC::UInt32, pbstrOut : BSTR*, lcid : LibC::UInt32) : HRESULT
-fun varTokenizeFormatString(pstrFormat : PWSTR, rgbTok : , cbTok : LibC::Int32, iFirstDay : LibC::Int32, iFirstWeek : LibC::Int32, lcid : LibC::UInt32, pcbActual : LibC::Int32*) : HRESULT
 fun lHashValOfNameSysA(syskind : SYSKIND, lcid : LibC::UInt32, szName : PSTR) : LibC::UInt32
 fun lHashValOfNameSys(syskind : SYSKIND, lcid : LibC::UInt32, szName : PWSTR) : LibC::UInt32
 fun loadTypeLib(szFile : PWSTR, pptlib : ITypeLib*) : HRESULT
@@ -2571,11 +2588,9 @@ fun unRegisterTypeLibForUser(libID : LibC::Guid*, wMajorVerNum : LibC::UInt16, w
 fun createTypeLib(syskind : SYSKIND, szFile : PWSTR, ppctlib : ICreateTypeLib*) : HRESULT
 fun createTypeLib2(syskind : SYSKIND, szFile : PWSTR, ppctlib : ICreateTypeLib2*) : HRESULT
 fun dispGetParam(pdispparams : DISPPARAMS*, position : LibC::UInt32, vtTarg : LibC::UInt16, pvarResult : VARIANT*, puArgErr : LibC::UInt32*) : HRESULT
-fun dispGetIDsOfNames(ptinfo : ITypeInfo, rgszNames : , cNames : LibC::UInt32, rgdispid : ) : HRESULT
 fun dispInvoke(this : LibC::Void*, ptinfo : ITypeInfo, dispidMember : LibC::Int32, wFlags : LibC::UInt16, pparams : DISPPARAMS*, pvarResult : VARIANT*, pexcepinfo : EXCEPINFO*, puArgErr : LibC::UInt32*) : HRESULT
 fun createDispTypeInfo(pidata : INTERFACEDATA*, lcid : LibC::UInt32, pptinfo : ITypeInfo*) : HRESULT
 fun createStdDispatch(punkOuter : IUnknown, pvThis : LibC::Void*, ptinfo : ITypeInfo, ppunkStdDisp : IUnknown*) : HRESULT
-fun dispCallFunc(pvInstance : LibC::Void*, oVft : LibC::UIint*, cc : CALLCONV, vtReturn : LibC::UInt16, cActuals : LibC::UInt32, prgvt : , prgpvarg : , pvargResult : VARIANT*) : HRESULT
 fun registerActiveObject(punk : IUnknown, rclsid : LibC::Guid*, dwFlags : LibC::UInt32, pdwRegister : LibC::UInt32*) : HRESULT
 fun revokeActiveObject(dwRegister : LibC::UInt32, pvReserved : LibC::Void*) : HRESULT
 fun getActiveObject(rclsid : LibC::Guid*, pvReserved : LibC::Void*, ppunk : IUnknown*) : HRESULT
@@ -2643,11 +2658,9 @@ fun oleGetAutoConvert(clsidOld : LibC::Guid*, pClsidNew : LibC::Guid*) : HRESULT
 fun oleSetAutoConvert(clsidOld : LibC::Guid*, clsidNew : LibC::Guid*) : HRESULT
 fun hRGN_UserSize(param0 : LibC::UInt32*, param1 : LibC::UInt32, param2 : HRGN*) : LibC::UInt32
 fun hRGN_UserMarshal(param0 : LibC::UInt32*, param1 : LibC::Byte*, param2 : HRGN*) : LibC::Byte*
-fun hRGN_UserUnmarshal(param0 : LibC::UInt32*, param1 : , param2 : HRGN*) : LibC::Byte*
 fun hRGN_UserFree(param0 : LibC::UInt32*, param1 : HRGN*) : LibC::Void
 fun hRGN_UserSize64(param0 : LibC::UInt32*, param1 : LibC::UInt32, param2 : HRGN*) : LibC::UInt32
 fun hRGN_UserMarshal64(param0 : LibC::UInt32*, param1 : LibC::Byte*, param2 : HRGN*) : LibC::Byte*
-fun hRGN_UserUnmarshal64(param0 : LibC::UInt32*, param1 : , param2 : HRGN*) : LibC::Byte*
 fun hRGN_UserFree64(param0 : LibC::UInt32*, param1 : HRGN*) : LibC::Void
 fun oleCreatePropertyFrame(hwndOwner : HWND, x : LibC::UInt32, y : LibC::UInt32, lpszCaption : PWSTR, cObjects : LibC::UInt32, ppUnk : IUnknown*, cPages : LibC::UInt32, pPageClsID : LibC::Guid*, lcid : LibC::UInt32, dwReserved : LibC::UInt32, pvReserved : LibC::Void*) : HRESULT
 fun oleCreatePropertyFrameIndirect(lpParams : OCPFIPARAMS*) : HRESULT

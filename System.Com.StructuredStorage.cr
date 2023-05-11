@@ -238,8 +238,17 @@ struct CACLSID
   cElems : LibC::UInt32
   pElems : LibC::Guid*
 end
+type Owlaec9b6f8e11c = CHAR | LibC::Byte | LibC::Int16 | LibC::UInt16 | LibC::Int32 | LibC::UInt32 | LibC::Int32 | LibC::UInt32 | LARGE_INTEGER | ULARGE_INTEGER | LibC::Single | LibC::Double | LibC::Int16 | LibC::Int16 | LibC::Int32 | CY | LibC::Double | FILETIME | LibC::Guid* | CLIPDATA* | BSTR | BSTRBLOB | BLOB | PSTR | PWSTR | IUnknown | IDispatch | IStream | IStorage | VERSIONEDSTREAM* | SAFEARRAY* | CAC | CAUB | CAI | CAUI | CAL | CAUL | CAH | CAUH | CAFLT | CADBL | CABOOL | CASCODE | CACY | CADATE | CAFILETIME | CACLSID | CACLIPDATA | CABSTR | CABSTRBLOB | CALPSTR | CALPWSTR | CAPROPVARIANT | PSTR | LibC::Byte* | LibC::Int16* | LibC::UInt16* | LibC::Int32* | LibC::UInt32* | LibC::Int32* | LibC::UInt32* | LibC::Single* | LibC::Double* | LibC::Int16* | DECIMAL* | LibC::Int32* | CY* | LibC::Double* | BSTR* | IUnknown* | IDispatch* | SAFEARRAY** | PROPVARIANT*
+struct Otherae7d2df2e98e
+  vt : LibC::UInt16
+  wReserved1 : LibC::UInt16
+  wReserved2 : LibC::UInt16
+  wReserved3 : LibC::UInt16
+end
+type Owlef23626df106 = Otherae7d2df2e98e | DECIMAL
 struct PROPVARIANT
 end
+type Bird87892bc15dc3 = LibC::UInt32 | PWSTR
 struct PROPSPEC
   ulKind : PROPSPEC_KIND
 end
@@ -306,8 +315,6 @@ struct PROPBAG2
   pstrName : PWSTR
   clsid : LibC::Guid
 end
-fun coGetInstanceFromFile(pServerInfo : COSERVERINFO*, pClsid : LibC::Guid*, punkOuter : IUnknown, dwClsCtx : CLSCTX, grfMode : LibC::UInt32, pwszName : PWSTR, dwCount : LibC::UInt32, pResults : ) : HRESULT
-fun coGetInstanceFromIStorage(pServerInfo : COSERVERINFO*, pClsid : LibC::Guid*, punkOuter : IUnknown, dwClsCtx : CLSCTX, pstg : IStorage, dwCount : LibC::UInt32, pResults : ) : HRESULT
 fun stgOpenAsyncDocfileOnIFillLockBytes(pflb : IFillLockBytes, grfMode : LibC::UInt32, asyncFlags : LibC::UInt32, ppstgOpen : IStorage*) : HRESULT
 fun stgGetIFillLockBytesOnILockBytes(pilb : ILockBytes, ppflb : IFillLockBytes*) : HRESULT
 fun stgGetIFillLockBytesOnFile(pwcsName : PWSTR, ppflb : IFillLockBytes*) : HRESULT
@@ -317,7 +324,6 @@ fun getHGlobalFromStream(pstm : IStream, phglobal : LibC::Int**) : HRESULT
 fun coGetInterfaceAndReleaseStream(pStm : IStream, iid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 fun propVariantCopy(pvarDest : PROPVARIANT*, pvarSrc : PROPVARIANT*) : HRESULT
 fun propVariantClear(pvar : PROPVARIANT*) : HRESULT
-fun freePropVariantArray(cVariants : LibC::UInt32, rgvars : ) : HRESULT
 fun stgCreateDocfile(pwcsName : PWSTR, grfMode : LibC::UInt32, reserved : LibC::UInt32, ppstgOpen : IStorage*) : HRESULT
 fun stgCreateDocfileOnILockBytes(plkbyt : ILockBytes, grfMode : LibC::UInt32, reserved : LibC::UInt32, ppstgOpen : IStorage*) : HRESULT
 fun stgOpenStorage(pwcsName : PWSTR, pstgPriority : IStorage, grfMode : LibC::UInt32, snbExclude : LibC::UInt16**, reserved : LibC::UInt32, ppstgOpen : IStorage*) : HRESULT

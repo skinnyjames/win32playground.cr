@@ -367,12 +367,6 @@ fun regEnableReflectionKey(hBase : HKEY) : LibC::Int32
 fun regQueryReflectionKey(hBase : HKEY, bIsReflectionDisabled : BOOL*) : LibC::Int32
 fun regDeleteValueA(hKey : HKEY, lpValueName : PSTR) : LSTATUS
 fun regDeleteValueW(hKey : HKEY, lpValueName : PWSTR) : LSTATUS
-fun regEnumKeyA(hKey : HKEY, dwIndex : LibC::UInt32, lpName : , cchName : LibC::UInt32) : LSTATUS
-fun regEnumKeyW(hKey : HKEY, dwIndex : LibC::UInt32, lpName : , cchName : LibC::UInt32) : LSTATUS
-fun regEnumKeyExA(hKey : HKEY, dwIndex : LibC::UInt32, lpName : , lpcchName : LibC::UInt32*, lpReserved : LibC::UInt32*, lpClass : , lpcchClass : LibC::UInt32*, lpftLastWriteTime : FILETIME*) : LSTATUS
-fun regEnumKeyExW(hKey : HKEY, dwIndex : LibC::UInt32, lpName : , lpcchName : LibC::UInt32*, lpReserved : LibC::UInt32*, lpClass : , lpcchClass : LibC::UInt32*, lpftLastWriteTime : FILETIME*) : LSTATUS
-fun regEnumValueA(hKey : HKEY, dwIndex : LibC::UInt32, lpValueName : , lpcchValueName : LibC::UInt32*, lpReserved : LibC::UInt32*, lpType : LibC::UInt32*, lpData : LibC::Byte*, lpcbData : LibC::UInt32*) : LSTATUS
-fun regEnumValueW(hKey : HKEY, dwIndex : LibC::UInt32, lpValueName : , lpcchValueName : LibC::UInt32*, lpReserved : LibC::UInt32*, lpType : LibC::UInt32*, lpData : LibC::Byte*, lpcbData : LibC::UInt32*) : LSTATUS
 fun regFlushKey(hKey : HKEY) : LSTATUS
 fun regGetKeySecurity(hKey : HKEY, securityInformation : LibC::UInt32, pSecurityDescriptor : SECURITY_DESCRIPTOR*, lpcbSecurityDescriptor : LibC::UInt32*) : LSTATUS
 fun regLoadKeyA(hKey : HKEY, lpSubKey : PSTR, lpFile : PSTR) : LSTATUS
@@ -384,12 +378,8 @@ fun regOpenKeyExA(hKey : HKEY, lpSubKey : PSTR, ulOptions : LibC::UInt32, samDes
 fun regOpenKeyExW(hKey : HKEY, lpSubKey : PWSTR, ulOptions : LibC::UInt32, samDesired : REG_SAM_FLAGS, phkResult : HKEY*) : LSTATUS
 fun regOpenKeyTransactedA(hKey : HKEY, lpSubKey : PSTR, ulOptions : LibC::UInt32, samDesired : REG_SAM_FLAGS, phkResult : HKEY*, hTransaction : HANDLE, pExtendedParemeter : LibC::Void*) : LSTATUS
 fun regOpenKeyTransactedW(hKey : HKEY, lpSubKey : PWSTR, ulOptions : LibC::UInt32, samDesired : REG_SAM_FLAGS, phkResult : HKEY*, hTransaction : HANDLE, pExtendedParemeter : LibC::Void*) : LSTATUS
-fun regQueryInfoKeyA(hKey : HKEY, lpClass : , lpcchClass : LibC::UInt32*, lpReserved : LibC::UInt32*, lpcSubKeys : LibC::UInt32*, lpcbMaxSubKeyLen : LibC::UInt32*, lpcbMaxClassLen : LibC::UInt32*, lpcValues : LibC::UInt32*, lpcbMaxValueNameLen : LibC::UInt32*, lpcbMaxValueLen : LibC::UInt32*, lpcbSecurityDescriptor : LibC::UInt32*, lpftLastWriteTime : FILETIME*) : LSTATUS
-fun regQueryInfoKeyW(hKey : HKEY, lpClass : , lpcchClass : LibC::UInt32*, lpReserved : LibC::UInt32*, lpcSubKeys : LibC::UInt32*, lpcbMaxSubKeyLen : LibC::UInt32*, lpcbMaxClassLen : LibC::UInt32*, lpcValues : LibC::UInt32*, lpcbMaxValueNameLen : LibC::UInt32*, lpcbMaxValueLen : LibC::UInt32*, lpcbSecurityDescriptor : LibC::UInt32*, lpftLastWriteTime : FILETIME*) : LSTATUS
 fun regQueryValueA(hKey : HKEY, lpSubKey : PSTR, lpData : PSTR, lpcbData : LibC::Int32*) : LSTATUS
 fun regQueryValueW(hKey : HKEY, lpSubKey : PWSTR, lpData : PWSTR, lpcbData : LibC::Int32*) : LSTATUS
-fun regQueryMultipleValuesA(hKey : HKEY, val_list : , num_vals : LibC::UInt32, lpValueBuf : PSTR, ldwTotsize : LibC::UInt32*) : LSTATUS
-fun regQueryMultipleValuesW(hKey : HKEY, val_list : , num_vals : LibC::UInt32, lpValueBuf : PWSTR, ldwTotsize : LibC::UInt32*) : LSTATUS
 fun regQueryValueExA(hKey : HKEY, lpValueName : PSTR, lpReserved : LibC::UInt32*, lpType : REG_VALUE_TYPE*, lpData : LibC::Byte*, lpcbData : LibC::UInt32*) : LSTATUS
 fun regQueryValueExW(hKey : HKEY, lpValueName : PWSTR, lpReserved : LibC::UInt32*, lpType : REG_VALUE_TYPE*, lpData : LibC::Byte*, lpcbData : LibC::UInt32*) : LSTATUS
 fun regReplaceKeyA(hKey : HKEY, lpSubKey : PSTR, lpNewFile : PSTR, lpOldFile : PSTR) : LSTATUS

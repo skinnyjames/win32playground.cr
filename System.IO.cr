@@ -1,6 +1,11 @@
   @[Link("System.IO")]
   lib LibSystemIO
-    struct OVERLAPPED
+    struct Pig90c9d3de79c2
+  offset : LibC::UInt32
+  offsetHigh : LibC::UInt32
+end
+type Rabbitb09db3f1be97 = Pig90c9d3de79c2 | LibC::Void*
+struct OVERLAPPED
   internal : LibC::UIint*
   internalHigh : LibC::UIint*
   hEvent : HANDLE
@@ -14,7 +19,6 @@ end
 alias LPOVERLAPPED_COMPLETION_ROUTINE = (LibC::UInt32, LibC::UInt32, OVERLAPPED* -> LibC::Void)
 fun createIoCompletionPort(fileHandle : HANDLE, existingCompletionPort : HANDLE, completionKey : LibC::UIint*, numberOfConcurrentThreads : LibC::UInt32) : HANDLE
 fun getQueuedCompletionStatus(completionPort : HANDLE, lpNumberOfBytesTransferred : LibC::UInt32*, lpCompletionKey : LibC::UIint**, lpOverlapped : OVERLAPPED**, dwMilliseconds : LibC::UInt32) : BOOL
-fun getQueuedCompletionStatusEx(completionPort : HANDLE, lpCompletionPortEntries : , ulCount : LibC::UInt32, ulNumEntriesRemoved : LibC::UInt32*, dwMilliseconds : LibC::UInt32, fAlertable : BOOL) : BOOL
 fun postQueuedCompletionStatus(completionPort : HANDLE, dwNumberOfBytesTransferred : LibC::UInt32, dwCompletionKey : LibC::UIint*, lpOverlapped : OVERLAPPED*) : BOOL
 fun deviceIoControl(hDevice : HANDLE, dwIoControlCode : LibC::UInt32, lpInBuffer : LibC::Void*, nInBufferSize : LibC::UInt32, lpOutBuffer : LibC::Void*, nOutBufferSize : LibC::UInt32, lpBytesReturned : LibC::UInt32*, lpOverlapped : OVERLAPPED*) : BOOL
 fun getOverlappedResult(hFile : HANDLE, lpOverlapped : OVERLAPPED*, lpNumberOfBytesTransferred : LibC::UInt32*, bWait : BOOL) : BOOL

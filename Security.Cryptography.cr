@@ -3236,6 +3236,7 @@ struct CERT_OTHER_NAME
   pszObjId : PSTR
   value : CRYPTOAPI_BLOB
 end
+type Other54175a56ebe4 = CERT_OTHER_NAME* | PWSTR | PWSTR | CRYPTOAPI_BLOB | PWSTR | CRYPTOAPI_BLOB | PSTR
 struct CERT_ALT_NAME_ENTRY
   dwAltNameChoice : LibC::UInt32
 end
@@ -3329,6 +3330,7 @@ struct CERT_AUTHORITY_INFO_ACCESS
   cAccDescr : LibC::UInt32
   rgAccDescr : CERT_ACCESS_DESCRIPTION*
 end
+type Bird22be8a4ba3e6 = CERT_ALT_NAME_INFO
 struct CRL_DIST_POINT_NAME
   dwDistPointNameChoice : LibC::UInt32
 end
@@ -3452,6 +3454,7 @@ struct CMC_TAGGED_CERT_REQUEST
   dwBodyPartID : LibC::UInt32
   signedCertRequest : CRYPTOAPI_BLOB
 end
+type Bird379d1322efb9 = CMC_TAGGED_CERT_REQUEST*
 struct CMC_TAGGED_REQUEST
   dwTaggedRequestChoice : LibC::UInt32
 end
@@ -3486,6 +3489,7 @@ struct CMC_PEND_INFO
   pendToken : CRYPTOAPI_BLOB
   pendTime : FILETIME
 end
+type Other274e006e90f9 = LibC::UInt32 | CMC_PEND_INFO*
 struct CMC_STATUS_INFO
   dwStatus : LibC::UInt32
   cBodyList : LibC::UInt32
@@ -3527,6 +3531,7 @@ struct CERT_LOGOTYPE_REFERENCE
   cHashedUrl : LibC::UInt32
   rgHashedUrl : CERT_HASHED_URL*
 end
+type Rabbitb4e6ed367564 = LibC::UInt32 | LibC::UInt32
 struct CERT_LOGOTYPE_IMAGE_INFO
   dwLogotypeImageInfoChoice : CERT_LOGOTYPE_IMAGE_INFO_TYPE
   dwFileSize : LibC::UInt32
@@ -3556,6 +3561,7 @@ struct CERT_LOGOTYPE_DATA
   cLogotypeAudio : LibC::UInt32
   rgLogotypeAudio : CERT_LOGOTYPE_AUDIO*
 end
+type Owl1db5e297fff2 = CERT_LOGOTYPE_DATA* | CERT_LOGOTYPE_REFERENCE*
 struct CERT_LOGOTYPE_INFO
   dwLogotypeInfoChoice : CERT_LOGOTYPE_OPTION
 end
@@ -3571,6 +3577,7 @@ struct CERT_LOGOTYPE_EXT_INFO
   cOtherLogo : LibC::UInt32
   rgOtherLogo : CERT_OTHER_LOGOTYPE_INFO*
 end
+type Birda495e6a50e05 = LibC::UInt32 | PSTR
 struct CERT_BIOMETRIC_DATA
   dwTypeOfBiometricDataChoice : CERT_BIOMETRIC_DATA_TYPE
   hashedUrl : CERT_HASHED_URL
@@ -3621,6 +3628,7 @@ struct OCSP_BASIC_REVOKED_INFO
   revocationDate : FILETIME
   dwCrlReasonCode : CERT_REVOCATION_STATUS_REASON
 end
+type Rabbitdcdb0739ee4e = OCSP_BASIC_REVOKED_INFO*
 struct OCSP_BASIC_RESPONSE_ENTRY
   certId : OCSP_CERT_ID
   dwCertStatus : LibC::UInt32
@@ -3629,6 +3637,7 @@ struct OCSP_BASIC_RESPONSE_ENTRY
   cExtension : LibC::UInt32
   rgExtension : CERT_EXTENSION*
 end
+type Owld67f5eca83de = CRYPTOAPI_BLOB | CRYPTOAPI_BLOB
 struct OCSP_BASIC_RESPONSE_INFO
   dwVersion : LibC::UInt32
   dwResponderIdChoice : LibC::UInt32
@@ -3652,7 +3661,7 @@ struct CRYPT_OID_FUNC_ENTRY
   pszOID : PSTR
   pvFuncAddr : LibC::Void*
 end
-alias PFN_CRYPT_ENUM_OID_FUNC = (LibC::UInt32, PSTR, PSTR, LibC::UInt32, , , , , LibC::Void* -> BOOL)
+type Pig6f4d437aec7e = LibC::UInt32 | LibC::UInt32 | LibC::UInt32
 struct CRYPT_OID_INFO
   cbSize : LibC::UInt32
   pszOID : PSTR
@@ -3666,6 +3675,7 @@ struct CERT_STRONG_SIGN_SERIALIZED_INFO
   pwszCNGSignHashAlgids : PWSTR
   pwszCNGPubKeyMinBitLengths : PWSTR
 end
+type Bird31faa9bd71e7 = LibC::Void* | CERT_STRONG_SIGN_SERIALIZED_INFO* | PSTR
 struct CERT_STRONG_SIGN_PARA
   cbSize : LibC::UInt32
   dwInfoChoice : LibC::UInt32
@@ -3674,9 +3684,11 @@ struct CERT_ISSUER_SERIAL_NUMBER
   issuer : CRYPTOAPI_BLOB
   serialNumber : CRYPTOAPI_BLOB
 end
+type Rabbita48e8559def3 = CERT_ISSUER_SERIAL_NUMBER | CRYPTOAPI_BLOB | CRYPTOAPI_BLOB
 struct CERT_ID
   dwIdChoice : CERT_ID_OPTION
 end
+type Rabbit1c6a3a99118b = LibC::UIint* | LibC::UIint*
 struct CMSG_SIGNER_ENCODE_INFO
   cbSize : LibC::UInt32
   pCertInfo : CERT_INFO*
@@ -3720,6 +3732,7 @@ struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO
   date : FILETIME
   pOtherAttr : CRYPT_ATTRIBUTE_TYPE_VALUE*
 end
+type Bird6d0e693a7930 = CRYPT_ALGORITHM_IDENTIFIER* | CERT_ID*
 struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO
   cbSize : LibC::UInt32
   keyEncryptionAlgorithm : CRYPT_ALGORITHM_IDENTIFIER
@@ -3733,6 +3746,7 @@ struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO
   cRecipientEncryptedKeys : LibC::UInt32
   rgpRecipientEncryptedKeys : CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO**
 end
+type Rabbit56d9f1d8943d = LibC::UIint* | LibC::Void*
 struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO
   cbSize : LibC::UInt32
   keyEncryptionAlgorithm : CRYPT_ALGORITHM_IDENTIFIER
@@ -3743,6 +3757,7 @@ struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO
   date : FILETIME
   pOtherAttr : CRYPT_ATTRIBUTE_TYPE_VALUE*
 end
+type Rabbitf9e2989f2c34 = CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO* | CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO* | CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO*
 struct CMSG_RECIPIENT_ENCODE_INFO
   dwRecipientChoice : LibC::UInt32
 end
@@ -3811,6 +3826,7 @@ struct CMSG_RECIPIENT_ENCRYPTED_KEY_INFO
   date : FILETIME
   pOtherAttr : CRYPT_ATTRIBUTE_TYPE_VALUE*
 end
+type Duck22a92012adf0 = CERT_ID | CERT_PUBLIC_KEY_INFO
 struct CMSG_KEY_AGREE_RECIPIENT_INFO
   dwVersion : LibC::UInt32
   dwOriginatorChoice : CMSG_KEY_AGREE_ORIGINATOR
@@ -3827,6 +3843,7 @@ struct CMSG_MAIL_LIST_RECIPIENT_INFO
   date : FILETIME
   pOtherAttr : CRYPT_ATTRIBUTE_TYPE_VALUE*
 end
+type Duckef535a419e15 = CMSG_KEY_TRANS_RECIPIENT_INFO* | CMSG_KEY_AGREE_RECIPIENT_INFO* | CMSG_MAIL_LIST_RECIPIENT_INFO*
 struct CMSG_CMS_RECIPIENT_INFO
   dwRecipientChoice : LibC::UInt32
 end
@@ -3837,17 +3854,20 @@ struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA
   dwSignerType : LibC::UInt32
   pvSigner : LibC::Void*
 end
+type Pig597517752d71 = LibC::UIint* | LibC::UIint*
 struct CMSG_CTRL_DECRYPT_PARA
   cbSize : LibC::UInt32
   dwKeySpec : LibC::UInt32
   dwRecipientIndex : LibC::UInt32
 end
+type Other00a626340521 = LibC::UIint* | LibC::UIint*
 struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA
   cbSize : LibC::UInt32
   dwKeySpec : LibC::UInt32
   pKeyTrans : CMSG_KEY_TRANS_RECIPIENT_INFO*
   dwRecipientIndex : LibC::UInt32
 end
+type Duck1d3f003c160d = LibC::UIint* | LibC::UIint*
 struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA
   cbSize : LibC::UInt32
   dwKeySpec : LibC::UInt32
@@ -3856,6 +3876,7 @@ struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA
   dwRecipientEncryptedKeyIndex : LibC::UInt32
   originatorPublicKey : CRYPT_BIT_BLOB
 end
+type Pig6026c704e2fc = LibC::UIint* | LibC::Void*
 struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA
   cbSize : LibC::UInt32
   hCryptProv : LibC::UIint*
@@ -3878,6 +3899,7 @@ alias PFN_CMSG_FREE = (LibC::Void* -> LibC::Void)
 alias PFN_CMSG_GEN_ENCRYPT_KEY = (LibC::UIint**, CRYPT_ALGORITHM_IDENTIFIER*, LibC::Void*, CERT_PUBLIC_KEY_INFO*, PFN_CMSG_ALLOC, LibC::UIint**, LibC::Byte**, LibC::UInt32* -> BOOL)
 alias PFN_CMSG_EXPORT_ENCRYPT_KEY = (LibC::UIint*, LibC::UIint*, CERT_PUBLIC_KEY_INFO*, LibC::Byte*, LibC::UInt32* -> BOOL)
 alias PFN_CMSG_IMPORT_ENCRYPT_KEY = (LibC::UIint*, LibC::UInt32, CRYPT_ALGORITHM_IDENTIFIER*, CRYPT_ALGORITHM_IDENTIFIER*, LibC::Byte*, LibC::UInt32, LibC::UIint** -> BOOL)
+type Owl03a49d88e4a7 = LibC::UIint* | BCRYPT_KEY_HANDLE
 struct CMSG_CONTENT_ENCRYPT_INFO
   cbSize : LibC::UInt32
   hCryptProv : LibC::UIint*
@@ -3907,6 +3929,7 @@ struct CMSG_KEY_AGREE_KEY_ENCRYPT_INFO
   cbSize : LibC::UInt32
   encryptedKey : CRYPTOAPI_BLOB
 end
+type Pig50a75b9eabaa = CERT_ID | CERT_PUBLIC_KEY_INFO
 struct CMSG_KEY_AGREE_ENCRYPT_INFO
   cbSize : LibC::UInt32
   dwRecipientIndex : LibC::UInt32
@@ -4002,6 +4025,7 @@ struct CRYPT_KEY_PROV_INFO
   rgProvParam : CRYPT_KEY_PROV_PARAM*
   dwKeySpec : LibC::UInt32
 end
+type Othere37834195f3b = LibC::UIint* | LibC::UIint*
 struct CERT_KEY_CONTEXT
   cbSize : LibC::UInt32
   dwKeySpec : LibC::UInt32
@@ -4014,9 +4038,11 @@ struct CRYPT_SMART_CARD_ROOT_INFO
   rgbCardID : Array(LibC::Byte)
   luid : ROOT_INFO_LUID
 end
+type Pig4c6781f500d0 = LibC::Void* | PSTR | PWSTR
+type Birdc4f04da8e237 = HKEY | LibC::Void*
 struct CERT_SYSTEM_STORE_RELOCATE_PARA
-  anonymous1 : Anonymous1_e__Union
-  anonymous2 : Anonymous2_e__Union
+  anonymous1 : Birdc4f04da8e237
+  anonymous2 : Pig4c6781f500d0
 end
 struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA
   hKeyBase : HKEY
@@ -4220,6 +4246,7 @@ struct CRYPT_HASH_MESSAGE_PARA
   hashAlgorithm : CRYPT_ALGORITHM_IDENTIFIER
   pvHashAuxInfo : LibC::Void*
 end
+type Birdefb1c5c63fd0 = LibC::UIint* | LibC::UIint*
 struct CRYPT_KEY_SIGN_MESSAGE_PARA
   cbSize : LibC::UInt32
   dwMsgAndCertEncodingType : CERT_QUERY_ENCODING_TYPE
@@ -4326,7 +4353,6 @@ struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO
   pChainPara : CERT_REVOCATION_CHAIN_PARA*
   pDeltaCrlIndicator : CRYPTOAPI_BLOB*
 end
-alias PFN_CRYPT_ENUM_KEYID_PROP = (CRYPTOAPI_BLOB*, LibC::UInt32, LibC::Void*, LibC::Void*, LibC::UInt32, , ,  -> BOOL)
 struct CERT_CHAIN_ENGINE_CONFIG
   cbSize : LibC::UInt32
   hRestrictedRoot : LibC::Void*
@@ -4454,6 +4480,7 @@ struct AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA
   dwRegPolicySettings : LibC::UInt32
   fCommercial : BOOL
 end
+type Rabbitca1d8ea62e3c = LibC::UInt32 | LibC::UInt32
 struct HTTPSPolicyCallbackData
   dwAuthType : HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE
   fdwChecks : LibC::UInt32
@@ -4574,7 +4601,6 @@ struct CRYPT_TIMESTAMP_PARA
   cExtension : LibC::UInt32
   rgExtension : CERT_EXTENSION*
 end
-alias PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FLUSH = (LibC::Void*, , LibC::UInt32 -> BOOL)
 alias PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET = (LibC::Void*, CRYPTOAPI_BLOB*, LibC::UInt32, CRYPTOAPI_BLOB*, LibC::Byte**, LibC::UInt32*, PWSTR*, CRYPTOAPI_BLOB** -> BOOL)
 alias PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_RELEASE = (CRYPT_OBJECT_LOCATOR_RELEASE_REASON, LibC::Void* -> LibC::Void)
 alias PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_PASSWORD = (LibC::Void*, PWSTR -> LibC::Void)
@@ -4693,6 +4719,7 @@ struct CRYPT_XML_KEY_RSA_KEY_VALUE
   modulus : CRYPT_XML_DATA_BLOB
   exponent : CRYPT_XML_DATA_BLOB
 end
+type Pigf624af0a06ea = CRYPT_XML_KEY_DSA_KEY_VALUE | CRYPT_XML_KEY_RSA_KEY_VALUE | CRYPT_XML_KEY_ECDSA_KEY_VALUE | CRYPT_XML_BLOB
 struct CRYPT_XML_KEY_VALUE
   dwType : CRYPT_XML_KEY_VALUE_TYPE
 end
@@ -4700,6 +4727,7 @@ struct CRYPT_XML_ISSUER_SERIAL
   wszIssuer : PWSTR
   wszSerial : PWSTR
 end
+type Bird6137f5397ff0 = CRYPT_XML_ISSUER_SERIAL | CRYPT_XML_DATA_BLOB | PWSTR | CRYPT_XML_DATA_BLOB | CRYPT_XML_DATA_BLOB | CRYPT_XML_BLOB
 struct CRYPT_XML_X509DATA_ITEM
   dwType : CRYPT_XML_X509DATA_TYPE
 end
@@ -4707,6 +4735,7 @@ struct CRYPT_XML_X509DATA
   cX509Data : LibC::UInt32
   rgX509Data : CRYPT_XML_X509DATA_ITEM*
 end
+type Pig5438b497e6b3 = PWSTR | CRYPT_XML_KEY_VALUE | CRYPT_XML_BLOB | CRYPT_XML_X509DATA | CRYPT_XML_BLOB
 struct CRYPT_XML_KEY_INFO_ITEM
   dwType : CRYPT_XML_KEYINFO_TYPE
 end
@@ -5143,10 +5172,8 @@ fun cryptEncodeObjectEx(dwCertEncodingType : CERT_QUERY_ENCODING_TYPE, lpszStruc
 fun cryptEncodeObject(dwCertEncodingType : LibC::UInt32, lpszStructType : PSTR, pvStructInfo : LibC::Void*, pbEncoded : LibC::Byte*, pcbEncoded : LibC::UInt32*) : BOOL
 fun cryptDecodeObjectEx(dwCertEncodingType : LibC::UInt32, lpszStructType : PSTR, pbEncoded : LibC::Byte*, cbEncoded : LibC::UInt32, dwFlags : LibC::UInt32, pDecodePara : CRYPT_DECODE_PARA*, pvStructInfo : LibC::Void*, pcbStructInfo : LibC::UInt32*) : BOOL
 fun cryptDecodeObject(dwCertEncodingType : LibC::UInt32, lpszStructType : PSTR, pbEncoded : LibC::Byte*, cbEncoded : LibC::UInt32, dwFlags : LibC::UInt32, pvStructInfo : LibC::Void*, pcbStructInfo : LibC::UInt32*) : BOOL
-fun cryptInstallOIDFunctionAddress(hModule : HINSTANCE, dwEncodingType : LibC::UInt32, pszFuncName : PSTR, cFuncEntry : LibC::UInt32, rgFuncEntry : , dwFlags : LibC::UInt32) : BOOL
 fun cryptInitOIDFunctionSet(pszFuncName : PSTR, dwFlags : LibC::UInt32) : LibC::Void*
 fun cryptGetOIDFunctionAddress(hFuncSet : LibC::Void*, dwEncodingType : LibC::UInt32, pszOID : PSTR, dwFlags : LibC::UInt32, ppvFuncAddr : LibC::Void**, phFuncAddr : LibC::Void**) : BOOL
-fun cryptGetDefaultOIDDllList(hFuncSet : LibC::Void*, dwEncodingType : LibC::UInt32, pwszDllList : , pcchDllList : LibC::UInt32*) : BOOL
 fun cryptGetDefaultOIDFunctionAddress(hFuncSet : LibC::Void*, dwEncodingType : LibC::UInt32, pwszDll : PWSTR, dwFlags : LibC::UInt32, ppvFuncAddr : LibC::Void**, phFuncAddr : LibC::Void**) : BOOL
 fun cryptFreeOIDFunctionAddress(hFuncAddr : LibC::Void*, dwFlags : LibC::UInt32) : BOOL
 fun cryptRegisterOIDFunction(dwEncodingType : LibC::UInt32, pszFuncName : PSTR, pszOID : PSTR, pwszDll : PWSTR, pszOverrideFuncName : PSTR) : BOOL
@@ -5155,7 +5182,6 @@ fun cryptRegisterDefaultOIDFunction(dwEncodingType : LibC::UInt32, pszFuncName :
 fun cryptUnregisterDefaultOIDFunction(dwEncodingType : LibC::UInt32, pszFuncName : PSTR, pwszDll : PWSTR) : BOOL
 fun cryptSetOIDFunctionValue(dwEncodingType : LibC::UInt32, pszFuncName : PSTR, pszOID : PSTR, pwszValueName : PWSTR, dwValueType : REG_VALUE_TYPE, pbValueData : LibC::Byte*, cbValueData : LibC::UInt32) : BOOL
 fun cryptGetOIDFunctionValue(dwEncodingType : LibC::UInt32, pszFuncName : PSTR, pszOID : PSTR, pwszValueName : PWSTR, pdwValueType : LibC::UInt32*, pbValueData : LibC::Byte*, pcbValueData : LibC::UInt32*) : BOOL
-fun cryptEnumOIDFunction(dwEncodingType : LibC::UInt32, pszFuncName : PSTR, pszOID : PSTR, dwFlags : LibC::UInt32, pvArg : LibC::Void*, pfnEnumOIDFunc : PFN_CRYPT_ENUM_OID_FUNC) : BOOL
 fun cryptFindOIDInfo(dwKeyType : LibC::UInt32, pvKey : LibC::Void*, dwGroupId : LibC::UInt32) : CRYPT_OID_INFO*
 fun cryptRegisterOIDInfo(pInfo : CRYPT_OID_INFO*, dwFlags : LibC::UInt32) : BOOL
 fun cryptUnregisterOIDInfo(pInfo : CRYPT_OID_INFO*) : BOOL
@@ -5171,8 +5197,6 @@ fun cryptMsgGetParam(hCryptMsg : LibC::Void*, dwParamType : LibC::UInt32, dwInde
 fun cryptMsgControl(hCryptMsg : LibC::Void*, dwFlags : LibC::UInt32, dwCtrlType : LibC::UInt32, pvCtrlPara : LibC::Void*) : BOOL
 fun cryptMsgVerifyCountersignatureEncoded(hCryptProv : LibC::UIint*, dwEncodingType : LibC::UInt32, pbSignerInfo : LibC::Byte*, cbSignerInfo : LibC::UInt32, pbSignerInfoCountersignature : LibC::Byte*, cbSignerInfoCountersignature : LibC::UInt32, pciCountersigner : CERT_INFO*) : BOOL
 fun cryptMsgVerifyCountersignatureEncodedEx(hCryptProv : LibC::UIint*, dwEncodingType : LibC::UInt32, pbSignerInfo : LibC::Byte*, cbSignerInfo : LibC::UInt32, pbSignerInfoCountersignature : LibC::Byte*, cbSignerInfoCountersignature : LibC::UInt32, dwSignerType : LibC::UInt32, pvSigner : LibC::Void*, dwFlags : LibC::UInt32, pvExtra : LibC::Void*) : BOOL
-fun cryptMsgCountersign(hCryptMsg : LibC::Void*, dwIndex : LibC::UInt32, cCountersigners : LibC::UInt32, rgCountersigners : ) : BOOL
-fun cryptMsgCountersignEncoded(dwEncodingType : LibC::UInt32, pbSignerInfo : LibC::Byte*, cbSignerInfo : LibC::UInt32, cCountersigners : LibC::UInt32, rgCountersigners : , pbCountersignature : LibC::Byte*, pcbCountersignature : LibC::UInt32*) : BOOL
 fun certOpenStore(lpszStoreProvider : PSTR, dwEncodingType : CERT_QUERY_ENCODING_TYPE, hCryptProv : LibC::UIint*, dwFlags : CERT_OPEN_STORE_FLAGS, pvPara : LibC::Void*) : LibC::Void*
 fun certDuplicateStore(hCertStore : LibC::Void*) : LibC::Void*
 fun certSaveStore(hCertStore : LibC::Void*, dwEncodingType : CERT_QUERY_ENCODING_TYPE, dwSaveAs : CERT_STORE_SAVE_AS, dwSaveTo : CERT_STORE_SAVE_TO, pvSaveToPara : LibC::Void*, dwFlags : LibC::UInt32) : BOOL
@@ -5188,7 +5212,6 @@ fun certFreeCertificateContext(pCertContext : CERT_CONTEXT*) : BOOL
 fun certSetCertificateContextProperty(pCertContext : CERT_CONTEXT*, dwPropId : LibC::UInt32, dwFlags : LibC::UInt32, pvData : LibC::Void*) : BOOL
 fun certGetCertificateContextProperty(pCertContext : CERT_CONTEXT*, dwPropId : LibC::UInt32, pvData : LibC::Void*, pcbData : LibC::UInt32*) : BOOL
 fun certEnumCertificateContextProperties(pCertContext : CERT_CONTEXT*, dwPropId : LibC::UInt32) : LibC::UInt32
-fun certCreateCTLEntryFromCertificateContextProperties(pCertContext : CERT_CONTEXT*, cOptAttr : LibC::UInt32, rgOptAttr : , dwFlags : LibC::UInt32, pvReserved : LibC::Void*, pCtlEntry : CTL_ENTRY*, pcbCtlEntry : LibC::UInt32*) : BOOL
 fun certSetCertificateContextPropertiesFromCTLEntry(pCertContext : CERT_CONTEXT*, pCtlEntry : CTL_ENTRY*, dwFlags : LibC::UInt32) : BOOL
 fun certGetCRLFromStore(hCertStore : LibC::Void*, pIssuerContext : CERT_CONTEXT*, pPrevCrlContext : CRL_CONTEXT*, pdwFlags : LibC::UInt32*) : CRL_CONTEXT*
 fun certEnumCRLsInStore(hCertStore : LibC::Void*, pPrevCrlContext : CRL_CONTEXT*) : CRL_CONTEXT*
@@ -5243,14 +5266,11 @@ fun certGetEnhancedKeyUsage(pCertContext : CERT_CONTEXT*, dwFlags : LibC::UInt32
 fun certSetEnhancedKeyUsage(pCertContext : CERT_CONTEXT*, pUsage : CTL_USAGE*) : BOOL
 fun certAddEnhancedKeyUsageIdentifier(pCertContext : CERT_CONTEXT*, pszUsageIdentifier : PSTR) : BOOL
 fun certRemoveEnhancedKeyUsageIdentifier(pCertContext : CERT_CONTEXT*, pszUsageIdentifier : PSTR) : BOOL
-fun certGetValidUsages(cCerts : LibC::UInt32, rghCerts : , cNumOIDs : LibC::Int32*, rghOIDs : PSTR*, pcbOIDs : LibC::UInt32*) : BOOL
-fun cryptMsgGetAndVerifySigner(hCryptMsg : LibC::Void*, cSignerStore : LibC::UInt32, rghSignerStore : , dwFlags : LibC::UInt32, ppSigner : CERT_CONTEXT**, pdwSignerIndex : LibC::UInt32*) : BOOL
 fun cryptMsgSignCTL(dwMsgEncodingType : LibC::UInt32, pbCtlContent : LibC::Byte*, cbCtlContent : LibC::UInt32, pSignInfo : CMSG_SIGNED_ENCODE_INFO*, dwFlags : LibC::UInt32, pbEncoded : LibC::Byte*, pcbEncoded : LibC::UInt32*) : BOOL
 fun cryptMsgEncodeAndSignCTL(dwMsgEncodingType : LibC::UInt32, pCtlInfo : CTL_INFO*, pSignInfo : CMSG_SIGNED_ENCODE_INFO*, dwFlags : LibC::UInt32, pbEncoded : LibC::Byte*, pcbEncoded : LibC::UInt32*) : BOOL
 fun certFindSubjectInSortedCTL(pSubjectIdentifier : CRYPTOAPI_BLOB*, pCtlContext : CTL_CONTEXT*, dwFlags : LibC::UInt32, pvReserved : LibC::Void*, pEncodedAttributes : CRYPTOAPI_BLOB*) : BOOL
 fun certEnumSubjectInSortedCTL(pCtlContext : CTL_CONTEXT*, ppvNextSubject : LibC::Void**, pSubjectIdentifier : CRYPTOAPI_BLOB*, pEncodedAttributes : CRYPTOAPI_BLOB*) : BOOL
 fun certVerifyCTLUsage(dwEncodingType : LibC::UInt32, dwSubjectType : LibC::UInt32, pvSubject : LibC::Void*, pSubjectUsage : CTL_USAGE*, dwFlags : LibC::UInt32, pVerifyUsagePara : CTL_VERIFY_USAGE_PARA*, pVerifyUsageStatus : CTL_VERIFY_USAGE_STATUS*) : BOOL
-fun certVerifyRevocation(dwEncodingType : LibC::UInt32, dwRevType : LibC::UInt32, cContext : LibC::UInt32, rgpvContext : , dwFlags : LibC::UInt32, pRevPara : CERT_REVOCATION_PARA*, pRevStatus : CERT_REVOCATION_STATUS*) : BOOL
 fun certCompareIntegerBlob(pInt1 : CRYPTOAPI_BLOB*, pInt2 : CRYPTOAPI_BLOB*) : BOOL
 fun certCompareCertificate(dwCertEncodingType : LibC::UInt32, pCertId1 : CERT_INFO*, pCertId2 : CERT_INFO*) : BOOL
 fun certCompareCertificateName(dwCertEncodingType : LibC::UInt32, pCertName1 : CRYPTOAPI_BLOB*, pCertName2 : CRYPTOAPI_BLOB*) : BOOL
@@ -5268,11 +5288,8 @@ fun cryptSignAndEncodeCertificate(hCryptProvOrNCryptKey : LibC::UIint*, dwKeySpe
 fun certVerifyTimeValidity(pTimeToVerify : FILETIME*, pCertInfo : CERT_INFO*) : LibC::Int32
 fun certVerifyCRLTimeValidity(pTimeToVerify : FILETIME*, pCrlInfo : CRL_INFO*) : LibC::Int32
 fun certVerifyValidityNesting(pSubjectInfo : CERT_INFO*, pIssuerInfo : CERT_INFO*) : BOOL
-fun certVerifyCRLRevocation(dwCertEncodingType : LibC::UInt32, pCertId : CERT_INFO*, cCrlInfo : LibC::UInt32, rgpCrlInfo : ) : BOOL
 fun certAlgIdToOID(dwAlgId : LibC::UInt32) : PSTR
 fun certOIDToAlgId(pszObjId : PSTR) : LibC::UInt32
-fun certFindExtension(pszObjId : PSTR, cExtensions : LibC::UInt32, rgExtensions : ) : CERT_EXTENSION*
-fun certFindAttribute(pszObjId : PSTR, cAttr : LibC::UInt32, rgAttr : ) : CRYPT_ATTRIBUTE*
 fun certFindRDNAttr(pszObjId : PSTR, pName : CERT_NAME_INFO*) : CERT_RDN_ATTR*
 fun certGetIntendedKeyUsage(dwCertEncodingType : LibC::UInt32, pCertInfo : CERT_INFO*, pbKeyUsage : LibC::Byte*, cbKeyUsage : LibC::UInt32) : BOOL
 fun cryptInstallDefaultContext(hCryptProv : LibC::UIint*, dwDefaultType : CRYPT_DEFAULT_CONTEXT_TYPE, pvDefaultPara : LibC::Void*, dwFlags : CRYPT_DEFAULT_CONTEXT_FLAGS, pvReserved : LibC::Void*, phDefaultContext : LibC::Void**) : BOOL
@@ -5288,27 +5305,15 @@ fun cryptFindCertificateKeyProvInfo(pCert : CERT_CONTEXT*, dwFlags : CRYPT_FIND_
 fun cryptImportPKCS8(sPrivateKeyAndParams : CRYPT_PKCS8_IMPORT_PARAMS, dwFlags : CRYPT_KEY_FLAGS, phCryptProv : LibC::UIint**, pvAuxInfo : LibC::Void*) : BOOL
 fun cryptExportPKCS8(hCryptProv : LibC::UIint*, dwKeySpec : LibC::UInt32, pszPrivateKeyObjId : PSTR, dwFlags : LibC::UInt32, pvAuxInfo : LibC::Void*, pbPrivateKeyBlob : LibC::Byte*, pcbPrivateKeyBlob : LibC::UInt32*) : BOOL
 fun cryptHashPublicKeyInfo(hCryptProv : LibC::UIint*, algid : LibC::UInt32, dwFlags : LibC::UInt32, dwCertEncodingType : LibC::UInt32, pInfo : CERT_PUBLIC_KEY_INFO*, pbComputedHash : LibC::Byte*, pcbComputedHash : LibC::UInt32*) : BOOL
-fun certRDNValueToStrA(dwValueType : LibC::UInt32, pValue : CRYPTOAPI_BLOB*, psz : , csz : LibC::UInt32) : LibC::UInt32
-fun certRDNValueToStrW(dwValueType : LibC::UInt32, pValue : CRYPTOAPI_BLOB*, psz : , csz : LibC::UInt32) : LibC::UInt32
-fun certNameToStrA(dwCertEncodingType : LibC::UInt32, pName : CRYPTOAPI_BLOB*, dwStrType : CERT_STRING_TYPE, psz : , csz : LibC::UInt32) : LibC::UInt32
-fun certNameToStrW(dwCertEncodingType : LibC::UInt32, pName : CRYPTOAPI_BLOB*, dwStrType : CERT_STRING_TYPE, psz : , csz : LibC::UInt32) : LibC::UInt32
 fun certStrToNameA(dwCertEncodingType : LibC::UInt32, pszX500 : PSTR, dwStrType : CERT_STRING_TYPE, pvReserved : LibC::Void*, pbEncoded : LibC::Byte*, pcbEncoded : LibC::UInt32*, ppszError : PSTR*) : BOOL
 fun certStrToNameW(dwCertEncodingType : LibC::UInt32, pszX500 : PWSTR, dwStrType : CERT_STRING_TYPE, pvReserved : LibC::Void*, pbEncoded : LibC::Byte*, pcbEncoded : LibC::UInt32*, ppszError : PWSTR*) : BOOL
-fun certGetNameStringA(pCertContext : CERT_CONTEXT*, dwType : LibC::UInt32, dwFlags : LibC::UInt32, pvTypePara : LibC::Void*, pszNameString : , cchNameString : LibC::UInt32) : LibC::UInt32
-fun certGetNameStringW(pCertContext : CERT_CONTEXT*, dwType : LibC::UInt32, dwFlags : LibC::UInt32, pvTypePara : LibC::Void*, pszNameString : , cchNameString : LibC::UInt32) : LibC::UInt32
-fun cryptSignMessage(pSignPara : CRYPT_SIGN_MESSAGE_PARA*, fDetachedSignature : BOOL, cToBeSigned : LibC::UInt32, rgpbToBeSigned : , rgcbToBeSigned : , pbSignedBlob : LibC::Byte*, pcbSignedBlob : LibC::UInt32*) : BOOL
 fun cryptVerifyMessageSignature(pVerifyPara : CRYPT_VERIFY_MESSAGE_PARA*, dwSignerIndex : LibC::UInt32, pbSignedBlob : LibC::Byte*, cbSignedBlob : LibC::UInt32, pbDecoded : LibC::Byte*, pcbDecoded : LibC::UInt32*, ppSignerCert : CERT_CONTEXT**) : BOOL
 fun cryptGetMessageSignerCount(dwMsgEncodingType : LibC::UInt32, pbSignedBlob : LibC::Byte*, cbSignedBlob : LibC::UInt32) : LibC::Int32
 fun cryptGetMessageCertificates(dwMsgAndCertEncodingType : LibC::UInt32, hCryptProv : LibC::UIint*, dwFlags : LibC::UInt32, pbSignedBlob : LibC::Byte*, cbSignedBlob : LibC::UInt32) : LibC::Void*
-fun cryptVerifyDetachedMessageSignature(pVerifyPara : CRYPT_VERIFY_MESSAGE_PARA*, dwSignerIndex : LibC::UInt32, pbDetachedSignBlob : LibC::Byte*, cbDetachedSignBlob : LibC::UInt32, cToBeSigned : LibC::UInt32, rgpbToBeSigned : , rgcbToBeSigned : , ppSignerCert : CERT_CONTEXT**) : BOOL
-fun cryptEncryptMessage(pEncryptPara : CRYPT_ENCRYPT_MESSAGE_PARA*, cRecipientCert : LibC::UInt32, rgpRecipientCert : , pbToBeEncrypted : LibC::Byte*, cbToBeEncrypted : LibC::UInt32, pbEncryptedBlob : LibC::Byte*, pcbEncryptedBlob : LibC::UInt32*) : BOOL
 fun cryptDecryptMessage(pDecryptPara : CRYPT_DECRYPT_MESSAGE_PARA*, pbEncryptedBlob : LibC::Byte*, cbEncryptedBlob : LibC::UInt32, pbDecrypted : LibC::Byte*, pcbDecrypted : LibC::UInt32*, ppXchgCert : CERT_CONTEXT**) : BOOL
-fun cryptSignAndEncryptMessage(pSignPara : CRYPT_SIGN_MESSAGE_PARA*, pEncryptPara : CRYPT_ENCRYPT_MESSAGE_PARA*, cRecipientCert : LibC::UInt32, rgpRecipientCert : , pbToBeSignedAndEncrypted : LibC::Byte*, cbToBeSignedAndEncrypted : LibC::UInt32, pbSignedAndEncryptedBlob : LibC::Byte*, pcbSignedAndEncryptedBlob : LibC::UInt32*) : BOOL
 fun cryptDecryptAndVerifyMessageSignature(pDecryptPara : CRYPT_DECRYPT_MESSAGE_PARA*, pVerifyPara : CRYPT_VERIFY_MESSAGE_PARA*, dwSignerIndex : LibC::UInt32, pbEncryptedBlob : LibC::Byte*, cbEncryptedBlob : LibC::UInt32, pbDecrypted : LibC::Byte*, pcbDecrypted : LibC::UInt32*, ppXchgCert : CERT_CONTEXT**, ppSignerCert : CERT_CONTEXT**) : BOOL
 fun cryptDecodeMessage(dwMsgTypeFlags : LibC::UInt32, pDecryptPara : CRYPT_DECRYPT_MESSAGE_PARA*, pVerifyPara : CRYPT_VERIFY_MESSAGE_PARA*, dwSignerIndex : LibC::UInt32, pbEncodedBlob : LibC::Byte*, cbEncodedBlob : LibC::UInt32, dwPrevInnerContentType : LibC::UInt32, pdwMsgType : LibC::UInt32*, pdwInnerContentType : LibC::UInt32*, pbDecoded : LibC::Byte*, pcbDecoded : LibC::UInt32*, ppXchgCert : CERT_CONTEXT**, ppSignerCert : CERT_CONTEXT**) : BOOL
-fun cryptHashMessage(pHashPara : CRYPT_HASH_MESSAGE_PARA*, fDetachedHash : BOOL, cToBeHashed : LibC::UInt32, rgpbToBeHashed : , rgcbToBeHashed : , pbHashedBlob : LibC::Byte*, pcbHashedBlob : LibC::UInt32*, pbComputedHash : LibC::Byte*, pcbComputedHash : LibC::UInt32*) : BOOL
 fun cryptVerifyMessageHash(pHashPara : CRYPT_HASH_MESSAGE_PARA*, pbHashedBlob : LibC::Byte*, cbHashedBlob : LibC::UInt32, pbToBeHashed : LibC::Byte*, pcbToBeHashed : LibC::UInt32*, pbComputedHash : LibC::Byte*, pcbComputedHash : LibC::UInt32*) : BOOL
-fun cryptVerifyDetachedMessageHash(pHashPara : CRYPT_HASH_MESSAGE_PARA*, pbDetachedHashBlob : LibC::Byte*, cbDetachedHashBlob : LibC::UInt32, cToBeHashed : LibC::UInt32, rgpbToBeHashed : , rgcbToBeHashed : , pbComputedHash : LibC::Byte*, pcbComputedHash : LibC::UInt32*) : BOOL
 fun cryptSignMessageWithKey(pSignPara : CRYPT_KEY_SIGN_MESSAGE_PARA*, pbToBeSigned : LibC::Byte*, cbToBeSigned : LibC::UInt32, pbSignedBlob : LibC::Byte*, pcbSignedBlob : LibC::UInt32*) : BOOL
 fun cryptVerifyMessageSignatureWithKey(pVerifyPara : CRYPT_KEY_VERIFY_MESSAGE_PARA*, pPublicKeyInfo : CERT_PUBLIC_KEY_INFO*, pbSignedBlob : LibC::Byte*, cbSignedBlob : LibC::UInt32, pbDecoded : LibC::Byte*, pcbDecoded : LibC::UInt32*) : BOOL
 fun certOpenSystemStoreA(hProv : LibC::UIint*, szSubsystemProtocol : PSTR) : LibC::Void*
@@ -5332,7 +5337,6 @@ fun cryptGetObjectUrl(pszUrlOid : PSTR, pvPara : LibC::Void*, dwFlags : CRYPT_GE
 fun certCreateSelfSignCertificate(hCryptProvOrNCryptKey : LibC::UIint*, pSubjectIssuerBlob : CRYPTOAPI_BLOB*, dwFlags : CERT_CREATE_SELFSIGN_FLAGS, pKeyProvInfo : CRYPT_KEY_PROV_INFO*, pSignatureAlgorithm : CRYPT_ALGORITHM_IDENTIFIER*, pStartTime : SYSTEMTIME*, pEndTime : SYSTEMTIME*, pExtensions : CERT_EXTENSIONS*) : CERT_CONTEXT*
 fun cryptGetKeyIdentifierProperty(pKeyIdentifier : CRYPTOAPI_BLOB*, dwPropId : LibC::UInt32, dwFlags : LibC::UInt32, pwszComputerName : PWSTR, pvReserved : LibC::Void*, pvData : LibC::Void*, pcbData : LibC::UInt32*) : BOOL
 fun cryptSetKeyIdentifierProperty(pKeyIdentifier : CRYPTOAPI_BLOB*, dwPropId : LibC::UInt32, dwFlags : LibC::UInt32, pwszComputerName : PWSTR, pvReserved : LibC::Void*, pvData : LibC::Void*) : BOOL
-fun cryptEnumKeyIdentifierProperties(pKeyIdentifier : CRYPTOAPI_BLOB*, dwPropId : LibC::UInt32, dwFlags : LibC::UInt32, pwszComputerName : PWSTR, pvReserved : LibC::Void*, pvArg : LibC::Void*, pfnEnum : PFN_CRYPT_ENUM_KEYID_PROP) : BOOL
 fun cryptCreateKeyIdentifierFromCSP(dwCertEncodingType : LibC::UInt32, pszPubKeyOID : PSTR, pPubKeyStruc : PUBLICKEYSTRUC*, cbPubKeyStruc : LibC::UInt32, dwFlags : LibC::UInt32, pvReserved : LibC::Void*, pbHash : LibC::Byte*, pcbHash : LibC::UInt32*) : BOOL
 fun certCreateCertificateChainEngine(pConfig : CERT_CHAIN_ENGINE_CONFIG*, phChainEngine : HCERTCHAINENGINE*) : BOOL
 fun certFreeCertificateChainEngine(hChainEngine : HCERTCHAINENGINE) : LibC::Void
@@ -5342,10 +5346,6 @@ fun certFreeCertificateChain(pChainContext : CERT_CHAIN_CONTEXT*) : LibC::Void
 fun certDuplicateCertificateChain(pChainContext : CERT_CHAIN_CONTEXT*) : CERT_CHAIN_CONTEXT*
 fun certFindChainInStore(hCertStore : LibC::Void*, dwCertEncodingType : LibC::UInt32, dwFindFlags : CERT_FIND_CHAIN_IN_STORE_FLAGS, dwFindType : LibC::UInt32, pvFindPara : LibC::Void*, pPrevChainContext : CERT_CHAIN_CONTEXT*) : CERT_CHAIN_CONTEXT*
 fun certVerifyCertificateChainPolicy(pszPolicyOID : PSTR, pChainContext : CERT_CHAIN_CONTEXT*, pPolicyPara : CERT_CHAIN_POLICY_PARA*, pPolicyStatus : CERT_CHAIN_POLICY_STATUS*) : BOOL
-fun cryptStringToBinaryA(pszString : , cchString : LibC::UInt32, dwFlags : CRYPT_STRING, pbBinary : LibC::Byte*, pcbBinary : LibC::UInt32*, pdwSkip : LibC::UInt32*, pdwFlags : LibC::UInt32*) : BOOL
-fun cryptStringToBinaryW(pszString : , cchString : LibC::UInt32, dwFlags : CRYPT_STRING, pbBinary : LibC::Byte*, pcbBinary : LibC::UInt32*, pdwSkip : LibC::UInt32*, pdwFlags : LibC::UInt32*) : BOOL
-fun cryptBinaryToStringA(pbBinary : LibC::Byte*, cbBinary : LibC::UInt32, dwFlags : CRYPT_STRING, pszString : , pcchString : LibC::UInt32*) : BOOL
-fun cryptBinaryToStringW(pbBinary : LibC::Byte*, cbBinary : LibC::UInt32, dwFlags : CRYPT_STRING, pszString : , pcchString : LibC::UInt32*) : BOOL
 fun pFXImportCertStore(pPFX : CRYPTOAPI_BLOB*, szPassword : PWSTR, dwFlags : CRYPT_KEY_FLAGS) : LibC::Void*
 fun pFXIsPFXBlob(pPFX : CRYPTOAPI_BLOB*) : BOOL
 fun pFXVerifyPassword(pPFX : CRYPTOAPI_BLOB*, szPassword : PWSTR, dwFlags : LibC::UInt32) : BOOL
@@ -5358,7 +5358,6 @@ fun certGetServerOcspResponseContext(hServerOcspResponse : LibC::Void*, dwFlags 
 fun certAddRefServerOcspResponseContext(pServerOcspResponseContext : CERT_SERVER_OCSP_RESPONSE_CONTEXT*) : LibC::Void
 fun certFreeServerOcspResponseContext(pServerOcspResponseContext : CERT_SERVER_OCSP_RESPONSE_CONTEXT*) : LibC::Void
 fun certRetrieveLogoOrBiometricInfo(pCertContext : CERT_CONTEXT*, lpszLogoOrBiometricType : PSTR, dwRetrievalFlags : LibC::UInt32, dwTimeout : LibC::UInt32, dwFlags : LibC::UInt32, pvReserved : LibC::Void*, ppbData : LibC::Byte**, pcbData : LibC::UInt32*, ppwszMimeType : PWSTR*) : BOOL
-fun certSelectCertificateChains(pSelectionContext : LibC::Guid*, dwFlags : LibC::UInt32, pChainParameters : CERT_SELECT_CHAIN_PARA*, cCriteria : LibC::UInt32, rgpCriteria : , hStore : LibC::Void*, pcSelection : LibC::UInt32*, pprgpSelection : CERT_CHAIN_CONTEXT***) : BOOL
 fun certFreeCertificateChainList(prgpSelection : CERT_CHAIN_CONTEXT**) : LibC::Void
 fun cryptRetrieveTimeStamp(wszUrl : PWSTR, dwRetrievalFlags : LibC::UInt32, dwTimeout : LibC::UInt32, pszHashId : PSTR, pPara : CRYPT_TIMESTAMP_PARA*, pbData : LibC::Byte*, cbData : LibC::UInt32, ppTsContext : CRYPT_TIMESTAMP_CONTEXT**, ppTsSigner : CERT_CONTEXT**, phStore : LibC::Void**) : BOOL
 fun cryptVerifyTimeStampSignature(pbTSContentInfo : LibC::Byte*, cbTSContentInfo : LibC::UInt32, pbData : LibC::Byte*, cbData : LibC::UInt32, hAdditionalStore : LibC::Void*, ppTsContext : CRYPT_TIMESTAMP_CONTEXT**, ppTsSigner : CERT_CONTEXT**, phStore : LibC::Void**) : BOOL
@@ -5369,7 +5368,6 @@ fun cryptUpdateProtectedState(pOldSid : PSID, pwszOldPassword : PWSTR, dwFlags :
 fun cryptProtectMemory(pDataIn : LibC::Void*, cbDataIn : LibC::UInt32, dwFlags : LibC::UInt32) : BOOL
 fun cryptUnprotectMemory(pDataIn : LibC::Void*, cbDataIn : LibC::UInt32, dwFlags : LibC::UInt32) : BOOL
 fun nCryptRegisterProtectionDescriptorName(pwszName : PWSTR, pwszDescriptorString : PWSTR, dwFlags : LibC::UInt32) : LibC::Int32
-fun nCryptQueryProtectionDescriptorName(pwszName : PWSTR, pwszDescriptorString : , pcDescriptorString : LibC::UIint**, dwFlags : LibC::UInt32) : LibC::Int32
 fun nCryptCreateProtectionDescriptor(pwszDescriptorString : PWSTR, dwFlags : LibC::UInt32, phDescriptor : NCRYPT_DESCRIPTOR_HANDLE*) : LibC::Int32
 fun nCryptCloseProtectionDescriptor(hDescriptor : NCRYPT_DESCRIPTOR_HANDLE) : LibC::Int32
 fun nCryptGetProtectionDescriptorInfo(hDescriptor : NCRYPT_DESCRIPTOR_HANDLE, pMemPara : NCRYPT_ALLOC_PARA*, dwInfoType : LibC::UInt32, ppvInfo : LibC::Void**) : LibC::Int32
@@ -5382,10 +5380,6 @@ fun nCryptStreamUpdate(hStream : NCRYPT_STREAM_HANDLE, pbData : LibC::Byte*, cbD
 fun nCryptStreamClose(hStream : NCRYPT_STREAM_HANDLE) : LibC::Int32
 fun cryptXmlClose(hCryptXml : LibC::Void*) : HRESULT
 fun cryptXmlGetTransforms(ppConfig : CRYPT_XML_TRANSFORM_CHAIN_CONFIG**) : HRESULT
-fun cryptXmlOpenToEncode(pConfig : CRYPT_XML_TRANSFORM_CHAIN_CONFIG*, dwFlags : CRYPT_XML_FLAGS, wszId : PWSTR, rgProperty : , cProperty : LibC::UInt32, pEncoded : CRYPT_XML_BLOB*, phSignature : LibC::Void**) : HRESULT
-fun cryptXmlOpenToDecode(pConfig : CRYPT_XML_TRANSFORM_CHAIN_CONFIG*, dwFlags : CRYPT_XML_FLAGS, rgProperty : , cProperty : LibC::UInt32, pEncoded : CRYPT_XML_BLOB*, phCryptXml : LibC::Void**) : HRESULT
-fun cryptXmlAddObject(hSignatureOrObject : LibC::Void*, dwFlags : LibC::UInt32, rgProperty : , cProperty : LibC::UInt32, pEncoded : CRYPT_XML_BLOB*, ppObject : CRYPT_XML_OBJECT**) : HRESULT
-fun cryptXmlCreateReference(hCryptXml : LibC::Void*, dwFlags : LibC::UInt32, wszId : PWSTR, wszURI : PWSTR, wszType : PWSTR, pDigestMethod : CRYPT_XML_ALGORITHM*, cTransform : LibC::UInt32, rgTransform : , phReference : LibC::Void**) : HRESULT
 fun cryptXmlDigestReference(hReference : LibC::Void*, dwFlags : LibC::UInt32, pDataProviderIn : CRYPT_XML_DATA_PROVIDER*) : HRESULT
 fun cryptXmlSetHMACSecret(hSignature : LibC::Void*, pbSecret : LibC::Byte*, cbSecret : LibC::UInt32) : HRESULT
 fun cryptXmlSign(hSignature : LibC::Void*, hKey : LibC::UIint*, dwKeySpec : CERT_KEY_SPEC, dwFlags : CRYPT_XML_FLAGS, dwKeyInfoSpec : CRYPT_XML_KEYINFO_SPEC, pvKeyInfoSpec : LibC::Void*, pSignatureMethod : CRYPT_XML_ALGORITHM*, pCanonicalization : CRYPT_XML_ALGORITHM*) : HRESULT
@@ -5395,11 +5389,9 @@ fun cryptXmlGetDocContext(hCryptXml : LibC::Void*, ppStruct : CRYPT_XML_DOC_CTXT
 fun cryptXmlGetSignature(hCryptXml : LibC::Void*, ppStruct : CRYPT_XML_SIGNATURE**) : HRESULT
 fun cryptXmlGetReference(hCryptXml : LibC::Void*, ppStruct : CRYPT_XML_REFERENCE**) : HRESULT
 fun cryptXmlGetStatus(hCryptXml : LibC::Void*, pStatus : CRYPT_XML_STATUS*) : HRESULT
-fun cryptXmlEncode(hCryptXml : LibC::Void*, dwCharset : CRYPT_XML_CHARSET, rgProperty : , cProperty : LibC::UInt32, pvCallbackState : LibC::Void*, pfnWrite : PFN_CRYPT_XML_WRITE_CALLBACK) : HRESULT
 fun cryptXmlGetAlgorithmInfo(pXmlAlgorithm : CRYPT_XML_ALGORITHM*, dwFlags : CRYPT_XML_FLAGS, ppAlgInfo : CRYPT_XML_ALGORITHM_INFO**) : HRESULT
 fun cryptXmlFindAlgorithmInfo(dwFindByType : LibC::UInt32, pvFindBy : LibC::Void*, dwGroupId : LibC::UInt32, dwFlags : LibC::UInt32) : CRYPT_XML_ALGORITHM_INFO*
 fun cryptXmlEnumAlgorithmInfo(dwGroupId : LibC::UInt32, dwFlags : LibC::UInt32, pvArg : LibC::Void*, pfnEnumAlgInfo : PFN_CRYPT_XML_ENUM_ALG_INFO) : HRESULT
-fun getToken(cPolicyChain : LibC::UInt32, pPolicyChain : , securityToken : GENERIC_XML_TOKEN**, phProofTokenCrypto : INFORMATIONCARD_CRYPTO_HANDLE**) : HRESULT
 fun manageCardSpace() : HRESULT
 fun importInformationCard(fileName : PWSTR) : HRESULT
 fun encrypt(hCrypto : INFORMATIONCARD_CRYPTO_HANDLE*, fOAEP : BOOL, cbInData : LibC::UInt32, pInData : LibC::Byte*, pcbOutData : LibC::UInt32*, ppOutData : LibC::Byte**) : HRESULT

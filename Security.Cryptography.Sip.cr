@@ -19,6 +19,7 @@ SIP_CAP_SET_VERSION_3 = 3
 SIP_CAP_SET_CUR_VER = 3
 SIP_CAP_FLAG_SEALING = 1
 SIP_MAX_MAGIC_NUMBER = 4
+type Duckc0b7d0b2cf96 = MS_ADDINFO_FLAT* | MS_ADDINFO_CATALOGMEMBER* | MS_ADDINFO_BLOB*
 struct SIP_SUBJECTINFO
   cbSize : LibC::UInt32
   pgSubjectType : LibC::Guid*
@@ -60,6 +61,7 @@ struct SIP_CAP_SET_V2
   isMultiSign : BOOL
   dwReserved : LibC::UInt32
 end
+type Rabbitfa4b00950484 = LibC::UInt32 | LibC::UInt32
 struct SIP_CAP_SET_V3
   cbSize : LibC::UInt32
   dwVersion : LibC::UInt32
@@ -70,11 +72,11 @@ struct SIP_INDIRECT_DATA
   digestAlgorithm : CRYPT_ALGORITHM_IDENTIFIER
   digest : CRYPTOAPI_BLOB
 end
-alias pCryptSIPGetSignedDataMsg = (SIP_SUBJECTINFO*, LibC::UInt32*, LibC::UInt32, LibC::UInt32*, LibC::Byte* -> BOOL)
-alias pCryptSIPPutSignedDataMsg = (SIP_SUBJECTINFO*, LibC::UInt32, LibC::UInt32*, LibC::UInt32, LibC::Byte* -> BOOL)
-alias pCryptSIPCreateIndirectData = (SIP_SUBJECTINFO*, LibC::UInt32*, SIP_INDIRECT_DATA* -> BOOL)
-alias pCryptSIPVerifyIndirectData = (SIP_SUBJECTINFO*, SIP_INDIRECT_DATA* -> BOOL)
-alias pCryptSIPRemoveSignedDataMsg = (SIP_SUBJECTINFO*, LibC::UInt32 -> BOOL)
+alias PCryptSIPGetSignedDataMsg = (SIP_SUBJECTINFO*, LibC::UInt32*, LibC::UInt32, LibC::UInt32*, LibC::Byte* -> BOOL)
+alias PCryptSIPPutSignedDataMsg = (SIP_SUBJECTINFO*, LibC::UInt32, LibC::UInt32*, LibC::UInt32, LibC::Byte* -> BOOL)
+alias PCryptSIPCreateIndirectData = (SIP_SUBJECTINFO*, LibC::UInt32*, SIP_INDIRECT_DATA* -> BOOL)
+alias PCryptSIPVerifyIndirectData = (SIP_SUBJECTINFO*, SIP_INDIRECT_DATA* -> BOOL)
+alias PCryptSIPRemoveSignedDataMsg = (SIP_SUBJECTINFO*, LibC::UInt32 -> BOOL)
 struct SIP_DISPATCH_INFO
   cbSize : LibC::UInt32
   hSIP : HANDLE
@@ -84,8 +86,8 @@ struct SIP_DISPATCH_INFO
   pfVerify : PCryptSIPVerifyIndirectData
   pfRemove : PCryptSIPRemoveSignedDataMsg
 end
-alias pfnIsFileSupported = (HANDLE, LibC::Guid* -> BOOL)
-alias pfnIsFileSupportedName = (PWSTR, LibC::Guid* -> BOOL)
+alias PfnIsFileSupported = (HANDLE, LibC::Guid* -> BOOL)
+alias PfnIsFileSupportedName = (PWSTR, LibC::Guid* -> BOOL)
 struct SIP_ADD_NEWPROVIDER
   cbStruct : LibC::UInt32
   pgSubject : LibC::Guid*
@@ -100,8 +102,7 @@ struct SIP_ADD_NEWPROVIDER
   pwszIsFunctionNameFmt2 : PWSTR
   pwszGetCapFuncName : PWSTR
 end
-alias pCryptSIPGetCaps = (SIP_SUBJECTINFO*, SIP_CAP_SET_V3* -> BOOL)
-alias pCryptSIPGetSealedDigest = (SIP_SUBJECTINFO*, , LibC::UInt32, , LibC::UInt32* -> BOOL)
+alias PCryptSIPGetCaps = (SIP_SUBJECTINFO*, SIP_CAP_SET_V3* -> BOOL)
 fun cryptSIPGetSignedDataMsg(pSubjectInfo : SIP_SUBJECTINFO*, pdwEncodingType : CERT_QUERY_ENCODING_TYPE*, dwIndex : LibC::UInt32, pcbSignedDataMsg : LibC::UInt32*, pbSignedDataMsg : LibC::Byte*) : BOOL
 fun cryptSIPPutSignedDataMsg(pSubjectInfo : SIP_SUBJECTINFO*, dwEncodingType : CERT_QUERY_ENCODING_TYPE, pdwIndex : LibC::UInt32*, cbSignedDataMsg : LibC::UInt32, pbSignedDataMsg : LibC::Byte*) : BOOL
 fun cryptSIPCreateIndirectData(pSubjectInfo : SIP_SUBJECTINFO*, pcbIndirectData : LibC::UInt32*, pIndirectData : SIP_INDIRECT_DATA*) : BOOL
@@ -113,6 +114,5 @@ fun cryptSIPRetrieveSubjectGuidForCatalogFile(fileName : PWSTR, hFileIn : HANDLE
 fun cryptSIPAddProvider(psNewProv : SIP_ADD_NEWPROVIDER*) : BOOL
 fun cryptSIPRemoveProvider(pgProv : LibC::Guid*) : BOOL
 fun cryptSIPGetCaps(pSubjInfo : SIP_SUBJECTINFO*, pCaps : SIP_CAP_SET_V3*) : BOOL
-fun cryptSIPGetSealedDigest(pSubjectInfo : SIP_SUBJECTINFO*, pSig : , dwSig : LibC::UInt32, pbDigest : , pcbDigest : LibC::UInt32*) : BOOL
 
   end

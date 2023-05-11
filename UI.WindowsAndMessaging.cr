@@ -3834,8 +3834,6 @@ struct MrmResourceIndexerMessage
   id : LibC::UInt32
   text : PWSTR
 end
-fun loadStringA(hInstance : HINSTANCE, uID : LibC::UInt32, lpBuffer : , cchBufferMax : LibC::Int32) : LibC::Int32
-fun loadStringW(hInstance : HINSTANCE, uID : LibC::UInt32, lpBuffer : , cchBufferMax : LibC::Int32) : LibC::Int32
 fun wvsprintfA(param0 : PSTR, param1 : PSTR, arglist : LibC::SByte*) : LibC::Int32
 fun wvsprintfW(param0 : PWSTR, param1 : PWSTR, arglist : LibC::SByte*) : LibC::Int32
 fun wsprintfA(param0 : PSTR, param1 : PSTR) : LibC::Int32
@@ -3936,8 +3934,6 @@ fun setDlgItemInt(hDlg : HWND, nIDDlgItem : LibC::Int32, uValue : LibC::UInt32, 
 fun getDlgItemInt(hDlg : HWND, nIDDlgItem : LibC::Int32, lpTranslated : BOOL*, bSigned : BOOL) : LibC::UInt32
 fun setDlgItemTextA(hDlg : HWND, nIDDlgItem : LibC::Int32, lpString : PSTR) : BOOL
 fun setDlgItemTextW(hDlg : HWND, nIDDlgItem : LibC::Int32, lpString : PWSTR) : BOOL
-fun getDlgItemTextA(hDlg : HWND, nIDDlgItem : LibC::Int32, lpString : , cchMax : LibC::Int32) : LibC::UInt32
-fun getDlgItemTextW(hDlg : HWND, nIDDlgItem : LibC::Int32, lpString : , cchMax : LibC::Int32) : LibC::UInt32
 fun sendDlgItemMessageA(hDlg : HWND, nIDDlgItem : LibC::Int32, msg : LibC::UInt32, wParam : WPARAM, lParam : LPARAM) : LRESULT
 fun sendDlgItemMessageW(hDlg : HWND, nIDDlgItem : LibC::Int32, msg : LibC::UInt32, wParam : WPARAM, lParam : LPARAM) : LRESULT
 fun getNextDlgGroupItem(hDlg : HWND, hCtl : HWND, bPrevious : BOOL) : HWND
@@ -3952,18 +3948,10 @@ fun charToOemA(pSrc : PSTR, pDst : PSTR) : BOOL
 fun charToOemW(pSrc : PWSTR, pDst : PSTR) : BOOL
 fun oemToCharA(pSrc : PSTR, pDst : PSTR) : BOOL
 fun oemToCharW(pSrc : PSTR, pDst : PWSTR) : BOOL
-fun charToOemBuffA(lpszSrc : PSTR, lpszDst : , cchDstLength : LibC::UInt32) : BOOL
-fun charToOemBuffW(lpszSrc : PWSTR, lpszDst : , cchDstLength : LibC::UInt32) : BOOL
-fun oemToCharBuffA(lpszSrc : PSTR, lpszDst : , cchDstLength : LibC::UInt32) : BOOL
-fun oemToCharBuffW(lpszSrc : PSTR, lpszDst : , cchDstLength : LibC::UInt32) : BOOL
 fun charUpperA(lpsz : PSTR) : PSTR
 fun charUpperW(lpsz : PWSTR) : PWSTR
-fun charUpperBuffA(lpsz : , cchLength : LibC::UInt32) : LibC::UInt32
-fun charUpperBuffW(lpsz : , cchLength : LibC::UInt32) : LibC::UInt32
 fun charLowerA(lpsz : PSTR) : PSTR
 fun charLowerW(lpsz : PWSTR) : PWSTR
-fun charLowerBuffA(lpsz : , cchLength : LibC::UInt32) : LibC::UInt32
-fun charLowerBuffW(lpsz : , cchLength : LibC::UInt32) : LibC::UInt32
 fun charNextA(lpsz : PSTR) : PSTR
 fun charNextW(lpsz : PWSTR) : PWSTR
 fun charPrevA(lpszStart : PSTR, lpszCurrent : PSTR) : PSTR
@@ -3979,19 +3967,13 @@ fun isCharUpperW(ch : LibC::Char) : BOOL
 fun isCharLowerA(ch : CHAR) : BOOL
 fun getInputState() : BOOL
 fun getQueueStatus(flags : QUEUE_STATUS_FLAGS) : LibC::UInt32
-fun msgWaitForMultipleObjects(nCount : LibC::UInt32, pHandles : , fWaitAll : BOOL, dwMilliseconds : LibC::UInt32, dwWakeMask : QUEUE_STATUS_FLAGS) : LibC::UInt32
-fun msgWaitForMultipleObjectsEx(nCount : LibC::UInt32, pHandles : , dwMilliseconds : LibC::UInt32, dwWakeMask : QUEUE_STATUS_FLAGS, dwFlags : MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS) : LibC::UInt32
 fun setTimer(hWnd : HWND, nIDEvent : LibC::UIint*, uElapse : LibC::UInt32, lpTimerFunc : TIMERPROC) : LibC::UIint*
 fun setCoalescableTimer(hWnd : HWND, nIDEvent : LibC::UIint*, uElapse : LibC::UInt32, lpTimerFunc : TIMERPROC, uToleranceDelay : LibC::UInt32) : LibC::UIint*
 fun killTimer(hWnd : HWND, uIDEvent : LibC::UIint*) : BOOL
 fun isWindowUnicode(hWnd : HWND) : BOOL
 fun loadAcceleratorsA(hInstance : HINSTANCE, lpTableName : PSTR) : HACCEL
 fun loadAcceleratorsW(hInstance : HINSTANCE, lpTableName : PWSTR) : HACCEL
-fun createAcceleratorTableA(paccel : , cAccel : LibC::Int32) : HACCEL
-fun createAcceleratorTableW(paccel : , cAccel : LibC::Int32) : HACCEL
 fun destroyAcceleratorTable(hAccel : HACCEL) : BOOL
-fun copyAcceleratorTableA(hAccelSrc : HACCEL, lpAccelDst : , cAccelEntries : LibC::Int32) : LibC::Int32
-fun copyAcceleratorTableW(hAccelSrc : HACCEL, lpAccelDst : , cAccelEntries : LibC::Int32) : LibC::Int32
 fun translateAcceleratorA(hWnd : HWND, hAccTable : HACCEL, lpMsg : MSG*) : LibC::Int32
 fun translateAcceleratorW(hWnd : HWND, hAccTable : HACCEL, lpMsg : MSG*) : LibC::Int32
 fun getSystemMetrics(nIndex : SYSTEM_METRICS_INDEX) : LibC::Int32
@@ -4004,8 +3986,6 @@ fun setMenu(hWnd : HWND, hMenu : HMENU) : BOOL
 fun changeMenuA(hMenu : HMENU, cmd : LibC::UInt32, lpszNewItem : PSTR, cmdInsert : LibC::UInt32, flags : LibC::UInt32) : BOOL
 fun changeMenuW(hMenu : HMENU, cmd : LibC::UInt32, lpszNewItem : PWSTR, cmdInsert : LibC::UInt32, flags : LibC::UInt32) : BOOL
 fun hiliteMenuItem(hWnd : HWND, hMenu : HMENU, uIDHiliteItem : LibC::UInt32, uHilite : LibC::UInt32) : BOOL
-fun getMenuStringA(hMenu : HMENU, uIDItem : LibC::UInt32, lpString : , cchMax : LibC::Int32, flags : MENU_ITEM_FLAGS) : LibC::Int32
-fun getMenuStringW(hMenu : HMENU, uIDItem : LibC::UInt32, lpString : , cchMax : LibC::Int32, flags : MENU_ITEM_FLAGS) : LibC::Int32
 fun getMenuState(hMenu : HMENU, uId : LibC::UInt32, uFlags : MENU_ITEM_FLAGS) : LibC::UInt32
 fun drawMenuBar(hWnd : HWND) : BOOL
 fun getSystemMenu(hWnd : HWND, bRevert : BOOL) : HMENU
@@ -4067,8 +4047,6 @@ fun enumPropsA(hWnd : HWND, lpEnumFunc : PROPENUMPROCA) : LibC::Int32
 fun enumPropsW(hWnd : HWND, lpEnumFunc : PROPENUMPROCW) : LibC::Int32
 fun setWindowTextA(hWnd : HWND, lpString : PSTR) : BOOL
 fun setWindowTextW(hWnd : HWND, lpString : PWSTR) : BOOL
-fun getWindowTextA(hWnd : HWND, lpString : , nMaxCount : LibC::Int32) : LibC::Int32
-fun getWindowTextW(hWnd : HWND, lpString : , nMaxCount : LibC::Int32) : LibC::Int32
 fun getWindowTextLengthA(hWnd : HWND) : LibC::Int32
 fun getWindowTextLengthW(hWnd : HWND) : LibC::Int32
 fun getClientRect(hWnd : HWND, lpRect : RECT*) : BOOL
@@ -4105,7 +4083,6 @@ fun childWindowFromPoint(hWndParent : HWND, point : POINT) : HWND
 fun clipCursor(lpRect : RECT*) : BOOL
 fun childWindowFromPointEx(hwnd : HWND, pt : POINT, flags : CWP_FLAGS) : HWND
 fun getSysColor(nIndex : SYS_COLOR_INDEX) : LibC::UInt32
-fun setSysColors(cElements : LibC::Int32, lpaElements : , lpaRgbValues : ) : BOOL
 fun getWindowWord(hWnd : HWND, nIndex : LibC::Int32) : LibC::UInt16
 fun setWindowWord(hWnd : HWND, nIndex : LibC::Int32, wNewWord : LibC::UInt16) : LibC::UInt16
 fun getWindowLongA(hWnd : HWND, nIndex : WINDOW_LONG_PTR_INDEX) : LibC::Int32
@@ -4141,8 +4118,6 @@ fun registerShellHookWindow(hwnd : HWND) : BOOL
 fun deregisterShellHookWindow(hwnd : HWND) : BOOL
 fun enumWindows(lpEnumFunc : WNDENUMPROC, lParam : LPARAM) : BOOL
 fun enumThreadWindows(dwThreadId : LibC::UInt32, lpfn : WNDENUMPROC, lParam : LPARAM) : BOOL
-fun getClassNameA(hWnd : HWND, lpClassName : , nMaxCount : LibC::Int32) : LibC::Int32
-fun getClassNameW(hWnd : HWND, lpClassName : , nMaxCount : LibC::Int32) : LibC::Int32
 fun getTopWindow(hWnd : HWND) : HWND
 fun getWindowThreadProcessId(hWnd : HWND, lpdwProcessId : LibC::UInt32*) : LibC::UInt32
 fun isGUIThread(bConvert : BOOL) : BOOL
@@ -4165,9 +4140,6 @@ fun destroyCursor(hCursor : HCURSOR) : BOOL
 fun setSystemCursor(hcur : HCURSOR, id : SYSTEM_CURSOR_ID) : BOOL
 fun loadIconA(hInstance : HINSTANCE, lpIconName : PSTR) : HICON
 fun loadIconW(hInstance : HINSTANCE, lpIconName : PWSTR) : HICON
-fun privateExtractIconsA(szFileName : , nIconIndex : LibC::Int32, cxIcon : LibC::Int32, cyIcon : LibC::Int32, phicon : , piconid : , nIcons : LibC::UInt32, flags : LibC::UInt32) : LibC::UInt32
-fun privateExtractIconsW(szFileName : , nIconIndex : LibC::Int32, cxIcon : LibC::Int32, cyIcon : LibC::Int32, phicon : , piconid : , nIcons : LibC::UInt32, flags : LibC::UInt32) : LibC::UInt32
-fun createIcon(hInstance : HINSTANCE, nWidth : LibC::Int32, nHeight : LibC::Int32, cPlanes : LibC::Byte, cBitsPixel : LibC::Byte, lpbANDbits : , lpbXORbits : ) : HICON
 fun destroyIcon(hIcon : HICON) : BOOL
 fun lookupIconIdFromDirectory(presbits : LibC::Byte*, fIcon : BOOL) : LibC::Int32
 fun lookupIconIdFromDirectoryEx(presbits : LibC::Byte*, fIcon : BOOL, cxDesired : LibC::Int32, cyDesired : LibC::Int32, flags : IMAGE_FLAGS) : LibC::Int32
@@ -4194,20 +4166,15 @@ fun translateMDISysAccel(hWndClient : HWND, lpMsg : MSG*) : BOOL
 fun arrangeIconicWindows(hWnd : HWND) : LibC::UInt32
 fun createMDIWindowA(lpClassName : PSTR, lpWindowName : PSTR, dwStyle : WINDOW_STYLE, x : LibC::Int32, y : LibC::Int32, nWidth : LibC::Int32, nHeight : LibC::Int32, hWndParent : HWND, hInstance : HINSTANCE, lParam : LPARAM) : HWND
 fun createMDIWindowW(lpClassName : PWSTR, lpWindowName : PWSTR, dwStyle : WINDOW_STYLE, x : LibC::Int32, y : LibC::Int32, nWidth : LibC::Int32, nHeight : LibC::Int32, hWndParent : HWND, hInstance : HINSTANCE, lParam : LPARAM) : HWND
-fun tileWindows(hwndParent : HWND, wHow : TILE_WINDOWS_HOW, lpRect : RECT*, cKids : LibC::UInt32, lpKids : ) : LibC::UInt16
-fun cascadeWindows(hwndParent : HWND, wHow : CASCADE_WINDOWS_HOW, lpRect : RECT*, cKids : LibC::UInt32, lpKids : ) : LibC::UInt16
 fun systemParametersInfoA(uiAction : SYSTEM_PARAMETERS_INFO_ACTION, uiParam : LibC::UInt32, pvParam : LibC::Void*, fWinIni : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) : BOOL
 fun systemParametersInfoW(uiAction : SYSTEM_PARAMETERS_INFO_ACTION, uiParam : LibC::UInt32, pvParam : LibC::Void*, fWinIni : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) : BOOL
 fun soundSentry() : BOOL
 fun setDebugErrorLevel(dwLevel : LibC::UInt32) : LibC::Void
-fun internalGetWindowText(hWnd : HWND, pString : , cchMaxCount : LibC::Int32) : LibC::Int32
 fun cancelShutdown() : BOOL
 fun getGUIThreadInfo(idThread : LibC::UInt32, pgui : GUITHREADINFO*) : BOOL
 fun setProcessDPIAware() : BOOL
 fun isProcessDPIAware() : BOOL
 fun inheritWindowMonitor(hwnd : HWND, hwndInherit : HWND) : BOOL
-fun getWindowModuleFileNameA(hwnd : HWND, pszFileName : , cchFileNameMax : LibC::UInt32) : LibC::UInt32
-fun getWindowModuleFileNameW(hwnd : HWND, pszFileName : , cchFileNameMax : LibC::UInt32) : LibC::UInt32
 fun getCursorInfo(pci : CURSORINFO*) : BOOL
 fun getWindowInfo(hwnd : HWND, pwi : WINDOWINFO*) : BOOL
 fun getTitleBarInfo(hwnd : HWND, pti : TITLEBARINFO*) : BOOL
@@ -4215,16 +4182,10 @@ fun getMenuBarInfo(hwnd : HWND, idObject : OBJECT_IDENTIFIER, idItem : LibC::Int
 fun getScrollBarInfo(hwnd : HWND, idObject : OBJECT_IDENTIFIER, psbi : SCROLLBARINFO*) : BOOL
 fun getAncestor(hwnd : HWND, gaFlags : GET_ANCESTOR_FLAGS) : HWND
 fun realChildWindowFromPoint(hwndParent : HWND, ptParentClientCoords : POINT) : HWND
-fun realGetWindowClassA(hwnd : HWND, ptszClassName : , cchClassNameMax : LibC::UInt32) : LibC::UInt32
-fun realGetWindowClassW(hwnd : HWND, ptszClassName : , cchClassNameMax : LibC::UInt32) : LibC::UInt32
-fun getAltTabInfoA(hwnd : HWND, iItem : LibC::Int32, pati : ALTTABINFO*, pszItemText : , cchItemText : LibC::UInt32) : BOOL
-fun getAltTabInfoW(hwnd : HWND, iItem : LibC::Int32, pati : ALTTABINFO*, pszItemText : , cchItemText : LibC::UInt32) : BOOL
 fun changeWindowMessageFilter(message : LibC::UInt32, dwFlag : CHANGE_WINDOW_MESSAGE_FILTER_FLAGS) : BOOL
 fun changeWindowMessageFilterEx(hwnd : HWND, message : LibC::UInt32, action : WINDOW_MESSAGE_FILTER_ACTION, pChangeFilterStruct : CHANGEFILTERSTRUCT*) : BOOL
 fun createResourceIndexer(projectRoot : PWSTR, extensionDllPath : PWSTR, ppResourceIndexer : LibC::Void**) : HRESULT
 fun destroyResourceIndexer(resourceIndexer : LibC::Void*) : LibC::Void
-fun indexFilePath(resourceIndexer : LibC::Void*, filePath : PWSTR, ppResourceUri : PWSTR*, pQualifierCount : LibC::UInt32*, ppQualifiers : ) : HRESULT
-fun destroyIndexedResults(resourceUri : PWSTR, qualifierCount : LibC::UInt32, qualifiers : ) : LibC::Void
 fun mrmCreateResourceIndexer(packageFamilyName : PWSTR, projectRoot : PWSTR, platformVersion : MrmPlatformVersion, defaultQualifiers : PWSTR, indexer : MrmResourceIndexerHandle*) : HRESULT
 fun mrmCreateResourceIndexerFromPreviousSchemaFile(projectRoot : PWSTR, platformVersion : MrmPlatformVersion, defaultQualifiers : PWSTR, schemaFile : PWSTR, indexer : MrmResourceIndexerHandle*) : HRESULT
 fun mrmCreateResourceIndexerFromPreviousPriFile(projectRoot : PWSTR, platformVersion : MrmPlatformVersion, defaultQualifiers : PWSTR, priFile : PWSTR, indexer : MrmResourceIndexerHandle*) : HRESULT
@@ -4239,7 +4200,6 @@ fun mrmIndexResourceContainerAutoQualifiers(indexer : MrmResourceIndexerHandle, 
 fun mrmCreateResourceFile(indexer : MrmResourceIndexerHandle, packagingMode : MrmPackagingMode, packagingOptions : MrmPackagingOptions, outputDirectory : PWSTR) : HRESULT
 fun mrmCreateResourceFileWithChecksum(indexer : MrmResourceIndexerHandle, packagingMode : MrmPackagingMode, packagingOptions : MrmPackagingOptions, checksum : LibC::UInt32, outputDirectory : PWSTR) : HRESULT
 fun mrmCreateResourceFileInMemory(indexer : MrmResourceIndexerHandle, packagingMode : MrmPackagingMode, packagingOptions : MrmPackagingOptions, outputPriData : LibC::Byte**, outputPriSize : LibC::UInt32*) : HRESULT
-fun mrmPeekResourceIndexerMessages(handle : MrmResourceIndexerHandle, messages : , numMsgs : LibC::UInt32*) : HRESULT
 fun mrmDestroyIndexerAndMessages(indexer : MrmResourceIndexerHandle) : HRESULT
 fun mrmFreeMemory(data : LibC::Byte*) : HRESULT
 fun mrmDumpPriFile(indexFileName : PWSTR, schemaPriFile : PWSTR, dumpType : MrmDumpType, outputXmlFile : PWSTR) : HRESULT

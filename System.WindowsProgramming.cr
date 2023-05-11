@@ -583,14 +583,20 @@ end
 type HWINWATCH = LibC::Int*
 type FEATURE_STATE_CHANGE_SUBSCRIPTION = LibC::Int*
 type FH_SERVICE_PIPE_HANDLE = LibC::Int*
+type Pigd869c0d2c6f6 = LibC::UInt64 | LibC::UInt64 | LibC::UInt64 | LibC::UInt64
 struct IMAGE_THUNK_DATA64
-  u1 : U1_e__Union
+  u1 : Pigd869c0d2c6f6
 end
+type Owl9b0f90409049 = LibC::UInt32 | LibC::UInt32 | LibC::UInt32 | LibC::UInt32
 struct IMAGE_THUNK_DATA32
-  u1 : U1_e__Union
+  u1 : Owl9b0f90409049
 end
+struct Rabbite11e81b056a1
+  bitfield : LibC::UInt32
+end
+type Pigb7e76e1304f3 = LibC::UInt32 | Rabbite11e81b056a1
 struct IMAGE_DELAYLOAD_DESCRIPTOR
-  attributes : Attributes_e__Union
+  attributes : Pigb7e76e1304f3
   dllNameRVA : LibC::UInt32
   moduleHandleRVA : LibC::UInt32
   importAddressTableRVA : LibC::UInt32
@@ -700,6 +706,7 @@ struct CLIENT_ID
   uniqueProcess : HANDLE
   uniqueThread : HANDLE
 end
+type Rabbit2ba2383b4339 = LibC::UInt32 | LibC::Void*
 struct LDR_DATA_TABLE_ENTRY
   reserved1 : LibC::VoidArray({{type}})*
   inMemoryOrderLinks : LIST_ENTRY
@@ -719,6 +726,7 @@ struct OBJECT_ATTRIBUTES
   securityDescriptor : LibC::Void*
   securityQualityOfService : LibC::Void*
 end
+type Owl27ddb1e7688f = NTSTATUS | LibC::Void*
 struct IO_STATUS_BLOCK
   information : LibC::UIint*
 end
@@ -1169,6 +1177,7 @@ GetSockOptIoControlType = 2
 SocketIoControlType = 3
 
 end
+type Rabbit8396216f07ec = LibC::UInt32 | LibC::UInt32
 struct TDI_TL_IO_CONTROL_ENDPOINT
   type : TDI_TL_IO_CONTROL_TYPE
   level : LibC::UInt32
@@ -1283,7 +1292,6 @@ alias PWLDP_SETDYNAMICCODETRUST_API = (HANDLE -> HRESULT)
 alias PWLDP_ISDYNAMICCODEPOLICYENABLED_API = (BOOL* -> HRESULT)
 alias PWLDP_QUERYDYNAMICODETRUST_API = (HANDLE, LibC::Void*, LibC::UInt32 -> HRESULT)
 alias PWLDP_QUERYWINDOWSLOCKDOWNMODE_API = (WLDP_WINDOWS_LOCKDOWN_MODE* -> HRESULT)
-alias PWLDP_QUERYDEVICESECURITYINFORMATION_API = (, LibC::UInt32, LibC::UInt32* -> HRESULT)
 alias PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API = (WLDP_WINDOWS_LOCKDOWN_RESTRICTION* -> HRESULT)
 alias PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = (WLDP_WINDOWS_LOCKDOWN_RESTRICTION -> HRESULT)
 alias PWLDP_ISAPPAPPROVEDBYPOLICY_API = (PWSTR, LibC::UInt64 -> HRESULT)
@@ -1293,9 +1301,10 @@ alias PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API = (BOOL* -> HRESULT)
 alias PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API = ( -> HRESULT)
 alias PWLDP_ISPRODUCTIONCONFIGURATION_API = (BOOL* -> HRESULT)
 alias PWLDP_RESETPRODUCTIONCONFIGURATION_API = ( -> HRESULT)
+type Bird0a55c23c55ab = PSTR | LibC::UInt32
 struct DELAYLOAD_PROC_DESCRIPTOR
   importDescribedByName : LibC::UInt32
-  description : Description_e__Union
+  description : Bird0a55c23c55ab
 end
 struct DELAYLOAD_INFO
   size : LibC::UInt32
@@ -1373,38 +1382,22 @@ fun setFirmwareEnvironmentVariableExW(lpName : PWSTR, lpGuid : PWSTR, pValue : L
 fun isNativeVhdBoot(nativeVhdBoot : BOOL*) : BOOL
 fun getProfileIntA(lpAppName : PSTR, lpKeyName : PSTR, nDefault : LibC::Int32) : LibC::UInt32
 fun getProfileIntW(lpAppName : PWSTR, lpKeyName : PWSTR, nDefault : LibC::Int32) : LibC::UInt32
-fun getProfileStringA(lpAppName : PSTR, lpKeyName : PSTR, lpDefault : PSTR, lpReturnedString : , nSize : LibC::UInt32) : LibC::UInt32
-fun getProfileStringW(lpAppName : PWSTR, lpKeyName : PWSTR, lpDefault : PWSTR, lpReturnedString : , nSize : LibC::UInt32) : LibC::UInt32
 fun writeProfileStringA(lpAppName : PSTR, lpKeyName : PSTR, lpString : PSTR) : BOOL
 fun writeProfileStringW(lpAppName : PWSTR, lpKeyName : PWSTR, lpString : PWSTR) : BOOL
-fun getProfileSectionA(lpAppName : PSTR, lpReturnedString : , nSize : LibC::UInt32) : LibC::UInt32
-fun getProfileSectionW(lpAppName : PWSTR, lpReturnedString : , nSize : LibC::UInt32) : LibC::UInt32
 fun writeProfileSectionA(lpAppName : PSTR, lpString : PSTR) : BOOL
 fun writeProfileSectionW(lpAppName : PWSTR, lpString : PWSTR) : BOOL
 fun getPrivateProfileIntA(lpAppName : PSTR, lpKeyName : PSTR, nDefault : LibC::Int32, lpFileName : PSTR) : LibC::UInt32
 fun getPrivateProfileIntW(lpAppName : PWSTR, lpKeyName : PWSTR, nDefault : LibC::Int32, lpFileName : PWSTR) : LibC::UInt32
-fun getPrivateProfileStringA(lpAppName : PSTR, lpKeyName : PSTR, lpDefault : PSTR, lpReturnedString : , nSize : LibC::UInt32, lpFileName : PSTR) : LibC::UInt32
-fun getPrivateProfileStringW(lpAppName : PWSTR, lpKeyName : PWSTR, lpDefault : PWSTR, lpReturnedString : , nSize : LibC::UInt32, lpFileName : PWSTR) : LibC::UInt32
 fun writePrivateProfileStringA(lpAppName : PSTR, lpKeyName : PSTR, lpString : PSTR, lpFileName : PSTR) : BOOL
 fun writePrivateProfileStringW(lpAppName : PWSTR, lpKeyName : PWSTR, lpString : PWSTR, lpFileName : PWSTR) : BOOL
-fun getPrivateProfileSectionA(lpAppName : PSTR, lpReturnedString : , nSize : LibC::UInt32, lpFileName : PSTR) : LibC::UInt32
-fun getPrivateProfileSectionW(lpAppName : PWSTR, lpReturnedString : , nSize : LibC::UInt32, lpFileName : PWSTR) : LibC::UInt32
 fun writePrivateProfileSectionA(lpAppName : PSTR, lpString : PSTR, lpFileName : PSTR) : BOOL
 fun writePrivateProfileSectionW(lpAppName : PWSTR, lpString : PWSTR, lpFileName : PWSTR) : BOOL
-fun getPrivateProfileSectionNamesA(lpszReturnBuffer : , nSize : LibC::UInt32, lpFileName : PSTR) : LibC::UInt32
-fun getPrivateProfileSectionNamesW(lpszReturnBuffer : , nSize : LibC::UInt32, lpFileName : PWSTR) : LibC::UInt32
 fun getPrivateProfileStructA(lpszSection : PSTR, lpszKey : PSTR, lpStruct : LibC::Void*, uSizeStruct : LibC::UInt32, szFile : PSTR) : BOOL
 fun getPrivateProfileStructW(lpszSection : PWSTR, lpszKey : PWSTR, lpStruct : LibC::Void*, uSizeStruct : LibC::UInt32, szFile : PWSTR) : BOOL
 fun writePrivateProfileStructA(lpszSection : PSTR, lpszKey : PSTR, lpStruct : LibC::Void*, uSizeStruct : LibC::UInt32, szFile : PSTR) : BOOL
 fun writePrivateProfileStructW(lpszSection : PWSTR, lpszKey : PWSTR, lpStruct : LibC::Void*, uSizeStruct : LibC::UInt32, szFile : PWSTR) : BOOL
 fun isBadHugeReadPtr(lp : LibC::Void*, ucb : LibC::UIint*) : BOOL
 fun isBadHugeWritePtr(lp : LibC::Void*, ucb : LibC::UIint*) : BOOL
-fun getComputerNameA(lpBuffer : , nSize : LibC::UInt32*) : BOOL
-fun getComputerNameW(lpBuffer : , nSize : LibC::UInt32*) : BOOL
-fun dnsHostnameToComputerNameA(hostname : PSTR, computerName : , nSize : LibC::UInt32*) : BOOL
-fun dnsHostnameToComputerNameW(hostname : PWSTR, computerName : , nSize : LibC::UInt32*) : BOOL
-fun getUserNameA(lpBuffer : , pcbBuffer : LibC::UInt32*) : BOOL
-fun getUserNameW(lpBuffer : , pcbBuffer : LibC::UInt32*) : BOOL
 fun isTokenUntrusted(tokenHandle : HANDLE) : BOOL
 fun cancelTimerQueueTimer(timerQueue : HANDLE, timer : HANDLE) : BOOL
 fun getCurrentHwProfileA(lpHwProfileInfo : HW_PROFILE_INFOA*) : BOOL
@@ -1424,8 +1417,6 @@ fun uaw_wcsrchr(string : LibC::UInt16*, character : LibC::Char) : LibC::UInt16*
 fun ntClose(handle : HANDLE) : NTSTATUS
 fun ntOpenFile(fileHandle : HANDLE*, desiredAccess : LibC::UInt32, objectAttributes : OBJECT_ATTRIBUTES*, ioStatusBlock : IO_STATUS_BLOCK*, shareAccess : LibC::UInt32, openOptions : LibC::UInt32) : NTSTATUS
 fun ntRenameKey(keyHandle : HANDLE, newName : UNICODE_STRING*) : NTSTATUS
-fun ntNotifyChangeMultipleKeys(masterKeyHandle : HANDLE, count : LibC::UInt32, subordinateObjects : , event : HANDLE, apcRoutine : PIO_APC_ROUTINE, apcContext : LibC::Void*, ioStatusBlock : IO_STATUS_BLOCK*, completionFilter : LibC::UInt32, watchTree : BOOLEAN, buffer : LibC::Void*, bufferSize : LibC::UInt32, asynchronous : BOOLEAN) : NTSTATUS
-fun ntQueryMultipleValueKey(keyHandle : HANDLE, valueEntries : , entryCount : LibC::UInt32, valueBuffer : LibC::Void*, bufferLength : LibC::UInt32*, requiredBufferLength : LibC::UInt32*) : NTSTATUS
 fun ntSetInformationKey(keyHandle : HANDLE, keySetInformationClass : KEY_SET_INFORMATION_CLASS, keySetInformation : LibC::Void*, keySetInformationLength : LibC::UInt32) : NTSTATUS
 fun ntDeviceIoControlFile(fileHandle : HANDLE, event : HANDLE, apcRoutine : PIO_APC_ROUTINE, apcContext : LibC::Void*, ioStatusBlock : IO_STATUS_BLOCK*, ioControlCode : LibC::UInt32, inputBuffer : LibC::Void*, inputBufferLength : LibC::UInt32, outputBuffer : LibC::Void*, outputBufferLength : LibC::UInt32) : NTSTATUS
 fun ntWaitForSingleObject(handle : HANDLE, alertable : BOOLEAN, timeout : LARGE_INTEGER*) : NTSTATUS
@@ -1483,8 +1474,6 @@ fun needRebootInit() : LibC::UInt32
 fun needReboot(dwRebootCheck : LibC::UInt32) : BOOL
 fun rebootCheckOnInstallA(hwnd : HWND, pszINF : PSTR, pszSec : PSTR, dwReserved : LibC::UInt32) : HRESULT
 fun rebootCheckOnInstallW(hwnd : HWND, pszINF : PWSTR, pszSec : PWSTR, dwReserved : LibC::UInt32) : HRESULT
-fun translateInfStringA(pszInfFilename : PSTR, pszInstallSection : PSTR, pszTranslateSection : PSTR, pszTranslateKey : PSTR, pszBuffer : , cchBuffer : LibC::UInt32, pdwRequiredSize : LibC::UInt32*, pvReserved : LibC::Void*) : HRESULT
-fun translateInfStringW(pszInfFilename : PWSTR, pszInstallSection : PWSTR, pszTranslateSection : PWSTR, pszTranslateKey : PWSTR, pszBuffer : , cchBuffer : LibC::UInt32, pdwRequiredSize : LibC::UInt32*, pvReserved : LibC::Void*) : HRESULT
 fun regInstallA(hmod : HINSTANCE, pszSection : PSTR, pstTable : STRTABLEA*) : HRESULT
 fun regInstallW(hmod : HINSTANCE, pszSection : PWSTR, pstTable : STRTABLEW*) : HRESULT
 fun launchINFSectionExW(hwnd : HWND, hInstance : HINSTANCE, pszParms : PWSTR, nShow : LibC::Int32) : HRESULT
@@ -1515,8 +1504,6 @@ fun delNodeW(pszFileOrDirName : PWSTR, dwFlags : LibC::UInt32) : HRESULT
 fun delNodeRunDLL32W(hwnd : HWND, hInstance : HINSTANCE, pszParms : PWSTR, nShow : LibC::Int32) : HRESULT
 fun openINFEngineA(pszInfFilename : PSTR, pszInstallSection : PSTR, dwFlags : LibC::UInt32, phInf : LibC::Void**, pvReserved : LibC::Void*) : HRESULT
 fun openINFEngineW(pszInfFilename : PWSTR, pszInstallSection : PWSTR, dwFlags : LibC::UInt32, phInf : LibC::Void**, pvReserved : LibC::Void*) : HRESULT
-fun translateInfStringExA(hInf : LibC::Void*, pszInfFilename : PSTR, pszTranslateSection : PSTR, pszTranslateKey : PSTR, pszBuffer : , dwBufferSize : LibC::UInt32, pdwRequiredSize : LibC::UInt32*, pvReserved : LibC::Void*) : HRESULT
-fun translateInfStringExW(hInf : LibC::Void*, pszInfFilename : PWSTR, pszTranslateSection : PWSTR, pszTranslateKey : PWSTR, pszBuffer : , dwBufferSize : LibC::UInt32, pdwRequiredSize : LibC::UInt32*, pvReserved : LibC::Void*) : HRESULT
 fun closeINFEngine(hInf : LibC::Void*) : HRESULT
 fun extractFilesA(pszCabName : PSTR, pszExpandDir : PSTR, dwFlags : LibC::UInt32, pszFileList : PSTR, lpReserved : LibC::Void*, dwReserved : LibC::UInt32) : HRESULT
 fun extractFilesW(pszCabName : PWSTR, pszExpandDir : PWSTR, dwFlags : LibC::UInt32, pszFileList : PWSTR, lpReserved : LibC::Void*, dwReserved : LibC::UInt32) : HRESULT
@@ -1544,6 +1531,5 @@ fun wldpIsClassInApprovedList(classID : LibC::Guid*, hostInformation : WLDP_HOST
 fun wldpSetDynamicCodeTrust(fileHandle : HANDLE) : HRESULT
 fun wldpIsDynamicCodePolicyEnabled(isEnabled : BOOL*) : HRESULT
 fun wldpQueryDynamicCodeTrust(fileHandle : HANDLE, baseImage : LibC::Void*, imageSize : LibC::UInt32) : HRESULT
-fun wldpQueryDeviceSecurityInformation(information : , informationLength : LibC::UInt32, returnLength : LibC::UInt32*) : HRESULT
 
   end

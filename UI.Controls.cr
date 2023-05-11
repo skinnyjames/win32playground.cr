@@ -2970,24 +2970,28 @@ type HDSA = LibC::Int*
 type HDPA = LibC::Int*
 alias LPFNPSPCALLBACKA = (HWND, PSPCB_MESSAGE, PROPSHEETPAGEA* -> LibC::UInt32)
 alias LPFNPSPCALLBACKW = (HWND, PSPCB_MESSAGE, PROPSHEETPAGEW* -> LibC::UInt32)
+type Rabbit144da64e8d15 = PSTR | DLGTEMPLATE*
+type Birdf8dd151bcd47 = HICON | PSTR
 struct PROPSHEETPAGEA_V1
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Anonymous1_e__Union
-  anonymous2 : Anonymous2_e__Union
+  anonymous1 : Rabbit144da64e8d15
+  anonymous2 : Birdf8dd151bcd47
   pszTitle : PSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
   pfnCallback : LPFNPSPCALLBACKA
   pcRefParent : LibC::UInt32*
 end
+type Rabbit652f9ccbbe32 = PSTR | DLGTEMPLATE*
+type Other6a3b399247c7 = HICON | PSTR
 struct PROPSHEETPAGEA_V2
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Anonymous1_e__Union
-  anonymous2 : Anonymous2_e__Union
+  anonymous1 : Rabbit652f9ccbbe32
+  anonymous2 : Other6a3b399247c7
   pszTitle : PSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
@@ -2996,12 +3000,14 @@ struct PROPSHEETPAGEA_V2
   pszHeaderTitle : PSTR
   pszHeaderSubTitle : PSTR
 end
+type Duckdf05cb1f6754 = PSTR | DLGTEMPLATE*
+type Pigc96451491722 = HICON | PSTR
 struct PROPSHEETPAGEA_V3
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Anonymous1_e__Union
-  anonymous2 : Anonymous2_e__Union
+  anonymous1 : Duckdf05cb1f6754
+  anonymous2 : Pigc96451491722
   pszTitle : PSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
@@ -3011,12 +3017,15 @@ struct PROPSHEETPAGEA_V3
   pszHeaderSubTitle : PSTR
   hActCtx : HANDLE
 end
+type Rabbit1a3e5b588110 = HBITMAP | PSTR
+type Rabbit51e6990bb5e4 = PSTR | DLGTEMPLATE*
+type Other3b7aae4ccc0f = HICON | PSTR
 struct PROPSHEETPAGEA
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Anonymous1_e__Union
-  anonymous2 : Anonymous2_e__Union
+  anonymous1 : Rabbit51e6990bb5e4
+  anonymous2 : Other3b7aae4ccc0f
   pszTitle : PSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
@@ -3025,26 +3034,30 @@ struct PROPSHEETPAGEA
   pszHeaderTitle : PSTR
   pszHeaderSubTitle : PSTR
   hActCtx : HANDLE
-  anonymous3 : Anonymous3_e__Union
+  anonymous3 : Rabbit1a3e5b588110
 end
+type Pig81d0f42efe6a = HICON | PWSTR
+type Otherdbf4d6d3158b = PWSTR | DLGTEMPLATE*
 struct PROPSHEETPAGEW_V1
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Anonymous1_e__Union
-  anonymous2 : Anonymous2_e__Union
+  anonymous1 : Otherdbf4d6d3158b
+  anonymous2 : Pig81d0f42efe6a
   pszTitle : PWSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
   pfnCallback : LPFNPSPCALLBACKW
   pcRefParent : LibC::UInt32*
 end
+type Other9ac83f755a8d = HICON | PWSTR
+type Owlb90b8c47dec1 = PWSTR | DLGTEMPLATE*
 struct PROPSHEETPAGEW_V2
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Anonymous1_e__Union
-  anonymous2 : Anonymous2_e__Union
+  anonymous1 : Owlb90b8c47dec1
+  anonymous2 : Other9ac83f755a8d
   pszTitle : PWSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
@@ -3053,12 +3066,14 @@ struct PROPSHEETPAGEW_V2
   pszHeaderTitle : PWSTR
   pszHeaderSubTitle : PWSTR
 end
+type Rabbitf6c298a93882 = HICON | PWSTR
+type Otherfeaa6d2fba41 = PWSTR | DLGTEMPLATE*
 struct PROPSHEETPAGEW_V3
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Anonymous1_e__Union
-  anonymous2 : Anonymous2_e__Union
+  anonymous1 : Otherfeaa6d2fba41
+  anonymous2 : Rabbitf6c298a93882
   pszTitle : PWSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
@@ -3068,12 +3083,15 @@ struct PROPSHEETPAGEW_V3
   pszHeaderSubTitle : PWSTR
   hActCtx : HANDLE
 end
+type Bird12466f846037 = HICON | PWSTR
+type Owl83b58aba9262 = PWSTR | DLGTEMPLATE*
+type Bird691804cec5d9 = HBITMAP | PWSTR
 struct PROPSHEETPAGEW
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Anonymous1_e__Union
-  anonymous2 : Anonymous2_e__Union
+  anonymous1 : Owl83b58aba9262
+  anonymous2 : Bird12466f846037
   pszTitle : PWSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
@@ -3082,62 +3100,78 @@ struct PROPSHEETPAGEW
   pszHeaderTitle : PWSTR
   pszHeaderSubTitle : PWSTR
   hActCtx : HANDLE
-  anonymous3 : Anonymous3_e__Union
+  anonymous3 : Bird691804cec5d9
 end
 alias PFNPROPSHEETCALLBACK = (HWND, LibC::UInt32, LPARAM -> LibC::Int32)
+type Other40eb48fcd7da = PROPSHEETPAGEA* | HPROPSHEETPAGE*
+type Owl02901f1a65e3 = HICON | PSTR
+type Duck894e5a81bd56 = LibC::UInt32 | PSTR
 struct PROPSHEETHEADERA_V1
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hwndParent : HWND
   hInstance : HINSTANCE
-  anonymous1 : Anonymous1_e__Union
+  anonymous1 : Owl02901f1a65e3
   pszCaption : PSTR
   nPages : LibC::UInt32
-  anonymous2 : Anonymous2_e__Union
-  anonymous3 : Anonymous3_e__Union
+  anonymous2 : Duck894e5a81bd56
+  anonymous3 : Other40eb48fcd7da
   pfnCallback : PFNPROPSHEETCALLBACK
 end
+type Owle6ff7d61a8c1 = HBITMAP | PSTR
+type Otherd27027f72cf4 = LibC::UInt32 | PSTR
+type Owl47eeb450009c = PROPSHEETPAGEA* | HPROPSHEETPAGE*
+type Duckcd30d94bf959 = HICON | PSTR
+type Bird9fb1a575b959 = HBITMAP | PSTR
 struct PROPSHEETHEADERA_V2
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hwndParent : HWND
   hInstance : HINSTANCE
-  anonymous1 : Anonymous1_e__Union
+  anonymous1 : Duckcd30d94bf959
   pszCaption : PSTR
   nPages : LibC::UInt32
-  anonymous2 : Anonymous2_e__Union
-  anonymous3 : Anonymous3_e__Union
+  anonymous2 : Otherd27027f72cf4
+  anonymous3 : Owl47eeb450009c
   pfnCallback : PFNPROPSHEETCALLBACK
-  anonymous4 : Anonymous4_e__Union
+  anonymous4 : Owle6ff7d61a8c1
   hplWatermark : HPALETTE
-  anonymous5 : Anonymous5_e__Union
+  anonymous5 : Bird9fb1a575b959
 end
+type Rabbitc263171f2cea = PROPSHEETPAGEW* | HPROPSHEETPAGE*
+type Rabbit0cde5811f1ee = HICON | PWSTR
+type Duck43a219d2f4a0 = LibC::UInt32 | PWSTR
 struct PROPSHEETHEADERW_V1
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hwndParent : HWND
   hInstance : HINSTANCE
-  anonymous1 : Anonymous1_e__Union
+  anonymous1 : Rabbit0cde5811f1ee
   pszCaption : PWSTR
   nPages : LibC::UInt32
-  anonymous2 : Anonymous2_e__Union
-  anonymous3 : Anonymous3_e__Union
+  anonymous2 : Duck43a219d2f4a0
+  anonymous3 : Rabbitc263171f2cea
   pfnCallback : PFNPROPSHEETCALLBACK
 end
+type Rabbitf3ba6b77d623 = HBITMAP | PWSTR
+type Othere888ede4e9d3 = LibC::UInt32 | PWSTR
+type Duckb3839ba6c95d = PROPSHEETPAGEW* | HPROPSHEETPAGE*
+type Duck1bfa485fb84b = HICON | PWSTR
+type Duckd8babe60b07a = HBITMAP | PWSTR
 struct PROPSHEETHEADERW_V2
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hwndParent : HWND
   hInstance : HINSTANCE
-  anonymous1 : Anonymous1_e__Union
+  anonymous1 : Duck1bfa485fb84b
   pszCaption : PWSTR
   nPages : LibC::UInt32
-  anonymous2 : Anonymous2_e__Union
-  anonymous3 : Anonymous3_e__Union
+  anonymous2 : Othere888ede4e9d3
+  anonymous3 : Duckb3839ba6c95d
   pfnCallback : PFNPROPSHEETCALLBACK
-  anonymous4 : Anonymous4_e__Union
+  anonymous4 : Rabbitf3ba6b77d623
   hplWatermark : HPALETTE
-  anonymous5 : Anonymous5_e__Union
+  anonymous5 : Duckd8babe60b07a
 end
 alias LPFNSVADDPROPSHEETPAGE = (HPROPSHEETPAGE, LPARAM -> BOOL)
 alias LPFNADDPROPSHEETPAGES = (LibC::Void*, LPFNSVADDPROPSHEETPAGE, LPARAM -> BOOL)
@@ -4030,10 +4064,12 @@ struct TVITEMEXW
   iExpandedImage : LibC::Int32
   iReserved : LibC::Int32
 end
+type Ducka213fbd7fa42 = TVITEMEXA | TVITEMA
 struct TVINSERTSTRUCTA
   hParent : HTREEITEM
   hInsertAfter : HTREEITEM
 end
+type Rabbit0edb7a38184e = TVITEMEXW | TVITEMW
 struct TVINSERTSTRUCTW
   hParent : HTREEITEM
   hInsertAfter : HTREEITEM
@@ -4532,6 +4568,8 @@ TDCBF_RETRY_BUTTON = 16
 TDCBF_CLOSE_BUTTON = 32
 
 end
+type Rabbit9429156adc63 = HICON | PWSTR
+type Owl9d0dd25eb371 = HICON | PWSTR
 struct TASKDIALOGCONFIG
   cbSize : LibC::UInt32
   hwndParent : HWND
@@ -4539,7 +4577,7 @@ struct TASKDIALOGCONFIG
   dwFlags : TASKDIALOG_FLAGS
   dwCommonButtons : TASKDIALOG_COMMON_BUTTON_FLAGS
   pszWindowTitle : PWSTR
-  anonymous1 : Anonymous1_e__Union
+  anonymous1 : Rabbit9429156adc63
   pszMainInstruction : PWSTR
   pszContent : PWSTR
   cButtons : LibC::UInt32
@@ -4552,7 +4590,7 @@ struct TASKDIALOGCONFIG
   pszExpandedInformation : PWSTR
   pszExpandedControlText : PWSTR
   pszCollapsedControlText : PWSTR
-  anonymous2 : Anonymous2_e__Union
+  anonymous2 : Owl9d0dd25eb371
   pszFooter : PWSTR
   pfCallback : PFTASKDIALOGCALLBACK
   lpCallbackData : LibC::Int*
@@ -4720,7 +4758,6 @@ struct WTA_OPTIONS
   dwFlags : LibC::UInt32
   dwMask : LibC::UInt32
 end
-alias DTT_CALLBACK_PROC = (HDC, , LibC::Int32, RECT*, LibC::UInt32, LPARAM -> LibC::Int32)
 struct DTTOPTS
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
@@ -5357,6 +5394,7 @@ struct USAGE_PROPERTIES
   physicalMinimum : LibC::Int32
   physicalMaximum : LibC::Int32
 end
+type Rabbitb631162208da = POINTER_TOUCH_INFO | POINTER_PEN_INFO
 struct POINTER_TYPE_INFO
   type : POINTER_INPUT_TYPE
 end
@@ -5568,7 +5606,6 @@ fun initializeFlatSB(param0 : HWND) : BOOL
 fun uninitializeFlatSB(param0 : HWND) : HRESULT
 fun loadIconMetric(hinst : HINSTANCE, pszName : PWSTR, lims : LI_METRIC, phico : HICON*) : HRESULT
 fun loadIconWithScaleDown(hinst : HINSTANCE, pszName : PWSTR, cx : LibC::Int32, cy : LibC::Int32, phico : HICON*) : HRESULT
-fun drawShadowText(hdc : HDC, pszText : , cch : LibC::UInt32, prc : RECT*, dwFlags : LibC::UInt32, crText : LibC::UInt32, crShadow : LibC::UInt32, ixOffset : LibC::Int32, iyOffset : LibC::Int32) : LibC::Int32
 fun imageList_CoCreateInstance(rclsid : LibC::Guid*, punkOuter : IUnknown, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 fun beginPanningFeedback(hwnd : HWND) : BOOL
 fun updatePanningFeedback(hwnd : HWND, lTotalOverpanOffsetX : LibC::Int32, lTotalOverpanOffsetY : LibC::Int32, fInInertia : BOOL) : BOOL
@@ -5581,12 +5618,10 @@ fun openThemeDataEx(hwnd : HWND, pszClassList : PWSTR, dwFlags : OPEN_THEME_DATA
 fun closeThemeData(hTheme : LibC::Int*) : HRESULT
 fun drawThemeBackground(hTheme : LibC::Int*, hdc : HDC, iPartId : LibC::Int32, iStateId : LibC::Int32, pRect : RECT*, pClipRect : RECT*) : HRESULT
 fun drawThemeBackgroundEx(hTheme : LibC::Int*, hdc : HDC, iPartId : LibC::Int32, iStateId : LibC::Int32, pRect : RECT*, pOptions : DTBGOPTS*) : HRESULT
-fun drawThemeText(hTheme : LibC::Int*, hdc : HDC, iPartId : LibC::Int32, iStateId : LibC::Int32, pszText : , cchText : LibC::Int32, dwTextFlags : LibC::UInt32, dwTextFlags2 : LibC::UInt32, pRect : RECT*) : HRESULT
 fun getThemeBackgroundContentRect(hTheme : LibC::Int*, hdc : HDC, iPartId : LibC::Int32, iStateId : LibC::Int32, pBoundingRect : RECT*, pContentRect : RECT*) : HRESULT
 fun getThemeBackgroundExtent(hTheme : LibC::Int*, hdc : HDC, iPartId : LibC::Int32, iStateId : LibC::Int32, pContentRect : RECT*, pExtentRect : RECT*) : HRESULT
 fun getThemeBackgroundRegion(hTheme : LibC::Int*, hdc : HDC, iPartId : LibC::Int32, iStateId : LibC::Int32, pRect : RECT*, pRegion : HRGN*) : HRESULT
 fun getThemePartSize(hTheme : LibC::Int*, hdc : HDC, iPartId : LibC::Int32, iStateId : LibC::Int32, prc : RECT*, eSize : THEMESIZE, psz : SIZE*) : HRESULT
-fun getThemeTextExtent(hTheme : LibC::Int*, hdc : HDC, iPartId : LibC::Int32, iStateId : LibC::Int32, pszText : , cchCharCount : LibC::Int32, dwTextFlags : LibC::UInt32, pBoundingRect : RECT*, pExtentRect : RECT*) : HRESULT
 fun getThemeTextMetrics(hTheme : LibC::Int*, hdc : HDC, iPartId : LibC::Int32, iStateId : LibC::Int32, ptm : TEXTMETRICW*) : HRESULT
 fun hitTestThemeBackground(hTheme : LibC::Int*, hdc : HDC, iPartId : LibC::Int32, iStateId : LibC::Int32, dwOptions : LibC::UInt32, pRect : RECT*, hrgn : HRGN, ptTest : POINT, pwHitTestCode : LibC::UInt16*) : HRESULT
 fun drawThemeEdge(hTheme : LibC::Int*, hdc : HDC, iPartId : LibC::Int32, iStateId : LibC::Int32, pDestRect : RECT*, uEdge : LibC::UInt32, uFlags : LibC::UInt32, pContentRect : RECT*) : HRESULT
@@ -5595,7 +5630,6 @@ fun isThemePartDefined(hTheme : LibC::Int*, iPartId : LibC::Int32, iStateId : Li
 fun isThemeBackgroundPartiallyTransparent(hTheme : LibC::Int*, iPartId : LibC::Int32, iStateId : LibC::Int32) : BOOL
 fun getThemeColor(hTheme : LibC::Int*, iPartId : LibC::Int32, iStateId : LibC::Int32, iPropId : LibC::Int32, pColor : LibC::UInt32*) : HRESULT
 fun getThemeMetric(hTheme : LibC::Int*, hdc : HDC, iPartId : LibC::Int32, iStateId : LibC::Int32, iPropId : THEME_PROPERTY_SYMBOL_ID, piVal : LibC::Int32*) : HRESULT
-fun getThemeString(hTheme : LibC::Int*, iPartId : LibC::Int32, iStateId : LibC::Int32, iPropId : LibC::Int32, pszBuff : , cchMaxBuffChars : LibC::Int32) : HRESULT
 fun getThemeBool(hTheme : LibC::Int*, iPartId : LibC::Int32, iStateId : LibC::Int32, iPropId : THEME_PROPERTY_SYMBOL_ID, pfVal : BOOL*) : HRESULT
 fun getThemeInt(hTheme : LibC::Int*, iPartId : LibC::Int32, iStateId : LibC::Int32, iPropId : LibC::Int32, piVal : LibC::Int32*) : HRESULT
 fun getThemeEnumValue(hTheme : LibC::Int*, iPartId : LibC::Int32, iStateId : LibC::Int32, iPropId : LibC::Int32, piVal : LibC::Int32*) : HRESULT
@@ -5606,13 +5640,11 @@ fun getThemeMargins(hTheme : LibC::Int*, hdc : HDC, iPartId : LibC::Int32, iStat
 fun getThemeIntList(hTheme : LibC::Int*, iPartId : LibC::Int32, iStateId : LibC::Int32, iPropId : LibC::Int32, pIntList : INTLIST*) : HRESULT
 fun getThemePropertyOrigin(hTheme : LibC::Int*, iPartId : LibC::Int32, iStateId : LibC::Int32, iPropId : LibC::Int32, pOrigin : PROPERTYORIGIN*) : HRESULT
 fun setWindowTheme(hwnd : HWND, pszSubAppName : PWSTR, pszSubIdList : PWSTR) : HRESULT
-fun getThemeFilename(hTheme : LibC::Int*, iPartId : LibC::Int32, iStateId : LibC::Int32, iPropId : LibC::Int32, pszThemeFileName : , cchMaxBuffChars : LibC::Int32) : HRESULT
 fun getThemeSysColor(hTheme : LibC::Int*, iColorId : LibC::Int32) : LibC::UInt32
 fun getThemeSysColorBrush(hTheme : LibC::Int*, iColorId : THEME_PROPERTY_SYMBOL_ID) : HBRUSH
 fun getThemeSysBool(hTheme : LibC::Int*, iBoolId : LibC::Int32) : BOOL
 fun getThemeSysSize(hTheme : LibC::Int*, iSizeId : LibC::Int32) : LibC::Int32
 fun getThemeSysFont(hTheme : LibC::Int*, iFontId : THEME_PROPERTY_SYMBOL_ID, plf : LOGFONTW*) : HRESULT
-fun getThemeSysString(hTheme : LibC::Int*, iStringId : THEME_PROPERTY_SYMBOL_ID, pszStringBuff : , cchMaxStringChars : LibC::Int32) : HRESULT
 fun getThemeSysInt(hTheme : LibC::Int*, iIntId : LibC::Int32, piValue : LibC::Int32*) : HRESULT
 fun isThemeActive() : BOOL
 fun isAppThemed() : BOOL
@@ -5621,13 +5653,10 @@ fun enableThemeDialogTexture(hwnd : HWND, dwFlags : LibC::UInt32) : HRESULT
 fun isThemeDialogTextureEnabled(hwnd : HWND) : BOOL
 fun getThemeAppProperties() : LibC::UInt32
 fun setThemeAppProperties(dwFlags : LibC::UInt32) : LibC::Void
-fun getCurrentThemeName(pszThemeFileName : , cchMaxNameChars : LibC::Int32, pszColorBuff : , cchMaxColorChars : LibC::Int32, pszSizeBuff : , cchMaxSizeChars : LibC::Int32) : HRESULT
-fun getThemeDocumentationProperty(pszThemeName : PWSTR, pszPropertyName : PWSTR, pszValueBuff : , cchMaxValChars : LibC::Int32) : HRESULT
 fun drawThemeParentBackground(hwnd : HWND, hdc : HDC, prc : RECT*) : HRESULT
 fun enableTheming(fEnable : BOOL) : HRESULT
 fun drawThemeParentBackgroundEx(hwnd : HWND, hdc : HDC, dwFlags : DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc : RECT*) : HRESULT
 fun setWindowThemeAttribute(hwnd : HWND, eAttribute : WINDOWTHEMEATTRIBUTETYPE, pvAttribute : LibC::Void*, cbAttribute : LibC::UInt32) : HRESULT
-fun drawThemeTextEx(hTheme : LibC::Int*, hdc : HDC, iPartId : LibC::Int32, iStateId : LibC::Int32, pszText : , cchText : LibC::Int32, dwTextFlags : LibC::UInt32, pRect : RECT*, pOptions : DTTOPTS*) : HRESULT
 fun getThemeBitmap(hTheme : LibC::Int*, iPartId : LibC::Int32, iStateId : LibC::Int32, iPropId : THEME_PROPERTY_SYMBOL_ID, dwFlags : GET_THEME_BITMAP_FLAGS, phBitmap : HBITMAP*) : HRESULT
 fun getThemeStream(hTheme : LibC::Int*, iPartId : LibC::Int32, iStateId : LibC::Int32, iPropId : LibC::Int32, ppvStream : LibC::Void**, pcbStream : LibC::UInt32*, hInst : HINSTANCE) : HRESULT
 fun bufferedPaintInit() : HRESULT
@@ -5654,7 +5683,6 @@ fun createSyntheticPointerDevice(pointerType : POINTER_INPUT_TYPE, maxCount : Li
 fun destroySyntheticPointerDevice(device : HSYNTHETICPOINTERDEVICE) : LibC::Void
 fun registerTouchHitTestingWindow(hwnd : HWND, value : LibC::UInt32) : BOOL
 fun evaluateProximityToRect(controlBoundingBox : RECT*, pHitTestingInput : TOUCH_HIT_TESTING_INPUT*, pProximityEval : TOUCH_HIT_TESTING_PROXIMITY_EVALUATION*) : BOOL
-fun evaluateProximityToPolygon(numVertices : LibC::UInt32, controlPolygon : , pHitTestingInput : TOUCH_HIT_TESTING_INPUT*, pProximityEval : TOUCH_HIT_TESTING_PROXIMITY_EVALUATION*) : BOOL
 fun packTouchHitTestingProximityEvaluation(pHitTestingInput : TOUCH_HIT_TESTING_INPUT*, pProximityEval : TOUCH_HIT_TESTING_PROXIMITY_EVALUATION*) : LRESULT
 fun getWindowFeedbackSetting(hwnd : HWND, feedback : FEEDBACK_TYPE, dwFlags : LibC::UInt32, pSize : LibC::UInt32*, config : LibC::Void*) : BOOL
 fun setWindowFeedbackSetting(hwnd : HWND, feedback : FEEDBACK_TYPE, dwFlags : LibC::UInt32, size : LibC::UInt32, configuration : LibC::Void*) : BOOL
@@ -5664,12 +5692,8 @@ fun showScrollBar(hWnd : HWND, wBar : SCROLLBAR_CONSTANTS, bShow : BOOL) : BOOL
 fun enableScrollBar(hWnd : HWND, wSBflags : SCROLLBAR_CONSTANTS, wArrows : ENABLE_SCROLL_BAR_ARROWS) : BOOL
 fun dlgDirListA(hDlg : HWND, lpPathSpec : PSTR, nIDListBox : LibC::Int32, nIDStaticPath : LibC::Int32, uFileType : DLG_DIR_LIST_FILE_TYPE) : LibC::Int32
 fun dlgDirListW(hDlg : HWND, lpPathSpec : PWSTR, nIDListBox : LibC::Int32, nIDStaticPath : LibC::Int32, uFileType : DLG_DIR_LIST_FILE_TYPE) : LibC::Int32
-fun dlgDirSelectExA(hwndDlg : HWND, lpString : , chCount : LibC::Int32, idListBox : LibC::Int32) : BOOL
-fun dlgDirSelectExW(hwndDlg : HWND, lpString : , chCount : LibC::Int32, idListBox : LibC::Int32) : BOOL
 fun dlgDirListComboBoxA(hDlg : HWND, lpPathSpec : PSTR, nIDComboBox : LibC::Int32, nIDStaticPath : LibC::Int32, uFiletype : DLG_DIR_LIST_FILE_TYPE) : LibC::Int32
 fun dlgDirListComboBoxW(hDlg : HWND, lpPathSpec : PWSTR, nIDComboBox : LibC::Int32, nIDStaticPath : LibC::Int32, uFiletype : DLG_DIR_LIST_FILE_TYPE) : LibC::Int32
-fun dlgDirSelectComboBoxExA(hwndDlg : HWND, lpString : , cchOut : LibC::Int32, idComboBox : LibC::Int32) : BOOL
-fun dlgDirSelectComboBoxExW(hwndDlg : HWND, lpString : , cchOut : LibC::Int32, idComboBox : LibC::Int32) : BOOL
 fun setScrollInfo(hwnd : HWND, nBar : SCROLLBAR_CONSTANTS, lpsi : SCROLLINFO*, redraw : BOOL) : LibC::Int32
 fun getComboBoxInfo(hwndCombo : HWND, pcbi : COMBOBOXINFO*) : BOOL
 fun getListBoxInfo(hwnd : HWND) : LibC::UInt32

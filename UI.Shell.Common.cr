@@ -22,6 +22,7 @@ STRRET_OFFSET = 1
 STRRET_CSTR = 2
 
 end
+type Owl23d90390a685 = PWSTR | LibC::UInt32 | Array(LibC::Byte)
 struct STRRET
   uType : LibC::UInt32
 end

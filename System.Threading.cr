@@ -410,10 +410,17 @@ type PTP_POOL = LibC::Int*
 type NamespaceHandle = LibC::Int*
 type BoundaryDescriptorHandle = LibC::Int*
 type LPPROC_THREAD_ATTRIBUTE_LIST = LibC::Void*
+struct Birde90866256aa9
+  localizedReasonModule : HINSTANCE
+  localizedReasonId : LibC::UInt32
+  reasonStringCount : LibC::UInt32
+  reasonStrings : PWSTR*
+end
+type Rabbita25bbb59f51c = Birde90866256aa9 | PWSTR
 struct REASON_CONTEXT
   version : LibC::UInt32
   flags : POWER_REQUEST_CONTEXT_FLAGS
-  reason : Reason_e__Union
+  reason : Rabbita25bbb59f51c
 end
 alias LPTHREAD_START_ROUTINE = (LibC::Void* -> LibC::UInt32)
 alias PINIT_ONCE_FN = (RTL_RUN_ONCE*, LibC::Void*, LibC::Void** -> BOOL)
@@ -625,6 +632,7 @@ ProcessRedirectionTrustPolicy = 16
 MaxProcessMitigationPolicy = 17
 
 end
+type RTL_RUN_ONCE = LibC::Void*
 struct RTL_BARRIER
   reserved1 : LibC::UInt32
   reserved2 : LibC::UInt32
@@ -696,6 +704,12 @@ struct TP_POOL_STACK_INFORMATION
   stackCommit : LibC::UIint*
 end
 alias PTP_CLEANUP_GROUP_CANCEL_CALLBACK = (LibC::Void*, LibC::Void* -> LibC::Void)
+struct Pigb068495f28e2
+  bitfield : LibC::UInt32
+end
+type Bird8fdec2afa5fe = LibC::UInt32 | Pigb068495f28e2
+struct Otherccb38787f3ec
+end
 struct TP_CALLBACK_ENVIRON_V3
   version : LibC::UInt32
   pool : PTP_POOL
@@ -704,7 +718,7 @@ struct TP_CALLBACK_ENVIRON_V3
   raceDll : LibC::Void*
   activationContext : LibC::Int*
   finalizationCallback : PTP_SIMPLE_CALLBACK
-  u : U_e__Union
+  u : Bird8fdec2afa5fe
   callbackPriority : TP_CALLBACK_PRIORITY
   size : LibC::UInt32
 end
@@ -718,6 +732,10 @@ struct UMS_SCHEDULER_STARTUP_INFO
   schedulerProc : PRTL_UMS_SCHEDULER_ENTRY_POINT
   schedulerParam : LibC::Void*
 end
+struct Owl6d355d603a4d
+  bitfield : LibC::UInt32
+end
+type Otherd031cff002ca = Owl6d355d603a4d | LibC::UInt32
 struct UMS_SYSTEM_THREAD_INFORMATION
   umsVersion : LibC::UInt32
 end
@@ -825,7 +843,6 @@ fun releaseMutex(hMutex : HANDLE) : BOOL
 fun waitForSingleObject(hHandle : HANDLE, dwMilliseconds : LibC::UInt32) : LibC::UInt32
 fun sleepEx(dwMilliseconds : LibC::UInt32, bAlertable : BOOL) : LibC::UInt32
 fun waitForSingleObjectEx(hHandle : HANDLE, dwMilliseconds : LibC::UInt32, bAlertable : BOOL) : LibC::UInt32
-fun waitForMultipleObjectsEx(nCount : LibC::UInt32, lpHandles : , bWaitAll : BOOL, dwMilliseconds : LibC::UInt32, bAlertable : BOOL) : LibC::UInt32
 fun createMutexA(lpMutexAttributes : SECURITY_ATTRIBUTES*, bInitialOwner : BOOL, lpName : PSTR) : HANDLE
 fun createMutexW(lpMutexAttributes : SECURITY_ATTRIBUTES*, bInitialOwner : BOOL, lpName : PWSTR) : HANDLE
 fun openMutexW(dwDesiredAccess : LibC::UInt32, bInheritHandle : BOOL, lpName : PWSTR) : HANDLE
@@ -851,7 +868,6 @@ fun sleep(dwMilliseconds : LibC::UInt32) : LibC::Void
 fun waitOnAddress(address : LibC::Void*, compareAddress : LibC::Void*, addressSize : LibC::UIint*, dwMilliseconds : LibC::UInt32) : BOOL
 fun wakeByAddressSingle(address : LibC::Void*) : LibC::Void
 fun wakeByAddressAll(address : LibC::Void*) : LibC::Void
-fun waitForMultipleObjects(nCount : LibC::UInt32, lpHandles : , bWaitAll : BOOL, dwMilliseconds : LibC::UInt32) : LibC::UInt32
 fun createSemaphoreW(lpSemaphoreAttributes : SECURITY_ATTRIBUTES*, lInitialCount : LibC::Int32, lMaximumCount : LibC::Int32, lpName : PWSTR) : HANDLE
 fun createWaitableTimerW(lpTimerAttributes : SECURITY_ATTRIBUTES*, bManualReset : BOOL, lpTimerName : PWSTR) : HANDLE
 fun initializeSListHead(listHead : SLIST_HEADER*) : LibC::Void
@@ -906,8 +922,6 @@ fun getProcessIdOfThread(thread : HANDLE) : LibC::UInt32
 fun initializeProcThreadAttributeList(lpAttributeList : LPPROC_THREAD_ATTRIBUTE_LIST, dwAttributeCount : LibC::UInt32, dwFlags : LibC::UInt32, lpSize : LibC::UIint**) : BOOL
 fun deleteProcThreadAttributeList(lpAttributeList : LPPROC_THREAD_ATTRIBUTE_LIST) : LibC::Void
 fun updateProcThreadAttribute(lpAttributeList : LPPROC_THREAD_ATTRIBUTE_LIST, dwFlags : LibC::UInt32, attribute : LibC::UIint*, lpValue : LibC::Void*, cbSize : LibC::UIint*, lpPreviousValue : LibC::Void*, lpReturnSize : LibC::UIint**) : BOOL
-fun setProcessDynamicEHContinuationTargets(process : HANDLE, numberOfTargets : LibC::UInt16, targets : ) : BOOL
-fun setProcessDynamicEnforcedCetCompatibleRanges(process : HANDLE, numberOfRanges : LibC::UInt16, ranges : ) : BOOL
 fun setProcessAffinityUpdateMode(hProcess : HANDLE, dwFlags : PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) : BOOL
 fun queryProcessAffinityUpdateMode(hProcess : HANDLE, lpdwFlags : PROCESS_AFFINITY_AUTO_UPDATE_FLAGS*) : BOOL
 fun createRemoteThreadEx(hProcess : HANDLE, lpThreadAttributes : SECURITY_ATTRIBUTES*, dwStackSize : LibC::UIint*, lpStartAddress : LPTHREAD_START_ROUTINE, lpParameter : LibC::Void*, dwCreationFlags : LibC::UInt32, lpAttributeList : LPPROC_THREAD_ATTRIBUTE_LIST, lpThreadId : LibC::UInt32*) : HANDLE
@@ -934,16 +948,8 @@ fun queryProtectedPolicy(policyGuid : LibC::Guid*, policyValue : LibC::UIint**) 
 fun setThreadIdealProcessor(hThread : HANDLE, dwIdealProcessor : LibC::UInt32) : LibC::UInt32
 fun setProcessInformation(hProcess : HANDLE, processInformationClass : PROCESS_INFORMATION_CLASS, processInformation : LibC::Void*, processInformationSize : LibC::UInt32) : BOOL
 fun getProcessInformation(hProcess : HANDLE, processInformationClass : PROCESS_INFORMATION_CLASS, processInformation : LibC::Void*, processInformationSize : LibC::UInt32) : BOOL
-fun getProcessDefaultCpuSets(process : HANDLE, cpuSetIds : , cpuSetIdCount : LibC::UInt32, requiredIdCount : LibC::UInt32*) : BOOL
-fun setProcessDefaultCpuSets(process : HANDLE, cpuSetIds : , cpuSetIdCount : LibC::UInt32) : BOOL
-fun getThreadSelectedCpuSets(thread : HANDLE, cpuSetIds : , cpuSetIdCount : LibC::UInt32, requiredIdCount : LibC::UInt32*) : BOOL
-fun setThreadSelectedCpuSets(thread : HANDLE, cpuSetIds : , cpuSetIdCount : LibC::UInt32) : BOOL
 fun createProcessAsUserA(hToken : HANDLE, lpApplicationName : PSTR, lpCommandLine : PSTR, lpProcessAttributes : SECURITY_ATTRIBUTES*, lpThreadAttributes : SECURITY_ATTRIBUTES*, bInheritHandles : BOOL, dwCreationFlags : LibC::UInt32, lpEnvironment : LibC::Void*, lpCurrentDirectory : PSTR, lpStartupInfo : STARTUPINFOA*, lpProcessInformation : PROCESS_INFORMATION*) : BOOL
 fun getProcessShutdownParameters(lpdwLevel : LibC::UInt32*, lpdwFlags : LibC::UInt32*) : BOOL
-fun getProcessDefaultCpuSetMasks(process : HANDLE, cpuSetMasks : , cpuSetMaskCount : LibC::UInt16, requiredMaskCount : LibC::UInt16*) : BOOL
-fun setProcessDefaultCpuSetMasks(process : HANDLE, cpuSetMasks : , cpuSetMaskCount : LibC::UInt16) : BOOL
-fun getThreadSelectedCpuSetMasks(thread : HANDLE, cpuSetMasks : , cpuSetMaskCount : LibC::UInt16, requiredMaskCount : LibC::UInt16*) : BOOL
-fun setThreadSelectedCpuSetMasks(thread : HANDLE, cpuSetMasks : , cpuSetMaskCount : LibC::UInt16) : BOOL
 fun getMachineTypeAttributes(machine : LibC::UInt16, machineTypeAttributes : MACHINE_ATTRIBUTES*) : HRESULT
 fun setThreadDescription(hThread : HANDLE, lpThreadDescription : PWSTR) : HRESULT
 fun getThreadDescription(hThread : HANDLE, ppszThreadDescription : PWSTR*) : HRESULT
@@ -1004,9 +1010,7 @@ fun addSIDToBoundaryDescriptor(boundaryDescriptor : HANDLE*, requiredSid : PSID)
 fun deleteBoundaryDescriptor(boundaryDescriptor : BoundaryDescriptorHandle) : LibC::Void
 fun getNumaHighestNodeNumber(highestNodeNumber : LibC::UInt32*) : BOOL
 fun getNumaNodeProcessorMaskEx(node : LibC::UInt16, processorMask : GROUP_AFFINITY*) : BOOL
-fun getNumaNodeProcessorMask2(nodeNumber : LibC::UInt16, processorMasks : , processorMaskCount : LibC::UInt16, requiredMaskCount : LibC::UInt16*) : BOOL
 fun getNumaProximityNodeEx(proximityId : LibC::UInt32, nodeNumber : LibC::UInt16*) : BOOL
-fun getProcessGroupAffinity(hProcess : HANDLE, groupCount : LibC::UInt16*, groupArray : ) : BOOL
 fun getThreadGroupAffinity(hThread : HANDLE, groupAffinity : GROUP_AFFINITY*) : BOOL
 fun setThreadGroupAffinity(hThread : HANDLE, groupAffinity : GROUP_AFFINITY*, previousGroupAffinity : GROUP_AFFINITY*) : BOOL
 fun attachThreadInput(idAttach : LibC::UInt32, idAttachTo : LibC::UInt32, fAttach : BOOL) : BOOL
@@ -1045,8 +1049,6 @@ fun pulseEvent(hEvent : HANDLE) : BOOL
 fun winExec(lpCmdLine : PSTR, uCmdShow : LibC::UInt32) : LibC::UInt32
 fun createSemaphoreA(lpSemaphoreAttributes : SECURITY_ATTRIBUTES*, lInitialCount : LibC::Int32, lMaximumCount : LibC::Int32, lpName : PSTR) : HANDLE
 fun createSemaphoreExA(lpSemaphoreAttributes : SECURITY_ATTRIBUTES*, lInitialCount : LibC::Int32, lMaximumCount : LibC::Int32, lpName : PSTR, dwFlags : LibC::UInt32, dwDesiredAccess : LibC::UInt32) : HANDLE
-fun queryFullProcessImageNameA(hProcess : HANDLE, dwFlags : PROCESS_NAME_FORMAT, lpExeName : , lpdwSize : LibC::UInt32*) : BOOL
-fun queryFullProcessImageNameW(hProcess : HANDLE, dwFlags : PROCESS_NAME_FORMAT, lpExeName : , lpdwSize : LibC::UInt32*) : BOOL
 fun getStartupInfoA(lpStartupInfo : STARTUPINFOA*) : LibC::Void
 fun createProcessWithLogonW(lpUsername : PWSTR, lpDomain : PWSTR, lpPassword : PWSTR, dwLogonFlags : CREATE_PROCESS_LOGON_FLAGS, lpApplicationName : PWSTR, lpCommandLine : PWSTR, dwCreationFlags : LibC::UInt32, lpEnvironment : LibC::Void*, lpCurrentDirectory : PWSTR, lpStartupInfo : STARTUPINFOW*, lpProcessInformation : PROCESS_INFORMATION*) : BOOL
 fun createProcessWithTokenW(hToken : HANDLE, dwLogonFlags : CREATE_PROCESS_LOGON_FLAGS, lpApplicationName : PWSTR, lpCommandLine : PWSTR, dwCreationFlags : LibC::UInt32, lpEnvironment : LibC::Void*, lpCurrentDirectory : PWSTR, lpStartupInfo : STARTUPINFOW*, lpProcessInformation : PROCESS_INFORMATION*) : BOOL

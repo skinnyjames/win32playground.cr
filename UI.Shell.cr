@@ -5377,6 +5377,7 @@ struct SHNAMEMAPPINGW
   cchOldPath : LibC::Int32
   cchNewPath : LibC::Int32
 end
+type Other501067965865 = HANDLE | HANDLE
 struct SHELLEXECUTEINFOA
   cbSize : LibC::UInt32
   fMask : LibC::UInt32
@@ -5393,6 +5394,7 @@ struct SHELLEXECUTEINFOA
   dwHotKey : LibC::UInt32
   hProcess : HANDLE
 end
+type Duck634a58a8c53d = HANDLE | HANDLE
 struct SHELLEXECUTEINFOW
   cbSize : LibC::UInt32
   fMask : LibC::UInt32
@@ -5476,6 +5478,7 @@ QUNS_QUIET_TIME = 6
 QUNS_APP = 7
 
 end
+type Duck2acdcd273597 = LibC::UInt32 | LibC::UInt32
 struct NOTIFYICONDATAA
   cbSize : LibC::UInt32
   hWnd : HWND
@@ -5492,6 +5495,7 @@ struct NOTIFYICONDATAA
   guidItem : LibC::Guid
   hBalloonIcon : HICON
 end
+type Bird42b6d456041b = LibC::UInt32 | LibC::UInt32
 struct NOTIFYICONDATAW
   cbSize : LibC::UInt32
   hWnd : HWND
@@ -5741,6 +5745,8 @@ struct OPEN_PRINTER_PROPS_INFOW
 end
 alias PFNCANSHAREFOLDERW = (PWSTR -> HRESULT)
 alias PFNSHOWSHAREFOLDERUIW = (HWND, PWSTR -> HRESULT)
+struct Owld3859c384831
+end
 struct NC_ADDRESS
   pAddrInfo : NET_ADDRESS_INFO*
   portNumber : LibC::UInt16
@@ -7294,6 +7300,7 @@ struct SHNAMEMAPPINGW
   cchOldPath : LibC::Int32
   cchNewPath : LibC::Int32
 end
+type Owlf68c9c2570c2 = HANDLE | HANDLE
 struct SHELLEXECUTEINFOA
   cbSize : LibC::UInt32
   fMask : LibC::UInt32
@@ -7310,6 +7317,7 @@ struct SHELLEXECUTEINFOA
   dwHotKey : LibC::UInt32
   hProcess : HANDLE
 end
+type Rabbit4ca2e5956a6d = HANDLE | HANDLE
 struct SHELLEXECUTEINFOW
   cbSize : LibC::UInt32
   fMask : LibC::UInt32
@@ -7351,6 +7359,7 @@ struct SHQUERYRBINFO
   i64Size : LibC::Int64
   i64NumItems : LibC::Int64
 end
+type Birda9dd388c7f9d = LibC::UInt32 | LibC::UInt32
 struct NOTIFYICONDATAA
   cbSize : LibC::UInt32
   hWnd : HWND
@@ -7367,6 +7376,7 @@ struct NOTIFYICONDATAA
   guidItem : LibC::Guid
   hBalloonIcon : HICON
 end
+type Duckf5b0ac522a0b = LibC::UInt32 | LibC::UInt32
 struct NOTIFYICONDATAW
   cbSize : LibC::UInt32
   hWnd : HWND
@@ -7427,18 +7437,9 @@ end
 fun loadUserProfileA(hToken : HANDLE, lpProfileInfo : PROFILEINFOA*) : BOOL
 fun loadUserProfileW(hToken : HANDLE, lpProfileInfo : PROFILEINFOW*) : BOOL
 fun unloadUserProfile(hToken : HANDLE, hProfile : HANDLE) : BOOL
-fun getProfilesDirectoryA(lpProfileDir : , lpcchSize : LibC::UInt32*) : BOOL
-fun getProfilesDirectoryW(lpProfileDir : , lpcchSize : LibC::UInt32*) : BOOL
 fun getProfileType(dwFlags : LibC::UInt32*) : BOOL
 fun deleteProfileA(lpSidString : PSTR, lpProfilePath : PSTR, lpComputerName : PSTR) : BOOL
 fun deleteProfileW(lpSidString : PWSTR, lpProfilePath : PWSTR, lpComputerName : PWSTR) : BOOL
-fun createProfile(pszUserSid : PWSTR, pszUserName : PWSTR, pszProfilePath : , cchProfilePath : LibC::UInt32) : HRESULT
-fun getDefaultUserProfileDirectoryA(lpProfileDir : , lpcchSize : LibC::UInt32*) : BOOL
-fun getDefaultUserProfileDirectoryW(lpProfileDir : , lpcchSize : LibC::UInt32*) : BOOL
-fun getAllUsersProfileDirectoryA(lpProfileDir : , lpcchSize : LibC::UInt32*) : BOOL
-fun getAllUsersProfileDirectoryW(lpProfileDir : , lpcchSize : LibC::UInt32*) : BOOL
-fun getUserProfileDirectoryA(hToken : HANDLE, lpProfileDir : , lpcchSize : LibC::UInt32*) : BOOL
-fun getUserProfileDirectoryW(hToken : HANDLE, lpProfileDir : , lpcchSize : LibC::UInt32*) : BOOL
 fun setWindowSubclass(hWnd : HWND, pfnSubclass : SUBCLASSPROC, uIdSubclass : LibC::UIint*, dwRefData : LibC::UIint*) : BOOL
 fun getWindowSubclass(hWnd : HWND, pfnSubclass : SUBCLASSPROC, uIdSubclass : LibC::UIint*, pdwRefData : LibC::UIint**) : BOOL
 fun removeWindowSubclass(hWnd : HWND, pfnSubclass : SUBCLASSPROC, uIdSubclass : LibC::UIint*) : BOOL
@@ -7459,9 +7460,7 @@ fun sHGetIDListFromObject(punk : IUnknown, ppidl : ITEMIDLIST**) : HRESULT
 fun sHGetItemFromObject(punk : IUnknown, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 fun sHGetNameFromIDList(pidl : ITEMIDLIST*, sigdnName : SIGDN, ppszName : PWSTR*) : HRESULT
 fun sHGetItemFromDataObject(pdtobj : IDataObject, dwFlags : DATAOBJ_GET_ITEM_FLAGS, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
-fun sHCreateShellItemArray(pidlParent : ITEMIDLIST*, psf : IShellFolder, cidl : LibC::UInt32, ppidl : , ppsiItemArray : IShellItemArray*) : HRESULT
 fun sHCreateShellItemArrayFromDataObject(pdo : IDataObject, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
-fun sHCreateShellItemArrayFromIDLists(cidl : LibC::UInt32, rgpidl : , ppsiItemArray : IShellItemArray*) : HRESULT
 fun sHCreateShellItemArrayFromShellItem(psi : IShellItem, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 fun sHCreateAssociationRegistration(riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 fun sHCreateDefaultExtractIcon(riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
@@ -7475,11 +7474,9 @@ fun sHAssocEnumHandlers(pszExtra : PWSTR, afFilter : ASSOC_FILTER, ppEnumHandler
 fun sHAssocEnumHandlersForProtocolByApplication(protocol : PWSTR, riid : LibC::Guid*, enumHandlers : LibC::Void**) : HRESULT
 fun hMONITOR_UserSize(param0 : LibC::UInt32*, param1 : LibC::UInt32, param2 : HMONITOR*) : LibC::UInt32
 fun hMONITOR_UserMarshal(param0 : LibC::UInt32*, param1 : LibC::Byte*, param2 : HMONITOR*) : LibC::Byte*
-fun hMONITOR_UserUnmarshal(param0 : LibC::UInt32*, param1 : , param2 : HMONITOR*) : LibC::Byte*
 fun hMONITOR_UserFree(param0 : LibC::UInt32*, param1 : HMONITOR*) : LibC::Void
 fun hMONITOR_UserSize64(param0 : LibC::UInt32*, param1 : LibC::UInt32, param2 : HMONITOR*) : LibC::UInt32
 fun hMONITOR_UserMarshal64(param0 : LibC::UInt32*, param1 : LibC::Byte*, param2 : HMONITOR*) : LibC::Byte*
-fun hMONITOR_UserUnmarshal64(param0 : LibC::UInt32*, param1 : , param2 : HMONITOR*) : LibC::Byte*
 fun hMONITOR_UserFree64(param0 : LibC::UInt32*, param1 : HMONITOR*) : LibC::Void
 fun sHCreateDefaultPropertiesOp(psi : IShellItem, ppFileOp : IFileOperation*) : HRESULT
 fun sHSetDefaultProperties(hwnd : HWND, psi : IShellItem, dwFileOpFlags : LibC::UInt32, pfops : IFileOperationProgressSink) : HRESULT
@@ -7505,26 +7502,16 @@ fun iLCreateFromPathA(pszPath : PSTR) : ITEMIDLIST*
 fun iLCreateFromPathW(pszPath : PWSTR) : ITEMIDLIST*
 fun sHILCreateFromPath(pszPath : PWSTR, ppidl : ITEMIDLIST**, rgfInOut : LibC::UInt32*) : HRESULT
 fun iLAppendID(pidl : ITEMIDLIST*, pmkid : SHITEMID*, fAppend : BOOL) : ITEMIDLIST*
-fun sHGetPathFromIDListEx(pidl : ITEMIDLIST*, pszPath : , cchPath : LibC::UInt32, uOpts : LibC::Int32) : BOOL
-fun sHGetPathFromIDListA(pidl : ITEMIDLIST*, pszPath : ) : BOOL
-fun sHGetPathFromIDListW(pidl : ITEMIDLIST*, pszPath : ) : BOOL
 fun sHCreateDirectory(hwnd : HWND, pszPath : PWSTR) : LibC::Int32
 fun sHCreateDirectoryExA(hwnd : HWND, pszPath : PSTR, psa : SECURITY_ATTRIBUTES*) : LibC::Int32
 fun sHCreateDirectoryExW(hwnd : HWND, pszPath : PWSTR, psa : SECURITY_ATTRIBUTES*) : LibC::Int32
-fun sHOpenFolderAndSelectItems(pidlFolder : ITEMIDLIST*, cidl : LibC::UInt32, apidl : , dwFlags : LibC::UInt32) : HRESULT
 fun sHCreateShellItem(pidlParent : ITEMIDLIST*, psfParent : IShellFolder, pidl : ITEMIDLIST*, ppsi : IShellItem*) : HRESULT
 fun sHGetSpecialFolderLocation(hwnd : HWND, csidl : LibC::Int32, ppidl : ITEMIDLIST**) : HRESULT
 fun sHCloneSpecialIDList(hwnd : HWND, csidl : LibC::Int32, fCreate : BOOL) : ITEMIDLIST*
-fun sHGetSpecialFolderPathA(hwnd : HWND, pszPath : , csidl : LibC::Int32, fCreate : BOOL) : BOOL
-fun sHGetSpecialFolderPathW(hwnd : HWND, pszPath : , csidl : LibC::Int32, fCreate : BOOL) : BOOL
 fun sHFlushSFCache() : LibC::Void
-fun sHGetFolderPathA(hwnd : HWND, csidl : LibC::Int32, hToken : HANDLE, dwFlags : LibC::UInt32, pszPath : ) : HRESULT
-fun sHGetFolderPathW(hwnd : HWND, csidl : LibC::Int32, hToken : HANDLE, dwFlags : LibC::UInt32, pszPath : ) : HRESULT
 fun sHGetFolderLocation(hwnd : HWND, csidl : LibC::Int32, hToken : HANDLE, dwFlags : LibC::UInt32, ppidl : ITEMIDLIST**) : HRESULT
 fun sHSetFolderPathA(csidl : LibC::Int32, hToken : HANDLE, dwFlags : LibC::UInt32, pszPath : PSTR) : HRESULT
 fun sHSetFolderPathW(csidl : LibC::Int32, hToken : HANDLE, dwFlags : LibC::UInt32, pszPath : PWSTR) : HRESULT
-fun sHGetFolderPathAndSubDirA(hwnd : HWND, csidl : LibC::Int32, hToken : HANDLE, dwFlags : LibC::UInt32, pszSubDir : PSTR, pszPath : ) : HRESULT
-fun sHGetFolderPathAndSubDirW(hwnd : HWND, csidl : LibC::Int32, hToken : HANDLE, dwFlags : LibC::UInt32, pszSubDir : PWSTR, pszPath : ) : HRESULT
 fun sHGetKnownFolderIDList(rfid : LibC::Guid*, dwFlags : LibC::UInt32, hToken : HANDLE, ppidl : ITEMIDLIST**) : HRESULT
 fun sHSetKnownFolderPath(rfid : LibC::Guid*, dwFlags : LibC::UInt32, hToken : HANDLE, pszPath : PWSTR) : HRESULT
 fun sHGetKnownFolderPath(rfid : LibC::Guid*, dwFlags : LibC::UInt32, hToken : HANDLE, ppszPath : PWSTR*) : HRESULT
@@ -7550,9 +7537,6 @@ fun sHGetDataFromIDListW(psf : IShellFolder, pidl : ITEMIDLIST*, nFormat : SHGDF
 fun restartDialog(hwnd : HWND, pszPrompt : PWSTR, dwReturn : LibC::UInt32) : LibC::Int32
 fun restartDialogEx(hwnd : HWND, pszPrompt : PWSTR, dwReturn : LibC::UInt32, dwReasonCode : LibC::UInt32) : LibC::Int32
 fun sHCoCreateInstance(pszCLSID : PWSTR, pclsid : LibC::Guid*, pUnkOuter : IUnknown, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
-fun sHCreateDataObject(pidlFolder : ITEMIDLIST*, cidl : LibC::UInt32, apidl : , pdtInner : IDataObject, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
-fun cIDLData_CreateFromIDArray(pidlFolder : ITEMIDLIST*, cidl : LibC::UInt32, apidl : , ppdtobj : IDataObject*) : HRESULT
-fun sHCreateStdEnumFmtEtc(cfmt : LibC::UInt32, afmt : , ppenumFormatEtc : IEnumFORMATETC*) : HRESULT
 fun sHDoDragDrop(hwnd : HWND, pdata : IDataObject, pdsrc : IDropSource, dwEffect : LibC::UInt32, pdwEffect : LibC::UInt32*) : HRESULT
 fun dAD_SetDragImage(him : HIMAGELIST, pptOffset : POINT*) : BOOL
 fun dAD_DragEnterEx(hwndTarget : HWND, ptStart : POINT) : BOOL
@@ -7563,11 +7547,8 @@ fun dAD_DragLeave() : BOOL
 fun dAD_AutoScroll(hwnd : HWND, pad : AUTO_SCROLL_DATA*, pptNow : POINT*) : BOOL
 fun readCabinetState(pcs : CABINETSTATE*, cLength : LibC::Int32) : BOOL
 fun writeCabinetState(pcs : CABINETSTATE*) : BOOL
-fun pathMakeUniqueName(pszUniqueName : , cchMax : LibC::UInt32, pszTemplate : PWSTR, pszLongPlate : PWSTR, pszDir : PWSTR) : BOOL
 fun pathIsExe(pszPath : PWSTR) : BOOL
 fun pathCleanupSpec(pszDir : PWSTR, pszSpec : PWSTR) : PCS_RET
-fun pathResolve(pszPath : , dirs : LibC::UInt16**, fFlags : PRF_FLAGS) : LibC::Int32
-fun getFileNameFromBrowse(hwnd : HWND, pszFilePath : , cchFilePath : LibC::UInt32, pszWorkingDir : PWSTR, pszDefExt : PWSTR, pszFilters : PWSTR, pszTitle : PWSTR) : BOOL
 fun driveType(iDrive : LibC::Int32) : LibC::Int32
 fun realDriveType(iDrive : LibC::Int32, fOKToHitNet : BOOL) : LibC::Int32
 fun isNetDrive(iDrive : LibC::Int32) : LibC::Int32
@@ -7579,8 +7560,6 @@ fun sHAddFromPropSheetExtArray(hpsxa : HPSXA, lpfnAddPage : LPFNSVADDPROPSHEETPA
 fun sHReplaceFromPropSheetExtArray(hpsxa : HPSXA, uPageID : LibC::UInt32, lpfnReplaceWith : LPFNSVADDPROPSHEETPAGE, lParam : LPARAM) : LibC::UInt32
 fun openRegStream(hkey : HKEY, pszSubkey : PWSTR, pszValue : PWSTR, grfMode : LibC::UInt32) : IStream
 fun sHFindFiles(pidlFolder : ITEMIDLIST*, pidlSaveFile : ITEMIDLIST*) : BOOL
-fun pathGetShortPath(pszLongPath : ) : LibC::Void
-fun pathYetAnotherMakeUniqueName(pszUniqueName : , pszPath : PWSTR, pszShort : PWSTR, pszFileSpec : PWSTR) : BOOL
 fun win32DeleteFile(pszPath : PWSTR) : BOOL
 fun sHRestricted(rest : RESTRICTIONS) : LibC::UInt32
 fun signalFileOpen(pidl : ITEMIDLIST*) : BOOL
@@ -7598,7 +7577,6 @@ fun sHSetInstanceExplorer(punk : IUnknown) : LibC::Void
 fun isUserAnAdmin() : BOOL
 fun sHShellFolderView_Message(hwndMain : HWND, uMsg : LibC::UInt32, lParam : LPARAM) : LRESULT
 fun sHCreateShellFolderView(pcsfv : SFV_CREATE*, ppsv : IShellView*) : HRESULT
-fun cDefFolderMenu_Create2(pidlFolder : ITEMIDLIST*, hwnd : HWND, cidl : LibC::UInt32, apidl : , psf : IShellFolder, pfn : LPFNDFMCALLBACK, nKeys : LibC::UInt32, ahkeys : , ppcm : IContextMenu*) : HRESULT
 fun sHCreateDefaultContextMenu(pdcm : DEFCONTEXTMENU*, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 fun sHFind_InitMenuPopup(hmenu : HMENU, hwndOwner : HWND, idCmdFirst : LibC::UInt32, idCmdLast : LibC::UInt32) : IContextMenu
 fun sHCreateShellFolderViewEx(pcsfv : CSFV*, ppsv : IShellView*) : HRESULT
@@ -7616,14 +7594,12 @@ fun sHLimitInputEdit(hwndEdit : HWND, psf : IShellFolder) : HRESULT
 fun sHGetAttributesFromDataObject(pdo : IDataObject, dwAttributeMask : LibC::UInt32, pdwAttributes : LibC::UInt32*, pcItems : LibC::UInt32*) : HRESULT
 fun sHMapPIDLToSystemImageListIndex(pshf : IShellFolder, pidl : ITEMIDLIST*, piIndexSel : LibC::Int32*) : LibC::Int32
 fun sHCLSIDFromString(psz : PWSTR, pclsid : LibC::Guid*) : HRESULT
-fun pickIconDlg(hwnd : HWND, pszIconPath : , cchIconPath : LibC::UInt32, piIconIndex : LibC::Int32*) : LibC::Int32
 fun stgMakeUniqueName(pstgParent : IStorage, pszFileSpec : PWSTR, grfMode : LibC::UInt32, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 fun sHChangeNotifyRegisterThread(status : SCNRT_STATUS) : LibC::Void
 fun pathQualify(psz : PWSTR) : LibC::Void
 fun pathIsSlowA(pszFile : PSTR, dwAttr : LibC::UInt32) : BOOL
 fun pathIsSlowW(pszFile : PWSTR, dwAttr : LibC::UInt32) : BOOL
 fun sHCreatePropSheetExtArray(hKey : HKEY, pszSubKey : PWSTR, max_iface : LibC::UInt32) : HPSXA
-fun sHOpenPropSheetW(pszCaption : PWSTR, ahkeys : , ckeys : LibC::UInt32, pclsidDefault : LibC::Guid*, pdtobj : IDataObject, psb : IShellBrowser, pStartPage : PWSTR) : BOOL
 fun softwareUpdateMessageBox(hWnd : HWND, pszDistUnit : PWSTR, dwFlags : LibC::UInt32, psdi : SOFTDISTINFO*) : LibC::UInt32
 fun sHMultiFileProperties(pdtobj : IDataObject, dwFlags : LibC::UInt32) : HRESULT
 fun sHCreateQueryCancelAutoPlayMoniker(ppmoniker : IMoniker*) : HRESULT
@@ -7636,29 +7612,17 @@ fun registerScaleChangeEvent(hEvent : HANDLE, pdwCookie : LibC::UIint**) : HRESU
 fun unregisterScaleChangeEvent(dwCookie : LibC::UIint*) : HRESULT
 fun getDpiForShellUIComponent(param0 : SHELL_UI_COMPONENT) : LibC::UInt32
 fun commandLineToArgvW(lpCmdLine : PWSTR, pNumArgs : LibC::Int32*) : PWSTR*
-fun dragQueryFileA(hDrop : HDROP, iFile : LibC::UInt32, lpszFile : , cch : LibC::UInt32) : LibC::UInt32
-fun dragQueryFileW(hDrop : HDROP, iFile : LibC::UInt32, lpszFile : , cch : LibC::UInt32) : LibC::UInt32
 fun dragQueryPoint(hDrop : HDROP, ppt : POINT*) : BOOL
 fun dragFinish(hDrop : HDROP) : LibC::Void
 fun dragAcceptFiles(hWnd : HWND, fAccept : BOOL) : LibC::Void
 fun shellExecuteA(hwnd : HWND, lpOperation : PSTR, lpFile : PSTR, lpParameters : PSTR, lpDirectory : PSTR, nShowCmd : LibC::Int32) : HINSTANCE
 fun shellExecuteW(hwnd : HWND, lpOperation : PWSTR, lpFile : PWSTR, lpParameters : PWSTR, lpDirectory : PWSTR, nShowCmd : LibC::Int32) : HINSTANCE
-fun findExecutableA(lpFile : PSTR, lpDirectory : PSTR, lpResult : ) : HINSTANCE
-fun findExecutableW(lpFile : PWSTR, lpDirectory : PWSTR, lpResult : ) : HINSTANCE
 fun shellAboutA(hWnd : HWND, szApp : PSTR, szOtherStuff : PSTR, hIcon : HICON) : LibC::Int32
 fun shellAboutW(hWnd : HWND, szApp : PWSTR, szOtherStuff : PWSTR, hIcon : HICON) : LibC::Int32
 fun duplicateIcon(hInst : HINSTANCE, hIcon : HICON) : HICON
-fun extractAssociatedIconA(hInst : HINSTANCE, pszIconPath : , piIcon : LibC::UInt16*) : HICON
-fun extractAssociatedIconW(hInst : HINSTANCE, pszIconPath : , piIcon : LibC::UInt16*) : HICON
-fun extractAssociatedIconExA(hInst : HINSTANCE, pszIconPath : , piIconIndex : LibC::UInt16*, piIconId : LibC::UInt16*) : HICON
-fun extractAssociatedIconExW(hInst : HINSTANCE, pszIconPath : , piIconIndex : LibC::UInt16*, piIconId : LibC::UInt16*) : HICON
 fun extractIconA(hInst : HINSTANCE, pszExeFileName : PSTR, nIconIndex : LibC::UInt32) : HICON
 fun extractIconW(hInst : HINSTANCE, pszExeFileName : PWSTR, nIconIndex : LibC::UInt32) : HICON
 fun sHAppBarMessage(dwMessage : LibC::UInt32, pData : APPBARDATA*) : LibC::UIint*
-fun doEnvironmentSubstA(pszSrc : , cchSrc : LibC::UInt32) : LibC::UInt32
-fun doEnvironmentSubstW(pszSrc : , cchSrc : LibC::UInt32) : LibC::UInt32
-fun extractIconExA(lpszFile : PSTR, nIconIndex : LibC::Int32, phiconLarge : , phiconSmall : , nIcons : LibC::UInt32) : LibC::UInt32
-fun extractIconExW(lpszFile : PWSTR, nIconIndex : LibC::Int32, phiconLarge : , phiconSmall : , nIcons : LibC::UInt32) : LibC::UInt32
 fun sHFileOperationA(lpFileOp : SHFILEOPSTRUCTA*) : LibC::Int32
 fun sHFileOperationW(lpFileOp : SHFILEOPSTRUCTW*) : LibC::Int32
 fun sHFreeNameMappings(hNameMappings : HANDLE) : LibC::Void
@@ -7666,7 +7630,6 @@ fun shellExecuteExA(pExecInfo : SHELLEXECUTEINFOA*) : BOOL
 fun shellExecuteExW(pExecInfo : SHELLEXECUTEINFOW*) : BOOL
 fun sHCreateProcessAsUserW(pscpi : SHCREATEPROCESSINFOW*) : BOOL
 fun sHEvaluateSystemCommandTemplate(pszCmdTemplate : PWSTR, ppszApplication : PWSTR*, ppszCommandLine : PWSTR*, ppszParameters : PWSTR*) : HRESULT
-fun assocCreateForClasses(rgClasses : , cClasses : LibC::UInt32, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
 fun sHQueryRecycleBinA(pszRootPath : PSTR, pSHQueryRBInfo : SHQUERYRBINFO*) : HRESULT
 fun sHQueryRecycleBinW(pszRootPath : PWSTR, pSHQueryRBInfo : SHQUERYRBINFO*) : HRESULT
 fun sHEmptyRecycleBinA(hwnd : HWND, pszRootPath : PSTR, dwFlags : LibC::UInt32) : HRESULT
@@ -7680,21 +7643,16 @@ fun sHGetFileInfoW(pszPath : PWSTR, dwFileAttributes : FILE_FLAGS_AND_ATTRIBUTES
 fun sHGetStockIconInfo(siid : SHSTOCKICONID, uFlags : LibC::UInt32, psii : SHSTOCKICONINFO*) : HRESULT
 fun sHGetDiskFreeSpaceExA(pszDirectoryName : PSTR, pulFreeBytesAvailableToCaller : ULARGE_INTEGER*, pulTotalNumberOfBytes : ULARGE_INTEGER*, pulTotalNumberOfFreeBytes : ULARGE_INTEGER*) : BOOL
 fun sHGetDiskFreeSpaceExW(pszDirectoryName : PWSTR, pulFreeBytesAvailableToCaller : ULARGE_INTEGER*, pulTotalNumberOfBytes : ULARGE_INTEGER*, pulTotalNumberOfFreeBytes : ULARGE_INTEGER*) : BOOL
-fun sHGetNewLinkInfoA(pszLinkTo : PSTR, pszDir : PSTR, pszName : , pfMustCopy : BOOL*, uFlags : LibC::UInt32) : BOOL
-fun sHGetNewLinkInfoW(pszLinkTo : PWSTR, pszDir : PWSTR, pszName : , pfMustCopy : BOOL*, uFlags : LibC::UInt32) : BOOL
 fun sHInvokePrinterCommandA(hwnd : HWND, uAction : LibC::UInt32, lpBuf1 : PSTR, lpBuf2 : PSTR, fModal : BOOL) : BOOL
 fun sHInvokePrinterCommandW(hwnd : HWND, uAction : LibC::UInt32, lpBuf1 : PWSTR, lpBuf2 : PWSTR, fModal : BOOL) : BOOL
 fun sHLoadNonloadedIconOverlayIdentifiers() : HRESULT
 fun sHIsFileAvailableOffline(pwszPath : PWSTR, pdwStatus : LibC::UInt32*) : HRESULT
 fun sHSetLocalizedName(pszPath : PWSTR, pszResModule : PWSTR, idsRes : LibC::Int32) : HRESULT
 fun sHRemoveLocalizedName(pszPath : PWSTR) : HRESULT
-fun sHGetLocalizedName(pszPath : PWSTR, pszResModule : , cch : LibC::UInt32, pidsRes : LibC::Int32*) : HRESULT
 fun shellMessageBoxA(hAppInst : HINSTANCE, hWnd : HWND, lpcText : PSTR, lpcTitle : PSTR, fuStyle : LibC::UInt32) : LibC::Int32
 fun shellMessageBoxW(hAppInst : HINSTANCE, hWnd : HWND, lpcText : PWSTR, lpcTitle : PWSTR, fuStyle : LibC::UInt32) : LibC::Int32
 fun isLFNDriveA(pszPath : PSTR) : BOOL
 fun isLFNDriveW(pszPath : PWSTR) : BOOL
-fun sHEnumerateUnreadMailAccountsW(hKeyUser : HKEY, dwIndex : LibC::UInt32, pszMailAddress : , cchMailAddress : LibC::Int32) : HRESULT
-fun sHGetUnreadMailCountW(hKeyUser : HKEY, pszMailAddress : PWSTR, pdwCount : LibC::UInt32*, pFileTime : FILETIME*, pszShellExecuteCommand : , cchShellExecuteCommand : LibC::Int32) : HRESULT
 fun sHSetUnreadMailCountW(pszMailAddress : PWSTR, dwCount : LibC::UInt32, pszShellExecuteCommand : PWSTR) : HRESULT
 fun sHTestTokenMembership(hToken : HANDLE, ulRID : LibC::UInt32) : BOOL
 fun sHGetImageList(iImageList : LibC::Int32, riid : LibC::Guid*, ppvObj : LibC::Void**) : HRESULT
@@ -7716,18 +7674,8 @@ fun strCSpnIA(pszStr : PSTR, pszSet : PSTR) : LibC::Int32
 fun strCSpnIW(pszStr : PWSTR, pszSet : PWSTR) : LibC::Int32
 fun strDupA(pszSrch : PSTR) : PSTR
 fun strDupW(pszSrch : PWSTR) : PWSTR
-fun strFormatByteSizeEx(ull : LibC::UInt64, flags : SFBS_FLAGS, pszBuf : , cchBuf : LibC::UInt32) : HRESULT
-fun strFormatByteSizeA(dw : LibC::UInt32, pszBuf : , cchBuf : LibC::UInt32) : PSTR
-fun strFormatByteSize64A(qdw : LibC::Int64, pszBuf : , cchBuf : LibC::UInt32) : PSTR
-fun strFormatByteSizeW(qdw : LibC::Int64, pszBuf : , cchBuf : LibC::UInt32) : PWSTR
-fun strFormatKBSizeW(qdw : LibC::Int64, pszBuf : , cchBuf : LibC::UInt32) : PWSTR
-fun strFormatKBSizeA(qdw : LibC::Int64, pszBuf : , cchBuf : LibC::UInt32) : PSTR
-fun strFromTimeIntervalA(pszOut : , cchMax : LibC::UInt32, dwTimeMS : LibC::UInt32, digits : LibC::Int32) : LibC::Int32
-fun strFromTimeIntervalW(pszOut : , cchMax : LibC::UInt32, dwTimeMS : LibC::UInt32, digits : LibC::Int32) : LibC::Int32
 fun strIsIntlEqualA(fCaseSens : BOOL, pszString1 : PSTR, pszString2 : PSTR, nChar : LibC::Int32) : BOOL
 fun strIsIntlEqualW(fCaseSens : BOOL, pszString1 : PWSTR, pszString2 : PWSTR, nChar : LibC::Int32) : BOOL
-fun strNCatA(psz1 : , psz2 : PSTR, cchMax : LibC::Int32) : PSTR
-fun strNCatW(psz1 : , psz2 : PWSTR, cchMax : LibC::Int32) : PWSTR
 fun strPBrkA(psz : PSTR, pszSet : PSTR) : PSTR
 fun strPBrkW(psz : PWSTR, pszSet : PWSTR) : PWSTR
 fun strRChrA(pszStart : PSTR, pszEnd : PSTR, wMatch : LibC::UInt16) : PSTR
@@ -7756,25 +7704,14 @@ fun strCatW(psz1 : PWSTR, psz2 : PWSTR) : PWSTR
 fun strCmpW(psz1 : PWSTR, psz2 : PWSTR) : LibC::Int32
 fun strCmpIW(psz1 : PWSTR, psz2 : PWSTR) : LibC::Int32
 fun strCpyW(psz1 : PWSTR, psz2 : PWSTR) : PWSTR
-fun strCpyNW(pszDst : , pszSrc : PWSTR, cchMax : LibC::Int32) : PWSTR
-fun strCatBuffW(pszDest : , pszSrc : PWSTR, cchDestBuffSize : LibC::Int32) : PWSTR
-fun strCatBuffA(pszDest : , pszSrc : PSTR, cchDestBuffSize : LibC::Int32) : PSTR
 fun chrCmpIA(w1 : LibC::UInt16, w2 : LibC::UInt16) : BOOL
 fun chrCmpIW(w1 : LibC::Char, w2 : LibC::Char) : BOOL
-fun wvnsprintfA(pszDest : , cchDest : LibC::Int32, pszFmt : PSTR, arglist : LibC::SByte*) : LibC::Int32
-fun wvnsprintfW(pszDest : , cchDest : LibC::Int32, pszFmt : PWSTR, arglist : LibC::SByte*) : LibC::Int32
-fun wnsprintfA(pszDest : , cchDest : LibC::Int32, pszFmt : PSTR) : LibC::Int32
-fun wnsprintfW(pszDest : , cchDest : LibC::Int32, pszFmt : PWSTR) : LibC::Int32
 fun strRetToStrA(pstr : STRRET*, pidl : ITEMIDLIST*, ppsz : PSTR*) : HRESULT
 fun strRetToStrW(pstr : STRRET*, pidl : ITEMIDLIST*, ppsz : PWSTR*) : HRESULT
-fun strRetToBufA(pstr : STRRET*, pidl : ITEMIDLIST*, pszBuf : , cchBuf : LibC::UInt32) : HRESULT
-fun strRetToBufW(pstr : STRRET*, pidl : ITEMIDLIST*, pszBuf : , cchBuf : LibC::UInt32) : HRESULT
 fun sHStrDupA(psz : PSTR, ppwsz : PWSTR*) : HRESULT
 fun sHStrDupW(psz : PWSTR, ppwsz : PWSTR*) : HRESULT
 fun strCmpLogicalW(psz1 : PWSTR, psz2 : PWSTR) : LibC::Int32
-fun strCatChainW(pszDst : , cchDst : LibC::UInt32, ichAt : LibC::UInt32, pszSrc : PWSTR) : LibC::UInt32
 fun strRetToBSTR(pstr : STRRET*, pidl : ITEMIDLIST*, pbstr : BSTR*) : HRESULT
-fun sHLoadIndirectString(pszSource : PWSTR, pszOutBuf : , cchOutBuf : LibC::UInt32, ppvReserved : LibC::Void**) : HRESULT
 fun isCharSpaceA(wch : CHAR) : BOOL
 fun isCharSpaceW(wch : LibC::Char) : BOOL
 fun strCmpCA(pszStr1 : PSTR, pszStr2 : PSTR) : LibC::Int32
@@ -7785,26 +7722,6 @@ fun strCmpNCA(pszStr1 : PSTR, pszStr2 : PSTR, nChar : LibC::Int32) : LibC::Int32
 fun strCmpNCW(pszStr1 : PWSTR, pszStr2 : PWSTR, nChar : LibC::Int32) : LibC::Int32
 fun strCmpNICA(pszStr1 : PSTR, pszStr2 : PSTR, nChar : LibC::Int32) : LibC::Int32
 fun strCmpNICW(pszStr1 : PWSTR, pszStr2 : PWSTR, nChar : LibC::Int32) : LibC::Int32
-fun intlStrEqWorkerA(fCaseSens : BOOL, lpString1 : , lpString2 : , nChar : LibC::Int32) : BOOL
-fun intlStrEqWorkerW(fCaseSens : BOOL, lpString1 : , lpString2 : , nChar : LibC::Int32) : BOOL
-fun pathAddBackslashA(pszPath : ) : PSTR
-fun pathAddBackslashW(pszPath : ) : PWSTR
-fun pathAddExtensionA(pszPath : , pszExt : PSTR) : BOOL
-fun pathAddExtensionW(pszPath : , pszExt : PWSTR) : BOOL
-fun pathAppendA(pszPath : , pszMore : PSTR) : BOOL
-fun pathAppendW(pszPath : , pszMore : PWSTR) : BOOL
-fun pathBuildRootA(pszRoot : , iDrive : LibC::Int32) : PSTR
-fun pathBuildRootW(pszRoot : , iDrive : LibC::Int32) : PWSTR
-fun pathCanonicalizeA(pszBuf : , pszPath : PSTR) : BOOL
-fun pathCanonicalizeW(pszBuf : , pszPath : PWSTR) : BOOL
-fun pathCombineA(pszDest : , pszDir : PSTR, pszFile : PSTR) : PSTR
-fun pathCombineW(pszDest : , pszDir : PWSTR, pszFile : PWSTR) : PWSTR
-fun pathCompactPathA(hDC : HDC, pszPath : , dx : LibC::UInt32) : BOOL
-fun pathCompactPathW(hDC : HDC, pszPath : , dx : LibC::UInt32) : BOOL
-fun pathCompactPathExA(pszOut : , pszSrc : PSTR, cchMax : LibC::UInt32, dwFlags : LibC::UInt32) : BOOL
-fun pathCompactPathExW(pszOut : , pszSrc : PWSTR, cchMax : LibC::UInt32, dwFlags : LibC::UInt32) : BOOL
-fun pathCommonPrefixA(pszFile1 : PSTR, pszFile2 : PSTR, achPath : ) : LibC::Int32
-fun pathCommonPrefixW(pszFile1 : PWSTR, pszFile2 : PWSTR, achPath : ) : LibC::Int32
 fun pathFileExistsA(pszPath : PSTR) : BOOL
 fun pathFileExistsW(pszPath : PWSTR) : BOOL
 fun pathFindExtensionA(pszPath : PSTR) : PSTR
@@ -7813,10 +7730,6 @@ fun pathFindFileNameA(pszPath : PSTR) : PSTR
 fun pathFindFileNameW(pszPath : PWSTR) : PWSTR
 fun pathFindNextComponentA(pszPath : PSTR) : PSTR
 fun pathFindNextComponentW(pszPath : PWSTR) : PWSTR
-fun pathFindOnPathA(pszPath : , ppszOtherDirs : LibC::SByte**) : BOOL
-fun pathFindOnPathW(pszPath : , ppszOtherDirs : LibC::UInt16**) : BOOL
-fun pathFindSuffixArrayA(pszPath : PSTR, apszSuffix : , iArraySize : LibC::Int32) : PSTR
-fun pathFindSuffixArrayW(pszPath : PWSTR, apszSuffix : , iArraySize : LibC::Int32) : PWSTR
 fun pathGetArgsA(pszPath : PSTR) : PSTR
 fun pathGetArgsW(pszPath : PWSTR) : PWSTR
 fun pathIsLFNFileSpecA(pszName : PSTR) : BOOL
@@ -7859,10 +7772,6 @@ fun pathMatchSpecExA(pszFile : PSTR, pszSpec : PSTR, dwFlags : LibC::UInt32) : H
 fun pathMatchSpecExW(pszFile : PWSTR, pszSpec : PWSTR, dwFlags : LibC::UInt32) : HRESULT
 fun pathParseIconLocationA(pszIconFile : PSTR) : LibC::Int32
 fun pathParseIconLocationW(pszIconFile : PWSTR) : LibC::Int32
-fun pathQuoteSpacesA(lpsz : ) : BOOL
-fun pathQuoteSpacesW(lpsz : ) : BOOL
-fun pathRelativePathToA(pszPath : , pszFrom : PSTR, dwAttrFrom : LibC::UInt32, pszTo : PSTR, dwAttrTo : LibC::UInt32) : BOOL
-fun pathRelativePathToW(pszPath : , pszFrom : PWSTR, dwAttrFrom : LibC::UInt32, pszTo : PWSTR, dwAttrTo : LibC::UInt32) : BOOL
 fun pathRemoveArgsA(pszPath : PSTR) : LibC::Void
 fun pathRemoveArgsW(pszPath : PWSTR) : LibC::Void
 fun pathRemoveBackslashA(pszPath : PSTR) : PSTR
@@ -7873,10 +7782,6 @@ fun pathRemoveExtensionA(pszPath : PSTR) : LibC::Void
 fun pathRemoveExtensionW(pszPath : PWSTR) : LibC::Void
 fun pathRemoveFileSpecA(pszPath : PSTR) : BOOL
 fun pathRemoveFileSpecW(pszPath : PWSTR) : BOOL
-fun pathRenameExtensionA(pszPath : , pszExt : PSTR) : BOOL
-fun pathRenameExtensionW(pszPath : , pszExt : PWSTR) : BOOL
-fun pathSearchAndQualifyA(pszPath : PSTR, pszBuf : , cchBuf : LibC::UInt32) : BOOL
-fun pathSearchAndQualifyW(pszPath : PWSTR, pszBuf : , cchBuf : LibC::UInt32) : BOOL
 fun pathSetDlgItemPathA(hDlg : HWND, id : LibC::Int32, pszPath : PSTR) : LibC::Void
 fun pathSetDlgItemPathW(hDlg : HWND, id : LibC::Int32, pszPath : PWSTR) : LibC::Void
 fun pathSkipRootA(pszPath : PSTR) : PSTR
@@ -7895,14 +7800,8 @@ fun pathIsSystemFolderA(pszPath : PSTR, dwAttrb : LibC::UInt32) : BOOL
 fun pathIsSystemFolderW(pszPath : PWSTR, dwAttrb : LibC::UInt32) : BOOL
 fun pathUndecorateA(pszPath : PSTR) : LibC::Void
 fun pathUndecorateW(pszPath : PWSTR) : LibC::Void
-fun pathUnExpandEnvStringsA(pszPath : PSTR, pszBuf : , cchBuf : LibC::UInt32) : BOOL
-fun pathUnExpandEnvStringsW(pszPath : PWSTR, pszBuf : , cchBuf : LibC::UInt32) : BOOL
 fun urlCompareA(psz1 : PSTR, psz2 : PSTR, fIgnoreSlash : BOOL) : LibC::Int32
 fun urlCompareW(psz1 : PWSTR, psz2 : PWSTR, fIgnoreSlash : BOOL) : LibC::Int32
-fun urlCombineA(pszBase : PSTR, pszRelative : PSTR, pszCombined : , pcchCombined : LibC::UInt32*, dwFlags : LibC::UInt32) : HRESULT
-fun urlCombineW(pszBase : PWSTR, pszRelative : PWSTR, pszCombined : , pcchCombined : LibC::UInt32*, dwFlags : LibC::UInt32) : HRESULT
-fun urlCanonicalizeA(pszUrl : PSTR, pszCanonicalized : , pcchCanonicalized : LibC::UInt32*, dwFlags : LibC::UInt32) : HRESULT
-fun urlCanonicalizeW(pszUrl : PWSTR, pszCanonicalized : , pcchCanonicalized : LibC::UInt32*, dwFlags : LibC::UInt32) : HRESULT
 fun urlIsOpaqueA(pszURL : PSTR) : BOOL
 fun urlIsOpaqueW(pszURL : PWSTR) : BOOL
 fun urlIsNoHistoryA(pszURL : PSTR) : BOOL
@@ -7911,23 +7810,10 @@ fun urlIsA(pszUrl : PSTR, urlIs : URLIS) : BOOL
 fun urlIsW(pszUrl : PWSTR, urlIs : URLIS) : BOOL
 fun urlGetLocationA(pszURL : PSTR) : PSTR
 fun urlGetLocationW(pszURL : PWSTR) : PWSTR
-fun urlUnescapeA(pszUrl : PSTR, pszUnescaped : , pcchUnescaped : LibC::UInt32*, dwFlags : LibC::UInt32) : HRESULT
-fun urlUnescapeW(pszUrl : PWSTR, pszUnescaped : , pcchUnescaped : LibC::UInt32*, dwFlags : LibC::UInt32) : HRESULT
-fun urlEscapeA(pszUrl : PSTR, pszEscaped : , pcchEscaped : LibC::UInt32*, dwFlags : LibC::UInt32) : HRESULT
-fun urlEscapeW(pszUrl : PWSTR, pszEscaped : , pcchEscaped : LibC::UInt32*, dwFlags : LibC::UInt32) : HRESULT
-fun urlCreateFromPathA(pszPath : PSTR, pszUrl : , pcchUrl : LibC::UInt32*, dwFlags : LibC::UInt32) : HRESULT
-fun urlCreateFromPathW(pszPath : PWSTR, pszUrl : , pcchUrl : LibC::UInt32*, dwFlags : LibC::UInt32) : HRESULT
-fun pathCreateFromUrlA(pszUrl : PSTR, pszPath : , pcchPath : LibC::UInt32*, dwFlags : LibC::UInt32) : HRESULT
-fun pathCreateFromUrlW(pszUrl : PWSTR, pszPath : , pcchPath : LibC::UInt32*, dwFlags : LibC::UInt32) : HRESULT
 fun pathCreateFromUrlAlloc(pszIn : PWSTR, ppszOut : PWSTR*, dwFlags : LibC::UInt32) : HRESULT
 fun urlHashA(pszUrl : PSTR, pbHash : LibC::Byte*, cbHash : LibC::UInt32) : HRESULT
 fun urlHashW(pszUrl : PWSTR, pbHash : LibC::Byte*, cbHash : LibC::UInt32) : HRESULT
-fun urlGetPartW(pszIn : PWSTR, pszOut : , pcchOut : LibC::UInt32*, dwPart : LibC::UInt32, dwFlags : LibC::UInt32) : HRESULT
-fun urlGetPartA(pszIn : PSTR, pszOut : , pcchOut : LibC::UInt32*, dwPart : LibC::UInt32, dwFlags : LibC::UInt32) : HRESULT
-fun urlApplySchemeA(pszIn : PSTR, pszOut : , pcchOut : LibC::UInt32*, dwFlags : LibC::UInt32) : HRESULT
-fun urlApplySchemeW(pszIn : PWSTR, pszOut : , pcchOut : LibC::UInt32*, dwFlags : LibC::UInt32) : HRESULT
 fun hashData(pbData : LibC::Byte*, cbData : LibC::UInt32, pbHash : LibC::Byte*, cbHash : LibC::UInt32) : HRESULT
-fun urlFixupW(pcszUrl : PWSTR, pszTranslatedUrl : , cchMax : LibC::UInt32) : HRESULT
 fun parseURLA(pcszURL : PSTR, ppu : PARSEDURLA*) : HRESULT
 fun parseURLW(pcszURL : PWSTR, ppu : PARSEDURLW*) : HRESULT
 fun sHDeleteEmptyKeyA(hkey : HKEY, pszSubKey : PSTR) : LSTATUS
@@ -7946,16 +7832,10 @@ fun sHRegGetValueW(hkey : HKEY, pszSubKey : PWSTR, pszValue : PWSTR, srrfFlags :
 fun sHRegGetValueFromHKCUHKLM(pwszKey : PWSTR, pwszValue : PWSTR, srrfFlags : LibC::Int32, pdwType : LibC::UInt32*, pvData : LibC::Void*, pcbData : LibC::UInt32*) : LSTATUS
 fun sHQueryValueExA(hkey : HKEY, pszValue : PSTR, pdwReserved : LibC::UInt32*, pdwType : LibC::UInt32*, pvData : LibC::Void*, pcbData : LibC::UInt32*) : LSTATUS
 fun sHQueryValueExW(hkey : HKEY, pszValue : PWSTR, pdwReserved : LibC::UInt32*, pdwType : LibC::UInt32*, pvData : LibC::Void*, pcbData : LibC::UInt32*) : LSTATUS
-fun sHEnumKeyExA(hkey : HKEY, dwIndex : LibC::UInt32, pszName : , pcchName : LibC::UInt32*) : LSTATUS
-fun sHEnumKeyExW(hkey : HKEY, dwIndex : LibC::UInt32, pszName : , pcchName : LibC::UInt32*) : LSTATUS
-fun sHEnumValueA(hkey : HKEY, dwIndex : LibC::UInt32, pszValueName : , pcchValueName : LibC::UInt32*, pdwType : LibC::UInt32*, pvData : LibC::Void*, pcbData : LibC::UInt32*) : LSTATUS
-fun sHEnumValueW(hkey : HKEY, dwIndex : LibC::UInt32, pszValueName : , pcchValueName : LibC::UInt32*, pdwType : LibC::UInt32*, pvData : LibC::Void*, pcbData : LibC::UInt32*) : LSTATUS
 fun sHQueryInfoKeyA(hkey : HKEY, pcSubKeys : LibC::UInt32*, pcchMaxSubKeyLen : LibC::UInt32*, pcValues : LibC::UInt32*, pcchMaxValueNameLen : LibC::UInt32*) : LSTATUS
 fun sHQueryInfoKeyW(hkey : HKEY, pcSubKeys : LibC::UInt32*, pcchMaxSubKeyLen : LibC::UInt32*, pcValues : LibC::UInt32*, pcchMaxValueNameLen : LibC::UInt32*) : LSTATUS
 fun sHCopyKeyA(hkeySrc : HKEY, pszSrcSubKey : PSTR, hkeyDest : HKEY, fReserved : LibC::UInt32) : LSTATUS
 fun sHCopyKeyW(hkeySrc : HKEY, pszSrcSubKey : PWSTR, hkeyDest : HKEY, fReserved : LibC::UInt32) : LSTATUS
-fun sHRegGetPathA(hKey : HKEY, pcszSubKey : PSTR, pcszValue : PSTR, pszPath : , dwFlags : LibC::UInt32) : LSTATUS
-fun sHRegGetPathW(hKey : HKEY, pcszSubKey : PWSTR, pcszValue : PWSTR, pszPath : , dwFlags : LibC::UInt32) : LSTATUS
 fun sHRegSetPathA(hKey : HKEY, pcszSubKey : PSTR, pcszValue : PSTR, pcszPath : PSTR, dwFlags : LibC::UInt32) : LSTATUS
 fun sHRegSetPathW(hKey : HKEY, pcszSubKey : PWSTR, pcszValue : PWSTR, pcszPath : PWSTR, dwFlags : LibC::UInt32) : LSTATUS
 fun sHRegCreateUSKeyA(pszPath : PSTR, samDesired : LibC::UInt32, hRelativeUSKey : LibC::Int*, phNewUSKey : LibC::Int**, dwFlags : LibC::UInt32) : LSTATUS
@@ -7970,10 +7850,6 @@ fun sHRegDeleteUSValueA(hUSKey : LibC::Int*, pszValue : PSTR, delRegFlags : SHRE
 fun sHRegDeleteUSValueW(hUSKey : LibC::Int*, pwzValue : PWSTR, delRegFlags : SHREGDEL_FLAGS) : LSTATUS
 fun sHRegDeleteEmptyUSKeyW(hUSKey : LibC::Int*, pwzSubKey : PWSTR, delRegFlags : SHREGDEL_FLAGS) : LSTATUS
 fun sHRegDeleteEmptyUSKeyA(hUSKey : LibC::Int*, pszSubKey : PSTR, delRegFlags : SHREGDEL_FLAGS) : LSTATUS
-fun sHRegEnumUSKeyA(hUSKey : LibC::Int*, dwIndex : LibC::UInt32, pszName : , pcchName : LibC::UInt32*, enumRegFlags : SHREGENUM_FLAGS) : LSTATUS
-fun sHRegEnumUSKeyW(hUSKey : LibC::Int*, dwIndex : LibC::UInt32, pwzName : , pcchName : LibC::UInt32*, enumRegFlags : SHREGENUM_FLAGS) : LSTATUS
-fun sHRegEnumUSValueA(hUSkey : LibC::Int*, dwIndex : LibC::UInt32, pszValueName : , pcchValueName : LibC::UInt32*, pdwType : LibC::UInt32*, pvData : LibC::Void*, pcbData : LibC::UInt32*, enumRegFlags : SHREGENUM_FLAGS) : LSTATUS
-fun sHRegEnumUSValueW(hUSkey : LibC::Int*, dwIndex : LibC::UInt32, pszValueName : , pcchValueName : LibC::UInt32*, pdwType : LibC::UInt32*, pvData : LibC::Void*, pcbData : LibC::UInt32*, enumRegFlags : SHREGENUM_FLAGS) : LSTATUS
 fun sHRegQueryInfoUSKeyA(hUSKey : LibC::Int*, pcSubKeys : LibC::UInt32*, pcchMaxSubKeyLen : LibC::UInt32*, pcValues : LibC::UInt32*, pcchMaxValueNameLen : LibC::UInt32*, enumRegFlags : SHREGENUM_FLAGS) : LSTATUS
 fun sHRegQueryInfoUSKeyW(hUSKey : LibC::Int*, pcSubKeys : LibC::UInt32*, pcchMaxSubKeyLen : LibC::UInt32*, pcValues : LibC::UInt32*, pcchMaxValueNameLen : LibC::UInt32*, enumRegFlags : SHREGENUM_FLAGS) : LSTATUS
 fun sHRegCloseUSKey(hUSKey : LibC::Int*) : LSTATUS
@@ -7985,10 +7861,6 @@ fun sHRegGetIntW(hk : HKEY, pwzKey : PWSTR, iDefault : LibC::Int32) : LibC::Int3
 fun sHRegGetBoolUSValueA(pszSubKey : PSTR, pszValue : PSTR, fIgnoreHKCU : BOOL, fDefault : BOOL) : BOOL
 fun sHRegGetBoolUSValueW(pszSubKey : PWSTR, pszValue : PWSTR, fIgnoreHKCU : BOOL, fDefault : BOOL) : BOOL
 fun assocCreate(clsid : LibC::Guid, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
-fun assocQueryStringA(flags : LibC::UInt32, str : ASSOCSTR, pszAssoc : PSTR, pszExtra : PSTR, pszOut : , pcchOut : LibC::UInt32*) : HRESULT
-fun assocQueryStringW(flags : LibC::UInt32, str : ASSOCSTR, pszAssoc : PWSTR, pszExtra : PWSTR, pszOut : , pcchOut : LibC::UInt32*) : HRESULT
-fun assocQueryStringByKeyA(flags : LibC::UInt32, str : ASSOCSTR, hkAssoc : HKEY, pszExtra : PSTR, pszOut : , pcchOut : LibC::UInt32*) : HRESULT
-fun assocQueryStringByKeyW(flags : LibC::UInt32, str : ASSOCSTR, hkAssoc : HKEY, pszExtra : PWSTR, pszOut : , pcchOut : LibC::UInt32*) : HRESULT
 fun assocQueryKeyA(flags : LibC::UInt32, key : ASSOCKEY, pszAssoc : PSTR, pszExtra : PSTR, phkeyOut : HKEY*) : HRESULT
 fun assocQueryKeyW(flags : LibC::UInt32, key : ASSOCKEY, pszAssoc : PWSTR, pszExtra : PWSTR, phkeyOut : HKEY*) : HRESULT
 fun assocIsDangerous(pszAssoc : PWSTR) : BOOL
@@ -8001,8 +7873,6 @@ fun sHCreateStreamOnFileA(pszFile : PSTR, grfMode : LibC::UInt32, ppstm : IStrea
 fun sHCreateStreamOnFileW(pszFile : PWSTR, grfMode : LibC::UInt32, ppstm : IStream*) : HRESULT
 fun sHCreateStreamOnFileEx(pszFile : PWSTR, grfMode : LibC::UInt32, dwAttributes : LibC::UInt32, fCreate : BOOL, pstmTemplate : IStream, ppstm : IStream*) : HRESULT
 fun sHCreateMemStream(pInit : LibC::Byte*, cbInit : LibC::UInt32) : IStream
-fun getAcceptLanguagesA(pszLanguages : , pcchLanguages : LibC::UInt32*) : HRESULT
-fun getAcceptLanguagesW(pszLanguages : , pcchLanguages : LibC::UInt32*) : HRESULT
 fun iUnknown_Set(ppunk : IUnknown*, punk : IUnknown) : LibC::Void
 fun iUnknown_AtomicRelease(ppunk : LibC::Void**) : LibC::Void
 fun iUnknown_GetWindow(punk : IUnknown, phwnd : HWND*) : HRESULT
@@ -8020,12 +7890,6 @@ fun iStream_ReadStr(pstm : IStream, ppsz : PWSTR*) : HRESULT
 fun iStream_WriteStr(pstm : IStream, psz : PWSTR) : HRESULT
 fun iStream_Copy(pstmFrom : IStream, pstmTo : IStream, cb : LibC::UInt32) : HRESULT
 fun sHGetViewStatePropertyBag(pidl : ITEMIDLIST*, pszBagName : PWSTR, dwFlags : LibC::UInt32, riid : LibC::Guid*, ppv : LibC::Void**) : HRESULT
-fun sHFormatDateTimeA(pft : FILETIME*, pdwFlags : LibC::UInt32*, pszBuf : , cchBuf : LibC::UInt32) : LibC::Int32
-fun sHFormatDateTimeW(pft : FILETIME*, pdwFlags : LibC::UInt32*, pszBuf : , cchBuf : LibC::UInt32) : LibC::Int32
-fun sHAnsiToUnicode(pszSrc : PSTR, pwszDst : , cwchBuf : LibC::Int32) : LibC::Int32
-fun sHAnsiToAnsi(pszSrc : PSTR, pszDst : , cchBuf : LibC::Int32) : LibC::Int32
-fun sHUnicodeToAnsi(pwszSrc : PWSTR, pszDst : , cchBuf : LibC::Int32) : LibC::Int32
-fun sHUnicodeToUnicode(pwzSrc : PWSTR, pwzDst : , cwchBuf : LibC::Int32) : LibC::Int32
 fun sHMessageBoxCheckA(hwnd : HWND, pszText : PSTR, pszCaption : PSTR, uType : LibC::UInt32, iDefault : LibC::Int32, pszRegVal : PSTR) : LibC::Int32
 fun sHMessageBoxCheckW(hwnd : HWND, pszText : PWSTR, pszCaption : PWSTR, uType : LibC::UInt32, iDefault : LibC::Int32, pszRegVal : PWSTR) : LibC::Int32
 fun sHSendMessageBroadcastA(uMsg : LibC::UInt32, wParam : WPARAM, lParam : LPARAM) : LRESULT
@@ -8088,24 +7952,12 @@ fun hlinkGetValueFromParams(pwzParams : PWSTR, pwzName : PWSTR, ppwzValue : PWST
 fun hlinkTranslateURL(pwzURL : PWSTR, grfFlags : LibC::UInt32, ppwzTranslatedURL : PWSTR*) : HRESULT
 fun pathIsUNCEx(pszPath : PWSTR, ppszServer : PWSTR*) : BOOL
 fun pathCchIsRoot(pszPath : PWSTR) : BOOL
-fun pathCchAddBackslashEx(pszPath : , cchPath : LibC::UIint*, ppszEnd : PWSTR*, pcchRemaining : LibC::UIint**) : HRESULT
-fun pathCchAddBackslash(pszPath : , cchPath : LibC::UIint*) : HRESULT
 fun pathCchRemoveBackslashEx(pszPath : PWSTR, cchPath : LibC::UIint*, ppszEnd : PWSTR*, pcchRemaining : LibC::UIint**) : HRESULT
-fun pathCchRemoveBackslash(pszPath : , cchPath : LibC::UIint*) : HRESULT
 fun pathCchSkipRoot(pszPath : PWSTR, ppszRootEnd : PWSTR*) : HRESULT
 fun pathCchStripToRoot(pszPath : PWSTR, cchPath : LibC::UIint*) : HRESULT
 fun pathCchRemoveFileSpec(pszPath : PWSTR, cchPath : LibC::UIint*) : HRESULT
 fun pathCchFindExtension(pszPath : PWSTR, cchPath : LibC::UIint*, ppszExt : PWSTR*) : HRESULT
-fun pathCchAddExtension(pszPath : , cchPath : LibC::UIint*, pszExt : PWSTR) : HRESULT
-fun pathCchRenameExtension(pszPath : , cchPath : LibC::UIint*, pszExt : PWSTR) : HRESULT
 fun pathCchRemoveExtension(pszPath : PWSTR, cchPath : LibC::UIint*) : HRESULT
-fun pathCchCanonicalizeEx(pszPathOut : , cchPathOut : LibC::UIint*, pszPathIn : PWSTR, dwFlags : LibC::UInt32) : HRESULT
-fun pathCchCanonicalize(pszPathOut : , cchPathOut : LibC::UIint*, pszPathIn : PWSTR) : HRESULT
-fun pathCchCombineEx(pszPathOut : , cchPathOut : LibC::UIint*, pszPathIn : PWSTR, pszMore : PWSTR, dwFlags : LibC::UInt32) : HRESULT
-fun pathCchCombine(pszPathOut : , cchPathOut : LibC::UIint*, pszPathIn : PWSTR, pszMore : PWSTR) : HRESULT
-fun pathCchAppendEx(pszPath : , cchPath : LibC::UIint*, pszMore : PWSTR, dwFlags : LibC::UInt32) : HRESULT
-fun pathCchAppend(pszPath : , cchPath : LibC::UIint*, pszMore : PWSTR) : HRESULT
-fun pathCchStripPrefix(pszPath : , cchPath : LibC::UIint*) : HRESULT
 fun pathAllocCombine(pszPathIn : PWSTR, pszMore : PWSTR, dwFlags : LibC::UInt32, ppszPathOut : PWSTR*) : HRESULT
 fun pathAllocCanonicalize(pszPathIn : PWSTR, dwFlags : LibC::UInt32, ppszPathOut : PWSTR*) : HRESULT
 fun registerAppStateChangeNotification(routine : PAPPSTATE_CHANGE_ROUTINE, context : LibC::Void*, registration : APPSTATE_REGISTRATION**) : LibC::UInt32

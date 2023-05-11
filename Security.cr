@@ -244,6 +244,7 @@ ENUM_PERIOD_MONTHS = 5
 ENUM_PERIOD_YEARS = 6
 
 end
+type Othereb316d0e383a = LibC::Int64 | FILETIME
 struct LLFILETIME
 end
 struct GENERIC_MAPPING
@@ -265,6 +266,7 @@ struct SID
   identifierAuthority : SID_IDENTIFIER_AUTHORITY
   subAuthority : Array(LibC::UInt32)
 end
+type SE_SID = SID | Array(LibC::Byte)
 enum SID_NAME_USE : Int32
 SidTypeUser = 1
 
@@ -988,27 +990,30 @@ struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE
   pValue : LibC::Void*
   valueLength : LibC::UInt32
 end
+type Bird8c6e99e63418 = LibC::Int64* | LibC::UInt64* | PWSTR* | CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE* | CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE*
 struct CLAIM_SECURITY_ATTRIBUTE_V1
   name : PWSTR
   valueType : CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE
   reserved : LibC::UInt16
   flags : LibC::UInt32
   valueCount : LibC::UInt32
-  values : Values_e__Union
+  values : Bird8c6e99e63418
 end
+type Pig058d0cf5d726 = Array(LibC::UInt32) | Array(LibC::UInt32) | Array(LibC::UInt32) | Array(LibC::UInt32) | Array(LibC::UInt32)
 struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1
   name : LibC::UInt32
   valueType : CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE
   reserved : LibC::UInt16
   flags : CLAIM_SECURITY_ATTRIBUTE_FLAGS
   valueCount : LibC::UInt32
-  values : Values_e__Union
+  values : Pig058d0cf5d726
 end
+type Rabbit4cfdf2d20ccb = CLAIM_SECURITY_ATTRIBUTE_V1*
 struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION
   version : LibC::UInt16
   reserved : LibC::UInt16
   attributeCount : LibC::UInt32
-  attribute : Attribute_e__Union
+  attribute : Rabbit4cfdf2d20ccb
 end
 struct SECURITY_QUALITY_OF_SERVICE
   length : LibC::UInt32
@@ -1038,11 +1043,6 @@ struct QUOTA_LIMITS
 end
 fun accessCheck(pSecurityDescriptor : SECURITY_DESCRIPTOR*, clientToken : HANDLE, desiredAccess : LibC::UInt32, genericMapping : GENERIC_MAPPING*, privilegeSet : PRIVILEGE_SET*, privilegeSetLength : LibC::UInt32*, grantedAccess : LibC::UInt32*, accessStatus : LibC::Int32*) : BOOL
 fun accessCheckAndAuditAlarmW(subsystemName : PWSTR, handleId : LibC::Void*, objectTypeName : PWSTR, objectName : PWSTR, securityDescriptor : SECURITY_DESCRIPTOR*, desiredAccess : LibC::UInt32, genericMapping : GENERIC_MAPPING*, objectCreation : BOOL, grantedAccess : LibC::UInt32*, accessStatus : LibC::Int32*, pfGenerateOnClose : LibC::Int32*) : BOOL
-fun accessCheckByType(pSecurityDescriptor : SECURITY_DESCRIPTOR*, principalSelfSid : PSID, clientToken : HANDLE, desiredAccess : LibC::UInt32, objectTypeList : , objectTypeListLength : LibC::UInt32, genericMapping : GENERIC_MAPPING*, privilegeSet : PRIVILEGE_SET*, privilegeSetLength : LibC::UInt32*, grantedAccess : LibC::UInt32*, accessStatus : LibC::Int32*) : BOOL
-fun accessCheckByTypeResultList(pSecurityDescriptor : SECURITY_DESCRIPTOR*, principalSelfSid : PSID, clientToken : HANDLE, desiredAccess : LibC::UInt32, objectTypeList : , objectTypeListLength : LibC::UInt32, genericMapping : GENERIC_MAPPING*, privilegeSet : PRIVILEGE_SET*, privilegeSetLength : LibC::UInt32*, grantedAccessList : , accessStatusList : ) : BOOL
-fun accessCheckByTypeAndAuditAlarmW(subsystemName : PWSTR, handleId : LibC::Void*, objectTypeName : PWSTR, objectName : PWSTR, securityDescriptor : SECURITY_DESCRIPTOR*, principalSelfSid : PSID, desiredAccess : LibC::UInt32, auditType : AUDIT_EVENT_TYPE, flags : LibC::UInt32, objectTypeList : , objectTypeListLength : LibC::UInt32, genericMapping : GENERIC_MAPPING*, objectCreation : BOOL, grantedAccess : LibC::UInt32*, accessStatus : LibC::Int32*, pfGenerateOnClose : LibC::Int32*) : BOOL
-fun accessCheckByTypeResultListAndAuditAlarmW(subsystemName : PWSTR, handleId : LibC::Void*, objectTypeName : PWSTR, objectName : PWSTR, securityDescriptor : SECURITY_DESCRIPTOR*, principalSelfSid : PSID, desiredAccess : LibC::UInt32, auditType : AUDIT_EVENT_TYPE, flags : LibC::UInt32, objectTypeList : , objectTypeListLength : LibC::UInt32, genericMapping : GENERIC_MAPPING*, objectCreation : BOOL, grantedAccessList : , accessStatusList : , pfGenerateOnClose : LibC::Int32*) : BOOL
-fun accessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemName : PWSTR, handleId : LibC::Void*, clientToken : HANDLE, objectTypeName : PWSTR, objectName : PWSTR, securityDescriptor : SECURITY_DESCRIPTOR*, principalSelfSid : PSID, desiredAccess : LibC::UInt32, auditType : AUDIT_EVENT_TYPE, flags : LibC::UInt32, objectTypeList : , objectTypeListLength : LibC::UInt32, genericMapping : GENERIC_MAPPING*, objectCreation : BOOL, grantedAccessList : , accessStatusList : , pfGenerateOnClose : LibC::Int32*) : BOOL
 fun addAccessAllowedAce(pAcl : ACL*, dwAceRevision : LibC::UInt32, accessMask : LibC::UInt32, pSid : PSID) : BOOL
 fun addAccessAllowedAceEx(pAcl : ACL*, dwAceRevision : LibC::UInt32, aceFlags : ACE_FLAGS, accessMask : LibC::UInt32, pSid : PSID) : BOOL
 fun addAccessAllowedObjectAce(pAcl : ACL*, dwAceRevision : LibC::UInt32, aceFlags : ACE_FLAGS, accessMask : LibC::UInt32, objectTypeGuid : LibC::Guid*, inheritedObjectTypeGuid : LibC::Guid*, pSid : PSID) : BOOL
@@ -1070,8 +1070,6 @@ fun convertToAutoInheritPrivateObjectSecurity(parentDescriptor : SECURITY_DESCRI
 fun copySid(nDestinationSidLength : LibC::UInt32, pDestinationSid : PSID, pSourceSid : PSID) : BOOL
 fun createPrivateObjectSecurity(parentDescriptor : SECURITY_DESCRIPTOR*, creatorDescriptor : SECURITY_DESCRIPTOR*, newDescriptor : SECURITY_DESCRIPTOR**, isDirectoryObject : BOOL, token : HANDLE, genericMapping : GENERIC_MAPPING*) : BOOL
 fun createPrivateObjectSecurityEx(parentDescriptor : SECURITY_DESCRIPTOR*, creatorDescriptor : SECURITY_DESCRIPTOR*, newDescriptor : SECURITY_DESCRIPTOR**, objectType : LibC::Guid*, isContainerObject : BOOL, autoInheritFlags : SECURITY_AUTO_INHERIT_FLAGS, token : HANDLE, genericMapping : GENERIC_MAPPING*) : BOOL
-fun createPrivateObjectSecurityWithMultipleInheritance(parentDescriptor : SECURITY_DESCRIPTOR*, creatorDescriptor : SECURITY_DESCRIPTOR*, newDescriptor : SECURITY_DESCRIPTOR**, objectTypes : , guidCount : LibC::UInt32, isContainerObject : BOOL, autoInheritFlags : SECURITY_AUTO_INHERIT_FLAGS, token : HANDLE, genericMapping : GENERIC_MAPPING*) : BOOL
-fun createRestrictedToken(existingTokenHandle : HANDLE, flags : CREATE_RESTRICTED_TOKEN_FLAGS, disableSidCount : LibC::UInt32, sidsToDisable : , deletePrivilegeCount : LibC::UInt32, privilegesToDelete : , restrictedSidCount : LibC::UInt32, sidsToRestrict : , newTokenHandle : HANDLE*) : BOOL
 fun createWellKnownSid(wellKnownSidType : WELL_KNOWN_SID_TYPE, domainSid : PSID, pSid : PSID, cbSid : LibC::UInt32*) : BOOL
 fun equalDomainSid(pSid1 : PSID, pSid2 : PSID, pfEqual : BOOL*) : BOOL
 fun deleteAce(pAcl : ACL*, dwAceIndex : LibC::UInt32) : BOOL
@@ -1136,16 +1134,12 @@ fun setSecurityDescriptorOwner(pSecurityDescriptor : SECURITY_DESCRIPTOR*, pOwne
 fun setSecurityDescriptorRMControl(securityDescriptor : SECURITY_DESCRIPTOR*, rMControl : LibC::Byte*) : LibC::UInt32
 fun setSecurityDescriptorSacl(pSecurityDescriptor : SECURITY_DESCRIPTOR*, bSaclPresent : BOOL, pSacl : ACL*, bSaclDefaulted : BOOL) : BOOL
 fun setTokenInformation(tokenHandle : HANDLE, tokenInformationClass : TOKEN_INFORMATION_CLASS, tokenInformation : LibC::Void*, tokenInformationLength : LibC::UInt32) : BOOL
-fun setCachedSigningLevel(sourceFiles : , sourceFileCount : LibC::UInt32, flags : LibC::UInt32, targetFile : HANDLE) : BOOL
 fun getCachedSigningLevel(file : HANDLE, flags : LibC::UInt32*, signingLevel : LibC::UInt32*, thumbprint : LibC::Byte*, thumbprintSize : LibC::UInt32*, thumbprintAlgorithm : LibC::UInt32*) : BOOL
 fun deriveCapabilitySidsFromName(capName : PWSTR, capabilityGroupSids : PSID**, capabilityGroupSidCount : LibC::UInt32*, capabilitySids : PSID**, capabilitySidCount : LibC::UInt32*) : BOOL
 fun rtlNormalizeSecurityDescriptor(securityDescriptor : SECURITY_DESCRIPTOR**, securityDescriptorLength : LibC::UInt32, newSecurityDescriptor : SECURITY_DESCRIPTOR**, newSecurityDescriptorLength : LibC::UInt32*, checkOnly : BOOLEAN) : BOOLEAN
 fun setUserObjectSecurity(hObj : HANDLE, pSIRequested : OBJECT_SECURITY_INFORMATION*, pSID : SECURITY_DESCRIPTOR*) : BOOL
 fun getUserObjectSecurity(hObj : HANDLE, pSIRequested : LibC::UInt32*, pSID : SECURITY_DESCRIPTOR*, nLength : LibC::UInt32, lpnLengthNeeded : LibC::UInt32*) : BOOL
 fun accessCheckAndAuditAlarmA(subsystemName : PSTR, handleId : LibC::Void*, objectTypeName : PSTR, objectName : PSTR, securityDescriptor : SECURITY_DESCRIPTOR*, desiredAccess : LibC::UInt32, genericMapping : GENERIC_MAPPING*, objectCreation : BOOL, grantedAccess : LibC::UInt32*, accessStatus : LibC::Int32*, pfGenerateOnClose : LibC::Int32*) : BOOL
-fun accessCheckByTypeAndAuditAlarmA(subsystemName : PSTR, handleId : LibC::Void*, objectTypeName : PSTR, objectName : PSTR, securityDescriptor : SECURITY_DESCRIPTOR*, principalSelfSid : PSID, desiredAccess : LibC::UInt32, auditType : AUDIT_EVENT_TYPE, flags : LibC::UInt32, objectTypeList : , objectTypeListLength : LibC::UInt32, genericMapping : GENERIC_MAPPING*, objectCreation : BOOL, grantedAccess : LibC::UInt32*, accessStatus : LibC::Int32*, pfGenerateOnClose : LibC::Int32*) : BOOL
-fun accessCheckByTypeResultListAndAuditAlarmA(subsystemName : PSTR, handleId : LibC::Void*, objectTypeName : PSTR, objectName : PSTR, securityDescriptor : SECURITY_DESCRIPTOR*, principalSelfSid : PSID, desiredAccess : LibC::UInt32, auditType : AUDIT_EVENT_TYPE, flags : LibC::UInt32, objectTypeList : , objectTypeListLength : LibC::UInt32, genericMapping : GENERIC_MAPPING*, objectCreation : BOOL, grantedAccess : , accessStatusList : , pfGenerateOnClose : LibC::Int32*) : BOOL
-fun accessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemName : PSTR, handleId : LibC::Void*, clientToken : HANDLE, objectTypeName : PSTR, objectName : PSTR, securityDescriptor : SECURITY_DESCRIPTOR*, principalSelfSid : PSID, desiredAccess : LibC::UInt32, auditType : AUDIT_EVENT_TYPE, flags : LibC::UInt32, objectTypeList : , objectTypeListLength : LibC::UInt32, genericMapping : GENERIC_MAPPING*, objectCreation : BOOL, grantedAccess : , accessStatusList : , pfGenerateOnClose : LibC::Int32*) : BOOL
 fun objectOpenAuditAlarmA(subsystemName : PSTR, handleId : LibC::Void*, objectTypeName : PSTR, objectName : PSTR, pSecurityDescriptor : SECURITY_DESCRIPTOR*, clientToken : HANDLE, desiredAccess : LibC::UInt32, grantedAccess : LibC::UInt32, privileges : PRIVILEGE_SET*, objectCreation : BOOL, accessGranted : BOOL, generateOnClose : LibC::Int32*) : BOOL
 fun objectPrivilegeAuditAlarmA(subsystemName : PSTR, handleId : LibC::Void*, clientToken : HANDLE, desiredAccess : LibC::UInt32, privileges : PRIVILEGE_SET*, accessGranted : BOOL) : BOOL
 fun objectCloseAuditAlarmA(subsystemName : PSTR, handleId : LibC::Void*, generateOnClose : BOOL) : BOOL
@@ -1154,16 +1148,8 @@ fun privilegedServiceAuditAlarmA(subsystemName : PSTR, serviceName : PSTR, clien
 fun addConditionalAce(pAcl : ACL*, dwAceRevision : LibC::UInt32, aceFlags : ACE_FLAGS, aceType : LibC::Byte, accessMask : LibC::UInt32, pSid : PSID, conditionStr : PWSTR, returnLength : LibC::UInt32*) : BOOL
 fun setFileSecurityA(lpFileName : PSTR, securityInformation : LibC::UInt32, pSecurityDescriptor : SECURITY_DESCRIPTOR*) : BOOL
 fun getFileSecurityA(lpFileName : PSTR, requestedInformation : LibC::UInt32, pSecurityDescriptor : SECURITY_DESCRIPTOR*, nLength : LibC::UInt32, lpnLengthNeeded : LibC::UInt32*) : BOOL
-fun lookupAccountSidA(lpSystemName : PSTR, sid : PSID, name : , cchName : LibC::UInt32*, referencedDomainName : , cchReferencedDomainName : LibC::UInt32*, peUse : SID_NAME_USE*) : BOOL
-fun lookupAccountSidW(lpSystemName : PWSTR, sid : PSID, name : , cchName : LibC::UInt32*, referencedDomainName : , cchReferencedDomainName : LibC::UInt32*, peUse : SID_NAME_USE*) : BOOL
-fun lookupAccountNameA(lpSystemName : PSTR, lpAccountName : PSTR, sid : PSID, cbSid : LibC::UInt32*, referencedDomainName : , cchReferencedDomainName : LibC::UInt32*, peUse : SID_NAME_USE*) : BOOL
-fun lookupAccountNameW(lpSystemName : PWSTR, lpAccountName : PWSTR, sid : PSID, cbSid : LibC::UInt32*, referencedDomainName : , cchReferencedDomainName : LibC::UInt32*, peUse : SID_NAME_USE*) : BOOL
 fun lookupPrivilegeValueA(lpSystemName : PSTR, lpName : PSTR, lpLuid : LUID*) : BOOL
 fun lookupPrivilegeValueW(lpSystemName : PWSTR, lpName : PWSTR, lpLuid : LUID*) : BOOL
-fun lookupPrivilegeNameA(lpSystemName : PSTR, lpLuid : LUID*, lpName : , cchName : LibC::UInt32*) : BOOL
-fun lookupPrivilegeNameW(lpSystemName : PWSTR, lpLuid : LUID*, lpName : , cchName : LibC::UInt32*) : BOOL
-fun lookupPrivilegeDisplayNameA(lpSystemName : PSTR, lpName : PSTR, lpDisplayName : , cchDisplayName : LibC::UInt32*, lpLanguageId : LibC::UInt32*) : BOOL
-fun lookupPrivilegeDisplayNameW(lpSystemName : PWSTR, lpName : PWSTR, lpDisplayName : , cchDisplayName : LibC::UInt32*, lpLanguageId : LibC::UInt32*) : BOOL
 fun logonUserA(lpszUsername : PSTR, lpszDomain : PSTR, lpszPassword : PSTR, dwLogonType : LOGON32_LOGON, dwLogonProvider : LOGON32_PROVIDER, phToken : HANDLE*) : BOOL
 fun logonUserW(lpszUsername : PWSTR, lpszDomain : PWSTR, lpszPassword : PWSTR, dwLogonType : LOGON32_LOGON, dwLogonProvider : LOGON32_PROVIDER, phToken : HANDLE*) : BOOL
 fun logonUserExA(lpszUsername : PSTR, lpszDomain : PSTR, lpszPassword : PSTR, dwLogonType : LOGON32_LOGON, dwLogonProvider : LOGON32_PROVIDER, phToken : HANDLE*, ppLogonSid : PSID*, ppProfileBuffer : LibC::Void**, pdwProfileLength : LibC::UInt32*, pQuotaLimits : QUOTA_LIMITS*) : BOOL

@@ -2625,6 +2625,23 @@ struct EXTLOGFONTW
   elfCulture : LibC::UInt32
   elfPanose : PANOSE
 end
+struct Rabbitc03a7e584ed7
+  dmPosition : POINTL
+  dmDisplayOrientation : LibC::UInt32
+  dmDisplayFixedOutput : LibC::UInt32
+end
+struct Bird2bf33734f82f
+  dmOrientation : LibC::Int16
+  dmPaperSize : LibC::Int16
+  dmPaperLength : LibC::Int16
+  dmPaperWidth : LibC::Int16
+  dmScale : LibC::Int16
+  dmCopies : LibC::Int16
+  dmDefaultSource : LibC::Int16
+  dmPrintQuality : LibC::Int16
+end
+type Othercefceaa53a05 = Bird2bf33734f82f | Rabbitc03a7e584ed7
+type Othere5d41a7a2bc3 = LibC::UInt32 | LibC::UInt32
 struct DEVMODEA
   dmDeviceName : Array(LibC::Byte)
   dmSpecVersion : LibC::UInt16
@@ -2632,7 +2649,7 @@ struct DEVMODEA
   dmSize : LibC::UInt16
   dmDriverExtra : LibC::UInt16
   dmFields : LibC::UInt32
-  anonymous1 : Anonymous1_e__Union
+  anonymous1 : Othercefceaa53a05
   dmColor : LibC::Int16
   dmDuplex : LibC::Int16
   dmYResolution : LibC::Int16
@@ -2643,7 +2660,7 @@ struct DEVMODEA
   dmBitsPerPel : LibC::UInt32
   dmPelsWidth : LibC::UInt32
   dmPelsHeight : LibC::UInt32
-  anonymous2 : Anonymous2_e__Union
+  anonymous2 : Othere5d41a7a2bc3
   dmDisplayFrequency : LibC::UInt32
   dmICMMethod : LibC::UInt32
   dmICMIntent : LibC::UInt32
@@ -2654,6 +2671,23 @@ struct DEVMODEA
   dmPanningWidth : LibC::UInt32
   dmPanningHeight : LibC::UInt32
 end
+struct Rabbitddeee8525604
+  dmOrientation : LibC::Int16
+  dmPaperSize : LibC::Int16
+  dmPaperLength : LibC::Int16
+  dmPaperWidth : LibC::Int16
+  dmScale : LibC::Int16
+  dmCopies : LibC::Int16
+  dmDefaultSource : LibC::Int16
+  dmPrintQuality : LibC::Int16
+end
+struct Owldefb04fd521f
+  dmPosition : POINTL
+  dmDisplayOrientation : LibC::UInt32
+  dmDisplayFixedOutput : LibC::UInt32
+end
+type Owlfad464cc313e = Rabbitddeee8525604 | Owldefb04fd521f
+type Duckdc458d908e88 = LibC::UInt32 | LibC::UInt32
 struct DEVMODEW
   dmDeviceName : Array(LibC::Char)
   dmSpecVersion : LibC::UInt16
@@ -2661,7 +2695,7 @@ struct DEVMODEW
   dmSize : LibC::UInt16
   dmDriverExtra : LibC::UInt16
   dmFields : LibC::UInt32
-  anonymous1 : Anonymous1_e__Union
+  anonymous1 : Owlfad464cc313e
   dmColor : LibC::Int16
   dmDuplex : LibC::Int16
   dmYResolution : LibC::Int16
@@ -2672,7 +2706,7 @@ struct DEVMODEW
   dmBitsPerPel : LibC::UInt32
   dmPelsWidth : LibC::UInt32
   dmPelsHeight : LibC::UInt32
-  anonymous2 : Anonymous2_e__Union
+  anonymous2 : Duckdc458d908e88
   dmDisplayFrequency : LibC::UInt32
   dmICMMethod : LibC::UInt32
   dmICMIntent : LibC::UInt32
@@ -2951,8 +2985,6 @@ struct BLENDFUNCTION
   sourceConstantAlpha : LibC::Byte
   alphaFormat : LibC::Byte
 end
-alias MFENUMPROC = (HDC, , METARECORD*, LibC::Int32, LPARAM -> LibC::Int32)
-alias ENHMFENUMPROC = (HDC, , ENHMETARECORD*, LibC::Int32, LPARAM -> LibC::Int32)
 struct DIBSECTION
   dsBm : BITMAP
   dsBmih : BITMAPINFOHEADER
@@ -3556,7 +3588,6 @@ alias MONITORENUMPROC = (HMONITOR, HDC, RECT*, LPARAM -> BOOL)
 fun getObjectA(h : HGDIOBJ, c : LibC::Int32, pv : LibC::Void*) : LibC::Int32
 fun addFontResourceA(param0 : PSTR) : LibC::Int32
 fun addFontResourceW(param0 : PWSTR) : LibC::Int32
-fun animatePalette(hPal : HPALETTE, iStartIndex : LibC::UInt32, cEntries : LibC::UInt32, ppe : ) : BOOL
 fun arc(hdc : HDC, x1 : LibC::Int32, y1 : LibC::Int32, x2 : LibC::Int32, y2 : LibC::Int32, x3 : LibC::Int32, y3 : LibC::Int32, x4 : LibC::Int32, y4 : LibC::Int32) : BOOL
 fun bitBlt(hdc : HDC, x : LibC::Int32, y : LibC::Int32, cx : LibC::Int32, cy : LibC::Int32, hdcSrc : HDC, x1 : LibC::Int32, y1 : LibC::Int32, rop : ROP_CODE) : BOOL
 fun cancelDC(hdc : HDC) : BOOL
@@ -3590,7 +3621,6 @@ fun createMetaFileW(pszFile : PWSTR) : HdcMetdataFileHandle
 fun createPalette(plpal : LOGPALETTE*) : HPALETTE
 fun createPen(iStyle : PEN_STYLE, cWidth : LibC::Int32, color : LibC::UInt32) : HPEN
 fun createPenIndirect(plpen : LOGPEN*) : HPEN
-fun createPolyPolygonRgn(pptl : POINT*, pc : , cPoly : LibC::Int32, iMode : CREATE_POLYGON_RGN_MODE) : HRGN
 fun createPatternBrush(hbm : HBITMAP) : HBRUSH
 fun createRectRgn(x1 : LibC::Int32, y1 : LibC::Int32, x2 : LibC::Int32, y2 : LibC::Int32) : HRGN
 fun createRectRgnIndirect(lprect : RECT*) : HRGN
@@ -3657,7 +3687,6 @@ fun getNearestPaletteIndex(h : HPALETTE, color : LibC::UInt32) : LibC::UInt32
 fun getObjectType(h : HGDIOBJ) : LibC::UInt32
 fun getOutlineTextMetricsA(hdc : HDC, cjCopy : LibC::UInt32, potm : OUTLINETEXTMETRICA*) : LibC::UInt32
 fun getOutlineTextMetricsW(hdc : HDC, cjCopy : LibC::UInt32, potm : OUTLINETEXTMETRICW*) : LibC::UInt32
-fun getPaletteEntries(hpal : HPALETTE, iStart : LibC::UInt32, cEntries : LibC::UInt32, pPalEntries : ) : LibC::UInt32
 fun getPixel(hdc : HDC, x : LibC::Int32, y : LibC::Int32) : LibC::UInt32
 fun getPolyFillMode(hdc : HDC) : LibC::Int32
 fun getRasterizerCaps(lpraststat : RASTERIZER_STATUS*, cjBytes : LibC::UInt32) : BOOL
@@ -3666,27 +3695,12 @@ fun getRegionData(hrgn : HRGN, nCount : LibC::UInt32, lpRgnData : RGNDATA*) : Li
 fun getRgnBox(hrgn : HRGN, lprc : RECT*) : LibC::Int32
 fun getStockObject(i : GET_STOCK_OBJECT_FLAGS) : HGDIOBJ
 fun getStretchBltMode(hdc : HDC) : LibC::Int32
-fun getSystemPaletteEntries(hdc : HDC, iStart : LibC::UInt32, cEntries : LibC::UInt32, pPalEntries : ) : LibC::UInt32
 fun getSystemPaletteUse(hdc : HDC) : LibC::UInt32
 fun getTextCharacterExtra(hdc : HDC) : LibC::Int32
 fun getTextAlign(hdc : HDC) : LibC::UInt32
 fun getTextColor(hdc : HDC) : LibC::UInt32
-fun getTextExtentPointA(hdc : HDC, lpString : , c : LibC::Int32, lpsz : SIZE*) : BOOL
-fun getTextExtentPointW(hdc : HDC, lpString : , c : LibC::Int32, lpsz : SIZE*) : BOOL
-fun getTextExtentPoint32A(hdc : HDC, lpString : , c : LibC::Int32, psizl : SIZE*) : BOOL
-fun getTextExtentPoint32W(hdc : HDC, lpString : , c : LibC::Int32, psizl : SIZE*) : BOOL
-fun getTextExtentExPointA(hdc : HDC, lpszString : , cchString : LibC::Int32, nMaxExtent : LibC::Int32, lpnFit : LibC::Int32*, lpnDx : , lpSize : SIZE*) : BOOL
-fun getTextExtentExPointW(hdc : HDC, lpszString : , cchString : LibC::Int32, nMaxExtent : LibC::Int32, lpnFit : LibC::Int32*, lpnDx : , lpSize : SIZE*) : BOOL
 fun getFontLanguageInfo(hdc : HDC) : LibC::UInt32
-fun getCharacterPlacementA(hdc : HDC, lpString : , nCount : LibC::Int32, nMexExtent : LibC::Int32, lpResults : GCP_RESULTSA*, dwFlags : GET_CHARACTER_PLACEMENT_FLAGS) : LibC::UInt32
-fun getCharacterPlacementW(hdc : HDC, lpString : , nCount : LibC::Int32, nMexExtent : LibC::Int32, lpResults : GCP_RESULTSW*, dwFlags : GET_CHARACTER_PLACEMENT_FLAGS) : LibC::UInt32
 fun getFontUnicodeRanges(hdc : HDC, lpgs : GLYPHSET*) : LibC::UInt32
-fun getGlyphIndicesA(hdc : HDC, lpstr : , c : LibC::Int32, pgi : , fl : LibC::UInt32) : LibC::UInt32
-fun getGlyphIndicesW(hdc : HDC, lpstr : , c : LibC::Int32, pgi : , fl : LibC::UInt32) : LibC::UInt32
-fun getTextExtentPointI(hdc : HDC, pgiIn : , cgi : LibC::Int32, psize : SIZE*) : BOOL
-fun getTextExtentExPointI(hdc : HDC, lpwszString : , cwchString : LibC::Int32, nMaxExtent : LibC::Int32, lpnFit : LibC::Int32*, lpnDx : , lpSize : SIZE*) : BOOL
-fun getCharWidthI(hdc : HDC, giFirst : LibC::UInt32, cgi : LibC::UInt32, pgi : , piWidths : ) : BOOL
-fun getCharABCWidthsI(hdc : HDC, giFirst : LibC::UInt32, cgi : LibC::UInt32, pgi : , pabc : ) : BOOL
 fun addFontResourceExA(name : PSTR, fl : FONT_RESOURCE_CHARACTERISTICS, res : LibC::Void*) : LibC::Int32
 fun addFontResourceExW(name : PWSTR, fl : FONT_RESOURCE_CHARACTERISTICS, res : LibC::Void*) : LibC::Int32
 fun removeFontResourceExA(name : PSTR, fl : LibC::UInt32, pdv : LibC::Void*) : BOOL
@@ -3704,14 +3718,12 @@ fun invertRgn(hdc : HDC, hrgn : HRGN) : BOOL
 fun lineDDA(xStart : LibC::Int32, yStart : LibC::Int32, xEnd : LibC::Int32, yEnd : LibC::Int32, lpProc : LINEDDAPROC, data : LPARAM) : BOOL
 fun lineTo(hdc : HDC, x : LibC::Int32, y : LibC::Int32) : BOOL
 fun maskBlt(hdcDest : HDC, xDest : LibC::Int32, yDest : LibC::Int32, width : LibC::Int32, height : LibC::Int32, hdcSrc : HDC, xSrc : LibC::Int32, ySrc : LibC::Int32, hbmMask : HBITMAP, xMask : LibC::Int32, yMask : LibC::Int32, rop : LibC::UInt32) : BOOL
-fun plgBlt(hdcDest : HDC, lpPoint : , hdcSrc : HDC, xSrc : LibC::Int32, ySrc : LibC::Int32, width : LibC::Int32, height : LibC::Int32, hbmMask : HBITMAP, xMask : LibC::Int32, yMask : LibC::Int32) : BOOL
 fun offsetClipRgn(hdc : HDC, x : LibC::Int32, y : LibC::Int32) : LibC::Int32
 fun offsetRgn(hrgn : HRGN, x : LibC::Int32, y : LibC::Int32) : LibC::Int32
 fun patBlt(hdc : HDC, x : LibC::Int32, y : LibC::Int32, w : LibC::Int32, h : LibC::Int32, rop : ROP_CODE) : BOOL
 fun pie(hdc : HDC, left : LibC::Int32, top : LibC::Int32, right : LibC::Int32, bottom : LibC::Int32, xr1 : LibC::Int32, yr1 : LibC::Int32, xr2 : LibC::Int32, yr2 : LibC::Int32) : BOOL
 fun playMetaFile(hdc : HDC, hmf : HMETAFILE) : BOOL
 fun paintRgn(hdc : HDC, hrgn : HRGN) : BOOL
-fun polyPolygon(hdc : HDC, apt : POINT*, asz : , csz : LibC::Int32) : BOOL
 fun ptInRegion(hrgn : HRGN, x : LibC::Int32, y : LibC::Int32) : BOOL
 fun ptVisible(hdc : HDC, x : LibC::Int32, y : LibC::Int32) : BOOL
 fun rectInRegion(hrgn : HRGN, lprect : RECT*) : BOOL
@@ -3745,7 +3757,6 @@ fun setMapMode(hdc : HDC, iMode : HDC_MAP_MODE) : LibC::Int32
 fun setLayout(hdc : HDC, l : DC_LAYOUT) : LibC::UInt32
 fun getLayout(hdc : HDC) : LibC::UInt32
 fun setMetaFileBitsEx(cbBuffer : LibC::UInt32, lpData : LibC::Byte*) : HMETAFILE
-fun setPaletteEntries(hpal : HPALETTE, iStart : LibC::UInt32, cEntries : LibC::UInt32, pPalEntries : ) : LibC::UInt32
 fun setPixel(hdc : HDC, x : LibC::Int32, y : LibC::Int32, color : LibC::UInt32) : LibC::UInt32
 fun setPixelV(hdc : HDC, x : LibC::Int32, y : LibC::Int32, color : LibC::UInt32) : BOOL
 fun setPolyFillMode(hdc : HDC, mode : CREATE_POLYGON_RGN_MODE) : LibC::Int32
@@ -3762,42 +3773,30 @@ fun setTextJustification(hdc : HDC, extra : LibC::Int32, count : LibC::Int32) : 
 fun updateColors(hdc : HDC) : BOOL
 fun alphaBlend(hdcDest : HDC, xoriginDest : LibC::Int32, yoriginDest : LibC::Int32, wDest : LibC::Int32, hDest : LibC::Int32, hdcSrc : HDC, xoriginSrc : LibC::Int32, yoriginSrc : LibC::Int32, wSrc : LibC::Int32, hSrc : LibC::Int32, ftn : BLENDFUNCTION) : BOOL
 fun transparentBlt(hdcDest : HDC, xoriginDest : LibC::Int32, yoriginDest : LibC::Int32, wDest : LibC::Int32, hDest : LibC::Int32, hdcSrc : HDC, xoriginSrc : LibC::Int32, yoriginSrc : LibC::Int32, wSrc : LibC::Int32, hSrc : LibC::Int32, crTransparent : LibC::UInt32) : BOOL
-fun gradientFill(hdc : HDC, pVertex : , nVertex : LibC::UInt32, pMesh : LibC::Void*, nMesh : LibC::UInt32, ulMode : GRADIENT_FILL) : BOOL
 fun gdiAlphaBlend(hdcDest : HDC, xoriginDest : LibC::Int32, yoriginDest : LibC::Int32, wDest : LibC::Int32, hDest : LibC::Int32, hdcSrc : HDC, xoriginSrc : LibC::Int32, yoriginSrc : LibC::Int32, wSrc : LibC::Int32, hSrc : LibC::Int32, ftn : BLENDFUNCTION) : BOOL
 fun gdiTransparentBlt(hdcDest : HDC, xoriginDest : LibC::Int32, yoriginDest : LibC::Int32, wDest : LibC::Int32, hDest : LibC::Int32, hdcSrc : HDC, xoriginSrc : LibC::Int32, yoriginSrc : LibC::Int32, wSrc : LibC::Int32, hSrc : LibC::Int32, crTransparent : LibC::UInt32) : BOOL
-fun gdiGradientFill(hdc : HDC, pVertex : , nVertex : LibC::UInt32, pMesh : LibC::Void*, nCount : LibC::UInt32, ulMode : GRADIENT_FILL) : BOOL
-fun playMetaFileRecord(hdc : HDC, lpHandleTable : , lpMR : METARECORD*, noObjs : LibC::UInt32) : BOOL
-fun enumMetaFile(hdc : HDC, hmf : HMETAFILE, proc : MFENUMPROC, param3 : LPARAM) : BOOL
 fun closeEnhMetaFile(hdc : HDC) : HENHMETAFILE
 fun copyEnhMetaFileA(hEnh : HENHMETAFILE, lpFileName : PSTR) : HENHMETAFILE
 fun copyEnhMetaFileW(hEnh : HENHMETAFILE, lpFileName : PWSTR) : HENHMETAFILE
 fun createEnhMetaFileA(hdc : HDC, lpFilename : PSTR, lprc : RECT*, lpDesc : PSTR) : HdcMetdataEnhFileHandle
 fun createEnhMetaFileW(hdc : HDC, lpFilename : PWSTR, lprc : RECT*, lpDesc : PWSTR) : HdcMetdataEnhFileHandle
 fun deleteEnhMetaFile(hmf : HENHMETAFILE) : BOOL
-fun enumEnhMetaFile(hdc : HDC, hmf : HENHMETAFILE, proc : ENHMFENUMPROC, param3 : LibC::Void*, lpRect : RECT*) : BOOL
 fun getEnhMetaFileA(lpName : PSTR) : HENHMETAFILE
 fun getEnhMetaFileW(lpName : PWSTR) : HENHMETAFILE
 fun getEnhMetaFileBits(hEMF : HENHMETAFILE, nSize : LibC::UInt32, lpData : LibC::Byte*) : LibC::UInt32
-fun getEnhMetaFileDescriptionA(hemf : HENHMETAFILE, cchBuffer : LibC::UInt32, lpDescription : ) : LibC::UInt32
-fun getEnhMetaFileDescriptionW(hemf : HENHMETAFILE, cchBuffer : LibC::UInt32, lpDescription : ) : LibC::UInt32
 fun getEnhMetaFileHeader(hemf : HENHMETAFILE, nSize : LibC::UInt32, lpEnhMetaHeader : ENHMETAHEADER*) : LibC::UInt32
-fun getEnhMetaFilePaletteEntries(hemf : HENHMETAFILE, nNumEntries : LibC::UInt32, lpPaletteEntries : ) : LibC::UInt32
 fun getWinMetaFileBits(hemf : HENHMETAFILE, cbData16 : LibC::UInt32, pData16 : LibC::Byte*, iMapMode : LibC::Int32, hdcRef : HDC) : LibC::UInt32
 fun playEnhMetaFile(hdc : HDC, hmf : HENHMETAFILE, lprect : RECT*) : BOOL
-fun playEnhMetaFileRecord(hdc : HDC, pht : , pmr : ENHMETARECORD*, cht : LibC::UInt32) : BOOL
 fun setEnhMetaFileBits(nSize : LibC::UInt32, pb : LibC::Byte*) : HENHMETAFILE
 fun gdiComment(hdc : HDC, nSize : LibC::UInt32, lpData : LibC::Byte*) : BOOL
 fun getTextMetricsA(hdc : HDC, lptm : TEXTMETRICA*) : BOOL
 fun getTextMetricsW(hdc : HDC, lptm : TEXTMETRICW*) : BOOL
 fun angleArc(hdc : HDC, x : LibC::Int32, y : LibC::Int32, r : LibC::UInt32, startAngle : LibC::Single, sweepAngle : LibC::Single) : BOOL
-fun polyPolyline(hdc : HDC, apt : POINT*, asz : , csz : LibC::UInt32) : BOOL
 fun getWorldTransform(hdc : HDC, lpxf : XFORM*) : BOOL
 fun setWorldTransform(hdc : HDC, lpxf : XFORM*) : BOOL
 fun modifyWorldTransform(hdc : HDC, lpxf : XFORM*, mode : MODIFY_WORLD_TRANSFORM_MODE) : BOOL
 fun combineTransform(lpxfOut : XFORM*, lpxf1 : XFORM*, lpxf2 : XFORM*) : BOOL
 fun createDIBSection(hdc : HDC, pbmi : BITMAPINFO*, usage : DIB_USAGE, ppvBits : LibC::Void**, hSection : HANDLE, offset : LibC::UInt32) : HBITMAP
-fun getDIBColorTable(hdc : HDC, iStart : LibC::UInt32, cEntries : LibC::UInt32, prgbq : ) : LibC::UInt32
-fun setDIBColorTable(hdc : HDC, iStart : LibC::UInt32, cEntries : LibC::UInt32, prgbq : ) : LibC::UInt32
 fun setColorAdjustment(hdc : HDC, lpca : COLORADJUSTMENT*) : BOOL
 fun getColorAdjustment(hdc : HDC, lpca : COLORADJUSTMENT*) : BOOL
 fun createHalftonePalette(hdc : HDC) : HPALETTE
@@ -3808,34 +3807,17 @@ fun closeFigure(hdc : HDC) : BOOL
 fun endPath(hdc : HDC) : BOOL
 fun fillPath(hdc : HDC) : BOOL
 fun flattenPath(hdc : HDC) : BOOL
-fun getPath(hdc : HDC, apt : , aj : , cpt : LibC::Int32) : LibC::Int32
 fun pathToRegion(hdc : HDC) : HRGN
-fun polyDraw(hdc : HDC, apt : , aj : , cpt : LibC::Int32) : BOOL
 fun selectClipPath(hdc : HDC, mode : RGN_COMBINE_MODE) : BOOL
 fun setArcDirection(hdc : HDC, dir : ARC_DIRECTION) : LibC::Int32
 fun setMiterLimit(hdc : HDC, limit : LibC::Single, old : LibC::Single*) : BOOL
 fun strokeAndFillPath(hdc : HDC) : BOOL
 fun strokePath(hdc : HDC) : BOOL
 fun widenPath(hdc : HDC) : BOOL
-fun extCreatePen(iPenStyle : PEN_STYLE, cWidth : LibC::UInt32, plbrush : LOGBRUSH*, cStyle : LibC::UInt32, pstyle : ) : HPEN
 fun getMiterLimit(hdc : HDC, plimit : LibC::Single*) : BOOL
 fun getArcDirection(hdc : HDC) : LibC::Int32
 fun getObjectW(h : HGDIOBJ, c : LibC::Int32, pv : LibC::Void*) : LibC::Int32
 fun moveToEx(hdc : HDC, x : LibC::Int32, y : LibC::Int32, lppt : POINT*) : BOOL
-fun textOutA(hdc : HDC, x : LibC::Int32, y : LibC::Int32, lpString : , c : LibC::Int32) : BOOL
-fun textOutW(hdc : HDC, x : LibC::Int32, y : LibC::Int32, lpString : , c : LibC::Int32) : BOOL
-fun extTextOutA(hdc : HDC, x : LibC::Int32, y : LibC::Int32, options : ETO_OPTIONS, lprect : RECT*, lpString : , c : LibC::UInt32, lpDx : ) : BOOL
-fun extTextOutW(hdc : HDC, x : LibC::Int32, y : LibC::Int32, options : ETO_OPTIONS, lprect : RECT*, lpString : , c : LibC::UInt32, lpDx : ) : BOOL
-fun polyTextOutA(hdc : HDC, ppt : , nstrings : LibC::Int32) : BOOL
-fun polyTextOutW(hdc : HDC, ppt : , nstrings : LibC::Int32) : BOOL
-fun createPolygonRgn(pptl : , cPoint : LibC::Int32, iMode : CREATE_POLYGON_RGN_MODE) : HRGN
-fun dPtoLP(hdc : HDC, lppt : , c : LibC::Int32) : BOOL
-fun lPtoDP(hdc : HDC, lppt : , c : LibC::Int32) : BOOL
-fun polygon(hdc : HDC, apt : , cpt : LibC::Int32) : BOOL
-fun polyline(hdc : HDC, apt : , cpt : LibC::Int32) : BOOL
-fun polyBezier(hdc : HDC, apt : , cpt : LibC::UInt32) : BOOL
-fun polyBezierTo(hdc : HDC, apt : , cpt : LibC::UInt32) : BOOL
-fun polylineTo(hdc : HDC, apt : , cpt : LibC::UInt32) : BOOL
 fun setViewportExtEx(hdc : HDC, x : LibC::Int32, y : LibC::Int32, lpsz : SIZE*) : BOOL
 fun setViewportOrgEx(hdc : HDC, x : LibC::Int32, y : LibC::Int32, lppt : POINT*) : BOOL
 fun setWindowExtEx(hdc : HDC, x : LibC::Int32, y : LibC::Int32, lpsz : SIZE*) : BOOL
@@ -3846,10 +3828,6 @@ fun scaleViewportExtEx(hdc : HDC, xn : LibC::Int32, dx : LibC::Int32, yn : LibC:
 fun scaleWindowExtEx(hdc : HDC, xn : LibC::Int32, xd : LibC::Int32, yn : LibC::Int32, yd : LibC::Int32, lpsz : SIZE*) : BOOL
 fun setBitmapDimensionEx(hbm : HBITMAP, w : LibC::Int32, h : LibC::Int32, lpsz : SIZE*) : BOOL
 fun setBrushOrgEx(hdc : HDC, x : LibC::Int32, y : LibC::Int32, lppt : POINT*) : BOOL
-fun getTextFaceA(hdc : HDC, c : LibC::Int32, lpName : ) : LibC::Int32
-fun getTextFaceW(hdc : HDC, c : LibC::Int32, lpName : ) : LibC::Int32
-fun getKerningPairsA(hdc : HDC, nPairs : LibC::UInt32, lpKernPair : ) : LibC::UInt32
-fun getKerningPairsW(hdc : HDC, nPairs : LibC::UInt32, lpKernPair : ) : LibC::UInt32
 fun getDCOrgEx(hdc : HDC, lppt : POINT*) : BOOL
 fun fixBrushOrgEx(hdc : HDC, x : LibC::Int32, y : LibC::Int32, ptl : POINT*) : BOOL
 fun unrealizeObject(h : HGDIOBJ) : BOOL
@@ -3859,36 +3837,23 @@ fun gdiGetBatchLimit() : LibC::UInt32
 fun wglSwapMultipleBuffers(param0 : LibC::UInt32, param1 : WGLSWAP*) : LibC::UInt32
 fun createFontPackage(puchSrcBuffer : LibC::Byte*, ulSrcBufferSize : LibC::UInt32, ppuchFontPackageBuffer : LibC::Byte**, pulFontPackageBufferSize : LibC::UInt32*, pulBytesWritten : LibC::UInt32*, usFlag : LibC::UInt16, usTTCIndex : LibC::UInt16, usSubsetFormat : LibC::UInt16, usSubsetLanguage : LibC::UInt16, usSubsetPlatform : CREATE_FONT_PACKAGE_SUBSET_PLATFORM, usSubsetEncoding : CREATE_FONT_PACKAGE_SUBSET_ENCODING, pusSubsetKeepList : LibC::UInt16*, usSubsetListCount : LibC::UInt16, lpfnAllocate : CFP_ALLOCPROC, lpfnReAllocate : CFP_REALLOCPROC, lpfnFree : CFP_FREEPROC, lpvReserved : LibC::Void*) : LibC::UInt32
 fun mergeFontPackage(puchMergeFontBuffer : LibC::Byte*, ulMergeFontBufferSize : LibC::UInt32, puchFontPackageBuffer : LibC::Byte*, ulFontPackageBufferSize : LibC::UInt32, ppuchDestBuffer : LibC::Byte**, pulDestBufferSize : LibC::UInt32*, pulBytesWritten : LibC::UInt32*, usMode : LibC::UInt16, lpfnAllocate : CFP_ALLOCPROC, lpfnReAllocate : CFP_REALLOCPROC, lpfnFree : CFP_FREEPROC, lpvReserved : LibC::Void*) : LibC::UInt32
-fun tTEmbedFont(hDC : HDC, ulFlags : TTEMBED_FLAGS, ulCharSet : EMBED_FONT_CHARSET, pulPrivStatus : EMBEDDED_FONT_PRIV_STATUS*, pulStatus : LibC::UInt32*, lpfnWriteToStream : WRITEEMBEDPROC, lpvWriteStream : LibC::Void*, pusCharCodeSet : , usCharCodeCount : LibC::UInt16, usLanguage : LibC::UInt16, pTTEmbedInfo : TTEMBEDINFO*) : LibC::Int32
-fun tTEmbedFontFromFileA(hDC : HDC, szFontFileName : PSTR, usTTCIndex : LibC::UInt16, ulFlags : TTEMBED_FLAGS, ulCharSet : EMBED_FONT_CHARSET, pulPrivStatus : EMBEDDED_FONT_PRIV_STATUS*, pulStatus : LibC::UInt32*, lpfnWriteToStream : WRITEEMBEDPROC, lpvWriteStream : LibC::Void*, pusCharCodeSet : , usCharCodeCount : LibC::UInt16, usLanguage : LibC::UInt16, pTTEmbedInfo : TTEMBEDINFO*) : LibC::Int32
 fun tTLoadEmbeddedFont(phFontReference : HANDLE*, ulFlags : LibC::UInt32, pulPrivStatus : EMBEDDED_FONT_PRIV_STATUS*, ulPrivs : FONT_LICENSE_PRIVS, pulStatus : TTLOAD_EMBEDDED_FONT_STATUS*, lpfnReadFromStream : READEMBEDPROC, lpvReadStream : LibC::Void*, szWinFamilyName : PWSTR, szMacFamilyName : PSTR, pTTLoadInfo : TTLOADINFO*) : LibC::Int32
 fun tTGetEmbeddedFontInfo(ulFlags : TTEMBED_FLAGS, pulPrivStatus : LibC::UInt32*, ulPrivs : FONT_LICENSE_PRIVS, pulStatus : LibC::UInt32*, lpfnReadFromStream : READEMBEDPROC, lpvReadStream : LibC::Void*, pTTLoadInfo : TTLOADINFO*) : LibC::Int32
 fun tTDeleteEmbeddedFont(hFontReference : HANDLE, ulFlags : LibC::UInt32, pulStatus : LibC::UInt32*) : LibC::Int32
 fun tTGetEmbeddingType(hDC : HDC, pulEmbedType : EMBEDDED_FONT_PRIV_STATUS*) : LibC::Int32
-fun tTCharToUnicode(hDC : HDC, pucCharCodes : , ulCharCodeSize : LibC::UInt32, pusShortCodes : , ulShortCodeSize : LibC::UInt32, ulFlags : LibC::UInt32) : LibC::Int32
 fun tTRunValidationTests(hDC : HDC, pTestParam : TTVALIDATIONTESTSPARAMS*) : LibC::Int32
 fun tTIsEmbeddingEnabled(hDC : HDC, pbEnabled : BOOL*) : LibC::Int32
 fun tTIsEmbeddingEnabledForFacename(lpszFacename : PSTR, pbEnabled : BOOL*) : LibC::Int32
 fun tTEnableEmbeddingForFacename(lpszFacename : PSTR, bEnable : BOOL) : LibC::Int32
-fun tTEmbedFontEx(hDC : HDC, ulFlags : TTEMBED_FLAGS, ulCharSet : EMBED_FONT_CHARSET, pulPrivStatus : EMBEDDED_FONT_PRIV_STATUS*, pulStatus : LibC::UInt32*, lpfnWriteToStream : WRITEEMBEDPROC, lpvWriteStream : LibC::Void*, pulCharCodeSet : , usCharCodeCount : LibC::UInt16, usLanguage : LibC::UInt16, pTTEmbedInfo : TTEMBEDINFO*) : LibC::Int32
 fun tTRunValidationTestsEx(hDC : HDC, pTestParam : TTVALIDATIONTESTSPARAMSEX*) : LibC::Int32
-fun tTGetNewFontName(phFontReference : HANDLE*, wzWinFamilyName : , cchMaxWinName : LibC::Int32, szMacFamilyName : , cchMaxMacName : LibC::Int32) : LibC::Int32
 fun drawEdge(hdc : HDC, qrc : RECT*, edge : DRAWEDGE_FLAGS, grfFlags : DRAW_EDGE_FLAGS) : BOOL
 fun drawFrameControl(param0 : HDC, param1 : RECT*, param2 : DFC_TYPE, param3 : DFCS_STATE) : BOOL
 fun drawCaption(hwnd : HWND, hdc : HDC, lprect : RECT*, flags : DRAW_CAPTION_FLAGS) : BOOL
 fun drawAnimatedRects(hwnd : HWND, idAni : LibC::Int32, lprcFrom : RECT*, lprcTo : RECT*) : BOOL
-fun drawTextA(hdc : HDC, lpchText : , cchText : LibC::Int32, lprc : RECT*, format : DRAW_TEXT_FORMAT) : LibC::Int32
-fun drawTextW(hdc : HDC, lpchText : , cchText : LibC::Int32, lprc : RECT*, format : DRAW_TEXT_FORMAT) : LibC::Int32
-fun drawTextExA(hdc : HDC, lpchText : , cchText : LibC::Int32, lprc : RECT*, format : DRAW_TEXT_FORMAT, lpdtp : DRAWTEXTPARAMS*) : LibC::Int32
-fun drawTextExW(hdc : HDC, lpchText : , cchText : LibC::Int32, lprc : RECT*, format : DRAW_TEXT_FORMAT, lpdtp : DRAWTEXTPARAMS*) : LibC::Int32
 fun grayStringA(hDC : HDC, hBrush : HBRUSH, lpOutputFunc : GRAYSTRINGPROC, lpData : LPARAM, nCount : LibC::Int32, x : LibC::Int32, y : LibC::Int32, nWidth : LibC::Int32, nHeight : LibC::Int32) : BOOL
 fun grayStringW(hDC : HDC, hBrush : HBRUSH, lpOutputFunc : GRAYSTRINGPROC, lpData : LPARAM, nCount : LibC::Int32, x : LibC::Int32, y : LibC::Int32, nWidth : LibC::Int32, nHeight : LibC::Int32) : BOOL
 fun drawStateA(hdc : HDC, hbrFore : HBRUSH, qfnCallBack : DRAWSTATEPROC, lData : LPARAM, wData : WPARAM, x : LibC::Int32, y : LibC::Int32, cx : LibC::Int32, cy : LibC::Int32, uFlags : DRAWSTATE_FLAGS) : BOOL
 fun drawStateW(hdc : HDC, hbrFore : HBRUSH, qfnCallBack : DRAWSTATEPROC, lData : LPARAM, wData : WPARAM, x : LibC::Int32, y : LibC::Int32, cx : LibC::Int32, cy : LibC::Int32, uFlags : DRAWSTATE_FLAGS) : BOOL
-fun tabbedTextOutA(hdc : HDC, x : LibC::Int32, y : LibC::Int32, lpString : , chCount : LibC::Int32, nTabPositions : LibC::Int32, lpnTabStopPositions : , nTabOrigin : LibC::Int32) : LibC::Int32
-fun tabbedTextOutW(hdc : HDC, x : LibC::Int32, y : LibC::Int32, lpString : , chCount : LibC::Int32, nTabPositions : LibC::Int32, lpnTabStopPositions : , nTabOrigin : LibC::Int32) : LibC::Int32
-fun getTabbedTextExtentA(hdc : HDC, lpString : , chCount : LibC::Int32, nTabPositions : LibC::Int32, lpnTabStopPositions : ) : LibC::UInt32
-fun getTabbedTextExtentW(hdc : HDC, lpString : , chCount : LibC::Int32, nTabPositions : LibC::Int32, lpnTabStopPositions : ) : LibC::UInt32
 fun updateWindow(hWnd : HWND) : BOOL
 fun paintDesktop(hdc : HDC) : BOOL
 fun windowFromDC(hDC : HDC) : HWND
@@ -3912,7 +3877,6 @@ fun redrawWindow(hWnd : HWND, lprcUpdate : RECT*, hrgnUpdate : HRGN, flags : RED
 fun lockWindowUpdate(hWndLock : HWND) : BOOL
 fun clientToScreen(hWnd : HWND, lpPoint : POINT*) : BOOL
 fun screenToClient(hWnd : HWND, lpPoint : POINT*) : BOOL
-fun mapWindowPoints(hWndFrom : HWND, hWndTo : HWND, lpPoints : , cPoints : LibC::UInt32) : LibC::Int32
 fun getSysColorBrush(nIndex : LibC::Int32) : HBRUSH
 fun drawFocusRect(hDC : HDC, lprc : RECT*) : BOOL
 fun fillRect(hDC : HDC, lprc : RECT*, hbr : HBRUSH) : LibC::Int32
