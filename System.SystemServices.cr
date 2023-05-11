@@ -3524,25 +3524,25 @@ struct RemBRUSH
   cbData : LibC::UInt32
   data : Array(LibC::Byte)
 end
-type Owldd422908fa39 = LibC::UInt32 | PWSTR
+type Owl908ae735af62 = LibC::UInt32 | PWSTR
 struct UserCLIPFORMAT
   fContext : LibC::Int32
-  u : Owldd422908fa39
+  u : Owl908ae735af62
 end
-type Pig1cdb0f7c2b3b = LibC::Int32 | DWORD_BLOB*
+type Pigc4d69d11e10a = LibC::Int32 | DWORD_BLOB*
 struct GDI_NONREMOTE
   fContext : LibC::Int32
-  u : Pig1cdb0f7c2b3b
+  u : Pigc4d69d11e10a
 end
-type Pigaad6d7f13e08 = LibC::Int32 | FLAGGED_BYTE_BLOB* | LibC::Int64
+type Rabbita11785a42c98 = LibC::Int32 | FLAGGED_BYTE_BLOB* | LibC::Int64
 struct UserHGLOBAL
   fContext : LibC::Int32
-  u : Pigaad6d7f13e08
+  u : Rabbita11785a42c98
 end
-type Pigcc693de2e9f3 = LibC::Int32 | BYTE_BLOB* | LibC::Int64
+type Pig6c50e4937ce9 = LibC::Int32 | BYTE_BLOB* | LibC::Int64
 struct UserHMETAFILE
   fContext : LibC::Int32
-  u : Pigcc693de2e9f3
+  u : Pig6c50e4937ce9
 end
 struct RemoteMETAFILEPICT
   mm : LibC::Int32
@@ -3550,15 +3550,15 @@ struct RemoteMETAFILEPICT
   yExt : LibC::Int32
   hMF : UserHMETAFILE*
 end
-type Rabbit8b459293de62 = LibC::Int32 | RemoteMETAFILEPICT* | LibC::Int64
+type Rabbit9622888bcc24 = LibC::Int32 | RemoteMETAFILEPICT* | LibC::Int64
 struct UserHMETAFILEPICT
   fContext : LibC::Int32
-  u : Rabbit8b459293de62
+  u : Rabbit9622888bcc24
 end
-type Pig3a416f433746 = LibC::Int32 | BYTE_BLOB* | LibC::Int64
+type Duckbde4efacf399 = LibC::Int32 | BYTE_BLOB* | LibC::Int64
 struct UserHENHMETAFILE
   fContext : LibC::Int32
-  u : Pig3a416f433746
+  u : Duckbde4efacf399
 end
 struct UserBITMAP
   bmType : LibC::Int32
@@ -3570,20 +3570,20 @@ struct UserBITMAP
   cbSize : LibC::UInt32
   pBuffer : Array(LibC::Byte)
 end
-type Owle686b9135e8c = LibC::Int32 | UserBITMAP* | LibC::Int64
+type Rabbit407cbd43680c = LibC::Int32 | UserBITMAP* | LibC::Int64
 struct UserHBITMAP
   fContext : LibC::Int32
-  u : Owle686b9135e8c
+  u : Rabbit407cbd43680c
 end
-type Owlc30f7c9fae9d = LibC::Int32 | LOGPALETTE* | LibC::Int64
+type Other6cb6f9beb2a6 = LibC::Int32 | LOGPALETTE* | LibC::Int64
 struct UserHPALETTE
   fContext : LibC::Int32
-  u : Owlc30f7c9fae9d
+  u : Other6cb6f9beb2a6
 end
-type Pigf34378d6c1da = LibC::Int32 | LibC::Int32
+type Rabbit7ed8b0927050 = LibC::Int32 | LibC::Int32
 struct RemotableHandle
   fContext : LibC::Int32
-  u : Pigf34378d6c1da
+  u : Rabbit7ed8b0927050
 end
 struct DEVICE_EVENT_MOUNT
   version : LibC::UInt32
@@ -3737,17 +3737,17 @@ struct XSAVE_CET_U_FORMAT
   ia32CetUMsr : LibC::UInt64
   ia32Pl3SspMsr : LibC::UInt64
 end
-struct Otherec85bb851eba
+struct Rabbite2439f57746c
   bitfield : LibC::UInt16
 end
-type Otherb1d34a3882b1 = LibC::UInt16 | Otherec85bb851eba
+type Owl8e77ec6c83b6 = LibC::UInt16 | Rabbite2439f57746c
 struct KERNEL_CET_CONTEXT
   ssp : LibC::UInt64
   rip : LibC::UInt64
   segCs : LibC::UInt16
   fill : Array(LibC::UInt16)
 end
-struct Duckd9cac8239840
+struct Birdaccb8ff720ee
   beginAddress : LibC::UInt32
   endAddress : LibC::UInt32
   handlerAddress : LibC::UInt32
@@ -3760,7 +3760,7 @@ end
 alias POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = (HANDLE, LibC::Void*, LibC::UInt32*, IMAGE_RUNTIME_FUNCTION_ENTRY** -> LibC::UInt32)
 alias PEXCEPTION_FILTER = (EXCEPTION_POINTERS*, LibC::Void* -> LibC::Int32)
 alias PTERMINATION_HANDLER = (BOOLEAN, LibC::Void* -> LibC::Void)
-struct Other4d3fef5f00a5
+struct Duck9614e1527792
   beginAddress : LibC::UInt32
   endAddress : LibC::UInt32
   handlerAddress : LibC::UInt32
@@ -3770,7 +3770,7 @@ struct SCOPE_TABLE_ARM
   count : LibC::UInt32
   scopeRecord : Array(Anonymous_e__Struct)
 end
-struct Duckca1200acc950
+struct Otherab3e55da3002
   beginAddress : LibC::UInt32
   endAddress : LibC::UInt32
   handlerAddress : LibC::UInt32
@@ -3780,11 +3780,11 @@ struct SCOPE_TABLE_ARM64
   count : LibC::UInt32
   scopeRecord : Array(Anonymous_e__Struct)
 end
-struct Other1db6a6028783
+struct Rabbit6be5e59dcded
   gpNvRegs : Array(LibC::UInt64)
   fpNvRegs : Array(LibC::Double)
 end
-type DISPATCHER_CONTEXT_NONVOLREG_ARM64 = Array(LibC::Byte) | Other1db6a6028783
+type DISPATCHER_CONTEXT_NONVOLREG_ARM64 = Array(LibC::Byte) | Rabbit6be5e59dcded
 struct SECURITY_DESCRIPTOR_RELATIVE
   revision : LibC::Byte
   sbz1 : LibC::Byte
@@ -3836,11 +3836,11 @@ AccessReasonTrustLabel = 9437184
 AccessReasonFilterAce = 10485760
 
 end
-type Owl9dcf150b2fb9 = SID | Array(LibC::Byte)
-type Rabbite653c1f1cec3 = TOKEN_USER | SID_AND_ATTRIBUTES
+type Rabbit73a89d477c34 = SID | Array(LibC::Byte)
+type Duckaf7ada3758c2 = TOKEN_USER | SID_AND_ATTRIBUTES
 struct SE_TOKEN_USER
-  anonymous1 : Rabbite653c1f1cec3
-  anonymous2 : Owl9dcf150b2fb9
+  anonymous1 : Duckaf7ada3758c2
+  anonymous2 : Rabbit73a89d477c34
 end
 struct TOKEN_SID_INFORMATION
   sid : PSID
@@ -3875,7 +3875,7 @@ SeLearningModeSettings = 1
 SeLearningModeMax = 2
 
 end
-type Duck702f7b64677b = LibC::UInt32 | LibC::UInt32
+type Owl6d33e6fc0ed0 = LibC::UInt32 | LibC::UInt32
 struct NT_TIB32
   exceptionList : LibC::UInt32
   stackBase : LibC::UInt32
@@ -3884,7 +3884,7 @@ struct NT_TIB32
   arbitraryUserPointer : LibC::UInt32
   self : LibC::UInt32
 end
-type Duck338f0f2e3cd4 = LibC::UInt64 | LibC::UInt32
+type Owl49392ab041f3 = LibC::UInt64 | LibC::UInt32
 struct NT_TIB64
   exceptionList : LibC::UInt64
   stackBase : LibC::UInt64
@@ -3901,10 +3901,10 @@ end
 struct COMPONENT_FILTER
   componentFlags : LibC::UInt32
 end
-struct Birdeb81bea71ca8
+struct Other5b62e214e34c
   bitfield : LibC::UInt32
 end
-type RATE_QUOTA_LIMIT = LibC::UInt32 | Birdeb81bea71ca8
+type RATE_QUOTA_LIMIT = LibC::UInt32 | Other5b62e214e34c
 struct QUOTA_LIMITS_EX
   pagedPoolLimit : LibC::UIint*
   nonPagedPoolLimit : LibC::UIint*
@@ -3919,101 +3919,101 @@ struct QUOTA_LIMITS_EX
   flags : LibC::UInt32
   cpuRateLimit : RATE_QUOTA_LIMIT
 end
-struct Rabbitb4ed9557c99c
+struct Birdf9c684f73503
   bitfield : LibC::UInt32
 end
-type Pigb9efc099c0ad = LibC::UInt32 | Rabbitb4ed9557c99c
+type Birdbb9cab24d321 = LibC::UInt32 | Birdf9c684f73503
 struct PROCESS_MITIGATION_ASLR_POLICY
 end
-struct Other56881e4ef0d8
+struct Pig5707df7c2148
   bitfield : LibC::UInt32
 end
-type Other37970bfd8a9b = LibC::UInt32 | Other56881e4ef0d8
+type Rabbita53912a8a47f = LibC::UInt32 | Pig5707df7c2148
 struct PROCESS_MITIGATION_DEP_POLICY
   permanent : BOOLEAN
 end
-struct Birdf0bcdb505680
+struct Rabbit515182b0f04d
   bitfield : LibC::UInt32
 end
-type Otherdee590fbb4b0 = LibC::UInt32 | Birdf0bcdb505680
+type Duck946977e4c083 = LibC::UInt32 | Rabbit515182b0f04d
 struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY
 end
-struct Rabbited4283d3db94
+struct Owl7860ebc41a81
   bitfield : LibC::UInt32
 end
-type Otherd354658bff41 = LibC::UInt32 | Rabbited4283d3db94
+type Pig1344cb301c54 = LibC::UInt32 | Owl7860ebc41a81
 struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY
 end
-struct Owl900815da1a48
+struct Pig9490fff1d687
   bitfield : LibC::UInt32
 end
-type Rabbitcbd10bef57d0 = LibC::UInt32 | Owl900815da1a48
+type Owlb93eacb0f5c9 = LibC::UInt32 | Pig9490fff1d687
 struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY
 end
-struct Other867dbd30b066
+struct Bird403b8f1abaae
   bitfield : LibC::UInt32
 end
-type Bird14c6f0e5aea0 = LibC::UInt32 | Other867dbd30b066
+type Owl7b2aea19426b = LibC::UInt32 | Bird403b8f1abaae
 struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY
 end
-struct Rabbit7859603377a5
+struct Duckb9eb5f3edb30
   bitfield : LibC::UInt32
 end
-type Rabbit27c1aafa3ae8 = LibC::UInt32 | Rabbit7859603377a5
+type Bird5d86312a60d1 = LibC::UInt32 | Duckb9eb5f3edb30
 struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY
 end
-struct Pigf442e2e3f0a3
+struct Other594fdedd06bd
   bitfield : LibC::UInt32
 end
-type Duck3e12130c4019 = LibC::UInt32 | Pigf442e2e3f0a3
+type Other6891e7f676a0 = LibC::UInt32 | Other594fdedd06bd
 struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY
 end
-struct Rabbitbdefd6fa5b29
+struct Other6bbb5fdde58a
   bitfield : LibC::UInt32
 end
-type Duck0c6338b75a89 = LibC::UInt32 | Rabbitbdefd6fa5b29
+type Bird9876b9fc5f54 = LibC::UInt32 | Other6bbb5fdde58a
 struct PROCESS_MITIGATION_FONT_DISABLE_POLICY
 end
-struct Othercb98966ece73
+struct Birde5a8dcbdc0ee
   bitfield : LibC::UInt32
 end
-type Duck686304bff64d = LibC::UInt32 | Othercb98966ece73
+type Other0bbe6ea332ca = LibC::UInt32 | Birde5a8dcbdc0ee
 struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY
 end
-struct Pig247313224c6d
+struct Ducka933283292d7
   bitfield : LibC::UInt32
 end
-type Duckdc4d49c1bf97 = LibC::UInt32 | Pig247313224c6d
+type Pig99afb263a3d6 = LibC::UInt32 | Ducka933283292d7
 struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY
 end
-struct Owl0a4c3cd6cd8c
+struct Rabbite125d3940b64
   bitfield : LibC::UInt32
 end
-type Rabbit9e0b522352e7 = LibC::UInt32 | Owl0a4c3cd6cd8c
+type Other3e045f61912d = LibC::UInt32 | Rabbite125d3940b64
 struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY
 end
-struct Rabbit36b0ffc7b590
+struct Owl8f462b75be62
   bitfield : LibC::UInt32
 end
-type Pigb91b4d4c3c4f = LibC::UInt32 | Rabbit36b0ffc7b590
+type Pig4599b0b05f0b = LibC::UInt32 | Owl8f462b75be62
 struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY
 end
-struct Bird8fd7021cdbbe
+struct Birdd11e7dd9c034
   bitfield : LibC::UInt32
 end
-type Owl02e615279835 = LibC::UInt32 | Bird8fd7021cdbbe
+type Pigb5d42e2f200c = LibC::UInt32 | Birdd11e7dd9c034
 struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY
 end
-struct Pig46034bdcf738
+struct Owle1b63b90e6b3
   bitfield : LibC::UInt32
 end
-type Rabbitf34579b657c0 = LibC::UInt32 | Pig46034bdcf738
+type Duck163e127659c6 = LibC::UInt32 | Owle1b63b90e6b3
 struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY
 end
-struct Rabbit57a6a786e76c
+struct Pigb768dd1ed2ea
   bitfield : LibC::UInt32
 end
-type Owl0ace9a5cf5ab = LibC::UInt32 | Rabbit57a6a786e76c
+type Bird10f32c3835ab = LibC::UInt32 | Pigb768dd1ed2ea
 struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY
 end
 struct SILOOBJECT_BASIC_INFORMATION
@@ -4555,21 +4555,21 @@ struct PROCESSOR_IDLESTATE_INFO
   promotePercent : LibC::Byte
   spare : Array(LibC::Byte)
 end
-struct Other11cc8e502a54
+struct Birde1f65f76713b
   bitfield : LibC::UInt16
 end
-type Bird6e872401a51e = LibC::UInt16 | Other11cc8e502a54
+type Bird76985931338d = LibC::UInt16 | Birde1f65f76713b
 struct PROCESSOR_IDLESTATE_POLICY
   revision : LibC::UInt16
-  flags : Bird6e872401a51e
+  flags : Bird76985931338d
   policyCount : LibC::UInt32
   policy : Array(PROCESSOR_IDLESTATE_INFO)
 end
-struct Rabbit72a3d1ebfe24
+struct Rabbit90034d1f96ce
   bitfield : LibC::Byte
 end
-type Pigd5e62b8375c2 = LibC::Byte | Rabbit72a3d1ebfe24
-type Bird433120e28063 = LibC::Byte | Pigd5e62b8375c2
+type Owlb25b1cc75bb3 = LibC::Byte | Rabbit90034d1f96ce
+type Pigc26031337135 = LibC::Byte | Owlb25b1cc75bb3
 struct PROCESSOR_PERFSTATE_POLICY
   revision : LibC::UInt32
   maxThrottle : LibC::Byte
@@ -4745,26 +4745,26 @@ struct ANON_OBJECT_HEADER_BIGOBJ
   pointerToSymbolTable : LibC::UInt32
   numberOfSymbols : LibC::UInt32
 end
-struct Bird2d917d6934d6
+struct Birdbd4c1df3524c
   short : LibC::UInt32
   long : LibC::UInt32
 end
-type Duck6f0673ce155e = Array(LibC::Byte) | Bird2d917d6934d6 | Array(LibC::UInt32)
+type Bird81cc7efdf1cb = Array(LibC::Byte) | Birdbd4c1df3524c | Array(LibC::UInt32)
 struct IMAGE_SYMBOL
-  n : Duck6f0673ce155e
+  n : Bird81cc7efdf1cb
   value : LibC::UInt32
   sectionNumber : LibC::Int16
   type : LibC::UInt16
   storageClass : LibC::Byte
   numberOfAuxSymbols : LibC::Byte
 end
-struct Rabbitc2915cb25e66
+struct Otherc5a84cf23c18
   short : LibC::UInt32
   long : LibC::UInt32
 end
-type Pigd269a11aecac = Array(LibC::Byte) | Rabbitc2915cb25e66 | Array(LibC::UInt32)
+type Rabbitf22a8410a60a = Array(LibC::Byte) | Otherc5a84cf23c18 | Array(LibC::UInt32)
 struct IMAGE_SYMBOL_EX
-  n : Pigd269a11aecac
+  n : Rabbitf22a8410a60a
   value : LibC::UInt32
   sectionNumber : LibC::Int32
   type : LibC::UInt16
@@ -4777,33 +4777,33 @@ struct IMAGE_AUX_SYMBOL_TOKEN_DEF
   symbolTableIndex : LibC::UInt32
   rgbReserved : Array(LibC::Byte)
 end
-struct Owl946c102feb50
+struct Duck2fdc3e535800
   linenumber : LibC::UInt16
   size : LibC::UInt16
 end
-struct Rabbit8c1fda83b269
+struct Other82e09b85c040
   dimension : Array(LibC::UInt16)
 end
-struct Duckdf8953bea349
+struct Pigd862074bcbbc
   pointerToLinenumber : LibC::UInt32
   pointerToNextFunction : LibC::UInt32
 end
-type Duckbd1269d8dbdd = Duckdf8953bea349 | Rabbit8c1fda83b269
-type Bird3f0e22118712 = Owl946c102feb50 | LibC::UInt32
-struct Owld71a3641978e
+type Rabbit1ea7b204075e = Pigd862074bcbbc | Other82e09b85c040
+type Owl460114e22983 = Duck2fdc3e535800 | LibC::UInt32
+struct Rabbitcee59ab097b4
   crc : LibC::UInt32
   rgbReserved : Array(LibC::Byte)
 end
-struct Duck5c6d59b831cb
+struct Duck74f1f19ec671
   name : Array(LibC::Byte)
 end
-struct Duckab2223326a5c
+struct Birdea7955696664
   tagIndex : LibC::UInt32
-  misc : Bird3f0e22118712
-  fcnAry : Duckbd1269d8dbdd
+  misc : Owl460114e22983
+  fcnAry : Rabbit1ea7b204075e
   tvIndex : LibC::UInt16
 end
-struct Rabbitfe92532a1039
+struct Duck6a296f2fe463
   length : LibC::UInt32
   numberOfRelocations : LibC::UInt16
   numberOfLinenumbers : LibC::UInt16
@@ -4813,24 +4813,24 @@ struct Rabbitfe92532a1039
   bReserved : LibC::Byte
   highNumber : LibC::Int16
 end
-type IMAGE_AUX_SYMBOL = Duckab2223326a5c | Duck5c6d59b831cb | Rabbitfe92532a1039 | IMAGE_AUX_SYMBOL_TOKEN_DEF | Owld71a3641978e
-struct Other7c1f7e9be383
+type IMAGE_AUX_SYMBOL = Birdea7955696664 | Duck74f1f19ec671 | Duck6a296f2fe463 | IMAGE_AUX_SYMBOL_TOKEN_DEF | Rabbitcee59ab097b4
+struct Duck45c083ee9681
   tokenDef : IMAGE_AUX_SYMBOL_TOKEN_DEF
   rgbReserved : Array(LibC::Byte)
 end
-struct Rabbit91de82ab4520
+struct Duckd9f8b5c0f235
   name : Array(LibC::Byte)
 end
-struct Rabbit79fc67d6136a
+struct Owl3ce19526e961
   crc : LibC::UInt32
   rgbReserved : Array(LibC::Byte)
 end
-struct Pig26d3a0914257
+struct Bird47f1c9280548
   weakDefaultSymIndex : LibC::UInt32
   weakSearchType : LibC::UInt32
   rgbReserved : Array(LibC::Byte)
 end
-struct Rabbit8c86821ec793
+struct Rabbit1841fa1a78ac
   length : LibC::UInt32
   numberOfRelocations : LibC::UInt16
   numberOfLinenumbers : LibC::UInt16
@@ -4841,19 +4841,19 @@ struct Rabbit8c86821ec793
   highNumber : LibC::Int16
   rgbReserved : Array(LibC::Byte)
 end
-type IMAGE_AUX_SYMBOL_EX = Pig26d3a0914257 | Rabbit91de82ab4520 | Rabbit8c86821ec793 | Other7c1f7e9be383 | Rabbit79fc67d6136a
+type IMAGE_AUX_SYMBOL_EX = Bird47f1c9280548 | Duckd9f8b5c0f235 | Rabbit1841fa1a78ac | Duck45c083ee9681 | Owl3ce19526e961
 enum IMAGE_AUX_SYMBOL_TYPE : Int32
 IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF = 1
 
 end
-type Bird201ed24b3916 = LibC::UInt32 | LibC::UInt32
+type Pig4c4336996e3f = LibC::UInt32 | LibC::UInt32
 struct IMAGE_RELOCATION
   symbolTableIndex : LibC::UInt32
   type : LibC::UInt16
 end
-type Pig26feb5981d74 = LibC::UInt32 | LibC::UInt32
+type Rabbit627b662b4376 = LibC::UInt32 | LibC::UInt32
 struct IMAGE_LINENUMBER
-  type : Pig26feb5981d74
+  type : Rabbit627b662b4376
   linenumber : LibC::UInt16
 end
 struct IMAGE_BASE_RELOCATION
@@ -4887,10 +4887,10 @@ struct IMAGE_IMPORT_BY_NAME
   name : Array(CHAR)
 end
 alias PIMAGE_TLS_CALLBACK = (LibC::Void*, LibC::UInt32, LibC::Void* -> LibC::Void)
-struct Duck27b2aafef0b8
+struct Duckaa3af234be59
   bitfield : LibC::UInt32
 end
-type Pigb52221eee859 = LibC::UInt32 | Duck27b2aafef0b8
+type Rabbitb96d06b5847b = LibC::UInt32 | Duckaa3af234be59
 struct IMAGE_TLS_DIRECTORY64
   startAddressOfRawData : LibC::UInt64
   endAddressOfRawData : LibC::UInt64
@@ -4898,10 +4898,10 @@ struct IMAGE_TLS_DIRECTORY64
   addressOfCallBacks : LibC::UInt64
   sizeOfZeroFill : LibC::UInt32
 end
-struct Duck31e5fc1a09a2
+struct Other5456021dc4c9
   bitfield : LibC::UInt32
 end
-type Pig18e509fa293c = LibC::UInt32 | Duck31e5fc1a09a2
+type Otherc5699a08d45c = LibC::UInt32 | Other5456021dc4c9
 struct IMAGE_TLS_DIRECTORY32
   startAddressOfRawData : LibC::UInt32
   endAddressOfRawData : LibC::UInt32
@@ -4909,7 +4909,7 @@ struct IMAGE_TLS_DIRECTORY32
   addressOfCallBacks : LibC::UInt32
   sizeOfZeroFill : LibC::UInt32
 end
-type Bird6a553ba36af8 = LibC::UInt32 | LibC::UInt32
+type Piga8b2e9d78a31 = LibC::UInt32 | LibC::UInt32
 struct IMAGE_IMPORT_DESCRIPTOR
   timeDateStamp : LibC::UInt32
   forwarderChain : LibC::UInt32
@@ -4934,17 +4934,17 @@ struct IMAGE_RESOURCE_DIRECTORY
   numberOfNamedEntries : LibC::UInt16
   numberOfIdEntries : LibC::UInt16
 end
-struct Duckcf7f3d0bfccf
+struct Owl7549db211aa9
   bitfield : LibC::UInt32
 end
-struct Duck0d5cbcf74942
+struct Duck6fa371740549
   bitfield : LibC::UInt32
 end
-type Birdb9112eedf1f1 = LibC::UInt32 | Duck0d5cbcf74942
-type Owl899306312594 = Duckcf7f3d0bfccf | LibC::UInt32 | LibC::UInt16
+type Owledb59f67fdea = LibC::UInt32 | Duck6fa371740549
+type Rabbit8334e0e2ddfc = Owl7549db211aa9 | LibC::UInt32 | LibC::UInt16
 struct IMAGE_RESOURCE_DIRECTORY_ENTRY
-  anonymous1 : Owl899306312594
-  anonymous2 : Birdb9112eedf1f1
+  anonymous1 : Rabbit8334e0e2ddfc
+  anonymous2 : Owledb59f67fdea
 end
 struct IMAGE_RESOURCE_DIRECTORY_STRING
   length : LibC::UInt16
@@ -5031,10 +5031,10 @@ struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY
   funcStart : LibC::UInt32
   bitfield : LibC::UInt32
 end
-struct Owl86b66844e6ef
+struct Other288345acc586
   bitfield : LibC::UInt32
 end
-type Other6f93bab200d5 = LibC::UInt32 | Owl86b66844e6ef
+type Rabbit5c23b4c2f96f = LibC::UInt32 | Other288345acc586
 struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY
   beginAddress : LibC::UInt32
 end
@@ -5056,10 +5056,10 @@ PdataCrChainedWithPac = 2
 PdataCrChained = 3
 
 end
-struct Otherf867a9f96b76
+struct Rabbit5d25663de956
   bitfield : LibC::UInt32
 end
-type IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA = LibC::UInt32 | Otherf867a9f96b76
+type IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA = LibC::UInt32 | Rabbit5d25663de956
 struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY
   beginAddress : LibC::UInt64
   endAddress : LibC::UInt64
@@ -5115,7 +5115,7 @@ struct IMAGE_ARCHITECTURE_ENTRY
   fixupInstRVA : LibC::UInt32
   newInst : LibC::UInt32
 end
-type Rabbit2048dd365b6f = LibC::UInt16 | LibC::UInt16
+type Duck9a8f4a6ace04 = LibC::UInt16 | LibC::UInt16
 struct IMPORT_OBJECT_HEADER
   sig1 : LibC::UInt16
   sig2 : LibC::UInt16
@@ -5263,11 +5263,11 @@ ImagePolicyIdScenarioId = 11
 ImagePolicyIdMaximum = 12
 
 end
-type Pig0fddb46dc700 = LibC::Void* | BOOLEAN | LibC::SByte | LibC::Byte | LibC::Int16 | LibC::UInt16 | LibC::Int32 | LibC::UInt32 | LibC::Int64 | LibC::UInt64 | PSTR | PWSTR
+type Pig9b2f23cda668 = LibC::Void* | BOOLEAN | LibC::SByte | LibC::Byte | LibC::Int16 | LibC::UInt16 | LibC::Int32 | LibC::UInt32 | LibC::Int64 | LibC::UInt64 | PSTR | PWSTR
 struct IMAGE_POLICY_ENTRY
   type : IMAGE_POLICY_ENTRY_TYPE
   policyId : IMAGE_POLICY_ID
-  u : Pig0fddb46dc700
+  u : Pig9b2f23cda668
 end
 struct IMAGE_POLICY_METADATA
   version : LibC::Byte

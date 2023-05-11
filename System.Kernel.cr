@@ -30,16 +30,16 @@ end
 struct SLIST_ENTRY
   next : SLIST_ENTRY*
 end
-struct Owle4407e682c35
+struct Birdfc621ab66fac
   alignment : LibC::UInt64
   region : LibC::UInt64
 end
-struct Other77c9e1935f03
+struct Pigb37357aecdd1
   bitfield1 : LibC::UInt64
   bitfield2 : LibC::UInt64
 end
-type SLIST_HEADER = Owle4407e682c35 | Other77c9e1935f03
-type Bird842f241b6907 = LibC::Int64 | LibC::Double
+type SLIST_HEADER = Birdfc621ab66fac | Pigb37357aecdd1
+type Owl602e412e4fd5 = LibC::Int64 | LibC::Double
 struct QUAD
 end
 struct PROCESSOR_NUMBER
@@ -88,15 +88,15 @@ end
 struct SINGLE_LIST_ENTRY
   next : SINGLE_LIST_ENTRY*
 end
-struct Bird59d7d6ceedac
+struct Birdd71f110aa674
   left : RTL_BALANCED_NODE*
   right : RTL_BALANCED_NODE*
 end
-type Owl32cbdfeea33e = LibC::Byte | LibC::UIint*
-type Duckef814995100a = RTL_BALANCED_NODEArray({{type}})* | Bird59d7d6ceedac
+type Duckd113ca0a8877 = LibC::Byte | LibC::UIint*
+type Pig5a36aa8f6b41 = Array(RTL_BALANCED_NODE)* | Birdd71f110aa674
 struct RTL_BALANCED_NODE
-  anonymous1 : Duckef814995100a
-  anonymous2 : Owl32cbdfeea33e
+  anonymous1 : Pig5a36aa8f6b41
+  anonymous2 : Duckd113ca0a8877
 end
 struct LIST_ENTRY32
   flink : LibC::UInt32
@@ -201,7 +201,7 @@ struct EXCEPTION_REGISTRATION_RECORD
   next : EXCEPTION_REGISTRATION_RECORD*
   handler : EXCEPTION_ROUTINE
 end
-type Rabbitbdb48fbd7d58 = LibC::Void* | LibC::UInt32
+type Pig59e08ccceeb0 = LibC::Void* | LibC::UInt32
 struct NT_TIB
   exceptionList : EXCEPTION_REGISTRATION_RECORD*
   stackBase : LibC::Void*
@@ -210,15 +210,15 @@ struct NT_TIB
   arbitraryUserPointer : LibC::Void*
   self : NT_TIB*
 end
-struct Rabbit9c7b02a93e51
+struct Othera9951a4e9cb0
   alignment : LibC::UInt64
   region : LibC::UInt64
 end
-struct Pig085043bfe2c2
+struct Other40967d9df978
   bitfield1 : LibC::UInt64
   bitfield2 : LibC::UInt64
 end
-type SLIST_HEADER = Rabbit9c7b02a93e51 | Pig085043bfe2c2
+type SLIST_HEADER = Othera9951a4e9cb0 | Other40967d9df978
 struct FLOATING_SAVE_AREA
   controlWord : LibC::UInt32
   statusWord : LibC::UInt32
@@ -241,12 +241,12 @@ struct FLOATING_SAVE_AREA
   registerArea : Array(LibC::Byte)
   spare0 : LibC::UInt32
 end
-struct Birdd966f122b477
+struct Duckf4540e0d8f5a
   next : SINGLE_LIST_ENTRY
   depth : LibC::UInt16
   cpuId : LibC::UInt16
 end
-type SLIST_HEADER = LibC::UInt64 | Birdd966f122b477
+type SLIST_HEADER = LibC::UInt64 | Duckf4540e0d8f5a
 fun rtlInitializeSListHead(listHead : SLIST_HEADER*) : LibC::Void
 fun rtlFirstEntrySList(listHead : SLIST_HEADER*) : SLIST_ENTRY*
 fun rtlInterlockedPopEntrySList(listHead : SLIST_HEADER*) : SLIST_ENTRY*

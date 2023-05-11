@@ -601,7 +601,7 @@ struct CHOOSEFONTA
   hInstance : HINSTANCE
   lpszStyle : PSTR
   nFontType : CHOOSEFONT_FONT_TYPE
-  __MISSING_ALIGNMENT__ : LibC::UInt16
+  mISSING_ALIGNMENT__ : LibC::UInt16
   nSizeMin : LibC::Int32
   nSizeMax : LibC::Int32
 end
@@ -619,7 +619,7 @@ struct CHOOSEFONTW
   hInstance : HINSTANCE
   lpszStyle : PWSTR
   nFontType : CHOOSEFONT_FONT_TYPE
-  __MISSING_ALIGNMENT__ : LibC::UInt16
+  mISSING_ALIGNMENT__ : LibC::UInt16
   nSizeMin : LibC::Int32
   nSizeMax : LibC::Int32
 end
@@ -935,7 +935,7 @@ struct CHOOSEFONTA
   hInstance : HINSTANCE
   lpszStyle : PSTR
   nFontType : CHOOSEFONT_FONT_TYPE
-  __MISSING_ALIGNMENT__ : LibC::UInt16
+  mISSING_ALIGNMENT__ : LibC::UInt16
   nSizeMin : LibC::Int32
   nSizeMax : LibC::Int32
 end
@@ -953,7 +953,7 @@ struct CHOOSEFONTW
   hInstance : HINSTANCE
   lpszStyle : PWSTR
   nFontType : CHOOSEFONT_FONT_TYPE
-  __MISSING_ALIGNMENT__ : LibC::UInt16
+  mISSING_ALIGNMENT__ : LibC::UInt16
   nSizeMin : LibC::Int32
   nSizeMax : LibC::Int32
 end

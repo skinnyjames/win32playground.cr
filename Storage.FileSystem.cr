@@ -1887,7 +1887,7 @@ NTMS_NEEDS_SERVICE = 20
 NTMS_NOT_PRESENT = 21
 
 end
-type Owlc022a213761d = NTMS_DRIVEINFORMATIONA | NTMS_DRIVETYPEINFORMATIONA | NTMS_LIBRARYINFORMATION | NTMS_CHANGERINFORMATIONA | NTMS_CHANGERTYPEINFORMATIONA | NTMS_STORAGESLOTINFORMATION | NTMS_IEDOORINFORMATION | NTMS_IEPORTINFORMATION | NTMS_PMIDINFORMATIONA | NTMS_LMIDINFORMATION | NTMS_PARTITIONINFORMATIONA | NTMS_MEDIAPOOLINFORMATION | NTMS_MEDIATYPEINFORMATION | NTMS_LIBREQUESTINFORMATIONA | NTMS_OPREQUESTINFORMATIONA | NTMS_COMPUTERINFORMATION
+type Owldc6163ff3b22 = NTMS_DRIVEINFORMATIONA | NTMS_DRIVETYPEINFORMATIONA | NTMS_LIBRARYINFORMATION | NTMS_CHANGERINFORMATIONA | NTMS_CHANGERTYPEINFORMATIONA | NTMS_STORAGESLOTINFORMATION | NTMS_IEDOORINFORMATION | NTMS_IEPORTINFORMATION | NTMS_PMIDINFORMATIONA | NTMS_LMIDINFORMATION | NTMS_PARTITIONINFORMATIONA | NTMS_MEDIAPOOLINFORMATION | NTMS_MEDIATYPEINFORMATION | NTMS_LIBREQUESTINFORMATIONA | NTMS_OPREQUESTINFORMATIONA | NTMS_COMPUTERINFORMATION
 struct NTMS_OBJECTINFORMATIONA
   dwSize : LibC::UInt32
   dwType : NtmsObjectsTypes
@@ -1898,9 +1898,9 @@ struct NTMS_OBJECTINFORMATIONA
   dwOperationalState : NtmsOperationalState
   szName : Array(CHAR)
   szDescription : Array(CHAR)
-  info : Owlc022a213761d
+  info : Owldc6163ff3b22
 end
-type Rabbitd5e25202c626 = NTMS_DRIVEINFORMATIONW | NTMS_DRIVETYPEINFORMATIONW | NTMS_LIBRARYINFORMATION | NTMS_CHANGERINFORMATIONW | NTMS_CHANGERTYPEINFORMATIONW | NTMS_STORAGESLOTINFORMATION | NTMS_IEDOORINFORMATION | NTMS_IEPORTINFORMATION | NTMS_PMIDINFORMATIONW | NTMS_LMIDINFORMATION | NTMS_PARTITIONINFORMATIONW | NTMS_MEDIAPOOLINFORMATION | NTMS_MEDIATYPEINFORMATION | NTMS_LIBREQUESTINFORMATIONW | NTMS_OPREQUESTINFORMATIONW | NTMS_COMPUTERINFORMATION
+type Pig71a3e4661cc1 = NTMS_DRIVEINFORMATIONW | NTMS_DRIVETYPEINFORMATIONW | NTMS_LIBRARYINFORMATION | NTMS_CHANGERINFORMATIONW | NTMS_CHANGERTYPEINFORMATIONW | NTMS_STORAGESLOTINFORMATION | NTMS_IEDOORINFORMATION | NTMS_IEPORTINFORMATION | NTMS_PMIDINFORMATIONW | NTMS_LMIDINFORMATION | NTMS_PARTITIONINFORMATIONW | NTMS_MEDIAPOOLINFORMATION | NTMS_MEDIATYPEINFORMATION | NTMS_LIBREQUESTINFORMATIONW | NTMS_OPREQUESTINFORMATIONW | NTMS_COMPUTERINFORMATION
 struct NTMS_OBJECTINFORMATIONW
   dwSize : LibC::UInt32
   dwType : NtmsObjectsTypes
@@ -1911,7 +1911,7 @@ struct NTMS_OBJECTINFORMATIONW
   dwOperationalState : NtmsOperationalState
   szName : Array(LibC::Char)
   szDescription : Array(LibC::Char)
-  info : Rabbitd5e25202c626
+  info : Pig71a3e4661cc1
 end
 struct NTMS_I1_LIBRARYINFORMATION
   libraryType : LibC::UInt32
@@ -2042,7 +2042,7 @@ struct NTMS_I1_OPREQUESTINFORMATIONW
   szUser : Array(LibC::Char)
   szComputer : Array(LibC::Char)
 end
-type Owld6e044a3f6a7 = NTMS_DRIVEINFORMATIONA | NTMS_DRIVETYPEINFORMATIONA | NTMS_I1_LIBRARYINFORMATION | NTMS_CHANGERINFORMATIONA | NTMS_CHANGERTYPEINFORMATIONA | NTMS_STORAGESLOTINFORMATION | NTMS_IEDOORINFORMATION | NTMS_IEPORTINFORMATION | NTMS_I1_PMIDINFORMATIONA | NTMS_LMIDINFORMATION | NTMS_I1_PARTITIONINFORMATIONA | NTMS_MEDIAPOOLINFORMATION | NTMS_MEDIATYPEINFORMATION | NTMS_I1_LIBREQUESTINFORMATIONA | NTMS_I1_OPREQUESTINFORMATIONA
+type Rabbit314c160ffab4 = NTMS_DRIVEINFORMATIONA | NTMS_DRIVETYPEINFORMATIONA | NTMS_I1_LIBRARYINFORMATION | NTMS_CHANGERINFORMATIONA | NTMS_CHANGERTYPEINFORMATIONA | NTMS_STORAGESLOTINFORMATION | NTMS_IEDOORINFORMATION | NTMS_IEPORTINFORMATION | NTMS_I1_PMIDINFORMATIONA | NTMS_LMIDINFORMATION | NTMS_I1_PARTITIONINFORMATIONA | NTMS_MEDIAPOOLINFORMATION | NTMS_MEDIATYPEINFORMATION | NTMS_I1_LIBREQUESTINFORMATIONA | NTMS_I1_OPREQUESTINFORMATIONA
 struct NTMS_I1_OBJECTINFORMATIONA
   dwSize : LibC::UInt32
   dwType : LibC::UInt32
@@ -2053,9 +2053,9 @@ struct NTMS_I1_OBJECTINFORMATIONA
   dwOperationalState : LibC::UInt32
   szName : Array(CHAR)
   szDescription : Array(CHAR)
-  info : Owld6e044a3f6a7
+  info : Rabbit314c160ffab4
 end
-type Rabbit7c022eed0c09 = NTMS_DRIVEINFORMATIONW | NTMS_DRIVETYPEINFORMATIONW | NTMS_I1_LIBRARYINFORMATION | NTMS_CHANGERINFORMATIONW | NTMS_CHANGERTYPEINFORMATIONW | NTMS_STORAGESLOTINFORMATION | NTMS_IEDOORINFORMATION | NTMS_IEPORTINFORMATION | NTMS_I1_PMIDINFORMATIONW | NTMS_LMIDINFORMATION | NTMS_I1_PARTITIONINFORMATIONW | NTMS_MEDIAPOOLINFORMATION | NTMS_MEDIATYPEINFORMATION | NTMS_I1_LIBREQUESTINFORMATIONW | NTMS_I1_OPREQUESTINFORMATIONW
+type Rabbit73b62e975881 = NTMS_DRIVEINFORMATIONW | NTMS_DRIVETYPEINFORMATIONW | NTMS_I1_LIBRARYINFORMATION | NTMS_CHANGERINFORMATIONW | NTMS_CHANGERTYPEINFORMATIONW | NTMS_STORAGESLOTINFORMATION | NTMS_IEDOORINFORMATION | NTMS_IEPORTINFORMATION | NTMS_I1_PMIDINFORMATIONW | NTMS_LMIDINFORMATION | NTMS_I1_PARTITIONINFORMATIONW | NTMS_MEDIAPOOLINFORMATION | NTMS_MEDIATYPEINFORMATION | NTMS_I1_LIBREQUESTINFORMATIONW | NTMS_I1_OPREQUESTINFORMATIONW
 struct NTMS_I1_OBJECTINFORMATIONW
   dwSize : LibC::UInt32
   dwType : LibC::UInt32
@@ -2066,7 +2066,7 @@ struct NTMS_I1_OBJECTINFORMATIONW
   dwOperationalState : LibC::UInt32
   szName : Array(LibC::Char)
   szDescription : Array(LibC::Char)
-  info : Rabbit7c022eed0c09
+  info : Rabbit73b62e975881
 end
 enum NtmsCreateNtmsMediaOptions : Int32
 NTMS_ERROR_ON_DUPLICATE = 1
@@ -2328,47 +2328,47 @@ ClfsMgmtPolicyNewContainerExtension = 9
 ClfsMgmtPolicyInvalid = 10
 
 end
-struct Pige7f0b125ad24
+struct Duck44eefbae2e8b
   extensionLengthInBytes : LibC::UInt16
   extensionString : Array(LibC::Char)
 end
-struct Pigde12e55be714
+struct Owl0b8d983caa65
   prefixLengthInBytes : LibC::UInt16
   prefixString : Array(LibC::Char)
 end
-struct Otherc4e3f27c8713
+struct Ducka9e3c7645caa
   percentage : LibC::UInt32
 end
-struct Rabbit1da739a3c156
+struct Owla5f4a8843d86
   absoluteGrowthInContainers : LibC::UInt32
   relativeGrowthPercentage : LibC::UInt32
 end
-struct Rabbit00c53b452795
+struct Other46eedfad5b7f
   containers : LibC::UInt32
 end
-struct Rabbit2f91f68ae816
+struct Owl439269ee6b51
   nextContainerSuffix : LibC::UInt64
 end
-struct Bird5397097c68ca
+struct Birde8425ba278ef
   minimumAvailablePercentage : LibC::UInt32
   minimumAvailableContainers : LibC::UInt32
 end
-struct Bird0c761c1d2645
+struct Duck121d205f9e82
   containers : LibC::UInt32
 end
-struct Rabbitf69b52bd59c1
+struct Rabbitdb89b8493828
   enabled : LibC::UInt32
 end
-struct Owl956fba149426
+struct Pigb39f3cee62be
   sizeInBytes : LibC::UInt32
 end
-type Ducka8d7f007095f = Bird0c761c1d2645 | Rabbit00c53b452795 | Owl956fba149426 | Rabbit1da739a3c156 | Bird5397097c68ca | Otherc4e3f27c8713 | Rabbitf69b52bd59c1 | Pigde12e55be714 | Rabbit2f91f68ae816 | Pige7f0b125ad24
+type Duck262c624f7064 = Duck121d205f9e82 | Other46eedfad5b7f | Pigb39f3cee62be | Owla5f4a8843d86 | Birde8425ba278ef | Ducka9e3c7645caa | Rabbitdb89b8493828 | Owl0b8d983caa65 | Owl439269ee6b51 | Duck44eefbae2e8b
 struct CLFS_MGMT_POLICY
   version : LibC::UInt32
   lengthInBytes : LibC::UInt32
   policyFlags : LibC::UInt32
   policyType : CLFS_MGMT_POLICY_TYPE
-  policyParameters : Ducka8d7f007095f
+  policyParameters : Duck262c624f7064
 end
 enum CLFS_MGMT_NOTIFICATION_TYPE : Int32
 ClfsMgmtAdvanceTailNotification = 0
@@ -2496,7 +2496,7 @@ struct WOF_FILE_COMPRESSION_INFO_V1
   algorithm : LibC::UInt32
   flags : LibC::UInt32
 end
-struct Owl2fdb68e5f0ab
+struct Bird36852a331d2b
   lowPart : LibC::Int64
   highPart : LibC::Int64
 end
@@ -2932,15 +2932,15 @@ IORING_REF_RAW = 0
 IORING_REF_REGISTERED = 1
 
 end
-type Owl7b59a6ac91c6 = HANDLE | LibC::UInt32
+type Pig866ca82bb87a = HANDLE | LibC::UInt32
 struct IORING_HANDLE_REF
   kind : IORING_REF_KIND
-  handle : Owl7b59a6ac91c6
+  handle : Pig866ca82bb87a
 end
-type Duck6eacdbae93a0 = LibC::Void* | IORING_REGISTERED_BUFFER
+type Birde05833577f3f = LibC::Void* | IORING_REGISTERED_BUFFER
 struct IORING_BUFFER_REF
   kind : IORING_REF_KIND
-  buffer : Duck6eacdbae93a0
+  buffer : Birde05833577f3f
 end
 struct IORING_CQE
   userData : LibC::UIint*
@@ -2973,7 +2973,7 @@ struct FILE_NOTIFY_EXTENDED_INFORMATION
   fileName : Array(LibC::Char)
 end
 type FILE_SEGMENT_ELEMENT = LibC::Void* | LibC::UInt64
-struct Rabbit35c20cc24c65
+struct Pig2bd140d113ce
   dataBuffer : Array(LibC::Byte)
 end
 struct REPARSE_GUID_DATA_BUFFER
@@ -2981,7 +2981,7 @@ struct REPARSE_GUID_DATA_BUFFER
   reparseDataLength : LibC::UInt16
   reserved : LibC::UInt16
   reparseGuid : LibC::Guid
-  genericReparseBuffer : Rabbit35c20cc24c65
+  genericReparseBuffer : Pig2bd140d113ce
 end
 struct TAPE_ERASE
   type : ERASE_TAPE_TYPE
@@ -3127,7 +3127,7 @@ COPYFILE2_PHASE_NAMEGRAFT_COPY = 6
 COPYFILE2_PHASE_MAX = 7
 
 end
-struct Owl1212971ddd55
+struct Owld9e0637762a7
   copyPhase : COPYFILE2_COPY_PHASE
   dwStreamNumber : LibC::UInt32
   hrFailure : HRESULT
@@ -3138,7 +3138,7 @@ struct Owl1212971ddd55
   uliTotalFileSize : ULARGE_INTEGER
   uliTotalBytesTransferred : ULARGE_INTEGER
 end
-struct Otherf18d716af4f6
+struct Otherf638dab6da9a
   dwStreamNumber : LibC::UInt32
   dwReserved : LibC::UInt32
   hSourceFile : HANDLE
@@ -3148,7 +3148,7 @@ struct Otherf18d716af4f6
   uliTotalFileSize : ULARGE_INTEGER
   uliTotalBytesTransferred : ULARGE_INTEGER
 end
-struct Pig3f9331cfcc25
+struct Owl098ed086a16c
   dwStreamNumber : LibC::UInt32
   dwFlags : LibC::UInt32
   hSourceFile : HANDLE
@@ -3160,10 +3160,10 @@ struct Pig3f9331cfcc25
   uliTotalFileSize : ULARGE_INTEGER
   uliTotalBytesTransferred : ULARGE_INTEGER
 end
-struct Bird3b742496c968
+struct Pige15d6720d594
   dwReserved : LibC::UInt32
 end
-struct Owldaf7c3ef8984
+struct Owla6a2180bf12a
   dwStreamNumber : LibC::UInt32
   dwReserved : LibC::UInt32
   hSourceFile : HANDLE
@@ -3173,7 +3173,7 @@ struct Owldaf7c3ef8984
   uliStreamSize : ULARGE_INTEGER
   uliTotalFileSize : ULARGE_INTEGER
 end
-struct Duckd9e8c109ec4a
+struct Owl00d41b39878a
   dwStreamNumber : LibC::UInt32
   dwReserved : LibC::UInt32
   hSourceFile : HANDLE
@@ -3181,11 +3181,11 @@ struct Duckd9e8c109ec4a
   uliStreamSize : ULARGE_INTEGER
   uliTotalFileSize : ULARGE_INTEGER
 end
-type Bird83492d3f781a = Owldaf7c3ef8984 | Pig3f9331cfcc25 | Duckd9e8c109ec4a | Otherf18d716af4f6 | Bird3b742496c968 | Owl1212971ddd55
+type Bird91247283b56b = Owla6a2180bf12a | Owl098ed086a16c | Owl00d41b39878a | Otherf638dab6da9a | Pige15d6720d594 | Owld9e0637762a7
 struct COPYFILE2_MESSAGE
   type : COPYFILE2_MESSAGE_TYPE
   dwPadding : LibC::UInt32
-  info : Bird83492d3f781a
+  info : Bird91247283b56b
 end
 alias PCOPYFILE2_PROGRESS_ROUTINE = (COPYFILE2_MESSAGE*, LibC::Void* -> COPYFILE2_MESSAGE_ACTION)
 struct COPYFILE2_EXTENDED_PARAMETERS
@@ -3204,7 +3204,7 @@ struct COPYFILE2_EXTENDED_PARAMETERS_V2
   dwCopyFlagsV2 : LibC::UInt32
   ioDesiredSize : LibC::UInt32
   ioDesiredRate : LibC::UInt32
-  reserved : LibC::VoidArray({{type}})*
+  reserved : Array(LibC::Void)*
 end
 struct FILE_BASIC_INFO
   creationTime : LARGE_INTEGER
@@ -3224,7 +3224,7 @@ struct FILE_NAME_INFO
   fileNameLength : LibC::UInt32
   fileName : Array(LibC::Char)
 end
-type Otherd2e2c443509d = BOOLEAN | LibC::UInt32
+type Duckba378deaf33e = BOOLEAN | LibC::UInt32
 struct FILE_RENAME_INFO
   rootDirectory : HANDLE
   fileNameLength : LibC::UInt32
@@ -3334,19 +3334,19 @@ struct FILE_ID_EXTD_DIR_INFO
   fileId : FILE_ID_128
   fileName : Array(LibC::Char)
 end
-struct Other93e827ddd2a1
+struct Pig9db45e39f9d8
   capabilities : LibC::UInt32
 end
-struct Owlfec8aa16cf32
+struct Duck51e48481c21c
   capabilities : LibC::UInt32
   cachingFlags : LibC::UInt32
 end
-struct Other14edb0fa9334
-  server : Other93e827ddd2a1
-  share : Owlfec8aa16cf32
+struct Rabbitea3d587050cc
+  server : Pig9db45e39f9d8
+  share : Duck51e48481c21c
 end
-type Otherb9a73bea1ab5 = Other14edb0fa9334 | Array(LibC::UInt32)
-struct Owl1629c80beac9
+type Ducka9ff88a18382 = Rabbitea3d587050cc | Array(LibC::UInt32)
+struct Pig7657cba57995
   reserved : Array(LibC::UInt32)
 end
 struct FILE_REMOTE_PROTOCOL_INFO
@@ -3358,8 +3358,8 @@ struct FILE_REMOTE_PROTOCOL_INFO
   protocolRevision : LibC::UInt16
   reserved : LibC::UInt16
   flags : LibC::UInt32
-  genericReserved : Owl1629c80beac9
-  protocolSpecific : Otherb9a73bea1ab5
+  genericReserved : Pig7657cba57995
+  protocolSpecific : Ducka9ff88a18382
 end
 enum FILE_ID_TYPE : Int32
 FileIdType = 0
@@ -3371,7 +3371,7 @@ ExtendedFileIdType = 2
 MaximumFileIdType = 3
 
 end
-type Pig020abac2860d = LARGE_INTEGER | LibC::Guid | FILE_ID_128
+type Bird63442162dbcf = LARGE_INTEGER | LibC::Guid | FILE_ID_128
 struct FILE_ID_DESCRIPTOR
   dwSize : LibC::UInt32
   type : FILE_ID_TYPE

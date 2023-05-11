@@ -2970,28 +2970,28 @@ type HDSA = LibC::Int*
 type HDPA = LibC::Int*
 alias LPFNPSPCALLBACKA = (HWND, PSPCB_MESSAGE, PROPSHEETPAGEA* -> LibC::UInt32)
 alias LPFNPSPCALLBACKW = (HWND, PSPCB_MESSAGE, PROPSHEETPAGEW* -> LibC::UInt32)
-type Rabbit144da64e8d15 = PSTR | DLGTEMPLATE*
-type Birdf8dd151bcd47 = HICON | PSTR
+type Pig79435d89f84d = PSTR | DLGTEMPLATE*
+type Other1d2d91c5cc4a = HICON | PSTR
 struct PROPSHEETPAGEA_V1
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Rabbit144da64e8d15
-  anonymous2 : Birdf8dd151bcd47
+  anonymous1 : Pig79435d89f84d
+  anonymous2 : Other1d2d91c5cc4a
   pszTitle : PSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
   pfnCallback : LPFNPSPCALLBACKA
   pcRefParent : LibC::UInt32*
 end
-type Rabbit652f9ccbbe32 = PSTR | DLGTEMPLATE*
-type Other6a3b399247c7 = HICON | PSTR
+type Bird10cb4b4c3c84 = PSTR | DLGTEMPLATE*
+type Other9ce92314504b = HICON | PSTR
 struct PROPSHEETPAGEA_V2
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Rabbit652f9ccbbe32
-  anonymous2 : Other6a3b399247c7
+  anonymous1 : Bird10cb4b4c3c84
+  anonymous2 : Other9ce92314504b
   pszTitle : PSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
@@ -3000,14 +3000,14 @@ struct PROPSHEETPAGEA_V2
   pszHeaderTitle : PSTR
   pszHeaderSubTitle : PSTR
 end
-type Duckdf05cb1f6754 = PSTR | DLGTEMPLATE*
-type Pigc96451491722 = HICON | PSTR
+type Pigf75f1db1859a = PSTR | DLGTEMPLATE*
+type Owlc362cb9ec0f3 = HICON | PSTR
 struct PROPSHEETPAGEA_V3
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Duckdf05cb1f6754
-  anonymous2 : Pigc96451491722
+  anonymous1 : Pigf75f1db1859a
+  anonymous2 : Owlc362cb9ec0f3
   pszTitle : PSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
@@ -3017,15 +3017,15 @@ struct PROPSHEETPAGEA_V3
   pszHeaderSubTitle : PSTR
   hActCtx : HANDLE
 end
-type Rabbit1a3e5b588110 = HBITMAP | PSTR
-type Rabbit51e6990bb5e4 = PSTR | DLGTEMPLATE*
-type Other3b7aae4ccc0f = HICON | PSTR
+type Duckde7b40833cac = HBITMAP | PSTR
+type Otherc7dc825b32cb = PSTR | DLGTEMPLATE*
+type Pig3e77608fbeab = HICON | PSTR
 struct PROPSHEETPAGEA
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Rabbit51e6990bb5e4
-  anonymous2 : Other3b7aae4ccc0f
+  anonymous1 : Otherc7dc825b32cb
+  anonymous2 : Pig3e77608fbeab
   pszTitle : PSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
@@ -3034,30 +3034,30 @@ struct PROPSHEETPAGEA
   pszHeaderTitle : PSTR
   pszHeaderSubTitle : PSTR
   hActCtx : HANDLE
-  anonymous3 : Rabbit1a3e5b588110
+  anonymous3 : Duckde7b40833cac
 end
-type Pig81d0f42efe6a = HICON | PWSTR
-type Otherdbf4d6d3158b = PWSTR | DLGTEMPLATE*
+type Pig694a3ef1d430 = HICON | PWSTR
+type Duck4069ef87e5ca = PWSTR | DLGTEMPLATE*
 struct PROPSHEETPAGEW_V1
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Otherdbf4d6d3158b
-  anonymous2 : Pig81d0f42efe6a
+  anonymous1 : Duck4069ef87e5ca
+  anonymous2 : Pig694a3ef1d430
   pszTitle : PWSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
   pfnCallback : LPFNPSPCALLBACKW
   pcRefParent : LibC::UInt32*
 end
-type Other9ac83f755a8d = HICON | PWSTR
-type Owlb90b8c47dec1 = PWSTR | DLGTEMPLATE*
+type Othera41bd26babc8 = HICON | PWSTR
+type Pige49c85313347 = PWSTR | DLGTEMPLATE*
 struct PROPSHEETPAGEW_V2
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Owlb90b8c47dec1
-  anonymous2 : Other9ac83f755a8d
+  anonymous1 : Pige49c85313347
+  anonymous2 : Othera41bd26babc8
   pszTitle : PWSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
@@ -3066,14 +3066,14 @@ struct PROPSHEETPAGEW_V2
   pszHeaderTitle : PWSTR
   pszHeaderSubTitle : PWSTR
 end
-type Rabbitf6c298a93882 = HICON | PWSTR
-type Otherfeaa6d2fba41 = PWSTR | DLGTEMPLATE*
+type Duckfa532b252275 = HICON | PWSTR
+type Otherf79070a7df00 = PWSTR | DLGTEMPLATE*
 struct PROPSHEETPAGEW_V3
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Otherfeaa6d2fba41
-  anonymous2 : Rabbitf6c298a93882
+  anonymous1 : Otherf79070a7df00
+  anonymous2 : Duckfa532b252275
   pszTitle : PWSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
@@ -3083,15 +3083,15 @@ struct PROPSHEETPAGEW_V3
   pszHeaderSubTitle : PWSTR
   hActCtx : HANDLE
 end
-type Bird12466f846037 = HICON | PWSTR
-type Owl83b58aba9262 = PWSTR | DLGTEMPLATE*
-type Bird691804cec5d9 = HBITMAP | PWSTR
+type Owl349b9a54eb54 = HICON | PWSTR
+type Duck207a9e768f48 = PWSTR | DLGTEMPLATE*
+type Other1a4d844accb9 = HBITMAP | PWSTR
 struct PROPSHEETPAGEW
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hInstance : HINSTANCE
-  anonymous1 : Owl83b58aba9262
-  anonymous2 : Bird12466f846037
+  anonymous1 : Duck207a9e768f48
+  anonymous2 : Owl349b9a54eb54
   pszTitle : PWSTR
   pfnDlgProc : DLGPROC
   lParam : LPARAM
@@ -3100,78 +3100,78 @@ struct PROPSHEETPAGEW
   pszHeaderTitle : PWSTR
   pszHeaderSubTitle : PWSTR
   hActCtx : HANDLE
-  anonymous3 : Bird691804cec5d9
+  anonymous3 : Other1a4d844accb9
 end
 alias PFNPROPSHEETCALLBACK = (HWND, LibC::UInt32, LPARAM -> LibC::Int32)
-type Other40eb48fcd7da = PROPSHEETPAGEA* | HPROPSHEETPAGE*
-type Owl02901f1a65e3 = HICON | PSTR
-type Duck894e5a81bd56 = LibC::UInt32 | PSTR
+type Duckbecf28b517c2 = PROPSHEETPAGEA* | HPROPSHEETPAGE*
+type Rabbit4a5c3fe5647d = HICON | PSTR
+type Bird90e199312a44 = LibC::UInt32 | PSTR
 struct PROPSHEETHEADERA_V1
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hwndParent : HWND
   hInstance : HINSTANCE
-  anonymous1 : Owl02901f1a65e3
+  anonymous1 : Rabbit4a5c3fe5647d
   pszCaption : PSTR
   nPages : LibC::UInt32
-  anonymous2 : Duck894e5a81bd56
-  anonymous3 : Other40eb48fcd7da
+  anonymous2 : Bird90e199312a44
+  anonymous3 : Duckbecf28b517c2
   pfnCallback : PFNPROPSHEETCALLBACK
 end
-type Owle6ff7d61a8c1 = HBITMAP | PSTR
-type Otherd27027f72cf4 = LibC::UInt32 | PSTR
-type Owl47eeb450009c = PROPSHEETPAGEA* | HPROPSHEETPAGE*
-type Duckcd30d94bf959 = HICON | PSTR
-type Bird9fb1a575b959 = HBITMAP | PSTR
+type Othere7b0955a2968 = HBITMAP | PSTR
+type Rabbit9252f32039d7 = LibC::UInt32 | PSTR
+type Owl7b575f35e023 = PROPSHEETPAGEA* | HPROPSHEETPAGE*
+type Birdcd711c805547 = HICON | PSTR
+type Owl8904c7d04a55 = HBITMAP | PSTR
 struct PROPSHEETHEADERA_V2
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hwndParent : HWND
   hInstance : HINSTANCE
-  anonymous1 : Duckcd30d94bf959
+  anonymous1 : Birdcd711c805547
   pszCaption : PSTR
   nPages : LibC::UInt32
-  anonymous2 : Otherd27027f72cf4
-  anonymous3 : Owl47eeb450009c
+  anonymous2 : Rabbit9252f32039d7
+  anonymous3 : Owl7b575f35e023
   pfnCallback : PFNPROPSHEETCALLBACK
-  anonymous4 : Owle6ff7d61a8c1
+  anonymous4 : Othere7b0955a2968
   hplWatermark : HPALETTE
-  anonymous5 : Bird9fb1a575b959
+  anonymous5 : Owl8904c7d04a55
 end
-type Rabbitc263171f2cea = PROPSHEETPAGEW* | HPROPSHEETPAGE*
-type Rabbit0cde5811f1ee = HICON | PWSTR
-type Duck43a219d2f4a0 = LibC::UInt32 | PWSTR
+type Rabbit50b409d7161b = PROPSHEETPAGEW* | HPROPSHEETPAGE*
+type Owl9c9b98e91555 = HICON | PWSTR
+type Owla6113adb1a79 = LibC::UInt32 | PWSTR
 struct PROPSHEETHEADERW_V1
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hwndParent : HWND
   hInstance : HINSTANCE
-  anonymous1 : Rabbit0cde5811f1ee
+  anonymous1 : Owl9c9b98e91555
   pszCaption : PWSTR
   nPages : LibC::UInt32
-  anonymous2 : Duck43a219d2f4a0
-  anonymous3 : Rabbitc263171f2cea
+  anonymous2 : Owla6113adb1a79
+  anonymous3 : Rabbit50b409d7161b
   pfnCallback : PFNPROPSHEETCALLBACK
 end
-type Rabbitf3ba6b77d623 = HBITMAP | PWSTR
-type Othere888ede4e9d3 = LibC::UInt32 | PWSTR
-type Duckb3839ba6c95d = PROPSHEETPAGEW* | HPROPSHEETPAGE*
-type Duck1bfa485fb84b = HICON | PWSTR
-type Duckd8babe60b07a = HBITMAP | PWSTR
+type Birdfefb08239d8c = HBITMAP | PWSTR
+type Owl1a7cc7122ee7 = LibC::UInt32 | PWSTR
+type Bird78cb80c46e67 = PROPSHEETPAGEW* | HPROPSHEETPAGE*
+type Bird72af38732792 = HICON | PWSTR
+type Owl98662eb59fa3 = HBITMAP | PWSTR
 struct PROPSHEETHEADERW_V2
   dwSize : LibC::UInt32
   dwFlags : LibC::UInt32
   hwndParent : HWND
   hInstance : HINSTANCE
-  anonymous1 : Duck1bfa485fb84b
+  anonymous1 : Bird72af38732792
   pszCaption : PWSTR
   nPages : LibC::UInt32
-  anonymous2 : Othere888ede4e9d3
-  anonymous3 : Duckb3839ba6c95d
+  anonymous2 : Owl1a7cc7122ee7
+  anonymous3 : Bird78cb80c46e67
   pfnCallback : PFNPROPSHEETCALLBACK
-  anonymous4 : Rabbitf3ba6b77d623
+  anonymous4 : Birdfefb08239d8c
   hplWatermark : HPALETTE
-  anonymous5 : Duckd8babe60b07a
+  anonymous5 : Owl98662eb59fa3
 end
 alias LPFNSVADDPROPSHEETPAGE = (HPROPSHEETPAGE, LPARAM -> BOOL)
 alias LPFNADDPROPSHEETPAGES = (LibC::Void*, LPFNSVADDPROPSHEETPAGE, LPARAM -> BOOL)
@@ -4064,12 +4064,12 @@ struct TVITEMEXW
   iExpandedImage : LibC::Int32
   iReserved : LibC::Int32
 end
-type Ducka213fbd7fa42 = TVITEMEXA | TVITEMA
+type Rabbitb74a01f563e5 = TVITEMEXA | TVITEMA
 struct TVINSERTSTRUCTA
   hParent : HTREEITEM
   hInsertAfter : HTREEITEM
 end
-type Rabbit0edb7a38184e = TVITEMEXW | TVITEMW
+type Other4b0dc8213ebd = TVITEMEXW | TVITEMW
 struct TVINSERTSTRUCTW
   hParent : HTREEITEM
   hInsertAfter : HTREEITEM
@@ -4568,8 +4568,8 @@ TDCBF_RETRY_BUTTON = 16
 TDCBF_CLOSE_BUTTON = 32
 
 end
-type Rabbit9429156adc63 = HICON | PWSTR
-type Owl9d0dd25eb371 = HICON | PWSTR
+type Bird537355c7fca1 = HICON | PWSTR
+type Duck0e5a2b890e95 = HICON | PWSTR
 struct TASKDIALOGCONFIG
   cbSize : LibC::UInt32
   hwndParent : HWND
@@ -4577,7 +4577,7 @@ struct TASKDIALOGCONFIG
   dwFlags : TASKDIALOG_FLAGS
   dwCommonButtons : TASKDIALOG_COMMON_BUTTON_FLAGS
   pszWindowTitle : PWSTR
-  anonymous1 : Rabbit9429156adc63
+  anonymous1 : Bird537355c7fca1
   pszMainInstruction : PWSTR
   pszContent : PWSTR
   cButtons : LibC::UInt32
@@ -4590,7 +4590,7 @@ struct TASKDIALOGCONFIG
   pszExpandedInformation : PWSTR
   pszExpandedControlText : PWSTR
   pszCollapsedControlText : PWSTR
-  anonymous2 : Owl9d0dd25eb371
+  anonymous2 : Duck0e5a2b890e95
   pszFooter : PWSTR
   pfCallback : PFTASKDIALOGCALLBACK
   lpCallbackData : LibC::Int*
@@ -5394,7 +5394,7 @@ struct USAGE_PROPERTIES
   physicalMinimum : LibC::Int32
   physicalMaximum : LibC::Int32
 end
-type Rabbitb631162208da = POINTER_TOUCH_INFO | POINTER_PEN_INFO
+type Birda9af420138c2 = POINTER_TOUCH_INFO | POINTER_PEN_INFO
 struct POINTER_TYPE_INFO
   type : POINTER_INPUT_TYPE
 end

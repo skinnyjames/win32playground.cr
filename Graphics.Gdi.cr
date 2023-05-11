@@ -2625,12 +2625,12 @@ struct EXTLOGFONTW
   elfCulture : LibC::UInt32
   elfPanose : PANOSE
 end
-struct Rabbitc03a7e584ed7
+struct Rabbit3196a553c453
   dmPosition : POINTL
   dmDisplayOrientation : LibC::UInt32
   dmDisplayFixedOutput : LibC::UInt32
 end
-struct Bird2bf33734f82f
+struct Duck38dc3efcc832
   dmOrientation : LibC::Int16
   dmPaperSize : LibC::Int16
   dmPaperLength : LibC::Int16
@@ -2640,8 +2640,8 @@ struct Bird2bf33734f82f
   dmDefaultSource : LibC::Int16
   dmPrintQuality : LibC::Int16
 end
-type Othercefceaa53a05 = Bird2bf33734f82f | Rabbitc03a7e584ed7
-type Othere5d41a7a2bc3 = LibC::UInt32 | LibC::UInt32
+type Pig2d72f2fd5cf4 = Duck38dc3efcc832 | Rabbit3196a553c453
+type Pig27f9187de119 = LibC::UInt32 | LibC::UInt32
 struct DEVMODEA
   dmDeviceName : Array(LibC::Byte)
   dmSpecVersion : LibC::UInt16
@@ -2649,7 +2649,7 @@ struct DEVMODEA
   dmSize : LibC::UInt16
   dmDriverExtra : LibC::UInt16
   dmFields : LibC::UInt32
-  anonymous1 : Othercefceaa53a05
+  anonymous1 : Pig2d72f2fd5cf4
   dmColor : LibC::Int16
   dmDuplex : LibC::Int16
   dmYResolution : LibC::Int16
@@ -2660,7 +2660,7 @@ struct DEVMODEA
   dmBitsPerPel : LibC::UInt32
   dmPelsWidth : LibC::UInt32
   dmPelsHeight : LibC::UInt32
-  anonymous2 : Othere5d41a7a2bc3
+  anonymous2 : Pig27f9187de119
   dmDisplayFrequency : LibC::UInt32
   dmICMMethod : LibC::UInt32
   dmICMIntent : LibC::UInt32
@@ -2671,7 +2671,7 @@ struct DEVMODEA
   dmPanningWidth : LibC::UInt32
   dmPanningHeight : LibC::UInt32
 end
-struct Rabbitddeee8525604
+struct Birdb22c218f2b15
   dmOrientation : LibC::Int16
   dmPaperSize : LibC::Int16
   dmPaperLength : LibC::Int16
@@ -2681,13 +2681,13 @@ struct Rabbitddeee8525604
   dmDefaultSource : LibC::Int16
   dmPrintQuality : LibC::Int16
 end
-struct Owldefb04fd521f
+struct Otherfe136d1eaabd
   dmPosition : POINTL
   dmDisplayOrientation : LibC::UInt32
   dmDisplayFixedOutput : LibC::UInt32
 end
-type Owlfad464cc313e = Rabbitddeee8525604 | Owldefb04fd521f
-type Duckdc458d908e88 = LibC::UInt32 | LibC::UInt32
+type Duck97567a30d70a = Birdb22c218f2b15 | Otherfe136d1eaabd
+type Rabbit8e0a7995166b = LibC::UInt32 | LibC::UInt32
 struct DEVMODEW
   dmDeviceName : Array(LibC::Char)
   dmSpecVersion : LibC::UInt16
@@ -2695,7 +2695,7 @@ struct DEVMODEW
   dmSize : LibC::UInt16
   dmDriverExtra : LibC::UInt16
   dmFields : LibC::UInt32
-  anonymous1 : Owlfad464cc313e
+  anonymous1 : Duck97567a30d70a
   dmColor : LibC::Int16
   dmDuplex : LibC::Int16
   dmYResolution : LibC::Int16
@@ -2706,7 +2706,7 @@ struct DEVMODEW
   dmBitsPerPel : LibC::UInt32
   dmPelsWidth : LibC::UInt32
   dmPelsHeight : LibC::UInt32
-  anonymous2 : Duckdc458d908e88
+  anonymous2 : Rabbit8e0a7995166b
   dmDisplayFrequency : LibC::UInt32
   dmICMMethod : LibC::UInt32
   dmICMIntent : LibC::UInt32
@@ -3577,11 +3577,11 @@ struct MONITORINFO
   dwFlags : LibC::UInt32
 end
 struct MONITORINFOEXA
-  _AnonymousBase_winuser_L13567_C43 : MONITORINFO
+  anonymousBase_winuser_L13567_C43 : MONITORINFO
   szDevice : Array(CHAR)
 end
 struct MONITORINFOEXW
-  _AnonymousBase_winuser_L13571_C43 : MONITORINFO
+  anonymousBase_winuser_L13571_C43 : MONITORINFO
   szDevice : Array(LibC::Char)
 end
 alias MONITORENUMPROC = (HMONITOR, HDC, RECT*, LPARAM -> BOOL)

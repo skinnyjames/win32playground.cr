@@ -485,11 +485,11 @@ struct GROUP_AFFINITY
   group : LibC::UInt16
   reserved : Array(LibC::UInt16)
 end
-struct Pig10152075f192
+struct Bird3ab992b87711
   wProcessorArchitecture : PROCESSOR_ARCHITECTURE
   wReserved : LibC::UInt16
 end
-type Pigc69f398438b3 = LibC::UInt32 | Pig10152075f192
+type Other49576692abf4 = LibC::UInt32 | Bird3ab992b87711
 struct SYSTEM_INFO
   dwPageSize : LibC::UInt32
   lpMinimumApplicationAddress : LibC::Void*
@@ -579,13 +579,13 @@ struct CACHE_DESCRIPTOR
   size : LibC::UInt32
   type : PROCESSOR_CACHE_TYPE
 end
-struct Piga71e6593aaa7
+struct Otherd6fa4ddb083a
   flags : LibC::Byte
 end
-struct Other423c35da13f8
+struct Owlffd172f2ce7f
   nodeNumber : LibC::UInt32
 end
-type Rabbit344adbd6eb8b = Piga71e6593aaa7 | Other423c35da13f8 | CACHE_DESCRIPTOR | Array(LibC::UInt64)
+type Otherf133cf15f639 = Otherd6fa4ddb083a | Owlffd172f2ce7f | CACHE_DESCRIPTOR | Array(LibC::UInt64)
 struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION
   processorMask : LibC::UIint*
   relationship : LOGICAL_PROCESSOR_RELATIONSHIP
@@ -597,13 +597,13 @@ struct PROCESSOR_RELATIONSHIP
   groupCount : LibC::UInt16
   groupMask : Array(GROUP_AFFINITY)
 end
-type Pige06e3950eca0 = GROUP_AFFINITY | Array(GROUP_AFFINITY)
+type Otherf74c097f8287 = GROUP_AFFINITY | Array(GROUP_AFFINITY)
 struct NUMA_NODE_RELATIONSHIP
   nodeNumber : LibC::UInt32
   reserved : Array(LibC::Byte)
   groupCount : LibC::UInt16
 end
-type Rabbit0406acfe5aee = GROUP_AFFINITY | Array(GROUP_AFFINITY)
+type Owle048ece594dd = GROUP_AFFINITY | Array(GROUP_AFFINITY)
 struct CACHE_RELATIONSHIP
   level : LibC::Byte
   associativity : LibC::Byte
@@ -625,7 +625,7 @@ struct GROUP_RELATIONSHIP
   reserved : Array(LibC::Byte)
   groupInfo : Array(PROCESSOR_GROUP_INFO)
 end
-type Duck0e779ea14746 = PROCESSOR_RELATIONSHIP | NUMA_NODE_RELATIONSHIP | CACHE_RELATIONSHIP | GROUP_RELATIONSHIP
+type Rabbit264753456171 = PROCESSOR_RELATIONSHIP | NUMA_NODE_RELATIONSHIP | CACHE_RELATIONSHIP | GROUP_RELATIONSHIP
 struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX
   relationship : LOGICAL_PROCESSOR_RELATIONSHIP
   size : LibC::UInt32
@@ -634,12 +634,12 @@ enum CPU_SET_INFORMATION_TYPE : Int32
 CpuSetInformation = 0
 
 end
-struct Pig721be688edf7
+struct Pig12ec9e57edc6
   bitfield : LibC::Byte
 end
-type Pigaed5fe74d173 = LibC::Byte | Pig721be688edf7
-type Owlce3278645c8d = LibC::UInt32 | LibC::Byte
-struct Duck8efdd2954bbe
+type Owl82d9b580e559 = LibC::Byte | Pig12ec9e57edc6
+type Owl0d756cfdd741 = LibC::UInt32 | LibC::Byte
+struct Bird4809bdee84f1
   id : LibC::UInt32
   group : LibC::UInt16
   logicalProcessorIndex : LibC::Byte
@@ -647,11 +647,11 @@ struct Duck8efdd2954bbe
   lastLevelCacheIndex : LibC::Byte
   numaNodeIndex : LibC::Byte
   efficiencyClass : LibC::Byte
-  anonymous1 : Pigaed5fe74d173
-  anonymous2 : Owlce3278645c8d
+  anonymous1 : Owl82d9b580e559
+  anonymous2 : Owl0d756cfdd741
   allocationTag : LibC::UInt64
 end
-type Rabbit4274bc404ff6 = Duck8efdd2954bbe
+type Owl7588286f236d = Bird4809bdee84f1
 struct SYSTEM_CPU_SET_INFORMATION
   size : LibC::UInt32
   type : CPU_SET_INFORMATION_TYPE

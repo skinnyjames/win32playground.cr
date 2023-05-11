@@ -118,11 +118,11 @@ DVASPECT_ICON = 4
 DVASPECT_DOCPRINT = 8
 
 end
-struct Pig3a36b0297fa7
+struct Owl8590081b310c
   lo : LibC::UInt32
   hi : LibC::Int32
 end
-type CY = Pig3a36b0297fa7 | LibC::Int64
+type CY = Owl8590081b310c | LibC::Int64
 struct CSPLATFORM
   dwPlatformId : LibC::UInt32
   dwVersionHi : LibC::UInt32
@@ -152,18 +152,18 @@ TYSPEC_PACKAGENAME = 5
 TYSPEC_OBJECTID = 6
 
 end
-struct Other0cc25950b7d7
+struct Rabbiteb29b63dd089
   pPackageName : PWSTR
   policyId : LibC::Guid
 end
-struct Birdd1e50283d69f
+struct Otherfd1bc1a14416
   objectId : LibC::Guid
   policyId : LibC::Guid
 end
-type Other3b8949f21714 = LibC::Guid | PWSTR | PWSTR | PWSTR | PWSTR | Other0cc25950b7d7 | Birdd1e50283d69f
+type Birdd773961b0d4e = LibC::Guid | PWSTR | PWSTR | PWSTR | PWSTR | Rabbiteb29b63dd089 | Otherfd1bc1a14416
 struct UCLSSPEC
   tyspec : LibC::UInt32
-  tagged_union : Other3b8949f21714
+  tagged_union : Birdd773961b0d4e
 end
 enum REGCLS : Int32
 REGCLS_SINGLEUSE = 0
@@ -407,7 +407,7 @@ struct RPCOLEMESSAGE
   buffer : LibC::Void*
   cbBuffer : LibC::UInt32
   iMethod : LibC::UInt32
-  reserved2 : LibC::VoidArray({{type}})*
+  reserved2 : Array(LibC::Void)*
   rpcFlags : LibC::UInt32
 end
 struct SChannelHookCallInfo
@@ -649,14 +649,14 @@ struct BIND_OPTS
   dwTickCountDeadline : LibC::UInt32
 end
 struct BIND_OPTS2
-  _AnonymousBase_objidl_L9017_C36 : BIND_OPTS
+  anonymousBase_objidl_L9017_C36 : BIND_OPTS
   dwTrackFlags : LibC::UInt32
   dwClassContext : LibC::UInt32
   locale : LibC::UInt32
   pServerInfo : COSERVERINFO*
 end
 struct BIND_OPTS3
-  _AnonymousBase_objidl_L9041_C36 : BIND_OPTS2
+  anonymousBase_objidl_L9041_C36 : BIND_OPTS2
   hwnd : HWND
 end
 enum BIND_FLAGS : Int32
@@ -760,20 +760,20 @@ struct RemSTGMEDIUM
   cbData : LibC::UInt32
   data : Array(LibC::Byte)
 end
-type Duck5d3fb8155bc1 = HBITMAP | LibC::Void* | HENHMETAFILE | LibC::Int* | PWSTR | IStream | IStorage
+type Bird468c8fa0ef11 = HBITMAP | LibC::Void* | HENHMETAFILE | LibC::Int* | PWSTR | IStream | IStorage
 struct STGMEDIUM
   tymed : LibC::UInt32
   pUnkForRelease : IUnknown
 end
-type Other878285a47715 = UserHBITMAP* | UserHPALETTE* | UserHGLOBAL*
+type Bird38bb6d5eae42 = UserHBITMAP* | UserHPALETTE* | UserHGLOBAL*
 struct GDI_OBJECT
   objectType : LibC::UInt32
-  u : Other878285a47715
+  u : Bird38bb6d5eae42
 end
-type Other1acfc9e2ac66 = UserHMETAFILEPICT* | UserHENHMETAFILE* | GDI_OBJECT* | UserHGLOBAL* | PWSTR | BYTE_BLOB* | BYTE_BLOB*
-struct Othera040d79d0fd5
+type Other65ee6b97bb60 = UserHMETAFILEPICT* | UserHENHMETAFILE* | GDI_OBJECT* | UserHGLOBAL* | PWSTR | BYTE_BLOB* | BYTE_BLOB*
+struct Rabbita1a1b1a6c214
   tymed : LibC::UInt32
-  u : Other1acfc9e2ac66
+  u : Other65ee6b97bb60
 end
 struct UserSTGMEDIUM
   pUnkForRelease : IUnknown
@@ -992,18 +992,18 @@ struct SAFEARRAY
   pvData : LibC::Void*
   rgsabound : Array(SAFEARRAYBOUND)
 end
-struct Pigcbb5a05715f9
+struct Rabbit9191ec29c86e
   pvRecord : LibC::Void*
   pRecInfo : IRecordInfo
 end
-type Pigaf914b3bfeca = LibC::Int64 | LibC::Int32 | LibC::Byte | LibC::Int16 | LibC::Single | LibC::Double | LibC::Int16 | LibC::Int16 | LibC::Int32 | CY | LibC::Double | BSTR | IUnknown | IDispatch | SAFEARRAY* | LibC::Byte* | LibC::Int16* | LibC::Int32* | LibC::Int64* | LibC::Single* | LibC::Double* | LibC::Int16* | LibC::Int16* | LibC::Int32* | CY* | LibC::Double* | BSTR* | IUnknown* | IDispatch* | SAFEARRAY** | VARIANT* | LibC::Void* | CHAR | LibC::UInt16 | LibC::UInt32 | LibC::UInt64 | LibC::Int32 | LibC::UInt32 | DECIMAL* | PSTR | LibC::UInt16* | LibC::UInt32* | LibC::UInt64* | LibC::Int32* | LibC::UInt32* | Pigcbb5a05715f9
-struct Bird1ce3f23f0077
+type Rabbitc8948451d1a0 = LibC::Int64 | LibC::Int32 | LibC::Byte | LibC::Int16 | LibC::Single | LibC::Double | LibC::Int16 | LibC::Int16 | LibC::Int32 | CY | LibC::Double | BSTR | IUnknown | IDispatch | SAFEARRAY* | LibC::Byte* | LibC::Int16* | LibC::Int32* | LibC::Int64* | LibC::Single* | LibC::Double* | LibC::Int16* | LibC::Int16* | LibC::Int32* | CY* | LibC::Double* | BSTR* | IUnknown* | IDispatch* | SAFEARRAY** | VARIANT* | LibC::Void* | CHAR | LibC::UInt16 | LibC::UInt32 | LibC::UInt64 | LibC::Int32 | LibC::UInt32 | DECIMAL* | PSTR | LibC::UInt16* | LibC::UInt32* | LibC::UInt64* | LibC::Int32* | LibC::UInt32* | Rabbit9191ec29c86e
+struct Bird03095b432db4
   vt : LibC::UInt16
   wReserved1 : LibC::UInt16
   wReserved2 : LibC::UInt16
   wReserved3 : LibC::UInt16
 end
-type Owldcbccbd112b3 = Bird1ce3f23f0077 | DECIMAL
+type Duck773b8d260c0f = Bird03095b432db4 | DECIMAL
 struct VARIANT
 end
 enum TYPEKIND : Int32
@@ -1026,7 +1026,7 @@ TKIND_UNION = 7
 TKIND_MAX = 8
 
 end
-type Owlcebbbd6c56c8 = TYPEDESC* | ARRAYDESC* | LibC::UInt32
+type Duck6f1c4b1020b4 = TYPEDESC* | ARRAYDESC* | LibC::UInt32
 struct TYPEDESC
   vt : LibC::UInt16
 end
@@ -1034,7 +1034,7 @@ struct IDLDESC
   dwReserved : LibC::UIint*
   wIDLFlags : LibC::UInt16
 end
-type Rabbit09b6addfcc2d = IDLDESC | PARAMDESC
+type Rabbitde07997b0947 = IDLDESC | PARAMDESC
 struct ELEMDESC
   tdesc : TYPEDESC
 end
@@ -1145,7 +1145,7 @@ VAR_CONST = 2
 VAR_DISPATCH = 3
 
 end
-type Bird367703b5472a = LibC::UInt32 | VARIANT*
+type Othercab7cc149c74 = LibC::UInt32 | VARIANT*
 struct VARDESC
   memid : LibC::Int32
   lpstrSchema : PWSTR

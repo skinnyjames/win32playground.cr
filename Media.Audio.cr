@@ -569,10 +569,10 @@ type HACMDRIVERID = LibC::Int*
 type HACMDRIVER = LibC::Int*
 type HACMSTREAM = LibC::Int*
 type HACMOBJ = LibC::Int*
-type Othere5027c91480f = LibC::UInt16 | LibC::UInt16 | LibC::UInt16
+type Duckb74c25d16c5c = LibC::UInt16 | LibC::UInt16 | LibC::UInt16
 struct WAVEFORMATEXTENSIBLE
   format : WAVEFORMATEX
-  samples : Othere5027c91480f
+  samples : Duckb74c25d16c5c
   dwChannelMask : LibC::UInt32
   subFormat : LibC::Guid
 end
@@ -903,7 +903,7 @@ struct MIXERCAPS2W
   productGuid : LibC::Guid
   nameGuid : LibC::Guid
 end
-struct Rabbit771e67c26248
+struct Othercc87f52d35fd
   dwType : LibC::UInt32
   dwDeviceID : LibC::UInt32
   wMid : LibC::UInt16
@@ -924,9 +924,9 @@ struct MIXERLINEA
   cControls : LibC::UInt32
   szShortName : Array(CHAR)
   szName : Array(CHAR)
-  target : Rabbit771e67c26248
+  target : Othercc87f52d35fd
 end
-struct Duckf9ff6bc34d98
+struct Duck3e1f88283938
   dwType : LibC::UInt32
   dwDeviceID : LibC::UInt32
   wMid : LibC::UInt16
@@ -947,18 +947,18 @@ struct MIXERLINEW
   cControls : LibC::UInt32
   szShortName : Array(LibC::Char)
   szName : Array(LibC::Char)
-  target : Duckf9ff6bc34d98
+  target : Duck3e1f88283938
 end
-struct Other745752e7feba
+struct Bird7722d9bb42c5
   dwMinimum : LibC::UInt32
   dwMaximum : LibC::UInt32
 end
-struct Other263c50425b3e
+struct Duck012d84625749
   lMinimum : LibC::Int32
   lMaximum : LibC::Int32
 end
-type Owl132e1ed33e09 = Other263c50425b3e | Other745752e7feba | Array(LibC::UInt32)
-type Duck0996368ae788 = LibC::UInt32 | LibC::UInt32 | Array(LibC::UInt32)
+type Duckc521b8288501 = Duck012d84625749 | Bird7722d9bb42c5 | Array(LibC::UInt32)
+type Duck1fa5ff2ce999 = LibC::UInt32 | LibC::UInt32 | Array(LibC::UInt32)
 struct MIXERCONTROLA
   cbStruct : LibC::UInt32
   dwControlID : LibC::UInt32
@@ -967,19 +967,19 @@ struct MIXERCONTROLA
   cMultipleItems : LibC::UInt32
   szShortName : Array(CHAR)
   szName : Array(CHAR)
-  bounds : Owl132e1ed33e09
-  metrics : Duck0996368ae788
+  bounds : Duckc521b8288501
+  metrics : Duck1fa5ff2ce999
 end
-struct Piga9f63b8c075a
+struct Rabbit7685142e866c
   lMinimum : LibC::Int32
   lMaximum : LibC::Int32
 end
-struct Rabbite8077deef9f9
+struct Ducka6feb1213899
   dwMinimum : LibC::UInt32
   dwMaximum : LibC::UInt32
 end
-type Rabbita1d6e5ca543d = Piga9f63b8c075a | Rabbite8077deef9f9 | Array(LibC::UInt32)
-type Duck869974e60183 = LibC::UInt32 | LibC::UInt32 | Array(LibC::UInt32)
+type Rabbitccf3659ba62e = Rabbit7685142e866c | Ducka6feb1213899 | Array(LibC::UInt32)
+type Pige181fed79ef9 = LibC::UInt32 | LibC::UInt32 | Array(LibC::UInt32)
 struct MIXERCONTROLW
   cbStruct : LibC::UInt32
   dwControlID : LibC::UInt32
@@ -988,10 +988,10 @@ struct MIXERCONTROLW
   cMultipleItems : LibC::UInt32
   szShortName : Array(LibC::Char)
   szName : Array(LibC::Char)
-  bounds : Rabbita1d6e5ca543d
-  metrics : Duck869974e60183
+  bounds : Rabbitccf3659ba62e
+  metrics : Pige181fed79ef9
 end
-type Duckf2cf9f87c03b = LibC::UInt32 | LibC::UInt32
+type Rabbit694289ef7cac = LibC::UInt32 | LibC::UInt32
 struct MIXERLINECONTROLSA
   cbStruct : LibC::UInt32
   dwLineID : LibC::UInt32
@@ -999,7 +999,7 @@ struct MIXERLINECONTROLSA
   cbmxctrl : LibC::UInt32
   pamxctrl : MIXERCONTROLA*
 end
-type Duck0c0b50c619aa = LibC::UInt32 | LibC::UInt32
+type Other92d466f75b96 = LibC::UInt32 | LibC::UInt32
 struct MIXERLINECONTROLSW
   cbStruct : LibC::UInt32
   dwLineID : LibC::UInt32
@@ -1007,7 +1007,7 @@ struct MIXERLINECONTROLSW
   cbmxctrl : LibC::UInt32
   pamxctrl : MIXERCONTROLW*
 end
-type Other3569c5051196 = HWND | LibC::UInt32
+type Rabbitb3d29814a0b4 = HWND | LibC::UInt32
 struct MIXERCONTROLDETAILS
   cbStruct : LibC::UInt32
   dwControlID : LibC::UInt32
@@ -1350,7 +1350,7 @@ struct AudioExtensionParams
   pPnpInterface : IMMDevice
   pPnpDevnode : IMMDevice
 end
-enum _MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 : Int32
+enum MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 : Int32
 AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT = 0
 
 AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER = 1
@@ -1465,7 +1465,7 @@ AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT = 0
 AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK = 1
 
 end
-type Duckf400ea31e9d5 = AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS
+type Rabbit253d7fd47b04 = AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS
 struct AUDIOCLIENT_ACTIVATION_PARAMS
   activationType : AUDIOCLIENT_ACTIVATION_TYPE
 end

@@ -116,13 +116,13 @@ struct SMALL_RECT
   right : LibC::Int16
   bottom : LibC::Int16
 end
-type Rabbita9260ad21cb5 = LibC::Char | CHAR
+type Duck588d37a9eebb = LibC::Char | CHAR
 struct KEY_EVENT_RECORD
   bKeyDown : BOOL
   wRepeatCount : LibC::UInt16
   wVirtualKeyCode : LibC::UInt16
   wVirtualScanCode : LibC::UInt16
-  uChar : Rabbita9260ad21cb5
+  uChar : Duck588d37a9eebb
   dwControlKeyState : LibC::UInt32
 end
 struct MOUSE_EVENT_RECORD
@@ -140,14 +140,14 @@ end
 struct FOCUS_EVENT_RECORD
   bSetFocus : BOOL
 end
-type Pig8bd9e4c51a47 = KEY_EVENT_RECORD | MOUSE_EVENT_RECORD | WINDOW_BUFFER_SIZE_RECORD | MENU_EVENT_RECORD | FOCUS_EVENT_RECORD
+type Pig686948d48dfb = KEY_EVENT_RECORD | MOUSE_EVENT_RECORD | WINDOW_BUFFER_SIZE_RECORD | MENU_EVENT_RECORD | FOCUS_EVENT_RECORD
 struct INPUT_RECORD
   eventType : LibC::UInt16
-  event : Pig8bd9e4c51a47
+  event : Pig686948d48dfb
 end
-type Otherae9f395154bf = LibC::Char | CHAR
+type Rabbit988b07ee027b = LibC::Char | CHAR
 struct CHAR_INFO
-  char : Otherae9f395154bf
+  char : Rabbit988b07ee027b
   attributes : LibC::UInt16
 end
 struct CONSOLE_FONT_INFO

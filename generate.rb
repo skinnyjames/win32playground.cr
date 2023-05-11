@@ -41,32 +41,41 @@ class String
   end
 
   def normalize_const
-    gsub(/^\_/, "").upcase_first
+    gsub(/^\_+/, "").upcase_first
   end
 
   def normalize
-    gsub(/^\_/, "").downcase_first
+    gsub(/^\_+/, "").downcase_first
   end
 end
 
 @extra_targets = []
 
+TEST = /\{\{type\}\}/
+
+
+def parse_template(str, thing)
+  str.gsub!("{{type}}", thing)
+end
+
 def payload_to_pointers(payload, str = "")
   if payload["Kind"] == "PointerTo"
-    str << "*"
+      str << "*"
     return payload_to_pointers(payload["Child"], str)
   elsif payload["Kind"] == "ApiRef"
     read_namespace(payload["Api"])
 
-    if str == "Array({{type}})"
-      str = "Array(#{payload["Name"].normalize_const})"
+    if str =~ TEST
+      parse_template(str, payload["Name"].normalize_const)
       return str
     end
+
+    
     str = str.split("").unshift(payload["Name"].normalize_const).join("")
     return str
   elsif payload["Kind"] == "Native"
-    if str == "Array({{type}})"
-      str = "Array(LibC::#{payload["Name"]})"
+    if str =~ TEST
+      parse_template(str, "LibC::#{payload["Name"]}")
       return str
     end
 
@@ -76,6 +85,10 @@ def payload_to_pointers(payload, str = "")
     str = "Array({{type}})"
     return payload_to_pointers(payload["Child"], str)
   else
+    if str == "Array({{type}})"
+      str = "Array(LibC::#{payload["Name"]})"
+      return str
+    end
     str.split("").unshift(payload["Kind"]).join("")
     return str
   end

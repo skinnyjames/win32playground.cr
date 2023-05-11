@@ -583,20 +583,20 @@ end
 type HWINWATCH = LibC::Int*
 type FEATURE_STATE_CHANGE_SUBSCRIPTION = LibC::Int*
 type FH_SERVICE_PIPE_HANDLE = LibC::Int*
-type Pigd869c0d2c6f6 = LibC::UInt64 | LibC::UInt64 | LibC::UInt64 | LibC::UInt64
+type Duckd0ec283e6457 = LibC::UInt64 | LibC::UInt64 | LibC::UInt64 | LibC::UInt64
 struct IMAGE_THUNK_DATA64
-  u1 : Pigd869c0d2c6f6
+  u1 : Duckd0ec283e6457
 end
-type Owl9b0f90409049 = LibC::UInt32 | LibC::UInt32 | LibC::UInt32 | LibC::UInt32
+type Otherc7fe0637df14 = LibC::UInt32 | LibC::UInt32 | LibC::UInt32 | LibC::UInt32
 struct IMAGE_THUNK_DATA32
-  u1 : Owl9b0f90409049
+  u1 : Otherc7fe0637df14
 end
-struct Rabbite11e81b056a1
+struct Duck36ccfc3f8c20
   bitfield : LibC::UInt32
 end
-type Pigb7e76e1304f3 = LibC::UInt32 | Rabbite11e81b056a1
+type Pig0d9c0985c082 = LibC::UInt32 | Duck36ccfc3f8c20
 struct IMAGE_DELAYLOAD_DESCRIPTOR
-  attributes : Pigb7e76e1304f3
+  attributes : Pig0d9c0985c082
   dllNameRVA : LibC::UInt32
   moduleHandleRVA : LibC::UInt32
   importAddressTableRVA : LibC::UInt32
@@ -706,16 +706,16 @@ struct CLIENT_ID
   uniqueProcess : HANDLE
   uniqueThread : HANDLE
 end
-type Rabbit2ba2383b4339 = LibC::UInt32 | LibC::Void*
+type Owl0b1c05c26614 = LibC::UInt32 | LibC::Void*
 struct LDR_DATA_TABLE_ENTRY
-  reserved1 : LibC::VoidArray({{type}})*
+  reserved1 : Array(LibC::Void)*
   inMemoryOrderLinks : LIST_ENTRY
-  reserved2 : LibC::VoidArray({{type}})*
+  reserved2 : Array(LibC::Void)*
   dllBase : LibC::Void*
-  reserved3 : LibC::VoidArray({{type}})*
+  reserved3 : Array(LibC::Void)*
   fullDllName : UNICODE_STRING
   reserved4 : Array(LibC::Byte)
-  reserved5 : LibC::VoidArray({{type}})*
+  reserved5 : Array(LibC::Void)*
   timeDateStamp : LibC::UInt32
 end
 struct OBJECT_ATTRIBUTES
@@ -726,7 +726,7 @@ struct OBJECT_ATTRIBUTES
   securityDescriptor : LibC::Void*
   securityQualityOfService : LibC::Void*
 end
-type Owl27ddb1e7688f = NTSTATUS | LibC::Void*
+type Duckae46abf23b6b = NTSTATUS | LibC::Void*
 struct IO_STATUS_BLOCK
   information : LibC::UIint*
 end
@@ -781,7 +781,7 @@ struct SYSTEM_REGISTRY_QUOTA_INFORMATION
 end
 struct SYSTEM_BASIC_INFORMATION
   reserved1 : Array(LibC::Byte)
-  reserved2 : LibC::VoidArray({{type}})*
+  reserved2 : Array(LibC::Void)*
   numberOfProcessors : LibC::SByte
 end
 struct SYSTEM_TIMEOFDAY_INFORMATION
@@ -800,7 +800,7 @@ struct SYSTEM_INTERRUPT_INFORMATION
   reserved1 : Array(LibC::Byte)
 end
 struct SYSTEM_POLICY_INFORMATION
-  reserved1 : LibC::VoidArray({{type}})*
+  reserved1 : Array(LibC::Void)*
   reserved2 : Array(LibC::UInt32)
 end
 enum FILE_INFORMATION_CLASS : Int32
@@ -1177,7 +1177,7 @@ GetSockOptIoControlType = 2
 SocketIoControlType = 3
 
 end
-type Rabbit8396216f07ec = LibC::UInt32 | LibC::UInt32
+type Bird7b626d746133 = LibC::UInt32 | LibC::UInt32
 struct TDI_TL_IO_CONTROL_ENDPOINT
   type : TDI_TL_IO_CONTROL_TYPE
   level : LibC::UInt32
@@ -1301,10 +1301,10 @@ alias PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API = (BOOL* -> HRESULT)
 alias PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API = ( -> HRESULT)
 alias PWLDP_ISPRODUCTIONCONFIGURATION_API = (BOOL* -> HRESULT)
 alias PWLDP_RESETPRODUCTIONCONFIGURATION_API = ( -> HRESULT)
-type Bird0a55c23c55ab = PSTR | LibC::UInt32
+type Other066f076f102a = PSTR | LibC::UInt32
 struct DELAYLOAD_PROC_DESCRIPTOR
   importDescribedByName : LibC::UInt32
-  description : Bird0a55c23c55ab
+  description : Other066f076f102a
 end
 struct DELAYLOAD_INFO
   size : LibC::UInt32

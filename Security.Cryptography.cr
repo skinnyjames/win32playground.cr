@@ -2928,7 +2928,7 @@ end
 struct NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE
   header : NCRYPT_EXPORTED_ISOLATED_KEY_HEADER
 end
-struct _NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT
+struct NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT
   magic : LibC::UInt32
   version : LibC::UInt32
   headerSize : LibC::UInt32
@@ -3236,7 +3236,7 @@ struct CERT_OTHER_NAME
   pszObjId : PSTR
   value : CRYPTOAPI_BLOB
 end
-type Other54175a56ebe4 = CERT_OTHER_NAME* | PWSTR | PWSTR | CRYPTOAPI_BLOB | PWSTR | CRYPTOAPI_BLOB | PSTR
+type Bird05c3eb613d89 = CERT_OTHER_NAME* | PWSTR | PWSTR | CRYPTOAPI_BLOB | PWSTR | CRYPTOAPI_BLOB | PSTR
 struct CERT_ALT_NAME_ENTRY
   dwAltNameChoice : LibC::UInt32
 end
@@ -3330,7 +3330,7 @@ struct CERT_AUTHORITY_INFO_ACCESS
   cAccDescr : LibC::UInt32
   rgAccDescr : CERT_ACCESS_DESCRIPTION*
 end
-type Bird22be8a4ba3e6 = CERT_ALT_NAME_INFO
+type Owl718078bd1ccc = CERT_ALT_NAME_INFO
 struct CRL_DIST_POINT_NAME
   dwDistPointNameChoice : LibC::UInt32
 end
@@ -3454,7 +3454,7 @@ struct CMC_TAGGED_CERT_REQUEST
   dwBodyPartID : LibC::UInt32
   signedCertRequest : CRYPTOAPI_BLOB
 end
-type Bird379d1322efb9 = CMC_TAGGED_CERT_REQUEST*
+type Other327a9bc2cdf7 = CMC_TAGGED_CERT_REQUEST*
 struct CMC_TAGGED_REQUEST
   dwTaggedRequestChoice : LibC::UInt32
 end
@@ -3489,7 +3489,7 @@ struct CMC_PEND_INFO
   pendToken : CRYPTOAPI_BLOB
   pendTime : FILETIME
 end
-type Other274e006e90f9 = LibC::UInt32 | CMC_PEND_INFO*
+type Other1fa160efaf09 = LibC::UInt32 | CMC_PEND_INFO*
 struct CMC_STATUS_INFO
   dwStatus : LibC::UInt32
   cBodyList : LibC::UInt32
@@ -3531,7 +3531,7 @@ struct CERT_LOGOTYPE_REFERENCE
   cHashedUrl : LibC::UInt32
   rgHashedUrl : CERT_HASHED_URL*
 end
-type Rabbitb4e6ed367564 = LibC::UInt32 | LibC::UInt32
+type Owlf79939dd4ee8 = LibC::UInt32 | LibC::UInt32
 struct CERT_LOGOTYPE_IMAGE_INFO
   dwLogotypeImageInfoChoice : CERT_LOGOTYPE_IMAGE_INFO_TYPE
   dwFileSize : LibC::UInt32
@@ -3561,7 +3561,7 @@ struct CERT_LOGOTYPE_DATA
   cLogotypeAudio : LibC::UInt32
   rgLogotypeAudio : CERT_LOGOTYPE_AUDIO*
 end
-type Owl1db5e297fff2 = CERT_LOGOTYPE_DATA* | CERT_LOGOTYPE_REFERENCE*
+type Bird07a925941409 = CERT_LOGOTYPE_DATA* | CERT_LOGOTYPE_REFERENCE*
 struct CERT_LOGOTYPE_INFO
   dwLogotypeInfoChoice : CERT_LOGOTYPE_OPTION
 end
@@ -3577,7 +3577,7 @@ struct CERT_LOGOTYPE_EXT_INFO
   cOtherLogo : LibC::UInt32
   rgOtherLogo : CERT_OTHER_LOGOTYPE_INFO*
 end
-type Birda495e6a50e05 = LibC::UInt32 | PSTR
+type Owl02e19ad46ae3 = LibC::UInt32 | PSTR
 struct CERT_BIOMETRIC_DATA
   dwTypeOfBiometricDataChoice : CERT_BIOMETRIC_DATA_TYPE
   hashedUrl : CERT_HASHED_URL
@@ -3628,7 +3628,7 @@ struct OCSP_BASIC_REVOKED_INFO
   revocationDate : FILETIME
   dwCrlReasonCode : CERT_REVOCATION_STATUS_REASON
 end
-type Rabbitdcdb0739ee4e = OCSP_BASIC_REVOKED_INFO*
+type Pig5afe1ba5ddff = OCSP_BASIC_REVOKED_INFO*
 struct OCSP_BASIC_RESPONSE_ENTRY
   certId : OCSP_CERT_ID
   dwCertStatus : LibC::UInt32
@@ -3637,7 +3637,7 @@ struct OCSP_BASIC_RESPONSE_ENTRY
   cExtension : LibC::UInt32
   rgExtension : CERT_EXTENSION*
 end
-type Owld67f5eca83de = CRYPTOAPI_BLOB | CRYPTOAPI_BLOB
+type Birdde23b4dcb89b = CRYPTOAPI_BLOB | CRYPTOAPI_BLOB
 struct OCSP_BASIC_RESPONSE_INFO
   dwVersion : LibC::UInt32
   dwResponderIdChoice : LibC::UInt32
@@ -3661,7 +3661,7 @@ struct CRYPT_OID_FUNC_ENTRY
   pszOID : PSTR
   pvFuncAddr : LibC::Void*
 end
-type Pig6f4d437aec7e = LibC::UInt32 | LibC::UInt32 | LibC::UInt32
+type Othere397322b73ca = LibC::UInt32 | LibC::UInt32 | LibC::UInt32
 struct CRYPT_OID_INFO
   cbSize : LibC::UInt32
   pszOID : PSTR
@@ -3675,7 +3675,7 @@ struct CERT_STRONG_SIGN_SERIALIZED_INFO
   pwszCNGSignHashAlgids : PWSTR
   pwszCNGPubKeyMinBitLengths : PWSTR
 end
-type Bird31faa9bd71e7 = LibC::Void* | CERT_STRONG_SIGN_SERIALIZED_INFO* | PSTR
+type Duck9274b74cf930 = LibC::Void* | CERT_STRONG_SIGN_SERIALIZED_INFO* | PSTR
 struct CERT_STRONG_SIGN_PARA
   cbSize : LibC::UInt32
   dwInfoChoice : LibC::UInt32
@@ -3684,11 +3684,11 @@ struct CERT_ISSUER_SERIAL_NUMBER
   issuer : CRYPTOAPI_BLOB
   serialNumber : CRYPTOAPI_BLOB
 end
-type Rabbita48e8559def3 = CERT_ISSUER_SERIAL_NUMBER | CRYPTOAPI_BLOB | CRYPTOAPI_BLOB
+type Rabbit075e3c24a219 = CERT_ISSUER_SERIAL_NUMBER | CRYPTOAPI_BLOB | CRYPTOAPI_BLOB
 struct CERT_ID
   dwIdChoice : CERT_ID_OPTION
 end
-type Rabbit1c6a3a99118b = LibC::UIint* | LibC::UIint*
+type Pig6a03db0aa239 = LibC::UIint* | LibC::UIint*
 struct CMSG_SIGNER_ENCODE_INFO
   cbSize : LibC::UInt32
   pCertInfo : CERT_INFO*
@@ -3732,7 +3732,7 @@ struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO
   date : FILETIME
   pOtherAttr : CRYPT_ATTRIBUTE_TYPE_VALUE*
 end
-type Bird6d0e693a7930 = CRYPT_ALGORITHM_IDENTIFIER* | CERT_ID*
+type Birdc7fbaea27fdd = CRYPT_ALGORITHM_IDENTIFIER* | CERT_ID*
 struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO
   cbSize : LibC::UInt32
   keyEncryptionAlgorithm : CRYPT_ALGORITHM_IDENTIFIER
@@ -3746,7 +3746,7 @@ struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO
   cRecipientEncryptedKeys : LibC::UInt32
   rgpRecipientEncryptedKeys : CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO**
 end
-type Rabbit56d9f1d8943d = LibC::UIint* | LibC::Void*
+type Pigf0885c91b9ab = LibC::UIint* | LibC::Void*
 struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO
   cbSize : LibC::UInt32
   keyEncryptionAlgorithm : CRYPT_ALGORITHM_IDENTIFIER
@@ -3757,7 +3757,7 @@ struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO
   date : FILETIME
   pOtherAttr : CRYPT_ATTRIBUTE_TYPE_VALUE*
 end
-type Rabbitf9e2989f2c34 = CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO* | CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO* | CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO*
+type Rabbitb1c651761f95 = CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO* | CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO* | CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO*
 struct CMSG_RECIPIENT_ENCODE_INFO
   dwRecipientChoice : LibC::UInt32
 end
@@ -3826,7 +3826,7 @@ struct CMSG_RECIPIENT_ENCRYPTED_KEY_INFO
   date : FILETIME
   pOtherAttr : CRYPT_ATTRIBUTE_TYPE_VALUE*
 end
-type Duck22a92012adf0 = CERT_ID | CERT_PUBLIC_KEY_INFO
+type Othercc57f480aede = CERT_ID | CERT_PUBLIC_KEY_INFO
 struct CMSG_KEY_AGREE_RECIPIENT_INFO
   dwVersion : LibC::UInt32
   dwOriginatorChoice : CMSG_KEY_AGREE_ORIGINATOR
@@ -3843,7 +3843,7 @@ struct CMSG_MAIL_LIST_RECIPIENT_INFO
   date : FILETIME
   pOtherAttr : CRYPT_ATTRIBUTE_TYPE_VALUE*
 end
-type Duckef535a419e15 = CMSG_KEY_TRANS_RECIPIENT_INFO* | CMSG_KEY_AGREE_RECIPIENT_INFO* | CMSG_MAIL_LIST_RECIPIENT_INFO*
+type Owl15177ee5d6ea = CMSG_KEY_TRANS_RECIPIENT_INFO* | CMSG_KEY_AGREE_RECIPIENT_INFO* | CMSG_MAIL_LIST_RECIPIENT_INFO*
 struct CMSG_CMS_RECIPIENT_INFO
   dwRecipientChoice : LibC::UInt32
 end
@@ -3854,20 +3854,20 @@ struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA
   dwSignerType : LibC::UInt32
   pvSigner : LibC::Void*
 end
-type Pig597517752d71 = LibC::UIint* | LibC::UIint*
+type Birdd5f8fea12619 = LibC::UIint* | LibC::UIint*
 struct CMSG_CTRL_DECRYPT_PARA
   cbSize : LibC::UInt32
   dwKeySpec : LibC::UInt32
   dwRecipientIndex : LibC::UInt32
 end
-type Other00a626340521 = LibC::UIint* | LibC::UIint*
+type Owl750abdbdb933 = LibC::UIint* | LibC::UIint*
 struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA
   cbSize : LibC::UInt32
   dwKeySpec : LibC::UInt32
   pKeyTrans : CMSG_KEY_TRANS_RECIPIENT_INFO*
   dwRecipientIndex : LibC::UInt32
 end
-type Duck1d3f003c160d = LibC::UIint* | LibC::UIint*
+type Duck04fb64d3665b = LibC::UIint* | LibC::UIint*
 struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA
   cbSize : LibC::UInt32
   dwKeySpec : LibC::UInt32
@@ -3876,7 +3876,7 @@ struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA
   dwRecipientEncryptedKeyIndex : LibC::UInt32
   originatorPublicKey : CRYPT_BIT_BLOB
 end
-type Pig6026c704e2fc = LibC::UIint* | LibC::Void*
+type Owld132e304aa97 = LibC::UIint* | LibC::Void*
 struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA
   cbSize : LibC::UInt32
   hCryptProv : LibC::UIint*
@@ -3899,7 +3899,7 @@ alias PFN_CMSG_FREE = (LibC::Void* -> LibC::Void)
 alias PFN_CMSG_GEN_ENCRYPT_KEY = (LibC::UIint**, CRYPT_ALGORITHM_IDENTIFIER*, LibC::Void*, CERT_PUBLIC_KEY_INFO*, PFN_CMSG_ALLOC, LibC::UIint**, LibC::Byte**, LibC::UInt32* -> BOOL)
 alias PFN_CMSG_EXPORT_ENCRYPT_KEY = (LibC::UIint*, LibC::UIint*, CERT_PUBLIC_KEY_INFO*, LibC::Byte*, LibC::UInt32* -> BOOL)
 alias PFN_CMSG_IMPORT_ENCRYPT_KEY = (LibC::UIint*, LibC::UInt32, CRYPT_ALGORITHM_IDENTIFIER*, CRYPT_ALGORITHM_IDENTIFIER*, LibC::Byte*, LibC::UInt32, LibC::UIint** -> BOOL)
-type Owl03a49d88e4a7 = LibC::UIint* | BCRYPT_KEY_HANDLE
+type Otherbfcb70cc0e3b = LibC::UIint* | BCRYPT_KEY_HANDLE
 struct CMSG_CONTENT_ENCRYPT_INFO
   cbSize : LibC::UInt32
   hCryptProv : LibC::UIint*
@@ -3929,7 +3929,7 @@ struct CMSG_KEY_AGREE_KEY_ENCRYPT_INFO
   cbSize : LibC::UInt32
   encryptedKey : CRYPTOAPI_BLOB
 end
-type Pig50a75b9eabaa = CERT_ID | CERT_PUBLIC_KEY_INFO
+type Owl4ef3b71eae59 = CERT_ID | CERT_PUBLIC_KEY_INFO
 struct CMSG_KEY_AGREE_ENCRYPT_INFO
   cbSize : LibC::UInt32
   dwRecipientIndex : LibC::UInt32
@@ -4025,7 +4025,7 @@ struct CRYPT_KEY_PROV_INFO
   rgProvParam : CRYPT_KEY_PROV_PARAM*
   dwKeySpec : LibC::UInt32
 end
-type Othere37834195f3b = LibC::UIint* | LibC::UIint*
+type Owl837799e4b915 = LibC::UIint* | LibC::UIint*
 struct CERT_KEY_CONTEXT
   cbSize : LibC::UInt32
   dwKeySpec : LibC::UInt32
@@ -4038,11 +4038,11 @@ struct CRYPT_SMART_CARD_ROOT_INFO
   rgbCardID : Array(LibC::Byte)
   luid : ROOT_INFO_LUID
 end
-type Pig4c6781f500d0 = LibC::Void* | PSTR | PWSTR
-type Birdc4f04da8e237 = HKEY | LibC::Void*
+type Other6d33403ea7a2 = LibC::Void* | PSTR | PWSTR
+type Pige861c1d466f4 = HKEY | LibC::Void*
 struct CERT_SYSTEM_STORE_RELOCATE_PARA
-  anonymous1 : Birdc4f04da8e237
-  anonymous2 : Pig4c6781f500d0
+  anonymous1 : Pige861c1d466f4
+  anonymous2 : Other6d33403ea7a2
 end
 struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA
   hKeyBase : HKEY
@@ -4246,7 +4246,7 @@ struct CRYPT_HASH_MESSAGE_PARA
   hashAlgorithm : CRYPT_ALGORITHM_IDENTIFIER
   pvHashAuxInfo : LibC::Void*
 end
-type Birdefb1c5c63fd0 = LibC::UIint* | LibC::UIint*
+type Duck71ea355b5d81 = LibC::UIint* | LibC::UIint*
 struct CRYPT_KEY_SIGN_MESSAGE_PARA
   cbSize : LibC::UInt32
   dwMsgAndCertEncodingType : CERT_QUERY_ENCODING_TYPE
@@ -4480,7 +4480,7 @@ struct AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA
   dwRegPolicySettings : LibC::UInt32
   fCommercial : BOOL
 end
-type Rabbitca1d8ea62e3c = LibC::UInt32 | LibC::UInt32
+type Rabbit542a97c720cd = LibC::UInt32 | LibC::UInt32
 struct HTTPSPolicyCallbackData
   dwAuthType : HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE
   fdwChecks : LibC::UInt32
@@ -4719,7 +4719,7 @@ struct CRYPT_XML_KEY_RSA_KEY_VALUE
   modulus : CRYPT_XML_DATA_BLOB
   exponent : CRYPT_XML_DATA_BLOB
 end
-type Pigf624af0a06ea = CRYPT_XML_KEY_DSA_KEY_VALUE | CRYPT_XML_KEY_RSA_KEY_VALUE | CRYPT_XML_KEY_ECDSA_KEY_VALUE | CRYPT_XML_BLOB
+type Duck8dc204875ec8 = CRYPT_XML_KEY_DSA_KEY_VALUE | CRYPT_XML_KEY_RSA_KEY_VALUE | CRYPT_XML_KEY_ECDSA_KEY_VALUE | CRYPT_XML_BLOB
 struct CRYPT_XML_KEY_VALUE
   dwType : CRYPT_XML_KEY_VALUE_TYPE
 end
@@ -4727,7 +4727,7 @@ struct CRYPT_XML_ISSUER_SERIAL
   wszIssuer : PWSTR
   wszSerial : PWSTR
 end
-type Bird6137f5397ff0 = CRYPT_XML_ISSUER_SERIAL | CRYPT_XML_DATA_BLOB | PWSTR | CRYPT_XML_DATA_BLOB | CRYPT_XML_DATA_BLOB | CRYPT_XML_BLOB
+type Birdb06ccc7e456a = CRYPT_XML_ISSUER_SERIAL | CRYPT_XML_DATA_BLOB | PWSTR | CRYPT_XML_DATA_BLOB | CRYPT_XML_DATA_BLOB | CRYPT_XML_BLOB
 struct CRYPT_XML_X509DATA_ITEM
   dwType : CRYPT_XML_X509DATA_TYPE
 end
@@ -4735,7 +4735,7 @@ struct CRYPT_XML_X509DATA
   cX509Data : LibC::UInt32
   rgX509Data : CRYPT_XML_X509DATA_ITEM*
 end
-type Pig5438b497e6b3 = PWSTR | CRYPT_XML_KEY_VALUE | CRYPT_XML_BLOB | CRYPT_XML_X509DATA | CRYPT_XML_BLOB
+type Rabbit385ad3dfa2b2 = PWSTR | CRYPT_XML_KEY_VALUE | CRYPT_XML_BLOB | CRYPT_XML_X509DATA | CRYPT_XML_BLOB
 struct CRYPT_XML_KEY_INFO_ITEM
   dwType : CRYPT_XML_KEYINFO_TYPE
 end

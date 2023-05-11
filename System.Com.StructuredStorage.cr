@@ -238,17 +238,17 @@ struct CACLSID
   cElems : LibC::UInt32
   pElems : LibC::Guid*
 end
-type Owlaec9b6f8e11c = CHAR | LibC::Byte | LibC::Int16 | LibC::UInt16 | LibC::Int32 | LibC::UInt32 | LibC::Int32 | LibC::UInt32 | LARGE_INTEGER | ULARGE_INTEGER | LibC::Single | LibC::Double | LibC::Int16 | LibC::Int16 | LibC::Int32 | CY | LibC::Double | FILETIME | LibC::Guid* | CLIPDATA* | BSTR | BSTRBLOB | BLOB | PSTR | PWSTR | IUnknown | IDispatch | IStream | IStorage | VERSIONEDSTREAM* | SAFEARRAY* | CAC | CAUB | CAI | CAUI | CAL | CAUL | CAH | CAUH | CAFLT | CADBL | CABOOL | CASCODE | CACY | CADATE | CAFILETIME | CACLSID | CACLIPDATA | CABSTR | CABSTRBLOB | CALPSTR | CALPWSTR | CAPROPVARIANT | PSTR | LibC::Byte* | LibC::Int16* | LibC::UInt16* | LibC::Int32* | LibC::UInt32* | LibC::Int32* | LibC::UInt32* | LibC::Single* | LibC::Double* | LibC::Int16* | DECIMAL* | LibC::Int32* | CY* | LibC::Double* | BSTR* | IUnknown* | IDispatch* | SAFEARRAY** | PROPVARIANT*
-struct Otherae7d2df2e98e
+type Duck202012c486c1 = CHAR | LibC::Byte | LibC::Int16 | LibC::UInt16 | LibC::Int32 | LibC::UInt32 | LibC::Int32 | LibC::UInt32 | LARGE_INTEGER | ULARGE_INTEGER | LibC::Single | LibC::Double | LibC::Int16 | LibC::Int16 | LibC::Int32 | CY | LibC::Double | FILETIME | LibC::Guid* | CLIPDATA* | BSTR | BSTRBLOB | BLOB | PSTR | PWSTR | IUnknown | IDispatch | IStream | IStorage | VERSIONEDSTREAM* | SAFEARRAY* | CAC | CAUB | CAI | CAUI | CAL | CAUL | CAH | CAUH | CAFLT | CADBL | CABOOL | CASCODE | CACY | CADATE | CAFILETIME | CACLSID | CACLIPDATA | CABSTR | CABSTRBLOB | CALPSTR | CALPWSTR | CAPROPVARIANT | PSTR | LibC::Byte* | LibC::Int16* | LibC::UInt16* | LibC::Int32* | LibC::UInt32* | LibC::Int32* | LibC::UInt32* | LibC::Single* | LibC::Double* | LibC::Int16* | DECIMAL* | LibC::Int32* | CY* | LibC::Double* | BSTR* | IUnknown* | IDispatch* | SAFEARRAY** | PROPVARIANT*
+struct Duck37f4a72e9d1b
   vt : LibC::UInt16
   wReserved1 : LibC::UInt16
   wReserved2 : LibC::UInt16
   wReserved3 : LibC::UInt16
 end
-type Owlef23626df106 = Otherae7d2df2e98e | DECIMAL
+type Pig529833b9d3a0 = Duck37f4a72e9d1b | DECIMAL
 struct PROPVARIANT
 end
-type Bird87892bc15dc3 = LibC::UInt32 | PWSTR
+type Owl642cdd565a36 = LibC::UInt32 | PWSTR
 struct PROPSPEC
   ulKind : PROPSPEC_KIND
 end

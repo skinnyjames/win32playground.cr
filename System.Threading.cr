@@ -410,17 +410,17 @@ type PTP_POOL = LibC::Int*
 type NamespaceHandle = LibC::Int*
 type BoundaryDescriptorHandle = LibC::Int*
 type LPPROC_THREAD_ATTRIBUTE_LIST = LibC::Void*
-struct Birde90866256aa9
+struct Pig4be2876f9257
   localizedReasonModule : HINSTANCE
   localizedReasonId : LibC::UInt32
   reasonStringCount : LibC::UInt32
   reasonStrings : PWSTR*
 end
-type Rabbita25bbb59f51c = Birde90866256aa9 | PWSTR
+type Bird72c9330a51e0 = Pig4be2876f9257 | PWSTR
 struct REASON_CONTEXT
   version : LibC::UInt32
   flags : POWER_REQUEST_CONTEXT_FLAGS
-  reason : Rabbita25bbb59f51c
+  reason : Bird72c9330a51e0
 end
 alias LPTHREAD_START_ROUTINE = (LibC::Void* -> LibC::UInt32)
 alias PINIT_ONCE_FN = (RTL_RUN_ONCE*, LibC::Void*, LibC::Void** -> BOOL)
@@ -704,11 +704,11 @@ struct TP_POOL_STACK_INFORMATION
   stackCommit : LibC::UIint*
 end
 alias PTP_CLEANUP_GROUP_CANCEL_CALLBACK = (LibC::Void*, LibC::Void* -> LibC::Void)
-struct Pigb068495f28e2
+struct Bird995882736a8f
   bitfield : LibC::UInt32
 end
-type Bird8fdec2afa5fe = LibC::UInt32 | Pigb068495f28e2
-struct Otherccb38787f3ec
+type Pige80eb1a48817 = LibC::UInt32 | Bird995882736a8f
+struct Otherec0df8036977
 end
 struct TP_CALLBACK_ENVIRON_V3
   version : LibC::UInt32
@@ -718,7 +718,7 @@ struct TP_CALLBACK_ENVIRON_V3
   raceDll : LibC::Void*
   activationContext : LibC::Int*
   finalizationCallback : PTP_SIMPLE_CALLBACK
-  u : Bird8fdec2afa5fe
+  u : Pige80eb1a48817
   callbackPriority : TP_CALLBACK_PRIORITY
   size : LibC::UInt32
 end
@@ -732,10 +732,10 @@ struct UMS_SCHEDULER_STARTUP_INFO
   schedulerProc : PRTL_UMS_SCHEDULER_ENTRY_POINT
   schedulerParam : LibC::Void*
 end
-struct Owl6d355d603a4d
+struct Pig2e6a8091c0d6
   bitfield : LibC::UInt32
 end
-type Otherd031cff002ca = Owl6d355d603a4d | LibC::UInt32
+type Duckc71056c14942 = Pig2e6a8091c0d6 | LibC::UInt32
 struct UMS_SYSTEM_THREAD_INFORMATION
   umsVersion : LibC::UInt32
 end
@@ -749,12 +749,12 @@ struct STARTUPINFOEXW
 end
 struct PEB_LDR_DATA
   reserved1 : Array(LibC::Byte)
-  reserved2 : LibC::VoidArray({{type}})*
+  reserved2 : Array(LibC::Void)*
   inMemoryOrderModuleList : LIST_ENTRY
 end
 struct RTL_USER_PROCESS_PARAMETERS
   reserved1 : Array(LibC::Byte)
-  reserved2 : LibC::VoidArray({{type}})*
+  reserved2 : Array(LibC::Void)*
   imagePathName : UNICODE_STRING
   commandLine : UNICODE_STRING
 end
@@ -763,27 +763,27 @@ struct PEB
   reserved1 : Array(LibC::Byte)
   beingDebugged : LibC::Byte
   reserved2 : Array(LibC::Byte)
-  reserved3 : LibC::VoidArray({{type}})*
+  reserved3 : Array(LibC::Void)*
   ldr : PEB_LDR_DATA*
   processParameters : RTL_USER_PROCESS_PARAMETERS*
-  reserved4 : LibC::VoidArray({{type}})*
+  reserved4 : Array(LibC::Void)*
   atlThunkSListPtr : LibC::Void*
   reserved5 : LibC::Void*
   reserved6 : LibC::UInt32
   reserved7 : LibC::Void*
   reserved8 : LibC::UInt32
   atlThunkSListPtr32 : LibC::UInt32
-  reserved9 : LibC::VoidArray({{type}})*
+  reserved9 : Array(LibC::Void)*
   reserved10 : Array(LibC::Byte)
   postProcessInitRoutine : PPS_POST_PROCESS_INIT_ROUTINE
   reserved11 : Array(LibC::Byte)
-  reserved12 : LibC::VoidArray({{type}})*
+  reserved12 : Array(LibC::Void)*
   sessionId : LibC::UInt32
 end
 struct PROCESS_BASIC_INFORMATION
   reserved1 : LibC::Void*
   pebBaseAddress : PEB*
-  reserved2 : LibC::VoidArray({{type}})*
+  reserved2 : Array(LibC::Void)*
   uniqueProcessId : LibC::UIint*
   reserved3 : LibC::Void*
 end

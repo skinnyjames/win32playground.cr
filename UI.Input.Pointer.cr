@@ -114,7 +114,7 @@ struct INPUT_INJECTION_VALUE
   value : LibC::Int32
   index : LibC::UInt16
 end
-struct Owleac6f74f4e02
+struct Owl2d3eff559d00
   11 : LibC::Single
   12 : LibC::Single
   13 : LibC::Single
@@ -132,7 +132,7 @@ struct Owleac6f74f4e02
   43 : LibC::Single
   44 : LibC::Single
 end
-type Pig7e8b5358d962 = Owleac6f74f4e02 | Array(LibC::Single)
+type Owl4d964887b39b = Owl2d3eff559d00 | Array(LibC::Single)
 struct INPUT_TRANSFORM
 end
 fun getUnpredictedMessagePos() : LibC::UInt32

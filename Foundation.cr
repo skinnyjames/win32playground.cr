@@ -13047,21 +13047,21 @@ struct SYSTEMTIME
   wSecond : LibC::UInt16
   wMilliseconds : LibC::UInt16
 end
-struct Rabbitdb4e5864a0b0
+struct Pig7f19d77b555c
   scale : LibC::Byte
   sign : LibC::Byte
 end
-struct Rabbitdb193a019271
+struct Rabbit4d71335378a3
   lo32 : LibC::UInt32
   mid32 : LibC::UInt32
 end
-type Owl3cbcb038cfd3 = Rabbitdb193a019271 | LibC::UInt64
-type Other9ca4a836463c = Rabbitdb4e5864a0b0 | LibC::UInt16
+type Owl1bb8d7612389 = Rabbit4d71335378a3 | LibC::UInt64
+type Rabbit2ce82fbb1ba2 = Pig7f19d77b555c | LibC::UInt16
 struct DECIMAL
   wReserved : LibC::UInt16
-  anonymous1 : Other9ca4a836463c
+  anonymous1 : Rabbit2ce82fbb1ba2
   hi32 : LibC::UInt32
-  anonymous2 : Owl3cbcb038cfd3
+  anonymous2 : Owl1bb8d7612389
 end
 alias FARPROC = ( -> LibC::Int*)
 alias NEARPROC = ( -> LibC::Int*)
@@ -13122,24 +13122,24 @@ struct FLOAT128
   lowPart : LibC::Int64
   highPart : LibC::Int64
 end
-struct Bird37116145c9ee
+struct Other8a28529e80c5
   lowPart : LibC::UInt32
   highPart : LibC::Int32
 end
-struct Birdda51f48e5adf
+struct Other6a48dce2500f
   lowPart : LibC::UInt32
   highPart : LibC::Int32
 end
-type LARGE_INTEGER = Bird37116145c9ee | Birdda51f48e5adf | LibC::Int64
-struct Rabbit8e6bb4c4a614
+type LARGE_INTEGER = Other8a28529e80c5 | Other6a48dce2500f | LibC::Int64
+struct Pig0e58d9af56fa
   lowPart : LibC::UInt32
   highPart : LibC::UInt32
 end
-struct Owl4b6a998b3c16
+struct Duck33517574869d
   lowPart : LibC::UInt32
   highPart : LibC::UInt32
 end
-type ULARGE_INTEGER = Rabbit8e6bb4c4a614 | Owl4b6a998b3c16 | LibC::UInt64
+type ULARGE_INTEGER = Pig0e58d9af56fa | Duck33517574869d | LibC::UInt64
 struct LUID
   lowPart : LibC::UInt32
   highPart : LibC::Int32

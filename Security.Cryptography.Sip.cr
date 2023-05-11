@@ -19,7 +19,7 @@ SIP_CAP_SET_VERSION_3 = 3
 SIP_CAP_SET_CUR_VER = 3
 SIP_CAP_FLAG_SEALING = 1
 SIP_MAX_MAGIC_NUMBER = 4
-type Duckc0b7d0b2cf96 = MS_ADDINFO_FLAT* | MS_ADDINFO_CATALOGMEMBER* | MS_ADDINFO_BLOB*
+type Owlb7389d514e47 = MS_ADDINFO_FLAT* | MS_ADDINFO_CATALOGMEMBER* | MS_ADDINFO_BLOB*
 struct SIP_SUBJECTINFO
   cbSize : LibC::UInt32
   pgSubjectType : LibC::Guid*
@@ -61,7 +61,7 @@ struct SIP_CAP_SET_V2
   isMultiSign : BOOL
   dwReserved : LibC::UInt32
 end
-type Rabbitfa4b00950484 = LibC::UInt32 | LibC::UInt32
+type Owl21b44351ee66 = LibC::UInt32 | LibC::UInt32
 struct SIP_CAP_SET_V3
   cbSize : LibC::UInt32
   dwVersion : LibC::UInt32

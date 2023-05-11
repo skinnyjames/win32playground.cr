@@ -244,7 +244,7 @@ ENUM_PERIOD_MONTHS = 5
 ENUM_PERIOD_YEARS = 6
 
 end
-type Othereb316d0e383a = LibC::Int64 | FILETIME
+type Birde6db01e03fdc = LibC::Int64 | FILETIME
 struct LLFILETIME
 end
 struct GENERIC_MAPPING
@@ -990,30 +990,30 @@ struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE
   pValue : LibC::Void*
   valueLength : LibC::UInt32
 end
-type Bird8c6e99e63418 = LibC::Int64* | LibC::UInt64* | PWSTR* | CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE* | CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE*
+type Bird0d4545598979 = LibC::Int64* | LibC::UInt64* | PWSTR* | CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE* | CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE*
 struct CLAIM_SECURITY_ATTRIBUTE_V1
   name : PWSTR
   valueType : CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE
   reserved : LibC::UInt16
   flags : LibC::UInt32
   valueCount : LibC::UInt32
-  values : Bird8c6e99e63418
+  values : Bird0d4545598979
 end
-type Pig058d0cf5d726 = Array(LibC::UInt32) | Array(LibC::UInt32) | Array(LibC::UInt32) | Array(LibC::UInt32) | Array(LibC::UInt32)
+type Bird2ad05efa14b4 = Array(LibC::UInt32) | Array(LibC::UInt32) | Array(LibC::UInt32) | Array(LibC::UInt32) | Array(LibC::UInt32)
 struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1
   name : LibC::UInt32
   valueType : CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE
   reserved : LibC::UInt16
   flags : CLAIM_SECURITY_ATTRIBUTE_FLAGS
   valueCount : LibC::UInt32
-  values : Pig058d0cf5d726
+  values : Bird2ad05efa14b4
 end
-type Rabbit4cfdf2d20ccb = CLAIM_SECURITY_ATTRIBUTE_V1*
+type Duck68fad78e89a7 = CLAIM_SECURITY_ATTRIBUTE_V1*
 struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION
   version : LibC::UInt16
   reserved : LibC::UInt16
   attributeCount : LibC::UInt32
-  attribute : Rabbit4cfdf2d20ccb
+  attribute : Duck68fad78e89a7
 end
 struct SECURITY_QUALITY_OF_SERVICE
   length : LibC::UInt32

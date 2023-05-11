@@ -208,17 +208,17 @@ MEM_IMAGE = 16777216
 
 end
 type HeapHandle = LibC::Int*
-struct Pigc92b47e61a17
+struct Owle69fd6781abe
   hMem : HANDLE
   dwReserved : Array(LibC::UInt32)
 end
-struct Pig585fdd43a81b
+struct Othere60798982391
   dwCommittedSize : LibC::UInt32
   dwUnCommittedSize : LibC::UInt32
   lpFirstBlock : LibC::Void*
   lpLastBlock : LibC::Void*
 end
-type Owl2ef2e1e8f641 = Pigc92b47e61a17 | Pig585fdd43a81b
+type Pigd7d4cae1e30d = Owle69fd6781abe | Othere60798982391
 struct PROCESS_HEAP_ENTRY
   lpData : LibC::Void*
   cbData : LibC::UInt32
@@ -258,10 +258,10 @@ enum WIN32_MEMORY_INFORMATION_CLASS : Int32
 MemoryRegionInfo = 0
 
 end
-struct Duck349e64572988
+struct Ducka7509e66da32
   bitfield : LibC::UInt32
 end
-type Duck0b9017fa0cf5 = LibC::UInt32 | Duck349e64572988
+type Bird8b9022ec46c1 = LibC::UInt32 | Ducka7509e66da32
 struct WIN32_MEMORY_REGION_INFORMATION
   allocationBase : LibC::Void*
   allocationProtect : LibC::UInt32
@@ -316,12 +316,12 @@ struct MEMORY_BASIC_INFORMATION64
   baseAddress : LibC::UInt64
   allocationBase : LibC::UInt64
   allocationProtect : PAGE_PROTECTION_FLAGS
-  _alignment1 : LibC::UInt32
+  alignment1 : LibC::UInt32
   regionSize : LibC::UInt64
   state : VIRTUAL_ALLOCATION_TYPE
   protect : PAGE_PROTECTION_FLAGS
   type : PAGE_TYPE
-  _alignment2 : LibC::UInt32
+  alignment2 : LibC::UInt32
 end
 struct CFG_CALL_TARGET_INFO
   offset : LibC::UIint*
@@ -345,13 +345,13 @@ MemExtendedParameterImageMachine = 6
 MemExtendedParameterMax = 7
 
 end
-type Owl943b278dd548 = LibC::UInt64 | LibC::Void* | LibC::UIint* | HANDLE | LibC::UInt32
-struct Rabbit67f9e61207d7
+type Bird7a4dc3a862e9 = LibC::UInt64 | LibC::Void* | LibC::UIint* | HANDLE | LibC::UInt32
+struct Birdfb7e675ff750
   bitfield : LibC::UInt64
 end
 struct MEM_EXTENDED_PARAMETER
-  anonymous1 : Rabbit67f9e61207d7
-  anonymous2 : Owl943b278dd548
+  anonymous1 : Birdfb7e675ff750
+  anonymous2 : Bird7a4dc3a862e9
 end
 enum HEAP_INFORMATION_CLASS : Int32
 HeapCompatibilityInformation = 0

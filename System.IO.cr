@@ -1,10 +1,10 @@
   @[Link("System.IO")]
   lib LibSystemIO
-    struct Pig90c9d3de79c2
+    struct Duck6576c65e307c
   offset : LibC::UInt32
   offsetHigh : LibC::UInt32
 end
-type Rabbitb09db3f1be97 = Pig90c9d3de79c2 | LibC::Void*
+type Rabbit4c12f8e4c408 = Duck6576c65e307c | LibC::Void*
 struct OVERLAPPED
   internal : LibC::UIint*
   internalHigh : LibC::UIint*

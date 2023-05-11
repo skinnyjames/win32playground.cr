@@ -3188,7 +3188,7 @@ DBHHEADER_DEBUGDIRS = 1
 DBHHEADER_CVMISC = 2
 
 end
-struct Duck3e23231cb652
+struct Owl0404b1d206cd
   x0 : LibC::UInt64
   x1 : LibC::UInt64
   x2 : LibC::UInt64
@@ -3221,7 +3221,7 @@ struct Duck3e23231cb652
   fp : LibC::UInt64
   lr : LibC::UInt64
 end
-type Pig3c4208739df0 = Duck3e23231cb652 | Array(LibC::UInt64)
+type Owl53329a286b35 = Owl0404b1d206cd | Array(LibC::UInt64)
 struct CONTEXT
   contextFlags : LibC::UInt32
   cpsr : LibC::UInt32
@@ -3343,12 +3343,12 @@ struct RIP_INFO
   dwError : LibC::UInt32
   dwType : RIP_INFO_TYPE
 end
-type Duckcce8045c2db2 = EXCEPTION_DEBUG_INFO | CREATE_THREAD_DEBUG_INFO | CREATE_PROCESS_DEBUG_INFO | EXIT_THREAD_DEBUG_INFO | EXIT_PROCESS_DEBUG_INFO | LOAD_DLL_DEBUG_INFO | UNLOAD_DLL_DEBUG_INFO | OUTPUT_DEBUG_STRING_INFO | RIP_INFO
+type Duck6ed73cdac381 = EXCEPTION_DEBUG_INFO | CREATE_THREAD_DEBUG_INFO | CREATE_PROCESS_DEBUG_INFO | EXIT_THREAD_DEBUG_INFO | EXIT_PROCESS_DEBUG_INFO | LOAD_DLL_DEBUG_INFO | UNLOAD_DLL_DEBUG_INFO | OUTPUT_DEBUG_STRING_INFO | RIP_INFO
 struct DEBUG_EVENT
   dwDebugEventCode : DEBUG_EVENT_CODE
   dwProcessId : LibC::UInt32
   dwThreadId : LibC::UInt32
-  u : Duckcce8045c2db2
+  u : Duck6ed73cdac381
 end
 struct DEBUG_OFFSET_REGION
   base : LibC::UInt64
@@ -3455,12 +3455,12 @@ struct DEBUG_STACK_FRAME_EX
   inlineFrameContext : LibC::UInt32
   reserved1 : LibC::UInt32
 end
-struct Other49e202775955
+struct Duck11cbfe3d84be
   frameId : LibC::Byte
   frameType : LibC::Byte
   frameSignature : LibC::UInt16
 end
-type INLINE_FRAME_CONTEXT = LibC::UInt32 | Other49e202775955
+type INLINE_FRAME_CONTEXT = LibC::UInt32 | Duck11cbfe3d84be
 struct STACK_SRC_INFO
   imagePath : PWSTR
   moduleName : PWSTR
@@ -3516,19 +3516,19 @@ struct DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION
   dataSize : LibC::UInt32
   address : LibC::UInt64
 end
-struct Bird401e970f90fc
+struct Duckc719624d0697
   lowPart : LibC::UInt32
   highPart : LibC::UInt32
 end
-struct Other6a3522249136
+struct Bird8f37e9b93786
   lowPart : LibC::UInt64
   highPart : LibC::Int64
 end
-struct Pig3c34f482e39e
+struct Rabbit30aa3bf7a004
   i64 : LibC::UInt64
   nat : BOOL
 end
-type Other4cc451e7f692 = LibC::Byte | LibC::UInt16 | LibC::UInt32 | Pig3c34f482e39e | LibC::Single | LibC::Double | Array(LibC::Byte) | Array(LibC::Byte) | Array(LibC::Byte) | Array(LibC::Byte) | Array(LibC::UInt16) | Array(LibC::UInt32) | Array(LibC::UInt64) | Array(LibC::Single) | Array(LibC::Double) | Bird401e970f90fc | Other6a3522249136 | Array(LibC::Byte)
+type Rabbit9b949939f891 = LibC::Byte | LibC::UInt16 | LibC::UInt32 | Rabbit30aa3bf7a004 | LibC::Single | LibC::Double | Array(LibC::Byte) | Array(LibC::Byte) | Array(LibC::Byte) | Array(LibC::Byte) | Array(LibC::UInt16) | Array(LibC::UInt32) | Array(LibC::UInt64) | Array(LibC::Single) | Array(LibC::Double) | Duckc719624d0697 | Bird8f37e9b93786 | Array(LibC::Byte)
 struct DEBUG_VALUE
   tailOfRawBytes : LibC::UInt32
   type : LibC::UInt32
@@ -3916,18 +3916,18 @@ struct ScriptDebugPosition
   line : LibC::UInt32
   column : LibC::UInt32
 end
-struct Pigbca3add78121
+struct Pig256b88fe31a9
   isUncaught : LibC::Boolean
 end
-struct Pigd9ffbb2246c8
+struct Bird12931c6e7bfd
   breakpointId : LibC::UInt64
 end
-type Duck4eba1438e919 = Pigbca3add78121 | Pigd9ffbb2246c8
+type Owlcede98aa250e = Pig256b88fe31a9 | Bird12931c6e7bfd
 struct ScriptDebugEventInformation
   debugEvent : ScriptDebugEvent
   eventPosition : ScriptDebugPosition
   eventSpanEnd : ScriptDebugPosition
-  u : Duck4eba1438e919
+  u : Owlcede98aa250e
 end
 alias PWINDBG_OUTPUT_ROUTINE = (PSTR -> LibC::Void)
 alias PWINDBG_GET_EXPRESSION = (PSTR -> LibC::UIint*)
@@ -4631,8 +4631,8 @@ struct KDDEBUGGER_DATA64
   offsetEProcessMmHotPatchContext : LibC::UInt16
 end
 alias PSYM_DUMP_FIELD_CALLBACK = (FIELD_INFO*, LibC::Void* -> LibC::UInt32)
-type Pig2d9aee045957 = LibC::Void* | LibC::Void*
-struct Bird4f9e0e534305
+type Other86d2d4bd8889 = LibC::Void* | LibC::Void*
+struct Bird93dba75cad5e
   position : LibC::UInt16
   size : LibC::UInt16
 end
@@ -4645,10 +4645,10 @@ struct FIELD_INFO
   typeId : LibC::UInt32
   fieldOffset : LibC::UInt32
   bufferSize : LibC::UInt32
-  bitField : Bird4f9e0e534305
+  bitField : Bird93dba75cad5e
   bitfield : LibC::UInt32
 end
-type Owl362563184a78 = LibC::Void* | LibC::Void*
+type Duckff95144bdbba = LibC::Void* | LibC::Void*
 struct SYM_DUMP_PARAM
   size : LibC::UInt32
   sName : LibC::Byte*
@@ -4702,7 +4702,7 @@ struct XSTATE_CONTEXT
   area : XSAVE_AREA*
   buffer : LibC::Void*
 end
-struct Owl8103c245589c
+struct Owlb50aef5ba3ee
   header : Array(M128A)
   legacy : Array(M128A)
   xmm0 : M128A
@@ -4722,7 +4722,7 @@ struct Owl8103c245589c
   xmm14 : M128A
   xmm15 : M128A
 end
-type Other62f7e7743ad7 = XSAVE_FORMAT | Owl8103c245589c
+type Pig94058c4ac74f = XSAVE_FORMAT | Owlb50aef5ba3ee
 struct CONTEXT
   p1Home : LibC::UInt64
   p2Home : LibC::UInt64
@@ -4784,7 +4784,7 @@ struct DISPATCHER_CONTEXT
   scopeIndex : LibC::UInt32
   fill0 : LibC::UInt32
 end
-struct Other72dbff2ebbb6
+struct Otherbef10961a892
   xmm0 : M128A*
   xmm1 : M128A*
   xmm2 : M128A*
@@ -4802,7 +4802,7 @@ struct Other72dbff2ebbb6
   xmm14 : M128A*
   xmm15 : M128A*
 end
-struct Bird535b19283c02
+struct Other7fabdd6a8452
   rax : LibC::UInt64*
   rcx : LibC::UInt64*
   rdx : LibC::UInt64*
@@ -4820,18 +4820,18 @@ struct Bird535b19283c02
   r14 : LibC::UInt64*
   r15 : LibC::UInt64*
 end
-type Pig4f5696f34482 = LibC::UInt64Array({{type}})* | Bird535b19283c02
-type Duck61c5caee8eab = M128AArray({{type}})* | Other72dbff2ebbb6
+type Pig4a4850f3e1d9 = Array(LibC::UInt64)* | Other7fabdd6a8452
+type Pig81ad68bddf5f = Array(M128A)* | Otherbef10961a892
 struct KNONVOLATILE_CONTEXT_POINTERS
-  anonymous1 : Duck61c5caee8eab
-  anonymous2 : Pig4f5696f34482
+  anonymous1 : Pig81ad68bddf5f
+  anonymous2 : Pig4a4850f3e1d9
 end
-struct Owl35bc402d7674
+struct Birdd47e690cb9e0
   low : LibC::UInt64
   high : LibC::Int64
 end
-type ARM64_NT_NEON128 = Owl35bc402d7674 | Array(LibC::Double) | Array(LibC::Single) | Array(LibC::UInt16) | Array(LibC::Byte)
-struct Othera49dbed97d44
+type ARM64_NT_NEON128 = Birdd47e690cb9e0 | Array(LibC::Double) | Array(LibC::Single) | Array(LibC::UInt16) | Array(LibC::Byte)
+struct Pigdca75f77c8c9
   x0 : LibC::UInt64
   x1 : LibC::UInt64
   x2 : LibC::UInt64
@@ -4864,7 +4864,7 @@ struct Othera49dbed97d44
   fp : LibC::UInt64
   lr : LibC::UInt64
 end
-type Otherde1d2ad3c5d8 = Othera49dbed97d44 | Array(LibC::UInt64)
+type Pig377cf1c130e6 = Pigdca75f77c8c9 | Array(LibC::UInt64)
 struct ARM64_NT_CONTEXT
   contextFlags : LibC::UInt32
   cpsr : LibC::UInt32
@@ -4892,20 +4892,20 @@ struct DISPATCHER_CONTEXT_ARM64
   controlPcIsUnwound : BOOLEAN
   nonVolatileRegisters : LibC::Byte*
 end
-struct Othereab704c3ccaa
+struct Rabbit3ed2f56fc78a
   baseMid : LibC::Byte
   flags1 : LibC::Byte
   flags2 : LibC::Byte
   baseHi : LibC::Byte
 end
-struct Pigf4088b76ba45
+struct Owlbb191cd1650a
   bitfield : LibC::UInt32
 end
-type Owl582b4f30a35b = Othereab704c3ccaa | Pigf4088b76ba45
+type Rabbit7852f7fe631d = Rabbit3ed2f56fc78a | Owlbb191cd1650a
 struct LDT_ENTRY
   limitLow : LibC::UInt16
   baseLow : LibC::UInt16
-  highWord : Owl582b4f30a35b
+  highWord : Rabbit7852f7fe631d
 end
 struct WOW64_FLOATING_SAVE_AREA
   controlWord : LibC::UInt32
@@ -4945,20 +4945,20 @@ struct WOW64_CONTEXT
   segSs : LibC::UInt32
   extendedRegisters : Array(LibC::Byte)
 end
-struct Owld2b09dceb944
+struct Duck005a5cf732a5
   baseMid : LibC::Byte
   flags1 : LibC::Byte
   flags2 : LibC::Byte
   baseHi : LibC::Byte
 end
-struct Pig9e80bab855a0
+struct Rabbit72118bf36d7e
   bitfield : LibC::UInt32
 end
-type Bird41f090ac53ff = Owld2b09dceb944 | Pig9e80bab855a0
+type Duck601956eb968f = Duck005a5cf732a5 | Rabbit72118bf36d7e
 struct WOW64_LDT_ENTRY
   limitLow : LibC::UInt16
   baseLow : LibC::UInt16
-  highWord : Bird41f090ac53ff
+  highWord : Duck601956eb968f
 end
 struct WOW64_DESCRIPTOR_TABLE_ENTRY
   selector : LibC::UInt32
@@ -4986,7 +4986,7 @@ struct EXCEPTION_RECORD64
   exceptionRecord : LibC::UInt64
   exceptionAddress : LibC::UInt64
   numberParameters : LibC::UInt32
-  _unusedAlignment : LibC::UInt32
+  unusedAlignment : LibC::UInt32
   exceptionInformation : Array(LibC::UInt64)
 end
 struct EXCEPTION_POINTERS
@@ -4997,10 +4997,10 @@ struct XSTATE_FEATURE
   offset : LibC::UInt32
   size : LibC::UInt32
 end
-struct Pigce8b2599c46f
+struct Duckd6b1b553e612
   bitfield : LibC::UInt32
 end
-type Other95ef9665fa69 = LibC::UInt32 | Pigce8b2599c46f
+type Bird9a39c44b89c2 = LibC::UInt32 | Duckd6b1b553e612
 struct XSTATE_CONFIGURATION
   enabledFeatures : LibC::UInt64
   enabledVolatileFeatures : LibC::UInt64
@@ -5122,10 +5122,10 @@ struct IMAGE_ROM_HEADERS
   fileHeader : IMAGE_FILE_HEADER
   optionalHeader : IMAGE_ROM_OPTIONAL_HEADER
 end
-type Other64155139a15e = LibC::UInt32 | LibC::UInt32
+type Duck56d6fa9b587e = LibC::UInt32 | LibC::UInt32
 struct IMAGE_SECTION_HEADER
   name : Array(LibC::Byte)
-  misc : Other64155139a15e
+  misc : Duck56d6fa9b587e
   virtualAddress : LibC::UInt32
   sizeOfRawData : LibC::UInt32
   pointerToRawData : LibC::UInt32
@@ -5241,14 +5241,14 @@ struct IMAGE_LOAD_CONFIG_DIRECTORY64
   guardXFGTableDispatchFunctionPointer : LibC::UInt64
   castGuardOsDeterminedFailureMode : LibC::UInt64
 end
-struct Owl5f66c6656d4c
+struct Duck3254b4ddc322
   bitfield : LibC::UInt32
 end
-type Rabbitc6dece62a2db = LibC::UInt32 | Owl5f66c6656d4c
+type Otherccedfee64abb = LibC::UInt32 | Duck3254b4ddc322
 struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY
   beginAddress : LibC::UInt32
 end
-type Otherda5848d5d006 = LibC::UInt32 | LibC::UInt32
+type Owla413fc82b7fb = LibC::UInt32 | LibC::UInt32
 struct IMAGE_RUNTIME_FUNCTION_ENTRY
   beginAddress : LibC::UInt32
   endAddress : LibC::UInt32
@@ -5285,12 +5285,12 @@ struct IMAGE_FUNCTION_ENTRY
   endingAddress : LibC::UInt32
   endOfPrologue : LibC::UInt32
 end
-type Duck8c7455b70c87 = LibC::UInt64 | LibC::UInt64
+type Duck20c67e434393 = LibC::UInt64 | LibC::UInt64
 struct IMAGE_FUNCTION_ENTRY64
   startingAddress : LibC::UInt64
   endingAddress : LibC::UInt64
 end
-type Bird67e98b39e385 = LibC::UInt32 | LibC::UInt32
+type Duckd0dad712ea0b = LibC::UInt32 | LibC::UInt32
 struct IMAGE_COR20_HEADER
   cb : LibC::UInt32
   majorRuntimeVersion : LibC::UInt16
@@ -5372,18 +5372,18 @@ WctStatusError = 10
 WctStatusMax = 11
 
 end
-struct Owl282680c3a799
+struct Other926c1cc4c579
   objectName : Array(LibC::Char)
   timeout : LARGE_INTEGER
   alertable : BOOL
 end
-struct Otherd057e8dc2087
+struct Otherb6b0a55a9d89
   processId : LibC::UInt32
   threadId : LibC::UInt32
   waitTime : LibC::UInt32
   contextSwitches : LibC::UInt32
 end
-type Rabbit6a784207a5b2 = Owl282680c3a799 | Otherd057e8dc2087
+type Birdce82e70390bc = Other926c1cc4c579 | Otherb6b0a55a9d89
 struct WAITCHAIN_NODE_INFO
   objectType : WCT_OBJECT_TYPE
   objectStatus : WCT_OBJECT_STATUS
@@ -5407,7 +5407,7 @@ struct MINIDUMP_MEMORY_DESCRIPTOR64
   startOfMemoryRange : LibC::UInt64
   dataSize : LibC::UInt64
 end
-type Pig5d2bd2a4e7ea = LibC::UInt32 | LibC::UInt32
+type Bird23de510c1de7 = LibC::UInt32 | LibC::UInt32
 struct MINIDUMP_HEADER
   signature : LibC::UInt32
   version : LibC::UInt32
@@ -5504,37 +5504,37 @@ CeStreamDiagnosisList = 32780
 LastReservedStream = 65535
 
 end
-struct Owlabd7727d7f2c
+struct Rabbit5a59dbb6a707
   vendorId : Array(LibC::UInt32)
   versionInformation : LibC::UInt32
   featureInformation : LibC::UInt32
   aMDExtendedCpuFeatures : LibC::UInt32
 end
-struct Pig6f5ea2a294a3
+struct Rabbit6a6db0412217
   processorFeatures : Array(LibC::UInt64)
 end
-type CPU_INFORMATION = Owlabd7727d7f2c | Pig6f5ea2a294a3
-struct Ducka441710aa449
+type CPU_INFORMATION = Rabbit5a59dbb6a707 | Rabbit6a6db0412217
+struct Bird348594fa1c7d
   numberOfProcessors : LibC::Byte
   productType : LibC::Byte
 end
-struct Rabbitc4c46a01000d
+struct Bird537673388cd7
   suiteMask : LibC::UInt16
   reserved2 : LibC::UInt16
 end
-type Other26836bd86a76 = LibC::UInt32 | Rabbitc4c46a01000d
-type Duck24c270c5774a = LibC::UInt16 | Ducka441710aa449
+type Other3640bbdf9f21 = LibC::UInt32 | Bird537673388cd7
+type Pig32fe6785e518 = LibC::UInt16 | Bird348594fa1c7d
 struct MINIDUMP_SYSTEM_INFO
   processorArchitecture : PROCESSOR_ARCHITECTURE
   processorLevel : LibC::UInt16
   processorRevision : LibC::UInt16
-  anonymous1 : Duck24c270c5774a
+  anonymous1 : Pig32fe6785e518
   majorVersion : LibC::UInt32
   minorVersion : LibC::UInt32
   buildNumber : LibC::UInt32
   platformId : VER_PLATFORM
   cSDVersionRva : LibC::UInt32
-  anonymous2 : Other26836bd86a76
+  anonymous2 : Other3640bbdf9f21
   cpu : CPU_INFORMATION
 end
 struct MINIDUMP_THREAD
@@ -5570,12 +5570,12 @@ struct MINIDUMP_EXCEPTION
   exceptionRecord : LibC::UInt64
   exceptionAddress : LibC::UInt64
   numberParameters : LibC::UInt32
-  _unusedAlignment : LibC::UInt32
+  unusedAlignment : LibC::UInt32
   exceptionInformation : Array(LibC::UInt64)
 end
 struct MINIDUMP_EXCEPTION_STREAM
   threadId : LibC::UInt32
-  _alignment : LibC::UInt32
+  alignment : LibC::UInt32
   exceptionRecord : MINIDUMP_EXCEPTION
   threadContext : MINIDUMP_LOCATION_DESCRIPTOR
 end
@@ -5792,12 +5792,12 @@ struct MINIDUMP_MEMORY_INFO
   baseAddress : LibC::UInt64
   allocationBase : LibC::UInt64
   allocationProtect : LibC::UInt32
-  _alignment1 : LibC::UInt32
+  alignment1 : LibC::UInt32
   regionSize : LibC::UInt64
   state : VIRTUAL_ALLOCATION_TYPE
   protect : LibC::UInt32
   type : LibC::UInt32
-  _alignment2 : LibC::UInt32
+  alignment2 : LibC::UInt32
 end
 struct MINIDUMP_MEMORY_INFO_LIST
   sizeOfHeader : LibC::UInt32
@@ -6144,33 +6144,33 @@ struct MINIDUMP_VM_POST_READ_CALLBACK
   completed : LibC::UInt32
   status : HRESULT
 end
-type Owl3e8081436de7 = HRESULT | MINIDUMP_THREAD_CALLBACK | MINIDUMP_THREAD_EX_CALLBACK | MINIDUMP_MODULE_CALLBACK | MINIDUMP_INCLUDE_THREAD_CALLBACK | MINIDUMP_INCLUDE_MODULE_CALLBACK | MINIDUMP_IO_CALLBACK | MINIDUMP_READ_MEMORY_FAILURE_CALLBACK | LibC::UInt32 | MINIDUMP_VM_QUERY_CALLBACK | MINIDUMP_VM_PRE_READ_CALLBACK | MINIDUMP_VM_POST_READ_CALLBACK
+type Other278445b17ed8 = HRESULT | MINIDUMP_THREAD_CALLBACK | MINIDUMP_THREAD_EX_CALLBACK | MINIDUMP_MODULE_CALLBACK | MINIDUMP_INCLUDE_THREAD_CALLBACK | MINIDUMP_INCLUDE_MODULE_CALLBACK | MINIDUMP_IO_CALLBACK | MINIDUMP_READ_MEMORY_FAILURE_CALLBACK | LibC::UInt32 | MINIDUMP_VM_QUERY_CALLBACK | MINIDUMP_VM_PRE_READ_CALLBACK | MINIDUMP_VM_POST_READ_CALLBACK
 struct MINIDUMP_CALLBACK_INPUT
   processId : LibC::UInt32
   processHandle : HANDLE
   callbackType : LibC::UInt32
 end
-struct Pig5e84241271e9
+struct Othercbef922e433d
   vmQueryStatus : HRESULT
   vmQueryResult : MINIDUMP_MEMORY_INFO
 end
-struct Bird224f12cb52c5
+struct Other0a43320c13ab
   checkCancel : BOOL
   cancel : BOOL
 end
-struct Duckb8e7963fdb4f
+struct Pig2da717d43004
   vmReadStatus : HRESULT
   vmReadBytesCompleted : LibC::UInt32
 end
-struct Birdec19c4e12188
+struct Duckaee117cc59f6
   memoryBase : LibC::UInt64
   memorySize : LibC::UInt32
 end
-struct Birda8e099f9fb55
+struct Bird3c42e18b6ac6
   vmRegion : MINIDUMP_MEMORY_INFO
   continue : BOOL
 end
-type Rabbit7f62b1275c0d = LibC::UInt32 | LibC::UInt32 | LibC::UInt32 | Birdec19c4e12188 | Bird224f12cb52c5 | HANDLE | Birda8e099f9fb55 | Pig5e84241271e9 | Duckb8e7963fdb4f | HRESULT
+type Pig867f682379fe = LibC::UInt32 | LibC::UInt32 | LibC::UInt32 | Duckaee117cc59f6 | Other0a43320c13ab | HANDLE | Bird3c42e18b6ac6 | Othercbef922e433d | Pig2da717d43004 | HRESULT
 struct MINIDUMP_CALLBACK_OUTPUT
 end
 enum MINIDUMP_TYPE : UInt32
@@ -6707,7 +6707,7 @@ struct PROFILER_PROPERTY_TYPE_SUBSTRING_INFO
   length : LibC::UInt32
   value : PWSTR
 end
-type Duckb4e9fb1d2977 = LibC::Double | PWSTR | BSTR | LibC::UIint* | LibC::Void* | PROFILER_PROPERTY_TYPE_SUBSTRING_INFO*
+type Other648837db99d4 = LibC::Double | PWSTR | BSTR | LibC::UIint* | LibC::Void* | PROFILER_PROPERTY_TYPE_SUBSTRING_INFO*
 struct PROFILER_HEAP_OBJECT_RELATIONSHIP
   relationshipId : LibC::UInt32
   relationshipInfo : PROFILER_RELATIONSHIP_INFO
@@ -6716,11 +6716,11 @@ struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST
   count : LibC::UInt32
   elements : Array(PROFILER_HEAP_OBJECT_RELATIONSHIP)
 end
-type Birdadb230aed443 = LibC::UIint* | PWSTR | LibC::UInt32 | LibC::UInt32 | PROFILER_HEAP_OBJECT_SCOPE_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST*
+type Rabbitd99330e4d023 = LibC::UIint* | PWSTR | LibC::UInt32 | LibC::UInt32 | PROFILER_HEAP_OBJECT_SCOPE_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* | PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST*
 struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO
   infoType : PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE
 end
-type Duck0baa9b50368a = LibC::UIint* | LibC::Void*
+type Pig69125587383b = LibC::UIint* | LibC::Void*
 struct PROFILER_HEAP_OBJECT
   size : LibC::UInt32
   typeNameId : LibC::UInt32
@@ -7486,7 +7486,7 @@ struct JsDebugPropertyInfo
   fullName : BSTR
   attr : JS_PROPERTY_ATTRIBUTES
 end
-struct _MIDL___MIDL_itf_jscript9diag_0000_0007_0001
+struct MIDL___MIDL_itf_jscript9diag_0000_0007_0001
   instructionOffset : LibC::UInt64
   returnOffset : LibC::UInt64
   frameOffset : LibC::UInt64
@@ -7536,11 +7536,11 @@ struct PHYSICAL_MEMORY_DESCRIPTOR64
   numberOfPages : LibC::UInt64
   run : Array(PHYSICAL_MEMORY_RUN64)
 end
-struct Bird3de5dc073dc8
+struct Birde6d7ef63b16d
   bitfield : LibC::UInt32
 end
-type DUMP_FILE_ATTRIBUTES = Bird3de5dc073dc8 | LibC::UInt32
-type Bird9d119112d310 = PHYSICAL_MEMORY_DESCRIPTOR32 | Array(LibC::Byte)
+type DUMP_FILE_ATTRIBUTES = Birde6d7ef63b16d | LibC::UInt32
+type Rabbitf32153db9b3d = PHYSICAL_MEMORY_DESCRIPTOR32 | Array(LibC::Byte)
 struct DUMP_HEADER32
   signature : LibC::UInt32
   validDump : LibC::UInt32
@@ -7580,7 +7580,7 @@ struct DUMP_HEADER32
   systemTime : LARGE_INTEGER
   reserved3 : Array(LibC::Byte)
 end
-type Duck9db4d850c7b4 = PHYSICAL_MEMORY_DESCRIPTOR64 | Array(LibC::Byte)
+type Owl7f8cbb791f6c = PHYSICAL_MEMORY_DESCRIPTOR64 | Array(LibC::Byte)
 struct DUMP_HEADER64
   signature : LibC::UInt32
   validDump : LibC::UInt32
@@ -7702,31 +7702,31 @@ struct WHEA_DRIVER_BUFFER_SET
   sectionFriendlyName : LibC::Byte*
   flags : LibC::Byte*
 end
-struct Duck468e6943dd19
+struct Bird5cee3fe61ea8
   bitfield : LibC::UInt16
 end
-type WHEA_NOTIFICATION_FLAGS = Duck468e6943dd19 | LibC::UInt16
-struct Bird64eecaf7bcf7
+type WHEA_NOTIFICATION_FLAGS = Bird5cee3fe61ea8 | LibC::UInt16
+struct Owl1378a6f5dda0
   bitfield : LibC::Byte
 end
-type XPF_MC_BANK_FLAGS = Bird64eecaf7bcf7 | LibC::Byte
-struct Duck3214be0c3aa3
+type XPF_MC_BANK_FLAGS = Owl1378a6f5dda0 | LibC::Byte
+struct Rabbit4d29f3f59d36
   bitfield : LibC::UInt32
 end
-type XPF_MCE_FLAGS = Duck3214be0c3aa3 | LibC::UInt32
-struct Pig1d6b1e6e4cbd
+type XPF_MCE_FLAGS = Rabbit4d29f3f59d36 | LibC::UInt32
+struct Pigeceed65806d6
   bitfield : LibC::UInt16
 end
-type AER_ROOTPORT_DESCRIPTOR_FLAGS = Pig1d6b1e6e4cbd | LibC::UInt16
-struct Birdec07fefa6205
+type AER_ROOTPORT_DESCRIPTOR_FLAGS = Pigeceed65806d6 | LibC::UInt16
+struct Birdb323660a65f8
   bitfield : LibC::UInt16
 end
-type AER_ENDPOINT_DESCRIPTOR_FLAGS = Birdec07fefa6205 | LibC::UInt16
-struct Rabbite1e44a403950
+type AER_ENDPOINT_DESCRIPTOR_FLAGS = Birdb323660a65f8 | LibC::UInt16
+struct Rabbitc2d89dc6eb8a
   bitfield : LibC::UInt16
 end
-type AER_BRIDGE_DESCRIPTOR_FLAGS = Rabbite1e44a403950 | LibC::UInt16
-struct Birdcfe75b963fba
+type AER_BRIDGE_DESCRIPTOR_FLAGS = Rabbitc2d89dc6eb8a | LibC::UInt16
+struct Pig510a7c8763b3
   pollInterval : LibC::UInt32
   vector : LibC::UInt32
   switchToPollingThreshold : LibC::UInt32
@@ -7734,7 +7734,7 @@ struct Birdcfe75b963fba
   errorThreshold : LibC::UInt32
   errorThresholdWindow : LibC::UInt32
 end
-struct Bird3346a44418a8
+struct Pigfdd55f5ba90b
   pollInterval : LibC::UInt32
   vector : LibC::UInt32
   switchToPollingThreshold : LibC::UInt32
@@ -7742,7 +7742,7 @@ struct Bird3346a44418a8
   errorThreshold : LibC::UInt32
   errorThresholdWindow : LibC::UInt32
 end
-struct Duckfacfcc1dad98
+struct Bird5a88befa971f
   pollInterval : LibC::UInt32
   vector : LibC::UInt32
   switchToPollingThreshold : LibC::UInt32
@@ -7750,18 +7750,10 @@ struct Duckfacfcc1dad98
   errorThreshold : LibC::UInt32
   errorThresholdWindow : LibC::UInt32
 end
-struct Otherd61b97e8b7b4
+struct Owle250474e15dd
   pollInterval : LibC::UInt32
 end
-struct Bird558e8ccbc5c4
-  pollInterval : LibC::UInt32
-  vector : LibC::UInt32
-  switchToPollingThreshold : LibC::UInt32
-  switchToPollingWindow : LibC::UInt32
-  errorThreshold : LibC::UInt32
-  errorThresholdWindow : LibC::UInt32
-end
-struct Bird3c2394a29fb3
+struct Birdaccea3eaf509
   pollInterval : LibC::UInt32
   vector : LibC::UInt32
   switchToPollingThreshold : LibC::UInt32
@@ -7769,7 +7761,7 @@ struct Bird3c2394a29fb3
   errorThreshold : LibC::UInt32
   errorThresholdWindow : LibC::UInt32
 end
-struct Owl3738603412f4
+struct Pig31c9f9b25994
   pollInterval : LibC::UInt32
   vector : LibC::UInt32
   switchToPollingThreshold : LibC::UInt32
@@ -7777,7 +7769,7 @@ struct Owl3738603412f4
   errorThreshold : LibC::UInt32
   errorThresholdWindow : LibC::UInt32
 end
-struct Pigbe0e9ca3255e
+struct Rabbitb885d23b8219
   pollInterval : LibC::UInt32
   vector : LibC::UInt32
   switchToPollingThreshold : LibC::UInt32
@@ -7785,12 +7777,20 @@ struct Pigbe0e9ca3255e
   errorThreshold : LibC::UInt32
   errorThresholdWindow : LibC::UInt32
 end
-type Owlcf9d85c0aa37 = Otherd61b97e8b7b4 | Bird3c2394a29fb3 | Duckfacfcc1dad98 | Owl3738603412f4 | Bird3346a44418a8 | Bird558e8ccbc5c4 | Birdcfe75b963fba | Pigbe0e9ca3255e
+struct Other80b2c2f5d9ee
+  pollInterval : LibC::UInt32
+  vector : LibC::UInt32
+  switchToPollingThreshold : LibC::UInt32
+  switchToPollingWindow : LibC::UInt32
+  errorThreshold : LibC::UInt32
+  errorThresholdWindow : LibC::UInt32
+end
+type Birde8cf412f4796 = Owle250474e15dd | Pig31c9f9b25994 | Bird5a88befa971f | Rabbitb885d23b8219 | Pigfdd55f5ba90b | Birdaccea3eaf509 | Pig510a7c8763b3 | Other80b2c2f5d9ee
 struct WHEA_NOTIFICATION_DESCRIPTOR
   type : LibC::Byte
   length : LibC::Byte
   flags : WHEA_NOTIFICATION_FLAGS
-  u : Owlcf9d85c0aa37
+  u : Birde8cf412f4796
 end
 struct WHEA_XPF_MC_BANK_DESCRIPTOR
   bankNumber : LibC::Byte
@@ -7820,12 +7820,12 @@ struct WHEA_XPF_CMC_DESCRIPTOR
   notify : WHEA_NOTIFICATION_DESCRIPTOR
   banks : Array(WHEA_XPF_MC_BANK_DESCRIPTOR)
 end
-struct Pig1504cde79dfd
+struct Rabbit6a6e3d39ed9f
   bitfield : LibC::UInt32
 end
-type Other7d193606e798 = Pig1504cde79dfd | LibC::UInt32
+type Rabbit2a73438d308e = Rabbit6a6e3d39ed9f | LibC::UInt32
 struct WHEA_PCI_SLOT_NUMBER
-  u : Other7d193606e798
+  u : Rabbit2a73438d308e
 end
 struct WHEA_XPF_NMI_DESCRIPTOR
   type : LibC::UInt16
@@ -7940,7 +7940,7 @@ struct WHEA_IPF_CPE_DESCRIPTOR
   enabled : LibC::Byte
   reserved : LibC::Byte
 end
-type Rabbitd716ce92d0f3 = WHEA_XPF_MCE_DESCRIPTOR | WHEA_XPF_CMC_DESCRIPTOR | WHEA_XPF_NMI_DESCRIPTOR | WHEA_IPF_MCA_DESCRIPTOR | WHEA_IPF_CMC_DESCRIPTOR | WHEA_IPF_CPE_DESCRIPTOR | WHEA_AER_ROOTPORT_DESCRIPTOR | WHEA_AER_ENDPOINT_DESCRIPTOR | WHEA_AER_BRIDGE_DESCRIPTOR | WHEA_GENERIC_ERROR_DESCRIPTOR | WHEA_GENERIC_ERROR_DESCRIPTOR_V2 | WHEA_DEVICE_DRIVER_DESCRIPTOR
+type Otherd3e9cdc51078 = WHEA_XPF_MCE_DESCRIPTOR | WHEA_XPF_CMC_DESCRIPTOR | WHEA_XPF_NMI_DESCRIPTOR | WHEA_IPF_MCA_DESCRIPTOR | WHEA_IPF_CMC_DESCRIPTOR | WHEA_IPF_CPE_DESCRIPTOR | WHEA_AER_ROOTPORT_DESCRIPTOR | WHEA_AER_ENDPOINT_DESCRIPTOR | WHEA_AER_BRIDGE_DESCRIPTOR | WHEA_GENERIC_ERROR_DESCRIPTOR | WHEA_GENERIC_ERROR_DESCRIPTOR_V2 | WHEA_DEVICE_DRIVER_DESCRIPTOR
 struct WHEA_ERROR_SOURCE_DESCRIPTOR
   length : LibC::UInt32
   version : LibC::UInt32
@@ -7952,7 +7952,7 @@ struct WHEA_ERROR_SOURCE_DESCRIPTOR
   errorSourceId : LibC::UInt32
   platformErrorSourceId : LibC::UInt32
   flags : LibC::UInt32
-  info : Rabbitd716ce92d0f3
+  info : Otherd3e9cdc51078
 end
 enum IPMI_OS_SEL_RECORD_TYPE : Int32
 IpmiOsSelRecordTypeWhea = 0

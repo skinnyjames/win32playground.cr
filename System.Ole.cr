@@ -793,10 +793,10 @@ SF_RECORD = 36
 SF_HAVEIID = 32781
 
 end
-type Pig43fd860e1a4c = WireSAFEARR_BSTR | WireSAFEARR_UNKNOWN | WireSAFEARR_DISPATCH | WireSAFEARR_VARIANT | WireSAFEARR_BRECORD | WireSAFEARR_HAVEIID | BYTE_SIZEDARR | SHORT_SIZEDARR | LONG_SIZEDARR | HYPER_SIZEDARR
+type Pig8dcaba7bd26d = WireSAFEARR_BSTR | WireSAFEARR_UNKNOWN | WireSAFEARR_DISPATCH | WireSAFEARR_VARIANT | WireSAFEARR_BRECORD | WireSAFEARR_HAVEIID | BYTE_SIZEDARR | SHORT_SIZEDARR | LONG_SIZEDARR | HYPER_SIZEDARR
 struct WireSAFEARRAY_UNION
   sfType : LibC::UInt32
-  u : Pig43fd860e1a4c
+  u : Pig8dcaba7bd26d
 end
 struct WireSAFEARRAY
   cDims : LibC::UInt16
@@ -812,7 +812,7 @@ struct WireBRECORD
   pRecInfo : IRecordInfo
   pRecord : LibC::Byte*
 end
-type Rabbit72eeb314ef9c = LibC::Int64 | LibC::Int32 | LibC::Byte | LibC::Int16 | LibC::Single | LibC::Double | LibC::Int16 | LibC::Int32 | CY | LibC::Double | FLAGGED_WORD_BLOB* | IUnknown | IDispatch | WireSAFEARRAY** | WireBRECORD* | LibC::Byte* | LibC::Int16* | LibC::Int32* | LibC::Int64* | LibC::Single* | LibC::Double* | LibC::Int16* | LibC::Int32* | CY* | LibC::Double* | FLAGGED_WORD_BLOB** | IUnknown* | IDispatch* | WireSAFEARRAY*** | WireVARIANT** | CHAR | LibC::UInt16 | LibC::UInt32 | LibC::UInt64 | LibC::Int32 | LibC::UInt32 | DECIMAL | DECIMAL* | PSTR | LibC::UInt16* | LibC::UInt32* | LibC::UInt64* | LibC::Int32* | LibC::UInt32*
+type Owldc12fe5a4358 = LibC::Int64 | LibC::Int32 | LibC::Byte | LibC::Int16 | LibC::Single | LibC::Double | LibC::Int16 | LibC::Int32 | CY | LibC::Double | FLAGGED_WORD_BLOB* | IUnknown | IDispatch | WireSAFEARRAY** | WireBRECORD* | LibC::Byte* | LibC::Int16* | LibC::Int32* | LibC::Int64* | LibC::Single* | LibC::Double* | LibC::Int16* | LibC::Int32* | CY* | LibC::Double* | FLAGGED_WORD_BLOB** | IUnknown* | IDispatch* | WireSAFEARRAY*** | WireVARIANT** | CHAR | LibC::UInt16 | LibC::UInt32 | LibC::UInt64 | LibC::Int32 | LibC::UInt32 | DECIMAL | DECIMAL* | PSTR | LibC::UInt16* | LibC::UInt32* | LibC::UInt64* | LibC::Int32* | LibC::UInt32*
 struct WireVARIANT
   clSize : LibC::UInt32
   rpcReserved : LibC::UInt32
@@ -1396,22 +1396,22 @@ struct FONTDESC
   fUnderline : BOOL
   fStrikethrough : BOOL
 end
-struct Rabbit1b3373ff4e91
+struct Rabbit1987584fbcc2
   hicon : HICON
 end
-struct Birdf4721614adf2
+struct Pig5aa3ca3e1eab
   hbitmap : HBITMAP
   hpal : HPALETTE
 end
-struct Other52dcc7b3df7a
+struct Owl19b9b53386ef
   hmeta : HMETAFILE
   xExt : LibC::Int32
   yExt : LibC::Int32
 end
-struct Birdc6f5a74b3a43
+struct Duckbb8f025f7d42
   hemf : HENHMETAFILE
 end
-type Ducke7f8f218a192 = Birdf4721614adf2 | Other52dcc7b3df7a | Rabbit1b3373ff4e91 | Birdc6f5a74b3a43
+type Owla0017e9f935f = Pig5aa3ca3e1eab | Owl19b9b53386ef | Rabbit1987584fbcc2 | Duckbb8f025f7d42
 struct PICTDESC
   cbSizeofstruct : LibC::UInt32
   picType : LibC::UInt32
